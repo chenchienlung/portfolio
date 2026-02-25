@@ -1,11 +1,11 @@
 <template>
-  <main class="min-h-screen mx-5 pb-20">
-    <div class="max-w-6xl mx-auto mt-24">
+  <main class="min-h-screen max-w-6xl mx-auto">
+    <div class="mx-5 mt-12 md:mt-24">
       <ProjectDetail v-if="project" :project="project" />
-      <div v-else class="text-center py-20">
+      <div v-else class="text-center">
         <h2 class="text-2xl font-bold text-gray-400">找不到該作品</h2>
         <RouterLink to="/" class="text-blue-500 hover:underline mt-4 inline-block">
-          回到首頁
+          回到前一頁
         </RouterLink>
       </div>
     </div>

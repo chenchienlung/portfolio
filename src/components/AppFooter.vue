@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <footer class="w-full">
     <div class="mx-auto flex flex-row justify-center pt-4 pb-20 md:py-4">

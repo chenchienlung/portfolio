@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full fixed bottom-5 md:top-6 z-50">
+  <nav class="w-full h-11 fixed bottom-5 md:top-6 z-50">
     <div class="mx-auto flex flex-row justify-center gap-4">
       <ul
         class="flex flex-row p-0.5 w-fit bg-gray-200/45 backdrop-blur-sm rounded-full border border-black/5"
@@ -7,8 +7,8 @@
         <li class="w-24">
           <RouterLink
             to="/"
-            class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900"
-            active-class="bg-white shadow-sm !text-gray-900"
+            class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
+            active-class="bg-white shadow-sm !text-gray-900 hover:bg-white"
           >
             作品集
           </RouterLink>
@@ -16,8 +16,8 @@
         <li class="w-24">
           <RouterLink
             to="/about"
-            class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900"
-            active-class="bg-white shadow-sm !text-gray-900"
+            class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
+            active-class="bg-white shadow-sm !text-gray-900 hover:bg-white"
           >
             關於我
           </RouterLink>
@@ -34,6 +34,6 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from 'vue-router'
 </script>
