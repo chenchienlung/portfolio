@@ -7,6 +7,7 @@
       <div class="flex flex-col md:flex-row gap-2 justify-start md:items-center text-gray-600 mb-4">
         <h1 class="text-2xl font-bold text-black">{{ project.title }}</h1>
         <ProjectLinks
+          class="gap-1"
           :website="project.website"
           :github="project.github"
           :figma="project.figma"

@@ -47,8 +47,9 @@ export const projects: Project[] = [
       '前端與後端分別部署在AWS EC2、Render上。',
       '使用Node.js + Express 開發後端。',
       '使用Vue 3 + Tailwind CSS 開發前端。',
-      '使用Supabase作為後端資料庫、圖片儲存在Cloudinary。',
+      '使用Supabase製作後端資料庫、圖片儲存於Cloudinary。',
       '利用Git進行版本控制。',
+      '串接綠界金流與LINE Pay Sandbox模擬結帳流程。',
     ],
     detail_img: [
       'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1773647057/4_01_sh5wrm.png',
