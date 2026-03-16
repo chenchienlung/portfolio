@@ -5,6 +5,11 @@ import ProjectView from '../views/ProjectView.vue'
 
 const router = createRouter({
   history: createWebHistory('/portfolio'),
+  scrollBehavior(to, from, savedPosition) {
+    if (to.name === 'project') return { top: 0 }
+    if (savedPosition) return savedPosition
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
