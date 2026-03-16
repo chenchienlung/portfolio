@@ -8,6 +8,7 @@
       <a
         href="https://github.com/chenchienlung"
         target="_blank"
+        rel="noopener noreferrer"
         class="text-gray-400 hover:text-sky-600 transition-all duration-200"
       >
         <font-awesome-icon icon="fa-brands fa-github" />
