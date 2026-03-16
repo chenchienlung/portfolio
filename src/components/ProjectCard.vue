@@ -8,6 +8,7 @@
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         :src="image"
         :alt="title"
+        fetchpriority="high"
       />
     </div>
     <div class="p-4">
