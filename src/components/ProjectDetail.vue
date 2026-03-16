@@ -1,12 +1,17 @@
 <template>
   <div class="flex flex-col gap-5">
     <div class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15">
-      <img :src="project.image" :alt="project.title" class="w-full h-full object-cover" />
+      <img :src="project.banner" :alt="project.title" class="w-full h-full object-cover" />
     </div>
     <div class="px-8 py-12 bg-white rounded-4xl border border-black/15">
       <div class="flex flex-col md:flex-row gap-2 justify-start md:items-center text-gray-600 mb-4">
         <h1 class="text-2xl font-bold text-black">{{ project.title }}</h1>
-        <ProjectLinks :website="project.website" :github="project.github" :figma="project.figma" />
+        <ProjectLinks
+          :website="project.website"
+          :github="project.github"
+          :figma="project.figma"
+          :figma_prototype="project.figma_prototype"
+        />
       </div>
       <div class="flex flex-wrap gap-2 mb-4">
         <span

@@ -7,9 +7,14 @@ import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGithub, faFigma } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faCheck, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import {
+  faEnvelope,
+  faCheck,
+  faGlobe,
+  faUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma)
+library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma, faUpRightFromSquare)
 
 const app = createApp(App)
 
