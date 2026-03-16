@@ -91,7 +91,6 @@ const skills = [
   'Tailwind CSS',
   'Bootstrap',
   'Vite',
-  'Pinia',
   'Supabase',
   'Node.js',
   'Express.js',
