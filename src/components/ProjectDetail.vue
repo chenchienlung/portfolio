@@ -31,7 +31,10 @@
       <p class="text-lg text-gray-600 leading-relaxed mb-8">
         {{ project.detail_description }}
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+      <div
+        v-if="project.detail_img?.length"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5"
+      >
         <img
           v-for="img in project.detail_img"
           :key="img"
