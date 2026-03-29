@@ -1,15 +1,23 @@
 import { supabase } from '../lib/supabaseClient'
 
+export interface ImageTextBlock {
+  image: string
+  title?: string
+  description: string
+  imagePosition?: 'left' | 'right' // 預設為 'left'
+}
+
 export interface Project {
   id: string
   title: string
   description: string
-  detail_description: string
+  detail_description: string[]
   image: string
   banner: string
   tags: string[]
   content: string[]
   detail_img?: string[]
+  detail_blocks?: ImageTextBlock[]
   website?: string
   github?: string
   figma?: string

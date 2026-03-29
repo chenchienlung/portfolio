@@ -4,7 +4,7 @@
       <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">我的作品</h2>
       <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div
-          v-for="n in 6"
+          v-for="n in 4"
           :key="n"
           class="animate-pulse rounded-3xl border border-black/10 bg-white overflow-hidden"
         >

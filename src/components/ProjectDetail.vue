@@ -10,7 +10,7 @@
     </div>
     <div class="px-8 py-12 bg-white rounded-4xl border border-black/15">
       <div class="flex flex-col md:flex-row gap-2 justify-start md:items-center text-gray-600 mb-4">
-        <h1 class="text-2xl font-bold text-black">{{ project.title }}</h1>
+        <h2 class="text-2xl font-bold text-black">{{ project.title }}</h2>
         <ProjectLinks
           class="gap-1"
           :website="project.website"
@@ -28,9 +28,42 @@
           {{ tag }}
         </span>
       </div>
-      <p class="text-lg text-gray-600 leading-relaxed mb-8">
-        {{ project.detail_description }}
+      <p
+        v-for="(para, i) in project.detail_description"
+        :key="i"
+        class="text-lg text-gray-600 leading-relaxed"
+        :class="i < project.detail_description.length - 1 ? 'mb-4' : 'mb-8'"
+      >
+        {{ para }}
       </p>
+
+      <div v-if="project.detail_blocks?.length" class="flex flex-col gap-10 mt-25">
+        <div
+          v-for="(block, index) in project.detail_blocks"
+          :key="index"
+          class="flex flex-col md:flex-row gap-6 items-center"
+          :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
+        >
+          <h3 class="ml-2 mb-2 text-xl font-bold text-sky-600">設計理念</h3>
+          <div class="w-full md:w-1/2 shrink-0">
+            <img
+              :src="block.image"
+              :alt="block.title || project.title"
+              class="w-full rounded-2xl object-cover border border-black/10"
+            />
+          </div>
+          <div class="w-full md:w-1/2 flex flex-col gap-2">
+            <h3 v-if="block.title" class="text-lg font-semibold text-black">
+              {{ block.title }}
+            </h3>
+            <p class="text-gray-600 leading-relaxed whitespace-pre-line">
+              {{ block.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="ml-2 mb-2 text-xl font-bold text-sky-600">作品圖片</h3>
       <div
         v-if="project.detail_img?.length"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5"
@@ -44,7 +77,8 @@
           class="w-full h-full object-cover rounded-2xl"
         />
       </div>
-      <div class="prose prose-gray max-w-none">
+
+      <div class="prose prose-gray max-w-none mt-25">
         <slot>
           <p v-for="content in project.content" :key="content">
             <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-green-600" />
