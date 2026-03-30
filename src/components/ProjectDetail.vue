@@ -49,7 +49,7 @@
             <img
               :src="block.image"
               :alt="block.title || project.title"
-              class="w-full rounded-2xl object-cover border border-black/10"
+              class="w-full rounded-2xl object-cover"
             />
           </div>
           <div class="w-full md:w-1/2 flex flex-col gap-2">
