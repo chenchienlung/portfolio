@@ -1,7 +1,9 @@
 <template>
-  <main class="min-h-screen max-w-6xl mx-auto">
-    <div class="mx-5 mt-12 md:mt-24 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/5">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b border-black/5 pb-4">關於我</h2>
+  <main class="min-h-[calc(100dvh-152px)] max-w-6xl mx-auto">
+    <div
+      class="mx-5 mt-12 md:mt-24 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12"
+    >
+      <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b border-black/15 pb-4">關於我</h2>
       <div class="flex flex-col gap-6 md:gap-10 text-base">
         <section>
           <h3 class="text-black text-xl font-semibold mb-1">
