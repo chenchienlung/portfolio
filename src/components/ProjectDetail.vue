@@ -37,14 +37,14 @@
         {{ para }}
       </p>
 
-      <div v-if="project.detail_blocks?.length" class="flex flex-col gap-10 mt-25">
+      <h3 class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600">設計理念</h3>
+      <div v-if="project.detail_blocks?.length" class="flex flex-col gap-10">
         <div
           v-for="(block, index) in project.detail_blocks"
           :key="index"
           class="flex flex-col md:flex-row gap-6 items-center"
           :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
         >
-          <h3 class="ml-2 mb-2 text-xl font-bold text-sky-600">設計理念</h3>
           <div class="w-full md:w-1/2 shrink-0">
             <img
               :src="block.image"
@@ -53,17 +53,17 @@
             />
           </div>
           <div class="w-full md:w-1/2 flex flex-col gap-2">
-            <h3 v-if="block.title" class="text-lg font-semibold text-black">
+            <h3 v-if="block.title" class="text-xl font-semibold text-black">
               {{ block.title }}
             </h3>
-            <p class="text-gray-600 leading-relaxed whitespace-pre-line">
+            <p class="text-lg text-gray-600 leading-relaxed whitespace-pre-line">
               {{ block.description }}
             </p>
           </div>
         </div>
       </div>
 
-      <h3 class="ml-2 mb-2 text-xl font-bold text-sky-600">作品圖片</h3>
+      <h3 class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600">作品圖片</h3>
       <div
         v-if="project.detail_img?.length"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5"
