@@ -37,7 +37,12 @@
         {{ para }}
       </p>
 
-      <h3 class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600">設計理念</h3>
+      <h3
+        v-if="project.detail_blocks?.length"
+        class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600"
+      >
+        設計理念
+      </h3>
       <div v-if="project.detail_blocks?.length" class="flex flex-col gap-10">
         <div
           v-for="(block, index) in project.detail_blocks"
