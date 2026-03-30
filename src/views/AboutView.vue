@@ -6,7 +6,7 @@
         <section>
           <h3 class="text-black text-xl font-semibold mb-1">
             陳仟龍 Chris
-            <!-- <span class="text-gray-600 text-base ml-2">前端工程師</span> -->
+            <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span>
           </h3>
           <div class="text-gray-600 font-semibold flex flex-row items-center gap-6">
             <a
@@ -29,7 +29,7 @@
         <section>
           <h4 class="text-sky-700 font-semibold mb-1">個人簡述</h4>
           <p class="text-gray-600">
-            在2022年6月畢業於大同大學媒體設計學系數位遊戲設計組，2023年2月役畢。2025年10月參加商研院前端開發工程師實戰養成班，進一步學習HTML、CSS、JavaScript及Vue.js等前端必備技能。參訓期間也製作旅遊網站團隊專題，主要負責UI設計、票券頁面切版與金流及票券資料庫串接等。
+            在2022年6月畢業於大同大學媒體設計學系數位遊戲設計組，2023年2月役畢。2025年10月參加商研院前端應用開發工程師實戰養成班，在4個月期間進一步學習HTML、CSS、JavaScript及Vue.js等前端必備技能。參訓期間也製作旅遊網站團隊專題，主要負責UI設計、切版、金流及票券資料庫串接和前端部署(AWS)等。
           </p>
         </section>
         <section>
@@ -41,8 +41,8 @@
             </span>
           </p>
           <p class="text-gray-600">
-            4個月，510小時從零開始學習前端技術，包括HTML、CSS、JavaScript 及前端框架
-            Vue.js，也學了Git版本控制與團隊協作、後端技術Node.js與Express.js以及如何串接API，
+            4個月，510小時進一步學習前端技術，包括HTML、CSS、JavaScript 及前端框架
+            Vue.js，也學習Git版本控制與團隊協作、後端技術Node.js與Express.js以及串接API等，
             並在2個月內與3位團隊成員共同完成
             <a
               href="https://wantrip.store"
@@ -51,7 +51,7 @@
               alt="WanTrip:國內旅遊訂房網站"
             >
               國內旅遊訂房網站 </a
-            >專題， 主要負責UI設計、票券頁面切版、金流串接、票券資料庫串接與前端部署等。
+            >專題， 主要負責UI設計、切版、金流串接、票券資料庫串接與前端部署等。
           </p>
         </section>
         <section>
