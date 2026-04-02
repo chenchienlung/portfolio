@@ -28,7 +28,7 @@
 
 ### 1. 安裝套件
 
-建議使用 Node.js 版本 20.x 或 22+。
+建議使用 Node.js 24+。
 
 ```bash
 npm install
