@@ -28,6 +28,7 @@
         href="https://github.com/chenchienlung"
         target="_blank"
         rel="noopener noreferrer"
+        title="我的GitHub"
       >
         <font-awesome-icon icon="fa-brands fa-github" />
       </a>
