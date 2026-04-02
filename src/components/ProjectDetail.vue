@@ -52,18 +52,29 @@
           class="flex flex-col md:flex-row gap-6 items-center"
           :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
         >
-          <div class="w-full md:w-1/2 shrink-0">
+          <div
+            v-if="block.image"
+            class="w-full shrink-0"
+            :class="block.title || block.description ? 'md:w-1/2' : ''"
+          >
             <img
               :src="block.image"
               :alt="block.title || project.title"
               class="w-full rounded-2xl object-cover"
             />
           </div>
-          <div class="w-full md:w-1/2 flex flex-col gap-2">
-            <h3 v-if="block.title" class="text-xl font-semibold text-black">
+          <div
+            v-if="block.title || block.description"
+            class="w-full flex flex-col gap-2 text-center"
+            :class="block.image ? 'text-left md:w-1/2' : ''"
+          >
+            <h3 v-if="block.title" class="text-xl font-semibold text-black whitespace-pre-line">
               {{ block.title }}
             </h3>
-            <p class="text-lg text-gray-600 leading-relaxed whitespace-pre-line">
+            <p
+              v-if="block.description"
+              class="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
+            >
               {{ block.description }}
             </p>
           </div>
