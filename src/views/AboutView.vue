@@ -1,16 +1,14 @@
 <template>
-  <main class="min-h-[calc(100dvh-152px)] max-w-6xl mx-auto">
-    <div
-      class="mx-5 mt-12 md:mt-24 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12"
-    >
-      <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b border-black/15 pb-4">關於我</h2>
+  <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-12 md:mt-28">關於我</h2>
+    <div class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12">
       <div class="flex flex-col gap-6 md:gap-10 text-base">
         <section>
-          <h3 class="text-black text-xl font-semibold mb-1">
+          <h3 class="text-black text-xl font-bold mb-1">
             陳仟龍 Chris
-            <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span>
+            <!-- <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span> -->
           </h3>
-          <div class="text-gray-600 font-semibold flex flex-row items-center gap-6">
+          <div class="text-gray-400 font-bold flex flex-row items-center gap-6">
             <a
               href="mailto:[EMAIL_ADDRESS]"
               class="hover:text-sky-600 hover:underline transition-all duration-200"
@@ -31,12 +29,15 @@
         <section>
           <h4 class="text-sky-700 font-semibold mb-1">個人簡述</h4>
           <p class="text-gray-600">
-            在2022年6月畢業於大同大學媒體設計學系數位遊戲設計組，2023年2月役畢。2025年10月參加商研院前端應用開發工程師實戰養成班，在4個月期間進一步學習HTML、CSS、JavaScript及Vue.js等前端必備技能。參訓期間也製作旅遊網站團隊專題，主要負責UI設計、切版、金流及票券資料庫串接和前端部署(AWS)等。
+            在2022年6月畢業於大同大學媒體設計學系數位遊戲設計組，2023年2月役畢。
+            2025年10月參加商研院前端應用開發工程師實戰養成班，在4個月期間進一步學
+            習HTML、CSS、JavaScript及Vue.js等前端必備技能。參訓期間也製作旅遊
+            網站團隊專題，主要負責UI設計、切版、金流及票券資料庫串接和前端部署(AWS EC2)等。
           </p>
         </section>
         <section>
           <h4 class="text-sky-700 font-semibold mb-1">經歷</h4>
-          <p class="text-black font-semibold mb-1">
+          <p class="text-black font-semibold font-mono mb-1">
             2025.10.01~2026.01.29
             <span class="text-gray-600 font-normal ml-2">
               參加商研院產業新尖兵前端應用開發工程師實戰養成班
@@ -59,7 +60,7 @@
         <section>
           <h4 class="text-sky-700 font-semibold mb-1">學歷</h4>
           <p class="text-gray-600">
-            <span class="text-black font-semibold mr-2">2022</span>
+            <span class="text-black font-semibold font-mono mr-2">2022</span>
             大同大學媒體設計學系數位遊戲設計組 畢業
           </p>
         </section>

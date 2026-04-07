@@ -4,12 +4,7 @@
     class="block group cursor-pointer w-full h-full rounded-3xl overflow-hidden border border-black/15 bg-white transition-all duration-300 shadow-xs/12 hover:shadow-lg/12 hover:-translate-y-1"
   >
     <div class="aspect-3/2 overflow-hidden">
-      <img
-        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        :src="image"
-        :alt="title"
-        fetchpriority="high"
-      />
+      <img class="w-full h-full object-cover" :src="image" :alt="title" fetchpriority="high" />
     </div>
     <div class="p-4">
       <h2 class="text-lg font-bold text-black group-hover:text-sky-600 transition-colors">
