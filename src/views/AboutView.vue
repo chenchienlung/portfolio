@@ -11,7 +11,7 @@
             <!-- <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span> -->
           </h3>
           <div
-            class="text-gray-400 font-bold flex flex-col md:flex-row items-start gap-1 md:gap-6 fade-in delay-600 mt-2 md:mt-0"
+            class="text-gray-600 font-bold flex flex-col md:flex-row items-start gap-1 md:gap-6 fade-in delay-600 mt-2 md:mt-0"
           >
             <a
               href="mailto:[EMAIL_ADDRESS]"
@@ -74,7 +74,7 @@
             <span
               v-for="skill in skills"
               :key="skill"
-              class="px-2 py-0.5 bg-gray-100 border border-black/5 rounded-full text-gray-500"
+              class="px-2 py-0.5 bg-gray-100 border border-black/5 rounded-full"
             >
               {{ skill }}
             </span>
