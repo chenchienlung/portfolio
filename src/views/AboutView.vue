@@ -10,7 +10,9 @@
             陳仟龍 Chris
             <!-- <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span> -->
           </h3>
-          <div class="text-gray-400 font-bold flex flex-row items-center gap-6 fade-in delay-600">
+          <div
+            class="text-gray-400 font-bold flex flex-col md:flex-row items-start gap-1 md:gap-6 fade-in delay-600 mt-2 md:mt-0"
+          >
             <a
               href="mailto:[EMAIL_ADDRESS]"
               class="hover:text-sky-600 hover:underline transition-all duration-200"
