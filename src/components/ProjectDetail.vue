@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-5">
+  <div class="flex flex-col gap-5 mb-2">
     <div
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 shadow-xs/12"
     >
@@ -11,7 +11,9 @@
       />
     </div>
     <div class="px-8 py-12 bg-white rounded-4xl border border-black/15 shadow-xs/12">
-      <div class="flex flex-col md:flex-row gap-2 justify-start md:items-center text-gray-600 mb-4">
+      <div
+        class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-gray-600 mb-4"
+      >
         <h2 class="text-2xl font-bold text-black">{{ project.title }}</h2>
         <ProjectLinks
           class="gap-1"
@@ -41,7 +43,7 @@
 
       <h3
         v-if="project.detail_blocks?.length"
-        class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600"
+        class="mb-2 mt-25 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
       >
         設計理念
       </h3>
@@ -68,9 +70,9 @@
             class="w-full flex flex-col gap-2 text-center"
             :class="block.image ? 'text-left md:w-1/2' : ''"
           >
-            <h3 v-if="block.title" class="text-xl font-semibold text-black whitespace-pre-line">
+            <h4 v-if="block.title" class="text-xl font-semibold text-black whitespace-pre-line">
               {{ block.title }}
-            </h3>
+            </h4>
             <p
               v-if="block.description"
               class="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
@@ -81,7 +83,11 @@
         </div>
       </div>
 
-      <h3 class="ml-2 mb-2 mt-25 text-xl font-bold text-sky-600">作品圖片</h3>
+      <h3
+        class="mb-2 mt-25 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+      >
+        作品圖片
+      </h3>
       <div
         v-if="project.detail_img?.length"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5"

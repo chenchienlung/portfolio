@@ -2,7 +2,7 @@
 
 <template>
   <footer class="w-full">
-    <div class="mx-auto flex flex-row justify-center gap-2 pt-4 pb-20 md:py-4">
+    <div class="mx-auto flex flex-row justify-center gap-2 pb-20 md:pb-4 md:pt-2">
       <p class="text-gray-600">Portfolio by Chris Chen</p>
       <p class="text-gray-600">© 2026</p>
       <a
