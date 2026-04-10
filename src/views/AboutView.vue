@@ -1,5 +1,5 @@
 <template>
-  <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-2">
+  <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-12 md:mt-28">關於我</h2>
     <div
       class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12 fade-in"

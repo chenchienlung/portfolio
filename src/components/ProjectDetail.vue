@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-5 mb-2">
+  <div class="flex flex-col gap-5 mb-4">
     <div
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 shadow-xs/12"
     >
