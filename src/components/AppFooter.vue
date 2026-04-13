@@ -1,18 +1,17 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer class="w-full">
-    <div class="mx-auto flex flex-row justify-center gap-2 pb-20 md:pb-4">
-      <p class="text-gray-600">Portfolio by Chris Chen</p>
-      <p class="text-gray-600">© 2026</p>
+  <footer class="w-full font-mono text-gray-600">
+    <div class="mx-auto flex flex-col md:flex-row justify-center items-center gap-2 pb-20 md:pb-4">
+      <p>Portfolio by Chris Chen © 2026</p>
       <a
         href="https://github.com/chenchienlung"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-gray-600 hover:text-sky-600 transition-all duration-200"
+        class="hover:text-sky-600 transition-all duration-200"
         title="我的GitHub"
       >
-        <font-awesome-icon icon="fa-brands fa-github" />
+        <font-awesome-icon icon="fa-brands fa-github" class="mr-0.5" />GITHUB
       </a>
     </div>
   </footer>

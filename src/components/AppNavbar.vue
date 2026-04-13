@@ -10,7 +10,18 @@
             class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
             active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
           >
-            作品集
+            <font-awesome-icon icon="fa-solid fa-house" class="mr-1" />
+            首頁
+          </RouterLink>
+        </li>
+        <li class="w-24">
+          <RouterLink
+            to="/project"
+            class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
+            active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
+          >
+            <font-awesome-icon icon="fa-solid fa-file" />
+            作品
           </RouterLink>
         </li>
         <li class="w-24">
@@ -19,11 +30,12 @@
             class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
             active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
           >
-            關於我
+            <font-awesome-icon icon="fa-solid fa-user" />
+            關於
           </RouterLink>
         </li>
       </ul>
-      <a
+      <!-- <a
         class="h-11.5 w-11.5 bg-gray-200/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 flex items-center justify-center text-2xl text-gray-900 hover:text-gray-600 transition-all duration-200"
         href="https://github.com/chenchienlung"
         target="_blank"
@@ -31,7 +43,7 @@
         title="我的GitHub"
       >
         <font-awesome-icon icon="fa-brands fa-github" />
-      </a>
+      </a> -->
     </div>
   </nav>
 </template>

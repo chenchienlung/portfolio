@@ -1,17 +1,15 @@
 <template>
   <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-12 md:mt-28">關於我</h2>
-    <div
-      class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12 fade-in"
-    >
+    <div class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12">
       <div class="flex flex-col gap-6 md:gap-10 text-base">
         <section>
-          <h3 class="text-black text-xl font-bold mb-1 fade-in delay-600">
+          <h3 class="text-black text-xl font-bold mb-1 delay-600">
             陳仟龍 Chris
             <!-- <span class="text-gray-600 text-base ml-2">前端工程師 | UI設計師</span> -->
           </h3>
           <div
-            class="text-gray-600 font-bold flex flex-col md:flex-row items-start gap-1 md:gap-6 fade-in delay-600 mt-2 md:mt-0"
+            class="text-gray-600 font-bold flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600 mt-2 md:mt-0"
           >
             <a
               href="mailto:[EMAIL_ADDRESS]"
@@ -31,8 +29,8 @@
           </div>
         </section>
         <section>
-          <h4 class="text-sky-700 font-semibold mb-1 fade-in delay-600">個人簡述</h4>
-          <p class="text-gray-600 fade-in delay-600">
+          <h4 class="text-sky-700 font-semibold mb-1 delay-600">個人簡述</h4>
+          <p class="text-gray-600 delay-600">
             在2022年6月畢業於大同大學媒體設計學系數位遊戲設計組，2023年2月役畢。
             2025年10月參加商研院前端應用開發工程師實戰養成班，在4個月期間進一步學
             習HTML、CSS、JavaScript及Vue.js等前端必備技能。參訓期間也製作旅遊
@@ -40,37 +38,58 @@
           </p>
         </section>
         <section>
-          <h4 class="text-sky-700 font-semibold mb-1 fade-in delay-600">經歷</h4>
-          <p class="text-black font-semibold font-mono mb-1 fade-in delay-600">
-            2025.10.01~2026.01.29
-            <span class="text-gray-600 font-normal ml-2">
-              參加商研院產業新尖兵前端應用開發工程師實戰養成班
-            </span>
-          </p>
-          <p class="text-gray-600 fade-in delay-600">
-            4個月，510小時進一步學習前端技術，包括HTML、CSS、JavaScript 及前端框架
-            Vue.js，也學習Git版本控制與團隊協作、後端技術Node.js與Express.js以及串接API等，
-            並在2個月內與3位團隊成員共同完成
-            <a
-              href="https://wantrip.store"
-              target="_blank"
-              class="hover:text-sky-600 underline transition-all duration-200"
-              alt="WanTrip:國內旅遊訂房網站"
-            >
-              國內旅遊訂房網站 </a
-            >專題， 主要負責UI設計、切版、金流串接、票券資料庫串接與前端部署等。
-          </p>
+          <h4 class="text-sky-700 font-semibold mb-1 delay-600">經歷</h4>
+          <div class="flex flex-col gap-5">
+            <div>
+              <p class="text-black font-semibold font-mono mb-1 delay-600">
+                2025.10.01~2026.01.29
+                <span class="text-gray-600 font-normal ml-2">
+                  參加商研院產業新尖兵前端應用開發工程師實戰養成班
+                </span>
+              </p>
+              <p class="text-gray-600 delay-600">
+                4個月，510小時進一步學習前端技術，包括HTML、CSS、JavaScript 及前端框架
+                Vue.js，也學習Git版本控制與團隊協作、後端技術Node.js與Express.js以及串接API等，
+                並在2個月內與3位團隊成員共同完成
+                <a
+                  href="https://wantrip.store"
+                  target="_blank"
+                  class="hover:text-sky-600 underline transition-all duration-200"
+                  alt="WanTrip:國內旅遊訂房網站"
+                >
+                  國內旅遊訂房網站 </a
+                >專題， 主要負責UI設計、切版、金流串接、票券資料庫串接與前端部署等。
+              </p>
+            </div>
+            <div class="flex flex-row gap-5 delay-600">
+              <p class="text-black text-nowrap font-semibold font-mono mb-1 row-span-2">其他</p>
+              <div class="flex flex-col gap-2">
+                <p class="text-gray-600 font-normal ml-2">
+                  hahow購買線上課程：
+                  <a
+                    href="產品設計實戰：用Figma打造絕佳UI/UX"
+                    target="_blank"
+                    class="after:content-['_↗'] hover:text-sky-600"
+                    >產品設計實戰：用Figma打造絕佳UI/UX</a
+                  >
+                </p>
+                <p class="text-gray-600 font-normal ml-2">
+                  六角學院購買線上課程學HTML、CSS、Bootstrap等前端基礎
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
         <section>
-          <h4 class="text-sky-700 font-semibold mb-1 fade-in delay-600">學歷</h4>
-          <p class="text-gray-600 fade-in delay-600">
+          <h4 class="text-sky-700 font-semibold mb-1 delay-600">學歷</h4>
+          <p class="text-gray-600 delay-600">
             <span class="text-black font-semibold font-mono mr-2">2022</span>
             大同大學媒體設計學系數位遊戲設計組 畢業
           </p>
         </section>
         <section>
-          <h4 class="text-sky-700 font-semibold mb-1 fade-in delay-600">技能</h4>
-          <div class="text-gray-600 flex flex-row flex-wrap gap-2 fade-in delay-600">
+          <h4 class="text-sky-700 font-semibold mb-1 delay-600">技能</h4>
+          <div class="text-gray-600 flex flex-row flex-wrap gap-2 delay-600">
             <span
               v-for="skill in skills"
               :key="skill"
@@ -105,20 +124,3 @@ const skills = [
   'AWS部署',
 ]
 </script>
-
-<style scoped>
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>

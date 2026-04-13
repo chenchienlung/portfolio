@@ -1,62 +1,51 @@
 <template>
-  <main class="min-h-screen max-w-6xl mx-auto">
-    <div class="mx-5 mt-12 md:mt-24">
-      <div v-if="loading" class="animate-pulse space-y-6">
-        <div class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-gray-200 border border-black/10" />
-        <div class="px-8 py-12 bg-white rounded-4xl border border-black/15 space-y-6">
-          <div class="h-7 bg-gray-200 rounded w-1/3" />
-          <div class="flex gap-2">
-            <span class="h-6 w-16 bg-gray-200 rounded-full" />
-            <span class="h-6 w-16 bg-gray-200 rounded-full" />
-            <span class="h-6 w-16 bg-gray-200 rounded-full" />
-          </div>
-          <div class="h-4 bg-gray-200 rounded w-full" />
-          <div class="h-4 bg-gray-200 rounded w-5/6" />
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div v-for="n in 6" :key="n" class="h-32 bg-gray-200 rounded-2xl" />
-          </div>
-          <div class="space-y-3">
-            <div class="h-4 bg-gray-200 rounded w-3/4" />
-            <div class="h-4 bg-gray-200 rounded w-4/5" />
-            <div class="h-4 bg-gray-200 rounded w-2/3" />
+  <section class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
+    <div class="mx-5 mt-12 md:mt-28">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">我的作品</h2>
+      <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          v-for="n in 4"
+          :key="n"
+          class="animate-pulse rounded-3xl border border-black/10 bg-white overflow-hidden"
+        >
+          <div class="aspect-3/2 bg-gray-200" />
+          <div class="p-4 space-y-3">
+            <div class="h-4 bg-gray-200 rounded w-3/5" />
+            <div class="h-3 bg-gray-200 rounded w-4/5" />
+            <div class="flex gap-2">
+              <span class="h-5 w-12 bg-gray-200 rounded-full" />
+              <span class="h-5 w-12 bg-gray-200 rounded-full" />
+              <span class="h-5 w-12 bg-gray-200 rounded-full" />
+            </div>
+            <div class="h-3 bg-gray-200 rounded w-full" />
           </div>
         </div>
       </div>
-      <ProjectDetail v-else-if="project" :project="project" />
-      <div v-else class="text-center">
-        <h2 class="text-2xl font-bold text-gray-400">找不到該作品</h2>
-        <RouterLink to="/" class="text-blue-500 hover:underline mt-4 inline-block">
-          回到前一頁
-        </RouterLink>
+      <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <ProjectCard v-for="project in projects" :key="project.title" v-bind="project" />
       </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
-import { fetchProjectById, type Project } from '../data/projects'
-import ProjectDetail from '../components/ProjectDetail.vue'
+import { onMounted, ref } from 'vue'
+import ProjectCard from '../components/ProjectCard.vue'
+import { fetchProjects, type Project } from '../data/projects'
 
-const route = useRoute()
-const project = ref<Project | null>(null)
+const projects = ref<(Project & { link: string })[]>([])
 const loading = ref(true)
+const error = ref('')
 
-const loadProject = async () => {
-  const id = route.params.id as string
-  if (!id) return
-  loading.value = true
+onMounted(async () => {
   try {
-    project.value = await fetchProjectById(id)
+    const data = await fetchProjects()
+    projects.value = data.map((project) => ({ ...project, link: `/project/${project.id}` }))
   } catch (err) {
-    project.value = null
-    console.error(err)
+    error.value = err instanceof Error ? err.message : '載入失敗'
   } finally {
     loading.value = false
   }
-}
-
-onMounted(loadProject)
-watch(() => route.params.id, loadProject)
+})
 </script>

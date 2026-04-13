@@ -10,6 +10,7 @@ export interface ImageTextBlock {
 export interface Project {
   id: string
   title: string
+  skills?: string[]
   description: string
   detail_description: string[]
   image: string

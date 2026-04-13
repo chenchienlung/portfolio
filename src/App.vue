@@ -9,22 +9,23 @@ const transitionName = ref('slide-up')
 
 const getDepth = (name: any) => {
   if (name === 'home') return 0
-  if (name === 'about') return 1
-  if (name === 'project') return 2
+  if (name === 'project') return 1
+  if (name === 'about') return 3
+  if (name === 'project_detail') return 4
   return 0
 }
 
 watch(
   () => route.name,
   (toName, fromName) => {
-    if (toName === 'project') {
-      // 點進作品頁面（上下）
+    if (toName === 'project_detail') {
+      // 點進作品介紹頁面（上下）
       transitionName.value = 'slide-up'
-    } else if (fromName === 'project') {
-      // 從作品頁面離開 (回到作品集或關於我)（上下）
+    } else if (fromName === 'project_detail') {
+      // 從作品介紹頁面離開（上下）
       transitionName.value = 'slide-down'
     } else {
-      // 作品集&關於我切換（左右）
+      // 左右切換
       transitionName.value = getDepth(toName) > getDepth(fromName) ? 'slide-left' : 'slide-right'
     }
   },
