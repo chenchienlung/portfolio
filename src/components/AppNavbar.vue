@@ -20,7 +20,7 @@
             class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
             active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
           >
-            <font-awesome-icon icon="fa-solid fa-file" />
+            <font-awesome-icon icon="fa-solid fa-file" class="mr-1" />
             作品
           </RouterLink>
         </li>
@@ -30,7 +30,7 @@
             class="h-10 flex items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
             active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
           >
-            <font-awesome-icon icon="fa-solid fa-user" />
+            <font-awesome-icon icon="fa-solid fa-user" class="mr-1" />
             關於
           </RouterLink>
         </li>

@@ -10,7 +10,14 @@
 
 ## 使用到的技術
 
-(https://thesvg.org/icons/html5/default.svg)(https://thesvg.org/icons/css/default.svg)(https://thesvg.org/icons/tailwind-css/default.svg)(https://thesvg.org/icons/vue/default.svg)(https://thesvg.org/icons/typescript/default.svg)(https://thesvg.org/icons/vite/default.svg)(https://thesvg.org/icons/supabase/default.svg)(https://thesvg.org/icons/nodedotjs/default.svg)
+![html](https://thesvg.org/icons/html5/default.svg)
+![css](https://thesvg.org/icons/css/default.svg)
+![tailwind-css](https://thesvg.org/icons/tailwind-css/default.svg)
+![vue](https://thesvg.org/icons/vue/default.svg)
+![typescript](https://thesvg.org/icons/typescript/default.svg)
+![vite](https://thesvg.org/icons/vite/default.svg)
+![supabase](https://thesvg.org/icons/supabase/default.svg)
+![nodedotjs](https://thesvg.org/icons/nodedotjs/default.svg)
 
 - **前端框架**: [Vue 3](https://vuejs.org/)
 - **建構工具**: [Vite](https://vitejs.dev/)
@@ -58,10 +65,10 @@ npm run dev
 
 ### 桌面版
 
-![桌面版-首頁](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1775114759/README_2_pc_uqlgfi.png)
-![桌面版-Detail](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1775114756/README_1_pc_na21qo.png)
+![桌面版-首頁](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148238/README_2_pc_uqlgfi.png)
+![桌面版-Detail](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148229/README_1_pc_na21qo.png)
 
 ### 手機版
 
-![手機版-首頁](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1775114755/README_1_mobile_jxym8l.png)
-![手機版-Detail](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1775114757/README_2_mobile_clfbpb.png)
+![手機版-首頁](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148478/README_1_mobile_jxym8l.png)
+![手機版-Detail](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148486/README_2_mobile_clfbpb.png)
