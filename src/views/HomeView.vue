@@ -30,7 +30,11 @@
           </div>
         </h2>
       </section>
-      <section class="min-h-screen" data-aos="fade-up" data-aos-duration="800">
+      <section
+        class="relative min-h-[calc(100vh-168px)]"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
         <div class="text-2xl text-sky-600 flex flex-row justify-between mb-20">
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400">作品</h2>
           <RouterLink
@@ -42,6 +46,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
+        <p
+          class="hidden md:block w-full text-gray-200 text-[180px] text-center font-black absolute bottom-20"
+        >
+          PORTFOLIO
+        </p>
       </section>
       <section
         id="about"
