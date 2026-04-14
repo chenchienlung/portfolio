@@ -6,13 +6,13 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <h2 class="text-5xl flex flex-col justify-center text-black">
+        <h2 class="text-5xl text-black leading-tight">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
-          <span class="text-sky-600 text-nowrap font-bold">前端工程師</span>
-          <span class="text-gray-400 text-2xl">&</span>
-          <span class="text-sky-600 text-nowrap font-bold">UI/UX設計師</span>
+          <span class="text-sky-600 md:text-nowrap font-bold">
+            前端工程師 <span class="text-gray-400 text-2xl">&</span>UI/UX設計師
+          </span>
           的職缺
-          <div class="mt-20 flex flex-row gap-2">
+          <div class="mt-6 md:mt-12 flex flex-row gap-2">
             <a
               href="mailto:[EMAIL_ADDRESS]"
               class="px-6 py-3 text-base text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
@@ -39,7 +39,6 @@
             >→</RouterLink
           >
         </div>
-        <p class="text-gray-600 text-sm mt-1">前端開發 · UI 設計 · 實戰專題</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
@@ -90,11 +89,11 @@
                 class="w-8 h-8"
               />
             </div>
-            <div class="flex flex-wrap gap-2 mt-10">
+            <div class="flex flex-wrap gap-2 mt-8">
               <span
                 v-for="trait in traits"
                 :key="trait"
-                class="px-3 py-1 text-sm text-gray-600 border border-gray-200 rounded-full"
+                class="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded-full"
               >
                 {{ trait }}
               </span>
