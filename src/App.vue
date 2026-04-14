@@ -10,18 +10,18 @@ const transitionName = ref('slide-up')
 const getDepth = (name: any) => {
   if (name === 'home') return 0
   if (name === 'project') return 1
-  if (name === 'about') return 3
-  if (name === 'project_detail') return 4
+  if (name === 'about') return 2
+  if (name === 'projectdetail') return 3
   return 0
 }
 
 watch(
   () => route.name,
   (toName, fromName) => {
-    if (toName === 'project_detail') {
+    if (toName === 'project-detail') {
       // 點進作品介紹頁面（上下）
       transitionName.value = 'slide-up'
-    } else if (fromName === 'project_detail') {
+    } else if (fromName === 'project-detail') {
       // 從作品介紹頁面離開（上下）
       transitionName.value = 'slide-down'
     } else {

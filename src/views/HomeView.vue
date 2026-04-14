@@ -7,9 +7,11 @@
         data-aos-duration="800"
       >
         <h2 class="text-5xl flex flex-col justify-center text-black">
-          哈囉!<br />我是陳仟龍<br />目前正在尋找<br /><span class="text-sky-600 font-bold"
-            >前端工程師<span class="text-2xl text-gray-600 mx-2">/</span>UI/UX設計師</span
-          >的職缺
+          哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
+          <span class="text-sky-600 text-nowrap font-bold">前端工程師</span>
+          <span class="text-2xl text-gray-600 mx-2 hidden md:block">/</span>
+          <span class="text-sky-600 text-nowrap font-bold">UI/UX設計師</span>
+          的職缺
           <div class="mt-20 flex flex-row gap-2">
             <a
               href="mailto:[EMAIL_ADDRESS]"
