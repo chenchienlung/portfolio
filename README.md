@@ -10,6 +10,8 @@
 
 ## 使用到的技術
 
+(https://thesvg.org/icons/html5/default.svg)(https://thesvg.org/icons/css/default.svg)(https://thesvg.org/icons/tailwind-css/default.svg)(https://thesvg.org/icons/vue/default.svg)(https://thesvg.org/icons/typescript/default.svg)(https://thesvg.org/icons/vite/default.svg)(https://thesvg.org/icons/supabase/default.svg)(https://thesvg.org/icons/nodedotjs/default.svg)
+
 - **前端框架**: [Vue 3](https://vuejs.org/)
 - **建構工具**: [Vite](https://vitejs.dev/)
 - **CSS框架**: [Tailwind CSS](https://tailwindcss.com/)
@@ -17,7 +19,7 @@
 - **作品圖庫**: [Cloudinary](https://cloudinary.com/)
 - **路由管理**: [Vue Router](https://router.vuejs.org/)
 - **型別定義**: [TypeScript](https://www.typescriptlang.org/)
-- **圖示庫**: [FontAwesome](https://fontawesome.com/)
+- **圖示庫**: [FontAwesome](https://fontawesome.com/) [theSVG](https://www.thesvg.org/)
 
 ## 特色與架構
 
@@ -51,7 +53,6 @@ npm run dev
 ```
 
 啟動後，開啟瀏覽器並造訪終端上顯示的local位址（通常為 `http://localhost:5173/`），或`command + 滑鼠左鍵`點擊終端機上的local位址。
-
 
 ## 網站截圖
 
