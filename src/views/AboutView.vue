@@ -2,7 +2,7 @@
   <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-12 md:mt-28">關於我</h2>
     <div class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12">
-      <div class="flex flex-col gap-6 md:gap-10 text-base">
+      <div class="flex flex-col gap-10 md:gap-15 text-base">
         <section>
           <h3 class="text-black text-xl font-bold mb-1 delay-600">
             陳仟龍 Chris

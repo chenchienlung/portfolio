@@ -1,15 +1,15 @@
 <template>
   <main class="min-h-screen max-w-6xl mx-auto mb-4">
-    <div class="mx-5 flex flex-col gap-50">
+    <div class="mx-5 flex flex-col gap-32">
       <section
-        class="h-[calc(100vh-168px)] flex flex-col justify-center"
+        class="h-screen flex flex-col justify-center"
         data-aos="fade-up"
         data-aos-duration="800"
       >
         <h2 class="text-5xl flex flex-col justify-center text-black">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
           <span class="text-sky-600 text-nowrap font-bold">前端工程師</span>
-          <span class="text-2xl text-gray-600 mx-2 hidden md:block">/</span>
+          <span class="text-gray-400 text-2xl">&</span>
           <span class="text-sky-600 text-nowrap font-bold">UI/UX設計師</span>
           的職缺
           <div class="mt-20 flex flex-row gap-2">
@@ -18,23 +18,19 @@
               class="px-6 py-3 text-base text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
             >
               <font-awesome-icon icon="fa-solid fa-envelope" class="mr-1" />
-              <span class="mx-1 text-sm after:content-['_↗']">聯絡我</span>
+              <span class="mx-1 text-sm">聯絡我↗</span>
             </a>
             <a
               href="#about"
               class="px-6 py-3 text-base text-sky-800 border border-sky-700 hover:bg-sky-50 hover:text-sky-700 hover:border-sky-700 rounded-full transition-all duration-200"
             >
               <font-awesome-icon icon="fa-solid fa-user" class="mr-1" />
-              <span class="mx-1 text-sm after:content-['_↓']">關於我</span>
+              <span class="mx-1 text-sm">關於我↓</span>
             </a>
           </div>
         </h2>
       </section>
-      <section
-        class="min-h-[calc(100vh-168px)] md:h-[calc(100vh-168px)]"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
+      <section class="min-h-screen" data-aos="fade-up" data-aos-duration="800">
         <div class="text-2xl text-sky-600 flex flex-row justify-between mb-20">
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400">作品</h2>
           <RouterLink
@@ -43,13 +39,14 @@
             >→</RouterLink
           >
         </div>
+        <p class="text-gray-600 text-sm mt-1">前端開發 · UI 設計 · 實戰專題</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
       </section>
       <section
         id="about"
-        class="min-h-[calc(100vh-168px)] md:h-[calc(100vh-168px)] md:pb-50"
+        class="min-h-[calc(100vh-168px)]"
         data-aos="fade-up"
         data-aos-duration="800"
       >
@@ -67,21 +64,20 @@
             <p class="text-black text-lg font-semibold font-mono mb-1 delay-600">
               2025.10.01~2026.01.29
               <span class="text-gray-600 font-normal ml-2">
-                參加商研院產業新尖兵前端應用開發工程師實戰養成班
+                商研院｜前端應用開發工程師實戰養成班
               </span>
             </p>
             <p class="text-gray-600 text-lg delay-600">
-              4個月，510小時進一步學習前端技術，包括HTML、CSS、JavaScript 及前端框架
-              Vue.js，也學習Git版本控制與團隊協作、後端技術Node.js與Express.js以及串接API等，
-              並在2個月內與3位團隊成員共同完成
+              4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API
+              串接。並在最後 2個月內與3位成員共同完成
               <a
                 href="https://wantrip.store"
                 target="_blank"
                 class="hover:text-sky-600 underline transition-all duration-200"
                 alt="WanTrip:國內旅遊訂房網站"
               >
-                國內旅遊訂房網站 </a
-              >專題， 主要負責UI設計、切版、金流串接、票券資料庫串接與前端部署等。
+                WanTrip 旅遊訂房網站 </a
+              >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
             </p>
           </div>
           <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
@@ -93,6 +89,15 @@
                 alt="skillicon"
                 class="w-8 h-8"
               />
+            </div>
+            <div class="flex flex-wrap gap-2 mt-10">
+              <span
+                v-for="trait in traits"
+                :key="trait"
+                class="px-3 py-1 text-sm text-gray-600 border border-gray-200 rounded-full"
+              >
+                {{ trait }}
+              </span>
             </div>
           </div>
         </div>
@@ -127,6 +132,8 @@ const skillicons = [
   'https://thesvg.org/icons/supabase/default.svg',
   'https://thesvg.org/icons/nodedotjs/default.svg',
 ]
+
+const traits = ['Design → Code 一手包辦', 'Git 團隊協作', 'AI 輔助開發', 'RWD 響應式設計']
 
 onMounted(async () => {
   try {

@@ -14,9 +14,10 @@ import {
   faUser,
   faHouse,
   faFile,
+  faLightbulb,
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma, faUser, faHouse, faFile)
+library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma, faUser, faHouse, faFile, faLightbulb)
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'

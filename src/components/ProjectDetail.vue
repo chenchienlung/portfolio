@@ -37,6 +37,16 @@
         </div>
       </div>
 
+      <div
+        v-if="project.points?.length"
+        class="p-5 text-gray-800 text-lg bg-gray-100 rounded-xl flex flex-col gap-2"
+      >
+        <font-awesome-icon icon="fa-solid fa-lightbulb" class="mb-2" />
+        <p v-for="(point, i) in project.points" :key="i" class="leading-relaxed">
+          {{ point }}
+        </p>
+      </div>
+
       <div>
         <p
           v-for="(para, i) in project.detail_description"
@@ -113,13 +123,11 @@
         </div>
       </div>
 
-      <div class="prose prose-gray max-w-none">
-        <slot>
-          <p v-for="content in project.content" :key="content">
-            <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-green-600" />
-            {{ content }}
-          </p>
-        </slot>
+      <div class="text-gray-600 text-lg">
+        <p v-for="content in project.content" :key="content">
+          <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-green-600" />
+          {{ content }}
+        </p>
       </div>
 
       <div>

@@ -10,7 +10,7 @@
 
 ## 使用到的技術
 
-<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;">
+<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;" hspace="10"><img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;" hspace="10">
 
 - **前端框架**: [Vue 3](https://vuejs.org/)
 - **建構工具**: [Vite](https://vitejs.dev/)
