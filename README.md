@@ -10,14 +10,7 @@
 
 ## 使用到的技術
 
-<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;">
-<img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;">
+<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;"><img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;">
 
 - **前端框架**: [Vue 3](https://vuejs.org/)
 - **建構工具**: [Vite](https://vitejs.dev/)
@@ -65,10 +58,8 @@ npm run dev
 
 ### 桌面版
 
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148238/README_2_pc_uqlgfi.png" style="width: 480px; height: auto;">
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148229/README_1_pc_na21qo.png" style="width: 480px; height: auto;">
+<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148238/README_2_pc_uqlgfi.png" style="width: 480px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148229/README_1_pc_na21qo.png" style="width: 480px; height: auto;">
 
 ### 手機版
 
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148478/README_1_mobile_jxym8l.png" style="width: 240px; height: auto;">
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148486/README_2_mobile_clfbpb.png" style="width: 240px; height: auto;">
+<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148478/README_1_mobile_jxym8l.png" style="width: 240px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776148486/README_2_mobile_clfbpb.png" style="width: 240px; height: auto;">
