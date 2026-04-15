@@ -112,7 +112,7 @@
                 class="w-8 h-8"
               />
             </div>
-            <div class="flex flex-row gap-2">
+            <div class="flex flex-wrap gap-2">
               <span
                 v-for="skilltext in skilltexts"
                 class="text-gray-600 text-sm text-nowrap px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
