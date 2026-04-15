@@ -7,9 +7,9 @@
       <img class="w-full h-full object-cover" :src="image" :alt="title" fetchpriority="high" />
     </div>
     <div class="p-4">
-      <h2 class="text-lg font-bold text-black group-hover:text-sky-600 transition-colors">
+      <h3 class="text-lg font-bold text-black group-hover:text-sky-600 transition-colors">
         {{ title }}
-      </h2>
+      </h3>
       <div class="flex flex-row flex-wrap gap-1 my-2">
         <span
           v-for="tag in tags"
