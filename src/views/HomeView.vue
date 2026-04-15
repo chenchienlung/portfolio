@@ -101,7 +101,7 @@
             <div class="flex flex-wrap gap-2 mt-8">
               <span
                 v-for="skilltext in skilltexts"
-                class="text-gray-600 text-sm px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
+                class="text-gray-600 text-sm text-nowrap px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
               >
                 {{ skilltext }}
               </span>
