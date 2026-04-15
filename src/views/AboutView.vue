@@ -15,7 +15,7 @@
               href="mailto:[EMAIL_ADDRESS]"
               class="hover:text-sky-600 hover:underline transition-all duration-200"
             >
-              <font-awesome-icon icon="fa-solid fa-envelope" class="mr-1" />
+              <font-awesome-icon icon="fa-solid fa-envelope" class="mr-1 mb-px" />
               chris27805850@gmail.com
             </a>
             <a
@@ -23,7 +23,7 @@
               target="_blank"
               class="hover:text-sky-600 hover:underline transition-all duration-200"
             >
-              <font-awesome-icon icon="fa-brands fa-github" class="mr-1" />
+              <font-awesome-icon icon="fa-brands fa-github" class="mr-1 mb-px" />
               chenchienlung
             </a>
           </div>
@@ -77,7 +77,6 @@
                 <p class="text-gray-600 font-normal ml-2">
                   六角學院線上課程學HTML、CSS、Bootstrap等前端基礎
                 </p>
-                <p class="text-gray-600 font-normal ml-2">五倍學院線上課程複習JavaScript</p>
                 <div class="text-gray-600 font-normal ml-2 flex flex-row gap-2">
                   <img
                     src="https://thesvg.org/icons/mdn-web-docs/default.svg"
@@ -134,6 +133,8 @@ const skillicons = [
   'https://thesvg.org/icons/photoshop/default.svg',
   'https://thesvg.org/icons/github/mono.svg',
   'https://thesvg.org/icons/git/default.svg',
+  'https://thesvg.org/icons/visual-studio-code/default.svg',
+  'https://thesvg.org/icons/google-antigravity/default.svg',
   'https://thesvg.org/icons/html5/default.svg',
   'https://thesvg.org/icons/css/default.svg',
   'https://thesvg.org/icons/javascript/default.svg',
@@ -145,5 +146,5 @@ const skillicons = [
   'https://thesvg.org/icons/nodedotjs/default.svg',
 ]
 
-const skilltexts = ['RWD響應式網頁設計', 'API串接']
+const skilltexts = ['RWD響應式網頁設計', 'API串接', 'AI 輔助開發']
 </script>
