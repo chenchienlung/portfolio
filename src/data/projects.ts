@@ -7,6 +7,12 @@ export interface ImageTextBlock {
   imagePosition?: 'left' | 'right' // 預設為 'left'
 }
 
+export interface Deploy {
+  title: string
+  name: string
+  image: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -24,6 +30,7 @@ export interface Project {
   github?: string
   figma?: string
   figma_prototype?: string
+  deploys?: Deploy[]
 }
 
 export const fetchProjects = async (): Promise<Project[]> => {

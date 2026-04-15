@@ -147,6 +147,35 @@
           />
         </div>
       </div>
+
+      <div
+        v-if="project.deploys?.length"
+        class="text-gray-800 text-lg rounded-xl flex flex-col gap-2"
+      >
+        <h3
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+        >
+          部署
+        </h3>
+        <div class="flex flex-col gap-5">
+          <div
+            v-for="(deploy, i) in project.deploys"
+            :key="i"
+            class="flex flex-row items-center gap-5"
+          >
+            <h4 class="w-1/12 font-bold">{{ deploy.title }}</h4>
+            <div class="flex flex-row gap-2 items-center">
+              <img
+                :src="deploy.image"
+                :alt="deploy.name"
+                fetchpriority="high"
+                class="h-6 object-contain"
+              />
+              <p class="text-sm">{{ deploy.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
