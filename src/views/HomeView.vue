@@ -9,7 +9,7 @@
         <h2 class="text-5xl text-black leading-tight">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
           <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師 <span class="text-gray-400 text-2xl">&</span>UI/UX設計師
+            前端工程師<span class="text-gray-400 text-2xl">&</span>UI/UX設計師
           </span>
           的職缺
           <div class="mt-6 md:mt-12 flex flex-row gap-2">
@@ -100,11 +100,10 @@
             </div>
             <div class="flex flex-wrap gap-2 mt-8">
               <span
-                v-for="trait in traits"
-                :key="trait"
-                class="px-3 py-1 text-sm text-gray-600 border border-gray-300 rounded-full"
+                v-for="skilltext in skilltexts"
+                class="text-gray-600 text-sm px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
               >
-                {{ trait }}
+                {{ skilltext }}
               </span>
             </div>
           </div>
@@ -141,7 +140,13 @@ const skillicons = [
   'https://thesvg.org/icons/nodedotjs/default.svg',
 ]
 
-const traits = ['Design → Code 一手包辦', 'Git 團隊協作', 'AI 輔助開發', 'RWD 響應式設計']
+const skilltexts = [
+  'Design → Code 一手包辦',
+  'Git 團隊協作',
+  'AI 輔助開發',
+  'RWD 響應式設計',
+  'API串接',
+]
 
 onMounted(async () => {
   try {

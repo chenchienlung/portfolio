@@ -1,6 +1,6 @@
 <template>
   <main class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-12 md:mt-28">關於我</h2>
+    <h2 class="text-3xl font-bold text-center text-gray-900 mx-5 mt-12 mb-10 md:mt-28">關於我</h2>
     <div class="mx-5 px-5 md:px-10 py-10 bg-white rounded-4xl border border-black/15 shadow-xs/12">
       <div class="flex flex-col gap-10 md:gap-15 text-base">
         <section>
@@ -62,20 +62,35 @@
               </p>
             </div>
             <div class="flex flex-row gap-5 delay-600">
-              <p class="text-black text-nowrap font-semibold font-mono mb-1 row-span-2">其他</p>
+              <p class="text-black text-nowrap font-semibold font-mono mb-1 row-span-2">其他資源</p>
               <div class="flex flex-col gap-2">
                 <p class="text-gray-600 font-normal ml-2">
-                  hahow購買線上課程：
+                  hahow好學校線上課程：
                   <a
-                    href="產品設計實戰：用Figma打造絕佳UI/UX"
+                    href="https://hahow.in/courses/5ee4d65789dc7e4854909ba1?utm_source=share&utm_medium=link"
                     target="_blank"
-                    class="after:content-['_↗'] hover:text-sky-600"
-                    >產品設計實戰：用Figma打造絕佳UI/UX</a
+                    class="hover:text-sky-600 hover:underline transition-all duration-200"
                   >
+                    產品設計實戰：用Figma打造絕佳UI/UX ↗
+                  </a>
                 </p>
                 <p class="text-gray-600 font-normal ml-2">
-                  六角學院購買線上課程學HTML、CSS、Bootstrap等前端基礎
+                  六角學院線上課程學HTML、CSS、Bootstrap等前端基礎
                 </p>
+                <p class="text-gray-600 font-normal ml-2">五倍學院線上課程複習JavaScript</p>
+                <div class="text-gray-600 font-normal ml-2 flex flex-row gap-2">
+                  <img
+                    src="https://thesvg.org/icons/mdn-web-docs/default.svg"
+                    alt=""
+                    width="20px"
+                  />
+                  <a
+                    href="https://developer.mozilla.org/zh-TW/"
+                    target="_blank"
+                    class="hover:text-sky-600 hover:underline transition-all duration-200"
+                    >MDN Web Docs ↗
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -88,15 +103,24 @@
           </p>
         </section>
         <section>
-          <h4 class="text-sky-700 font-semibold mb-1 delay-600">技能</h4>
-          <div class="text-gray-600 flex flex-row flex-wrap gap-2 delay-600">
-            <span
-              v-for="skill in skills"
-              :key="skill"
-              class="px-2 py-0.5 bg-gray-100 border border-black/5 rounded-full"
-            >
-              {{ skill }}
-            </span>
+          <h4 class="text-sky-700 font-semibold mb-2 delay-600">技能</h4>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-row flex-wrap gap-5">
+              <img
+                v-for="skillicon in skillicons"
+                :src="skillicon"
+                alt="skillicon"
+                class="w-8 h-8"
+              />
+            </div>
+            <div class="flex flex-row gap-2">
+              <span
+                v-for="skilltext in skilltexts"
+                class="text-gray-600 text-sm px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
+              >
+                {{ skilltext }}
+              </span>
+            </div>
           </div>
         </section>
       </div>
@@ -104,23 +128,22 @@
   </main>
 </template>
 <script setup lang="ts">
-const skills = [
-  'Figma',
-  'Adobe Illustrator',
-  'Adobe Photoshop',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'Vue.js',
-  'Git版本控制',
-  'RWD響應式網頁設計/開發',
-  'Tailwind CSS',
-  'Bootstrap',
-  'Vite',
-  'Supabase',
-  'Node.js',
-  'Express.js',
-  'API串接',
-  'AWS部署',
+const skillicons = [
+  'https://thesvg.org/icons/figma/default.svg',
+  'https://thesvg.org/icons/illustrator/default.svg',
+  'https://thesvg.org/icons/photoshop/default.svg',
+  'https://thesvg.org/icons/github/mono.svg',
+  'https://thesvg.org/icons/git/default.svg',
+  'https://thesvg.org/icons/html5/default.svg',
+  'https://thesvg.org/icons/css/default.svg',
+  'https://thesvg.org/icons/javascript/default.svg',
+  'https://thesvg.org/icons/tailwind-css/default.svg',
+  'https://thesvg.org/icons/bootstrap/default.svg',
+  'https://thesvg.org/icons/vue/default.svg',
+  'https://thesvg.org/icons/vite/default.svg',
+  'https://thesvg.org/icons/supabase/default.svg',
+  'https://thesvg.org/icons/nodedotjs/default.svg',
 ]
+
+const skilltexts = ['RWD響應式網頁設計', 'API串接']
 </script>

@@ -1,7 +1,7 @@
 <template>
   <section class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <div class="mx-5 mt-12 md:mt-28">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">我的作品</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">我的作品</h2>
       <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div
           v-for="n in 4"
