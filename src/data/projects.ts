@@ -18,6 +18,7 @@ export interface Project {
   title: string
   points: string[]
   skills?: string[]
+  AI?: string[]
   description: string
   detail_description: string[]
   image: string

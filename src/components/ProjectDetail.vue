@@ -134,7 +134,7 @@
         <h3
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
         >
-          技能
+          技能 / 工具
         </h3>
         <div class="flex flex-row flex-wrap gap-5">
           <img
@@ -142,6 +142,24 @@
             :key="skill"
             :src="skill"
             :alt="skill"
+            fetchpriority="high"
+            class="w-8 h-8 object-fill"
+          />
+        </div>
+      </div>
+
+      <div>
+        <h3
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+        >
+          AI 工具
+        </h3>
+        <div class="flex flex-row flex-wrap gap-5">
+          <img
+            v-for="ai in project.AI"
+            :key="ai"
+            :src="ai"
+            :alt="ai"
             fetchpriority="high"
             class="w-8 h-8 object-fill"
           />
@@ -171,7 +189,7 @@
                 fetchpriority="high"
                 class="h-6 object-contain"
               />
-              <p class="text-sm">{{ deploy.name }}</p>
+              <p class="text-sm font-bold">{{ deploy.name }}</p>
             </div>
           </div>
         </div>

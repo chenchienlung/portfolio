@@ -9,7 +9,7 @@
         <h2 class="text-5xl text-black leading-tight">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
           <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師<span class="text-gray-400 text-2xl">&</span>UI/UX設計師
+            前端工程師<span class="text-gray-400 text-2xl"> & </span>UI/UX設計師
           </span>
           的職缺
           <div class="mt-6 md:mt-12 flex flex-row gap-2">
