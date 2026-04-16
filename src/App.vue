@@ -10,8 +10,8 @@ const transitionName = ref('slide-up')
 const getDepth = (name: any) => {
   if (name === 'home') return 0
   if (name === 'project') return 1
-  if (name === 'about') return 2
-  if (name === 'projectdetail') return 3
+  // if (name === 'about') return 2
+  if (name === 'projectdetail') return 2
   return 0
 }
 
