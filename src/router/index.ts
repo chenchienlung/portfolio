@@ -5,7 +5,7 @@ import ProjectView from '../views/ProjectView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
 
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHistory('/portfolio'),
   scrollBehavior(to, from, savedPosition) {
     if (to.name === 'project') return { top: 0 }
     if (savedPosition) return savedPosition
@@ -13,7 +13,7 @@ const router = createRouter({
   },
   routes: [
     {
-      path: '',
+      path: '/',
       name: 'home',
       component: HomeView,
     },
@@ -23,17 +23,17 @@ const router = createRouter({
     //   component: AboutView,
     // },
     {
-      path: 'project',
+      path: '/project',
       name: 'project',
       component: ProjectView,
     },
     {
-      path: 'project/:id',
+      path: '/project/:id',
       name: 'project-detail',
       component: ProjectDetailView,
     },
     {
-      path: ':pathMatch(.*)*',
+      path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: () => import('@/views/NotFoundView.vue'),
     },
