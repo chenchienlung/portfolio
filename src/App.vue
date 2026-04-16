@@ -36,7 +36,7 @@ watch(
   <header>
     <AppNavbar />
   </header>
-  <main class="overflow-x-hidden">
+  <main>
     <router-view v-slot="{ Component }">
       <transition :name="transitionName" mode="out-in">
         <component :is="Component" />

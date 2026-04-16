@@ -24,7 +24,7 @@
             作品
           </RouterLink>
         </li>
-        <li class="w-24">
+        <!-- <li class="w-24">
           <RouterLink
             to="/about"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
@@ -33,17 +33,17 @@
             <font-awesome-icon icon="fa-solid fa-user" class="mb-px" />
             關於
           </RouterLink>
-        </li>
+        </li> -->
       </ul>
-      <!-- <a
-        class="h-11.5 w-11.5 bg-gray-200/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 flex items-center justify-center text-2xl text-gray-900 hover:text-gray-600 transition-all duration-200"
+      <a
+        class="h-11.5 w-11.5 bg-gray-200/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 flex items-center justify-center text-2xl text-gray-600 hover:text-gray-900 hover:bg-black/5 transition-all duration-200"
         href="https://github.com/chenchienlung"
         target="_blank"
         rel="noopener noreferrer"
         title="我的GitHub"
       >
         <font-awesome-icon icon="fa-brands fa-github" />
-      </a> -->
+      </a>
     </div>
   </nav>
 </template>
