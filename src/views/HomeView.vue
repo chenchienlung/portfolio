@@ -166,10 +166,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, nextTick } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import { fetchProjects, type Project } from '../data/projects'
+import AOS from 'aos'
 
 const projects = ref<(Project & { link: string })[]>([])
 const loading = ref(true)
@@ -209,6 +210,9 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+
+  await nextTick()
+  AOS.refresh()
 })
 
 const displayedProjects = computed(() => projects.value.slice(0, 3))
