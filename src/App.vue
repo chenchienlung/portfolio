@@ -4,6 +4,9 @@ import { useRoute } from 'vue-router'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const route = useRoute()
 const transitionName = ref('slide-up')
 
@@ -30,6 +33,12 @@ watch(
     }
   },
 )
+
+AOS.init({
+  anchorPlacement: 'top',
+  once: true,
+  disable: 'mobile',
+})
 </script>
 
 <template>

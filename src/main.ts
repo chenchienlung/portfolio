@@ -19,15 +19,6 @@ import {
 
 library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma, faUser, faHouse, faFile, faLightbulb)
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
-AOS.init({
-  anchorPlacement: 'top',
-  once: true,
-  disable: 'mobile',
-})
-
 const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
