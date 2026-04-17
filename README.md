@@ -2,7 +2,7 @@
 
 這是一個使用 Vue 3、Vite 與 Tailwind CSS 開發的個人作品集網站，並透過 Supabase 進行資料庫的串接管理。用於展示個人的專案作品介紹、設計理念與網站等作品相關連結。
 
-**網站:** [https://chenchienlung.github.io/portfolio/](https://chenchienlung.github.io/portfolio/)
+**網站:** [https://chenchienlung.github.io/portfolio/](https://chenchienlung.com)
 
 ![PORTFOLIO](https://res.cloudinary.com/dtzgfwzwf/image/upload/v1775113920/favicon_jl5wvk.png)
 
