@@ -10,7 +10,7 @@
 
 ## 使用到的技術
 
-<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;" hspace="5">
+<img src="https://thesvg.org/icons/html5/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/css/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/tailwind-css/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/vue/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/typescript/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/vite/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/supabase/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/nodedotjs/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/cloudflare/default.svg" style="width: 32px; height: 32px;" hspace="5"><img src="https://thesvg.org/icons/cloudflare-pages/default.svg" style="width: 32px; height: 32px;" hspace="5">
 
 - **前端框架**: [Vue 3](https://vuejs.org/)
 - **建構工具**: [Vite](https://vitejs.dev/)
@@ -21,6 +21,7 @@
 - **型別定義**: [TypeScript](https://www.typescriptlang.org/)
 - **圖示庫**: [FontAwesome](https://fontawesome.com/) [theSVG](https://www.thesvg.org/)
 - **動態效果**: AOS - Animate On Scroll Library
+- **部署**: [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## 特色與架構
 
