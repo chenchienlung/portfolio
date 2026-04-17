@@ -148,7 +148,7 @@
         </div>
       </div>
 
-      <div>
+      <div v-if="project.AI?.length">
         <h3
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
         >
