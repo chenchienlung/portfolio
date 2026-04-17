@@ -7,7 +7,7 @@ import ProjectDetailView from '@/views/ProjectDetailView.vue'
 const router = createRouter({
   history: createWebHistory(),
   scrollBehavior(to, from, savedPosition) {
-    if (to.name === 'project') return { top: 0 }
+    if (to.name === 'portfolio') return { top: 0 }
     if (savedPosition) return savedPosition
     return { top: 0 }
   },
@@ -24,7 +24,7 @@ const router = createRouter({
     // },
     {
       path: '/portfolio',
-      name: 'project',
+      name: 'portfolio',
       component: ProjectView,
     },
     {

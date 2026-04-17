@@ -41,7 +41,7 @@ const error = ref('')
 onMounted(async () => {
   try {
     const data = await fetchProjects()
-    projects.value = data.map((project) => ({ ...project, link: `/project/${project.id}` }))
+    projects.value = data.map((project) => ({ ...project, link: `/portfolio/${project.id}` }))
   } catch (err) {
     error.value = err instanceof Error ? err.message : '載入失敗'
   } finally {
