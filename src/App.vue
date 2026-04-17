@@ -1,17 +1,8 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
-
-// import AOS from 'aos'
-// import 'aos/dist/aos.css'
-
-// AOS.init({
-//   anchorPlacement: 'top',
-//   once: true,
-//   disable: 'mobile',
-// })
 
 const route = useRoute()
 const transitionName = ref('slide-up')
@@ -39,6 +30,17 @@ watch(
     }
   },
 )
+
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+onMounted(() => {
+  AOS.init({
+    anchorPlacement: 'top',
+    once: true,
+    disable: 'mobile',
+  })
+})
 </script>
 
 <template>
