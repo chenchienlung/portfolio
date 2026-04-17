@@ -39,11 +39,14 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 onMounted(() => {
-  AOS.init({
-    anchorPlacement: 'top',
-    once: true,
-    disable: 'mobile',
-  })
+  setTimeout(() => {
+    AOS.init({
+      anchorPlacement: 'top',
+      once: true,
+      disable: 'mobile',
+    })
+    AOS.refresh()
+  }, 600)
 })
 </script>
 
