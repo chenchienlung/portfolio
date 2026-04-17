@@ -16,7 +16,7 @@
         </li>
         <li class="w-24">
           <RouterLink
-            to="/project"
+            to="/portfolio"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-black/5"
             active-class="bg-gray-50 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 hover:bg-white"
           >

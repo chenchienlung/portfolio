@@ -63,6 +63,7 @@
             <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400">
               關於我
             </h2>
+            <p class="text-black text-lg font-semibold font-mono">陳仟龍 Chris</p>
             <div
               class="text-gray-600 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600 mt-2 md:mt-0"
               data-aos-duration="800"
