@@ -28,6 +28,10 @@ watch(
       // 左右切換
       transitionName.value = getDepth(toName) > getDepth(fromName) ? 'slide-left' : 'slide-right'
     }
+
+    setTimeout(() => {
+      AOS.refresh()
+    }, 600)
   },
 )
 
