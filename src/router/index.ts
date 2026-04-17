@@ -23,12 +23,12 @@ const router = createRouter({
     //   component: AboutView,
     // },
     {
-      path: '/project',
+      path: '/portfolio',
       name: 'project',
       component: ProjectView,
     },
     {
-      path: '/project/:id',
+      path: '/portfolio/:id',
       name: 'project-detail',
       component: ProjectDetailView,
     },
