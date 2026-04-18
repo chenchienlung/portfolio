@@ -86,7 +86,10 @@
               class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''"
             >
-              <h4 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
+              <h4
+                v-if="block.title"
+                class="text-xl font-semibold text-black dark:text-white whitespace-pre-line"
+              >
                 {{ block.title }}
               </h4>
               <p
@@ -135,7 +138,7 @@
           <img
             v-for="skill in project.skills"
             :key="skill"
-            :src="skill"
+            :src="resolveIcon(skill)"
             :alt="skill"
             fetchpriority="high"
             class="w-8 h-8 object-fill"
@@ -153,7 +156,7 @@
           <img
             v-for="ai in project.AI"
             :key="ai"
-            :src="ai"
+            :src="resolveIcon(ai)"
             :alt="ai"
             fetchpriority="high"
             class="w-8 h-8 object-fill"
@@ -193,8 +196,23 @@
 <script setup lang="ts">
 import type { Project } from '../data/projects'
 import ProjectLinks from './ProjectLinks.vue'
+import { useDarkMode } from '../composables/useDarkMode'
 
 defineProps<{
   project: Project
 }>()
+
+const { isDark } = useDarkMode()
+
+const darkIconMap: Record<string, string> = {
+  'https://thesvg.org/icons/github/mono.svg': 'https://thesvg.org/icons/github/default.svg',
+  'https://thesvg.org/icons/openai-chatgpt/default.svg':
+    'https://thesvg.org/icons/openai/default.svg',
+  'https://thesvg.org/icons/expressdotjs/light.svg':
+    'https://thesvg.org/icons/expressdotjs/default.svg',
+  'https://thesvg.org/icons/render/default.svg':
+    'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776520452/render_1_xw5dex.png',
+}
+
+const resolveIcon = (src: string) => (isDark.value && darkIconMap[src] ? darkIconMap[src] : src)
 </script>

@@ -156,7 +156,11 @@
                   </p>
                   <div class="text-gray-600 dark:text-gray-300 flex flex-row gap-2">
                     <img
-                      src="https://thesvg.org/icons/mdn-web-docs/default.svg"
+                      :src="
+                        isDark
+                          ? 'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776520451/mdn-web-docs_1_tiyobo.png'
+                          : 'https://thesvg.org/icons/mdn-web-docs/default.svg'
+                      "
                       alt=""
                       width="16px"
                     />
