@@ -78,10 +78,14 @@
       >
         <div class="flex flex-col gap-20 mb-20">
           <div class="flex flex-col gap-4">
-            <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">
+            <h2
+              class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600"
+            >
               關於我
             </h2>
-            <p class="text-black dark:text-white text-lg font-semibold font-mono mt-6">陳仟龍 Chris</p>
+            <p class="text-black dark:text-white text-lg font-semibold font-mono mt-6">
+              陳仟龍 Chris
+            </p>
             <div
               class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
               data-aos-duration="800"
@@ -107,7 +111,11 @@
 
           <div class="flex flex-col gap-20 text-base">
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">經歷</h3>
+              <h3
+                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+              >
+                經歷
+              </h3>
               <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
                 2025.10.01~2026.01.29
                 <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
@@ -127,7 +135,9 @@
                 >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
               </p>
               <div class="flex flex-col md:flex-row delay-600 mt-10">
-                <p class="text-black dark:text-white text-nowrap font-semibold font-mono mb-4 md:mb-2 row-span-2">
+                <p
+                  class="text-black dark:text-white text-nowrap font-semibold font-mono mb-4 md:mb-2 row-span-2"
+                >
                   其他資源
                 </p>
                 <div class="flex flex-col gap-2 md:ml-6">
@@ -141,7 +151,9 @@
                       產品設計實戰：用Figma打造絕佳UI/UX ↗
                     </a>
                   </p>
-                  <p class="text-gray-600 dark:text-gray-300">六角學院線上課程學HTML、CSS、Bootstrap等前端基礎</p>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    六角學院線上課程學HTML、CSS、Bootstrap等前端基礎
+                  </p>
                   <div class="text-gray-600 dark:text-gray-300 flex flex-row gap-2">
                     <img
                       src="https://thesvg.org/icons/mdn-web-docs/default.svg"
@@ -159,7 +171,11 @@
               </div>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">學歷</h3>
+              <h3
+                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+              >
+                學歷
+              </h3>
               <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
                 2022
                 <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
@@ -168,12 +184,16 @@
               </p>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">技能</h3>
+              <h3
+                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+              >
+                技能
+              </h3>
               <div class="flex flex-row flex-wrap gap-5">
                 <img
                   v-for="skillicon in skillicons"
-                  :key="skillicon"
-                  :src="skillicon"
+                  :key="skillicon.src"
+                  :src="isDark && skillicon.dark ? skillicon.dark : skillicon.src"
                   alt="skillicon"
                   class="w-8 h-8"
                 />
@@ -200,26 +220,32 @@ import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import { fetchProjects, type Project } from '../data/projects'
+import { useDarkMode } from '../composables/useDarkMode'
+
+const { isDark } = useDarkMode()
 
 const projects = ref<(Project & { link: string })[]>([])
 const loading = ref(true)
 const error = ref('')
 
-const skillicons = [
-  'https://thesvg.org/icons/figma/default.svg',
-  'https://thesvg.org/icons/illustrator/default.svg',
-  'https://thesvg.org/icons/photoshop/default.svg',
-  'https://thesvg.org/icons/github/mono.svg',
-  'https://thesvg.org/icons/git/default.svg',
-  'https://thesvg.org/icons/html5/default.svg',
-  'https://thesvg.org/icons/css/default.svg',
-  'https://thesvg.org/icons/javascript/default.svg',
-  'https://thesvg.org/icons/tailwind-css/default.svg',
-  'https://thesvg.org/icons/bootstrap/default.svg',
-  'https://thesvg.org/icons/vue/default.svg',
-  'https://thesvg.org/icons/vite/default.svg',
-  'https://thesvg.org/icons/supabase/default.svg',
-  'https://thesvg.org/icons/nodedotjs/default.svg',
+const skillicons: { src: string; dark?: string }[] = [
+  { src: 'https://thesvg.org/icons/figma/default.svg' },
+  { src: 'https://thesvg.org/icons/illustrator/default.svg' },
+  { src: 'https://thesvg.org/icons/photoshop/default.svg' },
+  {
+    src: 'https://thesvg.org/icons/github/mono.svg',
+    dark: 'https://thesvg.org/icons/github/default.svg',
+  },
+  { src: 'https://thesvg.org/icons/git/default.svg' },
+  { src: 'https://thesvg.org/icons/html5/default.svg' },
+  { src: 'https://thesvg.org/icons/css/default.svg' },
+  { src: 'https://thesvg.org/icons/javascript/default.svg' },
+  { src: 'https://thesvg.org/icons/tailwind-css/default.svg' },
+  { src: 'https://thesvg.org/icons/bootstrap/default.svg' },
+  { src: 'https://thesvg.org/icons/vue/default.svg' },
+  { src: 'https://thesvg.org/icons/vite/default.svg' },
+  { src: 'https://thesvg.org/icons/supabase/default.svg' },
+  { src: 'https://thesvg.org/icons/nodedotjs/default.svg' },
 ]
 
 const skilltexts = [
