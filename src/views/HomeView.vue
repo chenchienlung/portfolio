@@ -163,6 +163,8 @@
                       "
                       alt=""
                       width="16px"
+                      height="16px"
+                      class="aspect-square object-contain"
                     />
                     <a
                       href="https://developer.mozilla.org/zh-TW/"

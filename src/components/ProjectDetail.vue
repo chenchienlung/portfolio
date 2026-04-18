@@ -179,7 +179,8 @@
             <h4 class="w-1/4 md:w-1/6 lg:w-1/12 text-nowrap font-bold">{{ deploy.title }}</h4>
             <div class="flex flex-row gap-2 items-center">
               <img
-                :src="deploy.image"
+                :key="deploy.image"
+                :src="resolveIcon(deploy.image)"
                 :alt="deploy.name"
                 fetchpriority="high"
                 class="h-6 object-contain"
@@ -212,6 +213,7 @@ const darkIconMap: Record<string, string> = {
     'https://thesvg.org/icons/expressdotjs/default.svg',
   'https://thesvg.org/icons/render/default.svg':
     'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776520452/render_1_xw5dex.png',
+  'https://thesvg.org/icons/godaddy/light.svg': 'https://thesvg.org/icons/godaddy/default.svg',
 }
 
 const resolveIcon = (src: string) => (isDark.value && darkIconMap[src] ? darkIconMap[src] : src)
