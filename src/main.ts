@@ -15,9 +15,23 @@ import {
   faHouse,
   faFile,
   faLightbulb,
+  faSun,
+  faMoon,
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faGithub, faEnvelope, faCheck, faGlobe, faFigma, faUser, faHouse, faFile, faLightbulb)
+library.add(
+  faGithub,
+  faEnvelope,
+  faCheck,
+  faGlobe,
+  faFigma,
+  faUser,
+  faHouse,
+  faFile,
+  faLightbulb,
+  faSun,
+  faMoon,
+)
 
 const app = createApp(App)
 

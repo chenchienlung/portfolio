@@ -1,6 +1,8 @@
 <template>
   <nav class="w-full h-11 fixed bottom-5 md:top-6 z-50">
-    <div class="mx-auto flex flex-row justify-center gap-4">
+    <div
+      class="mx-auto flex flex-row justify-center gap-2 w-[312px] p-0.5 bg-gray-200/30 dark:bg-gray-700/30 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+    >
       <ul
         class="flex flex-row p-0.5 w-fit bg-gray-200/45 dark:bg-gray-700/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
       >
