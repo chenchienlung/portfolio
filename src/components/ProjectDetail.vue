@@ -19,7 +19,6 @@
         >
           <h2 class="text-2xl font-bold text-black">{{ project.title }}</h2>
           <ProjectLinks
-            class="gap-1"
             :website="project.website"
             :github="project.github"
             :figma="project.figma"
@@ -60,12 +59,11 @@
 
       <div>
         <h3
-          v-if="project.detail_blocks?.length"
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
         >
           設計理念
         </h3>
-        <div v-if="project.detail_blocks?.length" class="flex flex-col gap-10">
+        <div class="flex flex-col gap-10">
           <div
             v-for="(block, index) in project.detail_blocks"
             :key="index"
@@ -108,10 +106,7 @@
         >
           作品圖片
         </h3>
-        <div
-          v-if="project.detail_img?.length"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5"
-        >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
           <img
             v-for="img in project.detail_img"
             :key="img"
@@ -166,22 +161,19 @@
         </div>
       </div>
 
-      <div
-        v-if="project.deploys?.length"
-        class="text-gray-800 text-lg rounded-xl flex flex-col gap-2"
-      >
+      <div v-if="project.deploys?.length">
         <h3
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
         >
           部署
         </h3>
-        <div class="flex flex-col gap-5">
+        <div class="flex flex-col gap-5 text-gray-800">
           <div
             v-for="(deploy, i) in project.deploys"
             :key="i"
             class="flex flex-row items-center gap-5"
           >
-            <h4 class="w-1/12 font-bold">{{ deploy.title }}</h4>
+            <h4 class="w-1/4 md:w-1/6 lg:w-1/12 text-nowrap font-bold">{{ deploy.title }}</h4>
             <div class="flex flex-row gap-2 items-center">
               <img
                 :src="deploy.image"

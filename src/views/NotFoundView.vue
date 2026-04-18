@@ -16,6 +16,8 @@
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
 const images = [
   'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776337741/404-3_p75xgt.jpg',
   'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776337750/404-2_v5o2zs.jpg',

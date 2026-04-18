@@ -6,7 +6,7 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <h2 class="text-5xl text-black leading-tight">
+        <h2 class="text-5xl text-black leading-tight pb-20 md:pb-0">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
           <span class="text-sky-600 md:text-nowrap font-bold">
             前端工程師<span class="text-gray-400 text-2xl"> & </span>UI/UX設計師
@@ -35,7 +35,7 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <div class="text-2xl text-sky-600 flex flex-row justify-between mb-20">
+        <div class="text-2xl text-sky-600 flex flex-row justify-between">
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400">作品</h2>
           <RouterLink
             to="/project"
@@ -43,7 +43,25 @@
             >→</RouterLink
           >
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+          <div
+            v-for="n in 3"
+            :key="n"
+            class="animate-pulse rounded-3xl border border-black/10 bg-white overflow-hidden"
+          >
+            <div class="aspect-3/2 bg-gray-200" />
+            <div class="p-4 space-y-3">
+              <div class="h-5 bg-gray-200 rounded w-3/5" />
+              <div class="flex gap-2">
+                <span class="h-5 w-14 bg-gray-200 rounded-full" />
+                <span class="h-5 w-14 bg-gray-200 rounded-full" />
+              </div>
+              <div class="h-3 bg-gray-200 rounded w-full" />
+              <div class="h-3 bg-gray-200 rounded w-4/5" />
+            </div>
+          </div>
+        </div>
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
         <p
@@ -63,9 +81,9 @@
             <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400">
               關於我
             </h2>
-            <p class="text-black text-lg font-semibold font-mono">陳仟龍 Chris</p>
+            <p class="text-black text-lg font-semibold font-mono mt-6">陳仟龍 Chris</p>
             <div
-              class="text-gray-600 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600 mt-2 md:mt-0"
+              class="text-gray-600 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
               data-aos-duration="800"
               data-aos-delay="100"
             >
@@ -141,10 +159,20 @@
               </div>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+              <h3 class="w-50 text-gray-800 pb-2 mb-8 border-b border-gray-400">學歷</h3>
+              <p class="text-black font-semibold font-mono mb-4 md:mb-2 delay-600">
+                2022
+                <span class="text-gray-600 text-nowrap font-normal md:ml-6">
+                  大同大學媒體設計學系數位遊戲設計組 畢業
+                </span>
+              </p>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
               <h3 class="w-50 text-gray-800 pb-2 mb-8 border-b border-gray-400">技能</h3>
               <div class="flex flex-row flex-wrap gap-5">
                 <img
                   v-for="skillicon in skillicons"
+                  :key="skillicon"
                   :src="skillicon"
                   alt="skillicon"
                   class="w-8 h-8"
@@ -153,6 +181,7 @@
               <div class="flex flex-wrap gap-2 mt-8">
                 <span
                   v-for="skilltext in skilltexts"
+                  :key="skilltext"
                   class="text-gray-600 text-sm text-nowrap px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
                 >
                   {{ skilltext }}

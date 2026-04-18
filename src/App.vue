@@ -17,14 +17,14 @@ const getDepth = (name: any) => {
 watch(
   () => route.name,
   (toName, fromName) => {
-    if (toName === 'project-detail') {
-      // 點進作品介紹頁面（上下）
+    const isDetailToPortfolio = fromName === 'project-detail' && toName === 'portfolio'
+    const isPortfolioToDetail = fromName === 'portfolio' && toName === 'project-detail'
+
+    if (isPortfolioToDetail) {
       transitionName.value = 'slide-up'
-    } else if (fromName === 'project-detail') {
-      // 從作品介紹頁面離開（上下）
+    } else if (isDetailToPortfolio) {
       transitionName.value = 'slide-down'
     } else {
-      // 左右切換
       transitionName.value = getDepth(toName) > getDepth(fromName) ? 'slide-left' : 'slide-right'
     }
 
@@ -69,7 +69,7 @@ onMounted(() => {
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition: all 0.35s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .slide-left-enter-from {
@@ -95,7 +95,7 @@ onMounted(() => {
 .slide-up-leave-active,
 .slide-down-enter-active,
 .slide-down-leave-active {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .slide-up-enter-from {
