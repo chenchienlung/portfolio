@@ -203,9 +203,15 @@ const skilltexts = [
 
 onMounted(async () => {
   try {
-    const data = await fetchProjects()
-    projects.value = data.map((project) => ({ ...project, link: `/project/${project.id}` }))
+    loading.value = true
+    const data: Project[] = await fetchProjects()
+
+    projects.value = data.map((project) => ({
+      ...project,
+      link: `/portfolio/${project.slug}`,
+    }))
   } catch (err) {
+    console.error('Fetch error:', err)
     error.value = err instanceof Error ? err.message : '載入失敗'
   } finally {
     loading.value = false

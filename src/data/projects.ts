@@ -15,6 +15,7 @@ export interface Deploy {
 
 export interface Project {
   id: string
+  slug: string
   title: string
   points: string[]
   skills?: string[]
@@ -42,6 +43,13 @@ export const fetchProjects = async (): Promise<Project[]> => {
 
   if (error) throw error
   return (data ?? []) as Project[]
+}
+
+export const fetchProjectBySlug = async (slug: string): Promise<Project> => {
+  const { data, error } = await supabase.from('projects').select('*').eq('slug', slug).single()
+
+  if (error) throw error
+  return data as Project
 }
 
 export const fetchProjectById = async (id: string): Promise<Project | null> => {

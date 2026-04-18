@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { fetchProjectById, type Project } from '../data/projects'
+import { fetchProjectBySlug, type Project } from '../data/projects'
 import ProjectDetail from '../components/ProjectDetail.vue'
 
 const route = useRoute()
@@ -44,11 +44,11 @@ const project = ref<Project | null>(null)
 const loading = ref(true)
 
 const loadProject = async () => {
-  const id = route.params.id as string
-  if (!id) return
+  const slug = route.params.slug as string
+  if (!slug) return
   loading.value = true
   try {
-    project.value = await fetchProjectById(id)
+    project.value = await fetchProjectBySlug(slug)
   } catch (err) {
     project.value = null
     console.error(err)
@@ -58,5 +58,5 @@ const loadProject = async () => {
 }
 
 onMounted(loadProject)
-watch(() => route.params.id, loadProject)
+watch(() => route.params.slug, loadProject)
 </script>
