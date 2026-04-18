@@ -1,23 +1,23 @@
 <template>
   <section class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <div class="mx-5 mt-12 md:mt-28">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">我的作品</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">我的作品</h2>
       <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div
           v-for="n in 6"
           :key="n"
-          class="animate-pulse rounded-3xl border border-black/10 bg-white overflow-hidden"
+          class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-gray-800 overflow-hidden"
         >
-          <div class="aspect-3/2 bg-gray-200" />
+          <div class="aspect-3/2 bg-gray-200 dark:bg-gray-700" />
           <div class="p-4 space-y-3">
-            <div class="h-5 bg-gray-200 rounded w-3/5" />
+            <div class="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/5" />
             <div class="flex gap-2">
-              <span class="h-5 w-14 bg-gray-200 rounded-full" />
-              <span class="h-5 w-14 bg-gray-200 rounded-full" />
-              <span class="h-5 w-14 bg-gray-200 rounded-full" />
+              <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
+              <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
+              <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
             </div>
-            <div class="h-3 bg-gray-200 rounded w-full" />
-            <div class="h-3 bg-gray-200 rounded w-4/5" />
+            <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+            <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
           </div>
         </div>
       </div>

@@ -6,10 +6,10 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <h2 class="text-5xl text-black leading-tight pb-20 md:pb-0">
+        <h2 class="text-5xl text-black dark:text-white leading-tight pb-20 md:pb-0">
           哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
           <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師<span class="text-gray-400 text-2xl"> & </span>UI/UX設計師
+            前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> & </span>UI/UX設計師
           </span>
           的職缺
           <div class="mt-6 md:mt-12 flex flex-row gap-2">
@@ -22,7 +22,7 @@
             </a>
             <a
               href="#about"
-              class="px-6 py-3 text-base text-sky-800 border border-sky-700 hover:bg-sky-50 hover:text-sky-700 hover:border-sky-700 rounded-full transition-all duration-200"
+              class="px-6 py-3 text-base text-sky-800 dark:text-sky-400 border border-sky-700 dark:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-700 rounded-full transition-all duration-200"
             >
               <font-awesome-icon icon="fa-solid fa-user" class="mr-1" />
               <span class="mx-1 text-sm">關於我↓</span>
@@ -36,10 +36,10 @@
         data-aos-duration="800"
       >
         <div class="text-2xl text-sky-600 flex flex-row justify-between">
-          <h2 class="w-20 font-bold pb-2 border-b border-gray-400">作品</h2>
+          <h2 class="w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">作品</h2>
           <RouterLink
             to="/project"
-            class="w-11 h-11 flex justify-center items-center rounded-full hover:bg-gray-200 transition-all duration-200"
+            class="w-11 h-11 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
             >→</RouterLink
           >
         </div>
@@ -47,17 +47,17 @@
           <div
             v-for="n in 3"
             :key="n"
-            class="animate-pulse rounded-3xl border border-black/10 bg-white overflow-hidden"
+            class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-gray-800 overflow-hidden"
           >
-            <div class="aspect-3/2 bg-gray-200" />
+            <div class="aspect-3/2 bg-gray-200 dark:bg-gray-700" />
             <div class="p-4 space-y-3">
-              <div class="h-5 bg-gray-200 rounded w-3/5" />
+              <div class="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/5" />
               <div class="flex gap-2">
-                <span class="h-5 w-14 bg-gray-200 rounded-full" />
-                <span class="h-5 w-14 bg-gray-200 rounded-full" />
+                <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
+                <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
               </div>
-              <div class="h-3 bg-gray-200 rounded w-full" />
-              <div class="h-3 bg-gray-200 rounded w-4/5" />
+              <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+              <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
         <p
-          class="hidden md:block w-full text-gray-200 text-[180px] text-center font-black absolute bottom-20"
+          class="hidden md:block w-full text-gray-200 dark:text-gray-800 text-[180px] text-center font-black absolute bottom-20"
         >
           PORTFOLIO
         </p>
@@ -78,18 +78,18 @@
       >
         <div class="flex flex-col gap-20 mb-20">
           <div class="flex flex-col gap-4">
-            <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400">
+            <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">
               關於我
             </h2>
-            <p class="text-black text-lg font-semibold font-mono mt-6">陳仟龍 Chris</p>
+            <p class="text-black dark:text-white text-lg font-semibold font-mono mt-6">陳仟龍 Chris</p>
             <div
-              class="text-gray-600 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
+              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
               data-aos-duration="800"
               data-aos-delay="100"
             >
               <a
                 href="mailto:[EMAIL_ADDRESS]"
-                class="hover:text-sky-600 hover:underline transition-all duration-200"
+                class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
               >
                 <font-awesome-icon icon="fa-solid fa-envelope" class="mb-px" />
                 chris27805850@gmail.com
@@ -97,7 +97,7 @@
               <a
                 href="https://github.com/chenchienlung"
                 target="_blank"
-                class="hover:text-sky-600 hover:underline transition-all duration-200"
+                class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
               >
                 <font-awesome-icon icon="fa-brands fa-github" class="mb-px" />
                 chenchienlung
@@ -107,42 +107,42 @@
 
           <div class="flex flex-col gap-20 text-base">
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-              <h3 class="w-50 text-gray-800 pb-2 mb-8 border-b border-gray-400">經歷</h3>
-              <p class="text-black font-semibold font-mono mb-4 md:mb-2 delay-600">
+              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">經歷</h3>
+              <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
                 2025.10.01~2026.01.29
-                <span class="text-gray-600 text-nowrap font-normal md:ml-6">
+                <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
                   商研院｜前端應用開發工程師實戰養成班
                 </span>
               </p>
-              <p class="text-gray-600 delay-600">
+              <p class="text-gray-600 dark:text-gray-300 delay-600">
                 4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API
                 串接。並在最後 2個月內與3位成員共同完成
                 <a
                   href="https://wantrip.store"
                   target="_blank"
-                  class="hover:text-sky-600 text-nowrap underline transition-all duration-200"
+                  class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
                   alt="WanTrip:國內旅遊訂房網站"
                 >
                   WanTrip : 國內旅遊訂房網站 ↗ </a
                 >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
               </p>
               <div class="flex flex-col md:flex-row delay-600 mt-10">
-                <p class="text-black text-nowrap font-semibold font-mono mb-4 md:mb-2 row-span-2">
+                <p class="text-black dark:text-white text-nowrap font-semibold font-mono mb-4 md:mb-2 row-span-2">
                   其他資源
                 </p>
                 <div class="flex flex-col gap-2 md:ml-6">
-                  <p class="text-gray-600">
+                  <p class="text-gray-600 dark:text-gray-300">
                     hahow好學校線上課程：
                     <a
                       href="https://hahow.in/courses/5ee4d65789dc7e4854909ba1?utm_source=share&utm_medium=link"
                       target="_blank"
-                      class="hover:text-sky-600 text-nowrap hover:underline transition-all duration-200"
+                      class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap hover:underline transition-all duration-200"
                     >
                       產品設計實戰：用Figma打造絕佳UI/UX ↗
                     </a>
                   </p>
-                  <p class="text-gray-600">六角學院線上課程學HTML、CSS、Bootstrap等前端基礎</p>
-                  <div class="text-gray-600 flex flex-row gap-2">
+                  <p class="text-gray-600 dark:text-gray-300">六角學院線上課程學HTML、CSS、Bootstrap等前端基礎</p>
+                  <div class="text-gray-600 dark:text-gray-300 flex flex-row gap-2">
                     <img
                       src="https://thesvg.org/icons/mdn-web-docs/default.svg"
                       alt=""
@@ -151,7 +151,7 @@
                     <a
                       href="https://developer.mozilla.org/zh-TW/"
                       target="_blank"
-                      class="hover:text-sky-600 hover:underline transition-all duration-200"
+                      class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
                       >MDN Web Docs ↗
                     </a>
                   </div>
@@ -159,16 +159,16 @@
               </div>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-              <h3 class="w-50 text-gray-800 pb-2 mb-8 border-b border-gray-400">學歷</h3>
-              <p class="text-black font-semibold font-mono mb-4 md:mb-2 delay-600">
+              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">學歷</h3>
+              <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
                 2022
-                <span class="text-gray-600 text-nowrap font-normal md:ml-6">
+                <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
                   大同大學媒體設計學系數位遊戲設計組 畢業
                 </span>
               </p>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-              <h3 class="w-50 text-gray-800 pb-2 mb-8 border-b border-gray-400">技能</h3>
+              <h3 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600">技能</h3>
               <div class="flex flex-row flex-wrap gap-5">
                 <img
                   v-for="skillicon in skillicons"
@@ -182,7 +182,7 @@
                 <span
                   v-for="skilltext in skilltexts"
                   :key="skilltext"
-                  class="text-gray-600 text-sm text-nowrap px-3 py-1.5 bg-gray-50 border border-gray-300 rounded-full"
+                  class="text-gray-600 dark:text-gray-300 text-sm text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full"
                 >
                   {{ skilltext }}
                 </span>

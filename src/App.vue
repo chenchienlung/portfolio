@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
+import { initDarkMode } from './composables/useDarkMode'
 
 const route = useRoute()
 const transitionName = ref('slide-up')
@@ -38,6 +39,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 onMounted(() => {
+  initDarkMode()
   setTimeout(() => {
     AOS.init({
       anchorPlacement: 'top',

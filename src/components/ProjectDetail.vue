@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-5 mb-4">
     <div
-      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 shadow-xs/12"
+      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
     >
       <img
         :src="project.banner"
@@ -11,13 +11,13 @@
       />
     </div>
     <div
-      class="px-8 py-12 bg-white rounded-4xl border border-black/15 shadow-xs/12 flex flex-col gap-20"
+      class="px-8 py-12 bg-white dark:bg-gray-800 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20"
     >
       <div class="flex flex-col gap-5">
         <div
-          class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-gray-600 mb-4"
+          class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-gray-600 dark:text-gray-300 mb-4"
         >
-          <h2 class="text-2xl font-bold text-black">{{ project.title }}</h2>
+          <h2 class="text-2xl font-bold text-black dark:text-white">{{ project.title }}</h2>
           <ProjectLinks
             :website="project.website"
             :github="project.github"
@@ -29,7 +29,7 @@
           <span
             v-for="tag in project.tags"
             :key="tag"
-            class="px-3 py-1 text-sm bg-gray-100 border border-black/10 rounded-full text-gray-600"
+            class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 border border-black/10 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-300"
           >
             {{ tag }}
           </span>
@@ -38,7 +38,7 @@
 
       <div
         v-if="project.points?.length"
-        class="p-5 text-gray-800 text-lg bg-gray-100 rounded-xl flex flex-col gap-2"
+        class="p-5 text-gray-800 dark:text-gray-200 text-lg bg-gray-100 dark:bg-gray-700/60 rounded-xl flex flex-col gap-2"
       >
         <font-awesome-icon icon="fa-solid fa-lightbulb" class="mb-2" />
         <p v-for="(point, i) in project.points" :key="i" class="leading-relaxed">
@@ -50,7 +50,7 @@
         <p
           v-for="(para, i) in project.detail_description"
           :key="i"
-          class="text-lg text-gray-600 leading-relaxed"
+          class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
           :class="i < project.detail_description.length - 1 ? 'mb-4' : 'mb-8'"
         >
           {{ para }}
@@ -59,7 +59,7 @@
 
       <div>
         <h3
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
         >
           設計理念
         </h3>
@@ -86,12 +86,12 @@
               class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''"
             >
-              <h4 v-if="block.title" class="text-xl font-semibold text-black whitespace-pre-line">
+              <h4 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
                 {{ block.title }}
               </h4>
               <p
                 v-if="block.description"
-                class="text-lg text-gray-600 leading-relaxed whitespace-pre-line"
+                class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line"
               >
                 {{ block.description }}
               </p>
@@ -102,7 +102,7 @@
 
       <div>
         <h3
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
         >
           作品圖片
         </h3>
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <div class="text-gray-600 text-lg">
+      <div class="text-gray-600 dark:text-gray-300 text-lg">
         <p v-for="content in project.content" :key="content">
           <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-green-600" />
           {{ content }}
@@ -127,7 +127,7 @@
 
       <div>
         <h3
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
         >
           技能 / 工具
         </h3>
@@ -145,7 +145,7 @@
 
       <div v-if="project.AI?.length">
         <h3
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
         >
           AI 工具
         </h3>
@@ -163,11 +163,11 @@
 
       <div v-if="project.deploys?.length">
         <h3
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 before:rounded-full before:mr-1"
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
         >
           部署
         </h3>
-        <div class="flex flex-col gap-5 text-gray-800">
+        <div class="flex flex-col gap-5 text-gray-800 dark:text-gray-200">
           <div
             v-for="(deploy, i) in project.deploys"
             :key="i"
