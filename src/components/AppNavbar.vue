@@ -1,10 +1,10 @@
 <template>
-  <nav class="w-full h-11 fixed bottom-5 md:top-6 z-50">
+  <nav class="w-full fixed bottom-5 md:top-6 z-50">
     <div
-      class="mx-auto flex flex-row justify-center gap-2 w-[312px] p-1 bg-gray-200/30 dark:bg-gray-700/30 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-gray-200/30 dark:bg-gray-700/30 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
     >
       <ul
-        class="flex flex-row p-0.5 w-fit bg-gray-200/45 dark:bg-gray-700/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+        class="flex flex-row p-0.5 bg-gray-200/45 dark:bg-gray-700/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
       >
         <li class="w-24">
           <RouterLink
@@ -29,7 +29,7 @@
       </ul>
       <div class="flex flex-row">
         <a
-          class="h-11.5 w-11.5 rounded-full flex items-center justify-center text-2xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200"
+          class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-2xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200"
           href="https://github.com/chenchienlung"
           target="_blank"
           rel="noopener noreferrer"
@@ -39,7 +39,7 @@
         </a>
         <button
           @click="toggle"
-          class="h-11.5 w-11.5 rounded-full flex items-center justify-center text-xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+          class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
           :title="isDark ? '切換亮色模式' : '切換深色模式'"
         >
           <font-awesome-icon :icon="isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
