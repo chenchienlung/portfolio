@@ -10,7 +10,7 @@
           <RouterLink
             to="/"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
+            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
           >
             <font-awesome-icon icon="fa-solid fa-house" class="mb-px" />
             首頁
@@ -20,7 +20,7 @@
           <RouterLink
             to="/portfolio"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-white inset-shadow-sm/50 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
+            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
           >
             <font-awesome-icon icon="fa-solid fa-file" class="mb-px" />
             作品

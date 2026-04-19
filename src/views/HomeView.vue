@@ -39,7 +39,7 @@
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">作品</h2>
           <RouterLink
             to="/project"
-            class="w-11 h-11 flex justify-center items-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+            class="w-11 h-11 flex justify-center items-center rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 inset-shadow-white inset-shadow-sm/20 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
             >→</RouterLink
           >
         </div>
