@@ -21,6 +21,15 @@
               <span class="mx-1 text-sm">聯絡我↗</span>
             </a>
             <a
+              href="https://github.com/chenchienlung"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-6 py-3 text-base text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
+            >
+              <font-awesome-icon icon="fa-brands fa-github" class="mr-1" />
+              <span class="mx-1 text-sm">GitHub↗</span>
+            </a>
+            <a
               href="#about"
               class="px-6 py-3 text-base text-sky-800 dark:text-sky-400 border border-sky-700 dark:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-700 rounded-full transition-all duration-200"
             >
