@@ -38,7 +38,7 @@
         <div class="text-2xl text-sky-600 flex flex-row justify-between">
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">作品</h2>
           <RouterLink
-            to="/project"
+            to="/portfolio"
             class="w-11 h-11 flex justify-center items-center rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 inset-shadow-white inset-shadow-sm/20 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
             >→</RouterLink
           >
@@ -91,7 +91,7 @@
               新北．林口
             </p>
             <div
-              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
+              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6"
               data-aos-duration="800"
               data-aos-delay="100"
             >
@@ -120,61 +120,36 @@
               >
                 經歷
               </h3>
-              <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
-                2025.10.01~2026.01.29
-                <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
-                  商研院｜前端應用開發工程師實戰養成班
-                </span>
-              </p>
-              <p class="text-gray-600 dark:text-gray-300 delay-600">
-                4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API
-                串接。並在最後 2個月內與3位成員共同完成
-                <a
-                  href="https://wantrip.store"
-                  target="_blank"
-                  class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
-                  alt="WanTrip:國內旅遊訂房網站"
-                >
-                  WanTrip : 國內旅遊訂房網站 ↗ </a
-                >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
-              </p>
-              <div class="flex flex-col md:flex-row delay-600 mt-10">
-                <p
-                  class="text-black dark:text-white text-nowrap font-semibold font-mono mb-4 md:mb-2 row-span-2"
-                >
-                  其他資源
+              <div class="flex flex-col gap-4">
+                <h4 class="text-black dark:text-white font-semibold">
+                  2025.10.01~2026.01.29
+                  <span class="text-nowrap md:ml-6"> 商研院｜前端應用開發工程師實戰養成班 </span>
+                </h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API
+                  串接。並在最後 2個月內與3位成員共同完成
+                  <a
+                    href="https://wantrip.store"
+                    target="_blank"
+                    class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
+                    alt="WanTrip:國內旅遊訂房網站"
+                  >
+                    WanTrip : 國內旅遊訂房網站 ↗ </a
+                  >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
                 </p>
-                <div class="flex flex-col gap-2 md:ml-6">
-                  <p class="text-gray-600 dark:text-gray-300">
-                    hahow好學校線上課程：
-                    <a
-                      href="https://hahow.in/courses/5ee4d65789dc7e4854909ba1?utm_source=share&utm_medium=link"
-                      target="_blank"
-                      class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap hover:underline transition-all duration-200"
-                    >
-                      產品設計實戰：用Figma打造絕佳UI/UX ↗
-                    </a>
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    六角學院線上課程學HTML、CSS、Bootstrap等前端基礎
-                  </p>
-                  <div class="text-gray-600 dark:text-gray-300 flex flex-row gap-2">
-                    <img
-                      :src="
-                        isDark
-                          ? 'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776570197/mdn-web-docs_1_tiyobo.svg'
-                          : 'https://thesvg.org/icons/mdn-web-docs/default.svg'
-                      "
-                      alt=""
-                      width="16px"
-                    />
-                    <a
-                      href="https://developer.mozilla.org/zh-TW/"
-                      target="_blank"
-                      class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
-                      >MDN Web Docs ↗
-                    </a>
-                  </div>
+              </div>
+              <div class="flex flex-col mt-10 gap-4">
+                <h4 class="text-black dark:text-white text-nowrap font-semibold">其他資源</h4>
+                <div class="flex flex-col gap-2">
+                  <ResourceItem
+                    v-for="(item, i) in resources"
+                    :key="i"
+                    v-bind="item"
+                    :is-dark="isDark"
+                    data-aos="fade-right"
+                    data-aos-duration="800"
+                    :data-aos-delay="(i + 1) * 50"
+                  />
                 </div>
               </div>
             </div>
@@ -184,12 +159,12 @@
               >
                 學歷
               </h3>
-              <p class="text-black dark:text-white font-semibold font-mono mb-4 md:mb-2 delay-600">
-                2022
-                <span class="text-gray-600 dark:text-gray-300 text-nowrap font-normal md:ml-6">
+              <div class="flex flex-col gap-4">
+                <p class="text-black dark:text-white font-semibold">2022</p>
+                <p class="text-gray-600 dark:text-gray-300 text-nowrap font-normal">
                   大同大學媒體設計學系數位遊戲設計組 畢業
-                </span>
-              </p>
+                </p>
+              </div>
             </div>
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
               <h3
@@ -204,6 +179,9 @@
                   :src="isDark && skillicon.dark ? skillicon.dark : skillicon.src"
                   alt="skillicon"
                   class="w-8 h-8"
+                  data-aos="fade-up"
+                  data-aos-duration="800"
+                  :data-aos-delay="(skillicons.indexOf(skillicon) + 1) * 50"
                 />
               </div>
               <div class="flex flex-wrap gap-2 mt-8">
@@ -227,6 +205,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
+import ResourceItem from '../components/ResourceItem.vue'
 import { fetchProjects, type Project } from '../data/projects'
 import { useDarkMode } from '../composables/useDarkMode'
 
@@ -254,6 +233,31 @@ const skillicons: { src: string; dark?: string }[] = [
   { src: 'https://thesvg.org/icons/vite/default.svg' },
   { src: 'https://thesvg.org/icons/supabase/default.svg' },
   { src: 'https://thesvg.org/icons/nodedotjs/default.svg' },
+]
+
+const resources = [
+  {
+    iconType: 'fa' as const,
+    icon: 'fa-solid fa-headphones',
+    text: 'hahow好學校線上課程：產品設計實戰：用Figma打造絕佳UI/UX',
+  },
+  {
+    iconType: 'fa' as const,
+    icon: 'fa-solid fa-headphones',
+    text: '六角學院線上課程學HTML、CSS、Bootstrap等前端基礎',
+  },
+  {
+    iconType: 'fa' as const,
+    icon: 'fa-solid fa-book',
+    text: '網頁版面學-429個網頁設計要領，創造友善易用的版面',
+  },
+  {
+    iconType: 'img' as const,
+    icon: 'https://thesvg.org/icons/mdn-web-docs/default.svg',
+    iconDark:
+      'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776570197/mdn-web-docs_1_tiyobo.svg',
+    text: 'MDN Web Docs',
+  },
 ]
 
 const skilltexts = [

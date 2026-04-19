@@ -18,6 +18,8 @@ import {
   faSun,
   faMoon,
   faLocationDot,
+  faBook,
+  faHeadphones,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -33,6 +35,8 @@ library.add(
   faSun,
   faMoon,
   faLocationDot,
+  faBook,
+  faHeadphones,
 )
 
 const app = createApp(App)
