@@ -86,6 +86,10 @@
             <p class="text-black dark:text-white text-lg font-semibold font-mono mt-6">
               陳仟龍 Chris
             </p>
+            <p class="text-gray-600 dark:text-gray-300 font-mono">
+              <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px" />
+              新北．林口
+            </p>
             <div
               class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6 delay-600"
               data-aos-duration="800"

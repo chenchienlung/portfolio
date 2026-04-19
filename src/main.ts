@@ -17,6 +17,7 @@ import {
   faLightbulb,
   faSun,
   faMoon,
+  faLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -31,6 +32,7 @@ library.add(
   faLightbulb,
   faSun,
   faMoon,
+  faLocationDot,
 )
 
 const app = createApp(App)
