@@ -158,13 +158,11 @@
                     <img
                       :src="
                         isDark
-                          ? 'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776520451/mdn-web-docs_1_tiyobo.png'
+                          ? 'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776570197/mdn-web-docs_1_tiyobo.svg'
                           : 'https://thesvg.org/icons/mdn-web-docs/default.svg'
                       "
                       alt=""
                       width="16px"
-                      height="16px"
-                      class="aspect-square object-contain"
                     />
                     <a
                       href="https://developer.mozilla.org/zh-TW/"
