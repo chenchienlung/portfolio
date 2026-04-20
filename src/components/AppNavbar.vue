@@ -55,7 +55,7 @@
 }
 @supports (-webkit-touch-callout: none) {
   .element {
-    bottom: 0;
+    bottom: 1px;
   }
 }
 </style>
