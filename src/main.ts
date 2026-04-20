@@ -15,12 +15,12 @@ import {
   faHouse,
   faFile,
   faLightbulb,
-  faSun,
-  faMoon,
   faLocationDot,
   faBook,
   faHeadphones,
 } from '@fortawesome/free-solid-svg-icons'
+
+import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   faGithub,
@@ -32,11 +32,11 @@ library.add(
   faHouse,
   faFile,
   faLightbulb,
-  faSun,
-  faMoon,
   faLocationDot,
   faBook,
   faHeadphones,
+  faSunRegular,
+  faMoonRegular,
 )
 
 const app = createApp(App)

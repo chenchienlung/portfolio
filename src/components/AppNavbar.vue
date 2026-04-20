@@ -42,10 +42,10 @@
         </a>
         <button
           @click="toggle"
-          class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
+          class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-xl text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200 cursor-pointer"
           :title="isDark ? '切換亮色模式' : '切換深色模式'"
         >
-          <font-awesome-icon :icon="isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" />
+          <font-awesome-icon :icon="isDark ? 'fa-regular fa-moon' : 'fa-regular fa-sun'" />
         </button>
       </div>
     </div>
