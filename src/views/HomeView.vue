@@ -14,13 +14,6 @@
           的職缺
           <div class="mt-6 md:mt-12 flex flex-row flex-wrap gap-2">
             <a
-              href="mailto:[EMAIL_ADDRESS]"
-              class="px-6 py-3 text-base text-nowrap text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
-            >
-              <font-awesome-icon icon="fa-solid fa-envelope" />
-              <span class="mx-1.5 text-sm">聯絡我↗</span>
-            </a>
-            <a
               href="https://github.com/chenchienlung"
               target="_blank"
               rel="noopener noreferrer"
@@ -81,7 +74,7 @@
       </section>
       <section
         id="about"
-        class="min-h-[calc(100vh-168px)]"
+        class="min-h-[calc(100vh-168px)] pt-10 md:pt-0"
         data-aos="fade-up"
         data-aos-duration="800"
       >
@@ -272,6 +265,7 @@ const resources = [
 const skilltexts = [
   'Design → Code 一手包辦',
   'Git 團隊協作',
+  'Git 版本控制',
   'AI 輔助開發',
   'RWD 響應式設計',
   'API串接',
