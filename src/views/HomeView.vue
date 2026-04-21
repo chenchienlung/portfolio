@@ -2,7 +2,7 @@
   <main class="min-h-screen max-w-6xl mx-auto mb-4">
     <div class="mx-5 flex flex-col gap-32">
       <section
-        class="h-screen flex flex-col justify-center"
+        class="relative h-screen flex flex-col justify-center"
         data-aos="fade-up"
         data-aos-duration="800"
       >
@@ -31,6 +31,13 @@
             </a>
           </div>
         </h2>
+        <StatusBadge
+          v-if="about?.job_status"
+          class="absolute top-20 md:top-100 right-0"
+          :label="about.job_status"
+          :color="about.job_status_color"
+          size="md"
+        />
       </section>
       <section
         class="relative min-h-[calc(100vh-168px)]"
@@ -85,66 +92,89 @@
             >
               關於我
             </h2>
-            <p class="text-black dark:text-white text-lg font-semibold font-mono mt-6">
-              陳仟龍 Chris
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 font-mono">
+            <div class="flex flex-row items-center gap-5 mt-6">
+              <p class="text-black dark:text-white text-lg font-semibold font-mono">陳仟龍 Chris</p>
+              <StatusBadge
+                v-if="about?.job_status"
+                :label="about.job_status"
+                :color="about.job_status_color"
+                size="sm"
+              />
+            </div>
+
+            <p v-if="about?.location" class="text-gray-600 dark:text-gray-300 font-mono">
               <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px" />
-              新北．林口
+              {{ about.location }}
             </p>
             <div
-              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row items-start gap-1 md:gap-6"
+              v-if="about?.contacts?.length"
+              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
               data-aos-duration="800"
               data-aos-delay="100"
             >
               <a
-                href="mailto:[EMAIL_ADDRESS]"
-                class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
+                v-for="(contact, i) in about.contacts"
+                :key="i"
+                :href="contact.url"
+                :target="isExternalUrl(contact.url) ? '_blank' : undefined"
+                :rel="isExternalUrl(contact.url) ? 'noopener noreferrer' : undefined"
+                class="flex items-center gap-1.5 hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
               >
-                <font-awesome-icon icon="fa-solid fa-envelope" class="mb-px" />
-                chris27805850@gmail.com
-              </a>
-              <a
-                href="https://github.com/chenchienlung"
-                target="_blank"
-                class="hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
-              >
-                <font-awesome-icon icon="fa-brands fa-github" class="mb-px" />
-                chenchienlung
+                <font-awesome-icon
+                  v-if="contact.iconType === 'fa'"
+                  :icon="contact.icon"
+                  class="mb-px"
+                />
+                <img
+                  v-else
+                  :src="isDark && contact.iconDark ? contact.iconDark : contact.icon"
+                  :alt="contact.label"
+                  width="16"
+                  height="16"
+                  class="shrink-0"
+                />
+                {{ contact.label }}
               </a>
             </div>
           </div>
 
-          <div class="flex flex-col gap-20 text-base">
+          <div v-if="about" class="flex flex-col gap-20 text-base">
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
               <h3
                 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
               >
                 經歷
               </h3>
-              <div class="flex flex-col gap-4">
+              <div
+                v-for="(exp, i) in about.experiences"
+                :key="i"
+                class="flex flex-col gap-4"
+                :class="{ 'mt-10': i > 0 }"
+              >
                 <h4 class="text-black dark:text-white font-semibold">
-                  2025.10.01~2026.01.29
-                  <span class="text-nowrap md:ml-6"> 商研院｜前端應用開發工程師實戰養成班 </span>
+                  {{ exp.date }}
+                  <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
                 </h4>
                 <p class="text-gray-600 dark:text-gray-300">
-                  4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API
-                  串接。並在最後 2個月內與3位成員共同完成
+                  {{ exp.description_before }}
                   <a
-                    href="https://wantrip.store"
+                    v-if="exp.link"
+                    :href="exp.link.url"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
-                    alt="WanTrip:國內旅遊訂房網站"
+                    :alt="exp.link.alt"
                   >
-                    WanTrip : 國內旅遊訂房網站 ↗ </a
-                  >， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
+                    {{ exp.link.text }} ↗
+                  </a>
+                  {{ exp.description_after }}
                 </p>
               </div>
-              <div class="flex flex-col mt-10 gap-4">
+              <div v-if="about.resources.length" class="flex flex-col mt-10 gap-4">
                 <h4 class="text-black dark:text-white text-nowrap font-semibold">其他資源</h4>
                 <div class="flex flex-col gap-2">
                   <ResourceItem
-                    v-for="(item, i) in resources"
+                    v-for="(item, i) in about.resources"
                     :key="i"
                     v-bind="item"
                     :is-dark="isDark"
@@ -155,16 +185,26 @@
                 </div>
               </div>
             </div>
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div
+              v-if="about.educations.length"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
               <h3
                 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
               >
                 學歷
               </h3>
-              <div class="flex flex-col gap-4">
-                <p class="text-black dark:text-white font-semibold">2022</p>
+              <div
+                v-for="(edu, i) in about.educations"
+                :key="i"
+                class="flex flex-col gap-4"
+                :class="{ 'mt-6': i > 0 }"
+              >
+                <p class="text-black dark:text-white font-semibold">{{ edu.year }}</p>
                 <p class="text-gray-600 dark:text-gray-300 text-nowrap font-normal">
-                  大同大學媒體設計學系數位遊戲設計組 畢業
+                  {{ edu.description }}
                 </p>
               </div>
             </div>
@@ -176,19 +216,19 @@
               </h3>
               <div class="flex flex-row flex-wrap gap-5">
                 <img
-                  v-for="skillicon in skillicons"
+                  v-for="(skillicon, i) in about.skill_icons"
                   :key="skillicon.src"
                   :src="isDark && skillicon.dark ? skillicon.dark : skillicon.src"
                   alt="skillicon"
                   class="w-8 h-8"
                   data-aos="fade-up"
                   data-aos-duration="800"
-                  :data-aos-delay="(skillicons.indexOf(skillicon) + 1) * 50"
+                  :data-aos-delay="(i + 1) * 50"
                 />
               </div>
               <div class="flex flex-wrap gap-2 mt-8">
                 <span
-                  v-for="skilltext in skilltexts"
+                  v-for="skilltext in about.skill_texts"
                   :key="skilltext"
                   class="text-gray-600 dark:text-gray-300 text-sm text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full"
                 >
@@ -208,7 +248,9 @@ import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import ResourceItem from '../components/ResourceItem.vue'
+import StatusBadge from '../components/StatusBadge.vue'
 import { fetchProjects, type Project } from '../data/projects'
+import { fetchAbout, type About } from '../data/about'
 import { useDarkMode } from '../composables/useDarkMode'
 
 const { isDark } = useDarkMode()
@@ -217,69 +259,19 @@ const projects = ref<(Project & { link: string })[]>([])
 const loading = ref(true)
 const error = ref('')
 
-const skillicons: { src: string; dark?: string }[] = [
-  { src: 'https://thesvg.org/icons/figma/default.svg' },
-  { src: 'https://thesvg.org/icons/illustrator/default.svg' },
-  { src: 'https://thesvg.org/icons/photoshop/default.svg' },
-  {
-    src: 'https://thesvg.org/icons/github/mono.svg',
-    dark: 'https://thesvg.org/icons/github/default.svg',
-  },
-  { src: 'https://thesvg.org/icons/git/default.svg' },
-  { src: 'https://thesvg.org/icons/html5/default.svg' },
-  { src: 'https://thesvg.org/icons/css/default.svg' },
-  { src: 'https://thesvg.org/icons/javascript/default.svg' },
-  { src: 'https://thesvg.org/icons/tailwind-css/default.svg' },
-  { src: 'https://thesvg.org/icons/bootstrap/default.svg' },
-  { src: 'https://thesvg.org/icons/vue/default.svg' },
-  { src: 'https://thesvg.org/icons/vite/default.svg' },
-  { src: 'https://thesvg.org/icons/supabase/default.svg' },
-  { src: 'https://thesvg.org/icons/nodedotjs/default.svg' },
-]
-
-const resources = [
-  {
-    iconType: 'fa' as const,
-    icon: 'fa-solid fa-headphones',
-    text: 'hahow好學校線上課程：產品設計實戰：用Figma打造絕佳UI/UX',
-  },
-  {
-    iconType: 'fa' as const,
-    icon: 'fa-solid fa-headphones',
-    text: '六角學院線上課程學HTML、CSS、Bootstrap等前端基礎',
-  },
-  {
-    iconType: 'fa' as const,
-    icon: 'fa-solid fa-book',
-    text: '網頁版面學-429個網頁設計要領，創造友善易用的版面',
-  },
-  {
-    iconType: 'img' as const,
-    icon: 'https://thesvg.org/icons/mdn-web-docs/default.svg',
-    iconDark:
-      'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776570197/mdn-web-docs_1_tiyobo.svg',
-    text: 'MDN Web Docs',
-  },
-]
-
-const skilltexts = [
-  'Design → Code 一手包辦',
-  'Git 團隊協作',
-  'Git 版本控制',
-  'AI 輔助開發',
-  'RWD 響應式設計',
-  'API串接',
-]
+const about = ref<About | null>(null)
 
 onMounted(async () => {
   try {
     loading.value = true
-    const data: Project[] = await fetchProjects()
+    const [projectData, aboutData] = await Promise.all([fetchProjects(), fetchAbout()])
 
-    projects.value = data.map((project) => ({
+    projects.value = projectData.map((project) => ({
       ...project,
       link: `/portfolio/${project.slug}`,
     }))
+
+    about.value = aboutData
   } catch (err) {
     console.error('Fetch error:', err)
     error.value = err instanceof Error ? err.message : '載入失敗'
@@ -289,4 +281,8 @@ onMounted(async () => {
 })
 
 const displayedProjects = computed(() => projects.value.slice(0, 3))
+
+// 只有 http/https 開頭的連結才需要 target="_blank"
+// mailto:、tel: 等 scheme 應該在原分頁開啟
+const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
 </script>
