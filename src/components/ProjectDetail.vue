@@ -57,6 +57,52 @@
         </p>
       </div>
 
+      <div v-if="project.development_blocks?.length">
+        <h3
+          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"
+        >
+          開發過程
+        </h3>
+        <div class="flex flex-col gap-10">
+          <div
+            v-for="(block, index) in project.development_blocks"
+            :key="index"
+            class="flex flex-col md:flex-row gap-6 items-center"
+            :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
+          >
+            <div
+              v-if="block.image"
+              class="w-full shrink-0"
+              :class="block.title || block.description ? 'md:w-1/2' : ''"
+            >
+              <img
+                :src="block.image"
+                :alt="block.title || project.title"
+                class="w-full rounded-2xl object-cover"
+              />
+            </div>
+            <div
+              v-if="block.title || block.description"
+              class="w-full flex flex-col gap-2 text-center"
+              :class="block.image ? 'text-left md:w-1/2' : ''"
+            >
+              <h4
+                v-if="block.title"
+                class="text-xl font-semibold text-black dark:text-white whitespace-pre-line"
+              >
+                {{ block.title }}
+              </h4>
+              <p
+                v-if="block.description"
+                class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line"
+              >
+                {{ block.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div>
         <h3
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-gray-300 dark:before:border-gray-500 before:rounded-full before:mr-1"

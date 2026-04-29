@@ -28,6 +28,7 @@ export interface Project {
   content: string[]
   detail_img?: string[]
   detail_blocks?: ImageTextBlock[]
+  development_blocks?: ImageTextBlock[]
   website?: string
   github?: string
   figma?: string
