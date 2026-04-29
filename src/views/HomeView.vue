@@ -6,12 +6,14 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <h2 class="text-5xl text-black dark:text-white leading-tight pb-20 md:pb-0">
-          哈囉!<br />我是陳仟龍<br />目前正在尋找<br />
+        <div class="text-5xl text-black dark:text-white leading-tight pb-20 md:pb-0">
+          <h2 class="font-mono mb-5">Hello! I'm Chris.</h2>
+          我目前正在尋找<br />
           <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> & </span>UI/UX設計師
+            前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span>UI/UX設計師
           </span>
-          的職缺
+          <br />
+          相關職缺
           <div class="mt-6 md:mt-12 flex flex-row flex-wrap gap-2">
             <a
               href="https://github.com/chenchienlung"
@@ -30,7 +32,7 @@
               <span class="mx-1.5 text-sm">關於我↓</span>
             </a>
           </div>
-        </h2>
+        </div>
         <StatusBadge
           v-if="about?.job_status"
           class="absolute top-20 md:top-100 right-0"
