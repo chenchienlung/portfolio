@@ -11,7 +11,7 @@
       />
     </div>
     <div
-      class="px-8 py-12 bg-white dark:bg-gray-800 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20"
+      class="px-8 py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20"
     >
       <div class="flex flex-col gap-5">
         <div
@@ -29,7 +29,7 @@
           <span
             v-for="tag in project.tags"
             :key="tag"
-            class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 border border-black/10 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-300"
+            class="px-3 py-1 text-sm bg-gray-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-300"
           >
             {{ tag }}
           </span>

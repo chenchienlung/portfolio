@@ -48,7 +48,7 @@
           <h2 class="w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">作品</h2>
           <RouterLink
             to="/portfolio"
-            class="w-11 h-11 flex justify-center items-center rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 inset-shadow-white inset-shadow-sm/20 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
+            class="w-11 h-11 flex justify-center items-center rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 inset-shadow-white inset-shadow-sm/20 hover:bg-gray-200 dark:hover:bg-white/15 transition-all duration-200"
             >→</RouterLink
           >
         </div>
@@ -73,6 +73,12 @@
         <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
+        <RouterLink
+          to="/portfolio"
+          class="md:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-gray-600 dark:text-gray-300"
+        >
+          查看更多作品 →
+        </RouterLink>
         <p
           class="hidden md:block w-full text-gray-200 dark:text-gray-800 text-[180px] text-center font-black absolute bottom-20"
         >
@@ -230,7 +236,7 @@
                 <span
                   v-for="skilltext in about.skill_texts"
                   :key="skilltext"
-                  class="text-gray-600 dark:text-gray-300 text-sm text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full"
+                  class="text-gray-600 dark:text-gray-300 text-sm text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full"
                 >
                   {{ skilltext }}
                 </span>

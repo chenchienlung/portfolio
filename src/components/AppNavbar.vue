@@ -4,16 +4,16 @@
     :class="isIOSSafari ? 'bottom-[4px]' : 'bottom-5'"
   >
     <div
-      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-gray-200/30 dark:bg-gray-700/30 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-gray-200/30 dark:bg-white/5 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
     >
       <ul
-        class="flex flex-row p-0.5 bg-gray-200/45 dark:bg-gray-700/45 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+        class="flex flex-row p-0.5 bg-gray-200/45 dark:bg-white/10 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
       >
         <li class="w-24">
           <RouterLink
             to="/"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
+            active-class="bg-gray-50 dark:bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
           >
             <font-awesome-icon icon="fa-solid fa-house" class="mb-px" />
             首頁
@@ -23,7 +23,7 @@
           <RouterLink
             to="/portfolio"
             class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-gray-600/70 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
+            active-class="bg-gray-50 dark:bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
           >
             <font-awesome-icon icon="fa-solid fa-file" class="mb-px" />
             作品
