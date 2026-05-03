@@ -11,7 +11,7 @@
       />
     </div>
     <div
-      class="px-8 py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20"
+      class="px-5 py-8 md:px-8 md:py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20"
     >
       <div class="flex flex-col gap-5">
         <div
