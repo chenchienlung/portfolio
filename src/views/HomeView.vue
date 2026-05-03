@@ -35,7 +35,7 @@
         </div>
         <StatusBadge
           v-if="about?.job_status"
-          class="absolute top-20 md:top-100 right-0"
+          class="absolute top-10 md:top-100 right-0"
           :label="about.job_status"
           :color="about.job_status_color"
           size="md"

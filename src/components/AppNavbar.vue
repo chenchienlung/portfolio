@@ -7,26 +7,26 @@
       class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-gray-200/30 dark:bg-white/5 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
     >
       <ul
-        class="flex flex-row p-0.5 bg-gray-200/45 dark:bg-white/10 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+        class="w-[134px] flex flex-row justify-center p-0.5 bg-gray-200/45 dark:bg-white/10 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
       >
-        <li class="w-24">
+        <li v-for="item in navItems" :key="item.to">
           <RouterLink
-            to="/"
-            class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
+            :to="item.to"
+            :class="[
+              'h-10 flex flex-row items-center justify-center rounded-full transition-all duration-300 ease-out text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10',
+              item.match(route.path) ? 'w-22' : 'w-10',
+            ]"
+            active-class="!bg-gray-50 dark:!bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:!bg-white dark:hover:!bg-gray-600/90"
           >
-            <font-awesome-icon icon="fa-solid fa-house" class="mb-px" />
-            首頁
-          </RouterLink>
-        </li>
-        <li class="w-24">
-          <RouterLink
-            to="/portfolio"
-            class="h-10 flex flex-row gap-1 items-center justify-center rounded-full transition-all duration-200 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10"
-            active-class="bg-gray-50 dark:bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-gray-900 dark:!text-white hover:bg-white dark:hover:bg-gray-600/90"
-          >
-            <font-awesome-icon icon="fa-solid fa-file" class="mb-px" />
-            作品
+            <font-awesome-icon :icon="item.icon" class="w-10 h-10 mb-px shrink-0" />
+            <span
+              class="overflow-hidden whitespace-nowrap transition-all duration-300 ease-out"
+              :class="
+                item.match(route.path) ? 'max-w-22 ml-1.5 opacity-100' : 'max-w-0 ml-0 opacity-0'
+              "
+            >
+              {{ item.label }}
+            </span>
           </RouterLink>
         </li>
       </ul>
@@ -53,10 +53,26 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import { useDarkMode } from '../composables/useDarkMode'
 
 const { isDark, toggle } = useDarkMode()
+const route = useRoute()
+
+const navItems = [
+  {
+    to: '/',
+    icon: 'fa-solid fa-house',
+    label: '首頁',
+    match: (path: string) => path === '/',
+  },
+  {
+    to: '/portfolio',
+    icon: 'fa-solid fa-file',
+    label: '作品',
+    match: (path: string) => path.startsWith('/portfolio'),
+  },
+]
 
 const isIOSSafari =
   /iP(hone|ad)/.test(navigator.userAgent) &&
