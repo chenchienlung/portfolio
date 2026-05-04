@@ -41,6 +41,13 @@ export interface SkillIcon {
   dark?: string
 }
 
+export interface SkillGroup {
+  title: string
+  icon: string
+  items: string[]
+  checklist?: string[]
+}
+
 export type JobStatusColor = 'green' | 'blue' | 'rose' | 'gray'
 
 export interface About {
@@ -54,6 +61,7 @@ export interface About {
   educations: Education[]
   skill_icons: SkillIcon[]
   skill_texts: string[]
+  skill_groups: SkillGroup[]
 }
 
 export const fetchAbout = async (): Promise<About> => {

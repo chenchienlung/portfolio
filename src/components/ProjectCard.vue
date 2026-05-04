@@ -8,7 +8,7 @@
     </div>
     <div class="p-4">
       <h3
-        class="text-lg font-bold text-black dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+        class="h-fit md:h-14 text-lg font-bold text-black dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
       >
         {{ title }}
       </h3>

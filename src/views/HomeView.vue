@@ -6,40 +6,92 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <div class="text-5xl text-black dark:text-white leading-tight pb-20 md:pb-0">
-          <h2 class="font-mono mb-5">Hello! I'm Chris.</h2>
-          我目前正在尋找<br />
-          <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span>UI/UX設計師
-          </span>
-          <br />
-          相關職缺
+        <div class="flex flex-col gap-10 text-black dark:text-white pb-20 md:pb-0">
+          <div class="flex flex-col gap-2 font-mono">
+            <span class="text-sky-600 text-sm md:text-xl">Frontend Engineer | UI/UX Designer</span>
+            <h2 class="text-5xl md:text-6xl font-mono mb-5">Hello! I'm Chris.</h2>
+          </div>
+          <p class="text-4xl leading-[1.2em]">
+            我目前正在尋找<br />
+            <span class="text-sky-600 md:text-nowrap font-bold">
+              前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span
+              >UI/UX設計師 </span
+            ><br />
+            相關職缺
+          </p>
           <div class="mt-6 md:mt-12 flex flex-row flex-wrap gap-2">
             <a
               href="https://github.com/chenchienlung"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-6 py-3 text-base text-nowrap text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
+              class="px-4 h-11 flex items-center justify-center text-center text-nowrap text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
             >
               <font-awesome-icon icon="fa-brands fa-github" />
-              <span class="mx-1.5 text-sm">GitHub↗</span>
+              <span class="ml-1.5 text-sm">GitHub ↗</span>
             </a>
             <a
               href="#about"
-              class="px-6 h-12 flex items-center text-base text-nowrap text-sky-800 dark:text-sky-400 border border-sky-700 dark:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-700 rounded-full transition-all duration-200"
+              class="px-4 h-11 flex items-center justify-center text-center text-nowrap text-sky-800 dark:text-sky-400 border border-sky-700 dark:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-700 rounded-full transition-all duration-200"
             >
               <font-awesome-icon icon="fa-solid fa-user" />
-              <span class="mx-1.5 text-sm">關於我↓</span>
+              <span class="ml-1.5 text-sm">關於我 ↓</span>
             </a>
           </div>
         </div>
         <StatusBadge
           v-if="about?.job_status"
-          class="absolute top-10 md:top-100 right-0"
+          class="absolute top-10 md:top-50 right-0"
           :label="about.job_status"
           :color="about.job_status_color"
           size="md"
         />
+      </section>
+      <section
+        class="relative min-h-[calc(100vh-168px)]"
+        data-aos="fade-up"
+        data-aos-duration="800"
+      >
+        <h2
+          class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-gray-400 dark:border-gray-600 mb-10"
+        >
+          技能
+        </h2>
+        <div v-if="about?.skill_groups?.length" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div
+            v-for="group in about.skill_groups"
+            :key="group.title"
+            class="h-fit md:h-[400px] flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
+          >
+            <div class="flex items-center gap-2 text-black dark:text-white">
+              <font-awesome-icon :icon="group.icon" class="mb-px" size="lg" />
+              <h3 class="text-xl font-semibold font-mono text-black dark:text-white">
+                {{ group.title }}
+              </h3>
+            </div>
+            <ul class="w-fit md:h-30 flex flex-wrap content-start gap-2">
+              <li
+                v-for="skill in group.items"
+                :key="skill"
+                class="h-fit text-sm text-gray-600 dark:text-gray-300 text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full"
+              >
+                {{ skill }}
+              </li>
+            </ul>
+            <ul
+              v-if="group.checklist?.length"
+              class="flex flex-col gap-2 pt-4 border-t border-gray-200 dark:border-white/10"
+            >
+              <li
+                v-for="item in group.checklist"
+                :key="item"
+                class="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+              >
+                <font-awesome-icon icon="fa-solid fa-check" class="mt-1 text-green-600 shrink-0" />
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
       <section
         class="relative min-h-[calc(100vh-168px)]"
@@ -193,7 +245,7 @@
                 </div>
               </div>
             </div>
-            <div
+            <!-- <div
               v-if="about.educations.length"
               data-aos="fade-up"
               data-aos-duration="800"
@@ -215,8 +267,8 @@
                   {{ edu.description }}
                 </p>
               </div>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            </div> -->
+            <!-- <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
               <h3
                 class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
               >
@@ -243,7 +295,7 @@
                   {{ skilltext }}
                 </span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>

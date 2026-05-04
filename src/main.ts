@@ -6,7 +6,7 @@ import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGithub, faFigma } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faFigma, faSquareFigma } from '@fortawesome/free-brands-svg-icons'
 import {
   faEnvelope,
   faCheck,
@@ -18,6 +18,9 @@ import {
   faLocationDot,
   faBook,
   faHeadphones,
+  faCode,
+  faWandMagicSparkles,
+  faScrewdriverWrench,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
@@ -28,6 +31,7 @@ library.add(
   faCheck,
   faGlobe,
   faFigma,
+  faSquareFigma,
   faUser,
   faHouse,
   faFile,
@@ -35,6 +39,9 @@ library.add(
   faLocationDot,
   faBook,
   faHeadphones,
+  faCode,
+  faWandMagicSparkles,
+  faScrewdriverWrench,
   faSunRegular,
   faMoonRegular,
 )
