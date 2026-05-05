@@ -4,7 +4,12 @@
     class="block group cursor-pointer w-full h-full rounded-3xl overflow-hidden border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-300 shadow-xs/12 hover:shadow-lg/12 hover:-translate-y-1"
   >
     <div class="aspect-3/2 overflow-hidden">
-      <img class="w-full h-full object-cover" :src="image" :alt="title" fetchpriority="high" />
+      <img
+        class="w-full h-full object-cover bg-black/5 dark:bg-black/40"
+        :src="image"
+        :alt="title"
+        fetchpriority="high"
+      />
     </div>
     <div class="p-4">
       <h3

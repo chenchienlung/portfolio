@@ -8,7 +8,7 @@
       >
         <div class="flex flex-col gap-10 text-black dark:text-white pb-20 md:pb-0">
           <div class="flex flex-col gap-2 font-mono">
-            <span class="text-sky-600 text-sm md:text-xl">Frontend Engineer | UI/UX Designer</span>
+            <span class="text-sky-700 text-sm md:text-xl">Frontend Engineer | UI/UX Designer</span>
             <h2 class="text-5xl md:text-6xl font-mono mb-5">Hello! I'm Chris.</h2>
           </div>
           <p class="text-4xl leading-[1.2em]">
@@ -56,42 +56,7 @@
         >
           技能
         </h2>
-        <div v-if="about?.skill_groups?.length" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div
-            v-for="group in about.skill_groups"
-            :key="group.title"
-            class="h-fit md:h-[400px] flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
-          >
-            <div class="flex items-center gap-2 text-black dark:text-white">
-              <font-awesome-icon :icon="group.icon" class="mb-px" size="lg" />
-              <h3 class="text-xl font-semibold font-mono text-black dark:text-white">
-                {{ group.title }}
-              </h3>
-            </div>
-            <ul class="w-fit md:h-30 flex flex-wrap content-start gap-2">
-              <li
-                v-for="skill in group.items"
-                :key="skill"
-                class="h-fit text-sm text-gray-600 dark:text-gray-300 text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full"
-              >
-                {{ skill }}
-              </li>
-            </ul>
-            <ul
-              v-if="group.checklist?.length"
-              class="flex flex-col gap-2 pt-4 border-t border-gray-200 dark:border-white/10"
-            >
-              <li
-                v-for="item in group.checklist"
-                :key="item"
-                class="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
-              >
-                <font-awesome-icon icon="fa-solid fa-check" class="mt-1 text-green-600 shrink-0" />
-                <span>{{ item }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
       </section>
       <section
         class="relative min-h-[calc(100vh-168px)]"
@@ -308,6 +273,7 @@ import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import ResourceItem from '../components/ResourceItem.vue'
+import SkillsCard from '../components/SkillsCard.vue'
 import StatusBadge from '../components/StatusBadge.vue'
 import { fetchProjects, type Project } from '../data/projects'
 import { fetchAbout, type About } from '../data/about'
