@@ -67,8 +67,13 @@
           <div
             v-for="(block, index) in project.development_blocks"
             :key="index"
-            class="flex flex-col md:flex-row gap-6 items-center"
-            :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
+            class="flex flex-col md:flex-row gap-5 items-center"
+            :class="[
+              block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row',
+              !block.image && (block.title || block.description)
+                ? 'bg-black/5 dark:bg-white/5 rounded-xl my-10 py-10 px-5'
+                : '',
+            ]"
           >
             <div
               v-if="block.image"
@@ -114,7 +119,12 @@
             v-for="(block, index) in project.detail_blocks"
             :key="index"
             class="flex flex-col md:flex-row gap-6 items-center"
-            :class="block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'"
+            :class="[
+              block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row',
+              !block.image && (block.title || block.description)
+                ? 'bg-black/5 dark:bg-white/5 rounded-xl my-10 py-10 px-5'
+                : '',
+            ]"
           >
             <div
               v-if="block.image"

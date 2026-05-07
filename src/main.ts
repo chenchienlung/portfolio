@@ -21,6 +21,7 @@ import {
   faCode,
   faWandMagicSparkles,
   faScrewdriverWrench,
+  faPen,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
@@ -42,6 +43,7 @@ library.add(
   faCode,
   faWandMagicSparkles,
   faScrewdriverWrench,
+  faPen,
   faSunRegular,
   faMoonRegular,
 )

@@ -7,7 +7,7 @@
       class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-gray-200/30 dark:bg-black/40 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
     >
       <ul
-        class="w-[134px] flex flex-row justify-center p-0.5 bg-gray-200/45 dark:bg-black/20 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+        class="w-fit flex flex-row justify-center p-0.5 bg-gray-200/45 dark:bg-black/20 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
       >
         <li v-for="item in navItems" :key="item.to">
           <RouterLink
@@ -72,6 +72,12 @@ const navItems = [
     label: '作品',
     match: (path: string) => path.startsWith('/portfolio'),
   },
+  // {
+  //   to: '/blog',
+  //   icon: 'fa-solid fa-pen',
+  //   label: '文章',
+  //   match: (path: string) => path.startsWith('/blog'),
+  // },
 ]
 
 const isIOSSafari =

@@ -2,6 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
+import { setPageTitle } from '@/utils/pageTitle'
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +26,7 @@ const router = createRouter({
       path: '/portfolio',
       name: 'portfolio',
       component: ProjectView,
+      meta: { title: '作品' },
     },
     {
       path: '/portfolio/:slug',
@@ -29,8 +37,14 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: () => import('@/views/NotFoundView.vue'),
+      meta: { title: '找不到頁面' },
     },
   ],
+})
+
+router.afterEach((to) => {
+  if (to.name === 'project-detail') return
+  setPageTitle(to.meta.title)
 })
 
 export default router

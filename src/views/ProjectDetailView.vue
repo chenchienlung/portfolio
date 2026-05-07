@@ -51,6 +51,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { fetchProjectBySlug, type Project } from '../data/projects'
 import ProjectDetail from '../components/ProjectDetail.vue'
+import { setPageTitle } from '../utils/pageTitle'
 
 const route = useRoute()
 const project = ref<Project | null>(null)
@@ -62,8 +63,10 @@ const loadProject = async () => {
   loading.value = true
   try {
     project.value = await fetchProjectBySlug(slug)
+    setPageTitle(project.value?.title)
   } catch (err) {
     project.value = null
+    setPageTitle('找不到該作品')
     console.error(err)
   } finally {
     loading.value = false
