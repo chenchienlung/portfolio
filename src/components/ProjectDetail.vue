@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-5 mb-4">
+  <main class="flex flex-col gap-5 mb-4">
     <div
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
     >
@@ -247,7 +247,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
+import BlogView from '@/views/BlogView.vue'
+import BlogDetailView from '@/views/BlogDetailView.vue'
 import { setPageTitle } from '@/utils/pageTitle'
 
 declare module 'vue-router' {
@@ -32,6 +34,17 @@ const router = createRouter({
       path: '/portfolio/:slug',
       name: 'project-detail',
       component: ProjectDetailView,
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: BlogView,
+      meta: { title: '文章' },
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blog-detail',
+      component: BlogDetailView,
     },
     {
       path: '/:pathMatch(.*)*',

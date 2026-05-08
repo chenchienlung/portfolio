@@ -1,11 +1,11 @@
 <template>
-  <div
+  <span
     class="w-fit h-fit flex items-center gap-1.5 ring-1 rounded-full shadow-[0_0_12px]"
     :class="[styles.container, styles.shadow, sizeClass]"
   >
     <span class="w-2 h-2 rounded-full animate-pulse shrink-0" :class="styles.dot"></span>
     <slot>{{ label }}</slot>
-  </div>
+  </span>
 </template>
 
 <script setup lang="ts">
