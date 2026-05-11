@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import ProjectDetailView from '@/views/ProjectDetailView.vue'
-import BlogView from '@/views/BlogView.vue'
-import BlogDetailView from '@/views/BlogDetailView.vue'
+import ArticleView from '@/views/ArticleView.vue'
+import ArticleDetailView from '@/views/ArticleDetailView.vue'
 import { setPageTitle } from '@/utils/pageTitle'
 
 declare module 'vue-router' {
@@ -36,15 +36,15 @@ const router = createRouter({
       component: ProjectDetailView,
     },
     {
-      path: '/blog',
-      name: 'blog',
-      component: BlogView,
+      path: '/article',
+      name: 'article',
+      component: ArticleView,
       meta: { title: '文章' },
     },
     {
-      path: '/blog/:slug',
-      name: 'blog-detail',
-      component: BlogDetailView,
+      path: '/article/:slug',
+      name: 'article-detail',
+      component: ArticleDetailView,
     },
     {
       path: '/:pathMatch(.*)*',
@@ -56,7 +56,8 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  if (to.name === 'project-detail') return
+  // 詳情頁等資料載入後再由 view 設定 title
+  if (to.name === 'project-detail' || to.name === 'article-detail') return
   setPageTitle(to.meta.title)
 })
 

@@ -6,17 +6,21 @@
         data-aos="fade-up"
         data-aos-duration="800"
       >
-        <div class="flex flex-col gap-10 text-black dark:text-white pb-20 md:pb-0">
+        <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white pb-20 md:pb-0">
           <div class="flex flex-col gap-2 font-mono">
-            <span class="text-sky-700 text-sm md:text-xl">Frontend Engineer | UI/UX Designer</span>
+            <span class="text-sky-700 dark:text-sky-400 text-sm md:text-xl">
+              Frontend Engineer | UI/UX Designer
+            </span>
             <h2 class="text-5xl md:text-6xl font-mono mb-5">Hello! I'm Chris.</h2>
           </div>
-          <p class="text-4xl leading-[1.2em]">
-            我目前正在尋找<br />
+          <p class="text-3xl md:text-4xl leading-[1.2em]">
+            我目前正在尋找
+            <br />
             <span class="text-sky-600 md:text-nowrap font-bold">
-              前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span
-              >UI/UX設計師 </span
-            ><br />
+              前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span>
+              UI/UX設計師
+            </span>
+            <br />
             相關職缺
           </p>
           <div class="mt-6 md:mt-12 flex flex-row flex-wrap gap-2">

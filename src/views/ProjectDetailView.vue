@@ -2,7 +2,9 @@
   <main class="min-h-screen max-w-6xl mx-auto">
     <div class="mx-5 mt-12 md:mt-24">
       <div v-if="loading" class="animate-pulse space-y-6 mb-10">
-        <div class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-gray-200 dark:bg-gray-700 border border-black/10 dark:border-white/10" />
+        <div
+          class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-gray-200 dark:bg-gray-700 border border-black/10 dark:border-white/10"
+        />
         <div
           class="px-6 md:px-8 py-10 md:py-12 bg-white dark:bg-gray-800 rounded-4xl border border-black/15 dark:border-white/10 space-y-8"
         >
@@ -25,21 +27,32 @@
             <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div v-for="n in 3" :key="n" class="aspect-3/2 bg-gray-200 dark:bg-gray-700 rounded-2xl" />
+            <div
+              v-for="n in 3"
+              :key="n"
+              class="aspect-3/2 bg-gray-200 dark:bg-gray-700 rounded-2xl"
+            />
           </div>
           <div class="space-y-3">
             <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-24" />
             <div class="flex gap-4">
-              <div v-for="n in 6" :key="n" class="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full" />
+              <div
+                v-for="n in 6"
+                :key="n"
+                class="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full"
+              />
             </div>
           </div>
         </div>
       </div>
       <ProjectDetail v-else-if="project" :project="project" />
-      <div v-else class="text-center">
-        <h2 class="text-2xl font-bold text-gray-400 dark:text-gray-500">找不到該作品</h2>
-        <RouterLink to="/" class="text-blue-500 hover:underline mt-4 inline-block">
-          回到前一頁
+      <div v-else class="text-center py-20">
+        <h2 class="text-2xl font-bold text-gray-400 dark:text-gray-500 mb-10">找不到該作品</h2>
+        <RouterLink
+          to="/portfolio"
+          class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
+        >
+          回前一頁
         </RouterLink>
       </div>
     </div>

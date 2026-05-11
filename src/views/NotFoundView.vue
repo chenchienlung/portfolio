@@ -8,7 +8,7 @@
     <p class="text-lg text-gray-600 dark:text-gray-300">您輸入的網址不存在，或是已經被移除了。</p>
     <RouterLink
       to="/"
-      class="px-6 py-3 text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
+      class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
     >
       回首頁
     </RouterLink>
