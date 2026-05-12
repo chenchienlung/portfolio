@@ -79,17 +79,17 @@
           <div
             v-for="n in 3"
             :key="n"
-            class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-gray-800 overflow-hidden"
+            class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden"
           >
-            <div class="aspect-3/2 bg-gray-200 dark:bg-gray-700" />
+            <div class="aspect-3/2 bg-black/15 dark:bg-white/15" />
             <div class="p-4 space-y-3">
-              <div class="h-5 bg-gray-200 dark:bg-gray-700 rounded w-3/5" />
+              <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-3/5" />
               <div class="flex gap-2">
-                <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
-                <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
+                <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+                <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
               </div>
-              <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-full" />
-              <div class="h-3 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
+              <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-full" />
+              <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-4/5" />
             </div>
           </div>
         </div>

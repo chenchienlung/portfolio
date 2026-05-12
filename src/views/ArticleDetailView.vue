@@ -3,33 +3,33 @@
     <div class="mx-5 mt-12 md:mt-24">
       <div v-if="loading" class="animate-pulse space-y-6 mb-10">
         <div
-          class="aspect-video rounded-4xl bg-gray-200 dark:bg-gray-700 border border-black/10 dark:border-white/10"
+          class="aspect-video rounded-4xl bg-black/15 dark:bg-white/15 border border-black/10 dark:border-white/10"
         />
         <div
-          class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-gray-800 rounded-4xl border border-black/15 dark:border-white/10 space-y-6"
+          class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 space-y-6"
         >
           <div class="flex gap-2">
-            <span class="h-5 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
-            <span class="h-5 w-20 bg-gray-200 dark:bg-gray-700 rounded-full" />
+            <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-5 w-20 bg-black/15 dark:bg-white/15 rounded-full" />
           </div>
-          <div class="h-9 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
-          <div class="h-9 bg-gray-200 dark:bg-gray-700 rounded w-2/5" />
-          <div class="h-5 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+          <div class="h-9 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+          <div class="h-9 bg-black/15 dark:bg-white/15 rounded w-2/5" />
+          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-full" />
           <div class="flex gap-3">
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-24" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-20" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-24" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-20" />
           </div>
           <div class="flex gap-2 flex-wrap">
-            <span class="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded-full" />
-            <span class="h-6 w-14 bg-gray-200 dark:bg-gray-700 rounded-full" />
-            <span class="h-6 w-18 bg-gray-200 dark:bg-gray-700 rounded-full" />
+            <span class="h-6 w-16 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-6 w-18 bg-black/15 dark:bg-white/15 rounded-full" />
           </div>
           <div class="space-y-3 pt-6">
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5" />
-            <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/5" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-5/6" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-3/5" />
           </div>
         </div>
       </div>
