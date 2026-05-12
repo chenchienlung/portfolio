@@ -11,7 +11,9 @@ const transitionName = ref('slide-up')
 const getDepth = (name: any) => {
   if (name === 'home') return 0
   if (name === 'portfolio') return 1
-  if (name === 'project-detail') return 2
+  if (name === 'article') return 2
+  if (name === 'project-detail') return 3
+  if (name === 'article-detail') return 3
   return 0
 }
 
@@ -20,10 +22,12 @@ watch(
   (toName, fromName) => {
     const isDetailToPortfolio = fromName === 'project-detail' && toName === 'portfolio'
     const isPortfolioToDetail = fromName === 'portfolio' && toName === 'project-detail'
+    const isDetailToArticle = fromName === 'article-detail' && toName === 'article'
+    const isArticleToDetail = fromName === 'article' && toName === 'article-detail'
 
-    if (isPortfolioToDetail) {
+    if (isPortfolioToDetail || isArticleToDetail) {
       transitionName.value = 'slide-up'
-    } else if (isDetailToPortfolio) {
+    } else if (isDetailToPortfolio || isDetailToArticle) {
       transitionName.value = 'slide-down'
     } else {
       transitionName.value = getDepth(toName) > getDepth(fromName) ? 'slide-left' : 'slide-right'

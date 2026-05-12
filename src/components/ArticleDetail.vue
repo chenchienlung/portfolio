@@ -120,7 +120,7 @@ const formatDate = (iso: string) => {
 .article-content h3,
 .article-content h4 {
   font-weight: 700;
-  color: #000;
+  color: oklch(0.588 0.158 241.966);
   line-height: 1.4;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
@@ -241,19 +241,36 @@ html.dark .article-content hr {
 }
 .article-content table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.25rem 0;
+  border-collapse: separate; /* collapse 會讓 border-radius 失效 */
+  border-spacing: 0;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  border-radius: 0.75rem; /* 12px */
+  overflow: hidden;
+  margin: 20px 0;
   font-size: 0.9375rem;
+}
+html.dark .article-content table {
+  border-color: rgb(255 255 255 / 0.1);
 }
 .article-content th,
 .article-content td {
   padding: 0.5rem 0.75rem;
-  border: 1px solid rgb(0 0 0 / 0.1);
+  border-right: 1px solid rgb(0 0 0 / 0.1);
+  border-bottom: 1px solid rgb(0 0 0 / 0.1);
   text-align: left;
 }
 html.dark .article-content th,
 html.dark .article-content td {
-  border-color: rgb(255 255 255 / 0.1);
+  border-right-color: rgb(255 255 255 / 0.1);
+  border-bottom-color: rgb(255 255 255 / 0.1);
+}
+/* 最後一欄不畫右邊框、最後一列不畫下邊框，避免跟外框重疊 */
+.article-content th:last-child,
+.article-content td:last-child {
+  border-right: none;
+}
+.article-content tr:last-child td {
+  border-bottom: none;
 }
 .article-content th {
   background-color: rgb(0 0 0 / 0.04);

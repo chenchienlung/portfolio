@@ -72,12 +72,12 @@ const navItems = [
     label: '作品',
     match: (path: string) => path.startsWith('/portfolio'),
   },
-  // {
-  //   to: '/blog',
-  //   icon: 'fa-solid fa-pen',
-  //   label: '文章',
-  //   match: (path: string) => path.startsWith('/blog'),
-  // },
+  {
+    to: '/article',
+    icon: 'fa-solid fa-pen',
+    label: '文章',
+    match: (path: string) => path.startsWith('/article'),
+  },
 ]
 
 const isIOSSafari =

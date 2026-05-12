@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     :to="link || '#'"
-    class="block group cursor-pointer w-full h-full p-5 rounded-3xl dark:border-white/15 md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 shadow-xs/12 md:hover:shadow-lg/12"
+    class="block group cursor-pointer w-full h-full p-5 rounded-3xl dark:border-white/15 md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 md:hover:shadow-lg/12"
   >
     <div class="flex flex-row gap-4 md:gap-6 items-start">
       <div class="flex-1 min-w-0 flex flex-col gap-2">
@@ -40,7 +40,7 @@
       </div>
     </div>
   </RouterLink>
-  <div class="w-[95%] mx-auto border-b border-black/15 dark:border-white/15"></div>
+  <hr class="w-[96%] mx-auto my-2.5 dark:border-white/15 border-black/15" />
 </template>
 
 <script setup lang="ts">

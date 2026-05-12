@@ -22,7 +22,7 @@
         </div>
       </div>
       <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
-      <div v-else-if="articles.length" class="flex flex-col gap-5">
+      <div v-else-if="articles.length" class="flex flex-col">
         <ArticleCard v-for="article in articles" :key="article.id" v-bind="article" />
       </div>
       <div v-else class="text-center py-20">
