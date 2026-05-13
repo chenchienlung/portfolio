@@ -21,12 +21,12 @@
         <span
           v-for="tag in tags"
           :key="tag"
-          class="px-2 py-0.5 text-sm bg-gray-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-300"
+          class="px-2 py-0.5 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300"
         >
           {{ tag }}
         </span>
       </div>
-      <p class="text-gray-600 dark:text-gray-300 text-base line-clamp-2">{{ description }}</p>
+      <p class="text-neutral-600 dark:text-neutral-300 text-base line-clamp-2">{{ description }}</p>
     </div>
   </RouterLink>
 </template>

@@ -2,7 +2,7 @@
   <div class="relative flex flex-col gap-5 mb-10">
     <div
       @click="$router.back()"
-      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-gray-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
     >
       <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
       上一頁
@@ -33,7 +33,7 @@
           </span>
           <span
             v-if="article.series"
-            class="w-fit px-2 py-0.5 text-xs font-normal bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full"
+            class="w-fit px-2 py-0.5 text-xs font-normal bg-neutral-100 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 rounded-full"
           >
             {{ article.series
             }}<template v-if="article.series_order"> #{{ article.series_order }}</template>
@@ -44,11 +44,14 @@
           {{ article.title }}
         </h1>
 
-        <p v-if="article.subtitle" class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p
+          v-if="article.subtitle"
+          class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+        >
           {{ article.subtitle }}
         </p>
 
-        <div class="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400 font-mono">
+        <div class="flex flex-wrap gap-4 text-sm text-neutral-500 dark:text-neutral-400 font-mono">
           <span v-if="article.published_at">
             <font-awesome-icon icon="fa-regular fa-calendar" class="mr-1" />
             {{ formatDate(article.published_at) }}
@@ -63,7 +66,7 @@
           <span
             v-for="tag in article.tags"
             :key="tag"
-            class="px-3 py-1 text-sm bg-gray-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-gray-600 dark:text-gray-300"
+            class="px-3 py-1 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300"
           >
             #{{ tag }}
           </span>
@@ -72,19 +75,22 @@
 
       <p
         v-if="article.excerpt"
-        class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed border-l-4 border-sky-500 dark:border-sky-400 pl-5"
+        class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed border-l-4 border-sky-500 dark:border-sky-400 pl-5"
       >
         {{ article.excerpt }}
       </p>
 
       <div class="border-b border-black/10 dark:border-white/10"></div>
 
-      <div class="article-content text-gray-800 dark:text-gray-200" v-html="renderedContent"></div>
+      <div
+        class="article-content text-neutral-800 dark:text-neutral-200"
+        v-html="renderedContent"
+      ></div>
 
       <div class="border-t border-black/10 dark:border-white/10 pt-8">
         <RouterLink
           to="/article"
-          class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+          class="inline-flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
         >
           ← 回到文章列表
         </RouterLink>
@@ -136,7 +142,7 @@ html.dark .article-content h1,
 html.dark .article-content h2,
 html.dark .article-content h3,
 html.dark .article-content h4 {
-  color: #fff;
+  color: oklch(0.588 0.158 241.966);
 }
 .article-content h1 {
   font-size: 1.875rem;
@@ -191,19 +197,21 @@ html.dark .article-content a:hover {
 }
 .article-content code {
   font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  background-color: rgb(0 0 0 / 0.06);
+  background-color: #f5f5f5;
+  color: #171717;
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
   font-size: 0.875em;
 }
 html.dark .article-content code {
-  background-color: rgb(255 255 255 / 0.1);
-  color: rgb(255 255 255);
+  background-color: #171717;
+  color: #e5e5e5;
 }
+
 .article-content pre {
-  background-color: rgb(255 255 255 / 0.1);
-  color: rgb(0 0 0 / 0.6);
-  border: 1px solid rgb(0 0 0 / 0.08);
+  background-color: #f5f5f5;
+  color: #171717;
+  border: 1px solid #e5e5e5;
   padding: 1rem 1.25rem;
   border-radius: 0.75rem;
   overflow-x: auto;
@@ -212,9 +220,9 @@ html.dark .article-content code {
   line-height: 1.7;
 }
 html.dark .article-content pre {
-  background-color: rgb(255 255 255 / 0.1);
-  color: rgb(0 0 0 / 0.6);
-  border-color: rgb(255 255 255 / 0.08);
+  background-color: #171717;
+  color: #e5e5e5;
+  border-color: #262626;
 }
 .article-content pre code {
   background: transparent;
@@ -253,11 +261,11 @@ html.dark .article-content img {
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.875rem;
-  color: rgb(107 114 128); /* gray-500 */
+  color: rgb(107 114 128);
   line-height: 1.5;
 }
 html.dark .article-content figcaption {
-  color: rgb(156 163 175); /* gray-400 */
+  color: rgb(156 163 175);
 }
 .article-content hr {
   border: 0;

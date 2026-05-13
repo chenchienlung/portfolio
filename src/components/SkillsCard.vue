@@ -18,19 +18,19 @@
         <li
           v-for="skill in group.items"
           :key="skill"
-          class="h-fit text-xs text-gray-600 dark:text-gray-300 text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full"
+          class="h-fit text-xs text-neutral-600 dark:text-neutral-300 text-nowrap px-3 py-1.5 bg-neutral-50 dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-full"
         >
           {{ skill }}
         </li>
       </ul>
       <ul
         v-if="group.checklist?.length"
-        class="flex flex-col gap-2 pt-4 border-t border-gray-200 dark:border-white/10"
+        class="flex flex-col gap-2 pt-4 border-t border-neutral-200 dark:border-white/10"
       >
         <li
           v-for="item in group.checklist"
           :key="item"
-          class="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300"
+          class="flex items-start gap-2 text-sm text-neutral-700 dark:text-neutral-300"
         >
           <font-awesome-icon icon="fa-solid fa-check" class="mt-1 text-green-600 shrink-0" />
           <span class="text-base">{{ item }}</span>

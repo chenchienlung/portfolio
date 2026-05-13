@@ -48,7 +48,7 @@ export interface SkillGroup {
   checklist?: string[]
 }
 
-export type JobStatusColor = 'green' | 'blue' | 'rose' | 'gray'
+export type JobStatusColor = 'green' | 'blue' | 'rose' | 'neutral'
 
 export interface About {
   id: number

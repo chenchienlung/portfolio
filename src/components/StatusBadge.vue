@@ -42,11 +42,11 @@ const COLOR_MAP: Record<JobStatusColor, { container: string; dot: string; shadow
     dot: 'bg-rose-500 dark:bg-rose-400',
     shadow: 'shadow-rose-400/30 dark:shadow-rose-400/20',
   },
-  gray: {
+  neutral: {
     container:
-      'bg-gray-100 dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 ring-gray-400 dark:ring-gray-500/60',
-    dot: 'bg-gray-500 dark:bg-gray-400',
-    shadow: 'shadow-gray-400/30 dark:shadow-gray-400/20',
+      'bg-neutral-100 dark:bg-neutral-800/60 text-neutral-700 dark:text-neutral-300 ring-neutral-400 dark:ring-neutral-500/60',
+    dot: 'bg-neutral-500 dark:bg-neutral-400',
+    shadow: 'shadow-neutral-400/30 dark:shadow-neutral-400/20',
   },
 }
 

@@ -1,7 +1,9 @@
 <template>
   <section class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
     <div class="mx-5 mt-12 md:mt-28">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">我的文章</h2>
+      <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-10">
+        我的文章
+      </h2>
       <div v-if="loading" class="flex flex-col">
         <template v-for="n in 6" :key="n">
           <div class="animate-pulse p-5 rounded-3xl">
@@ -29,7 +31,9 @@
         <ArticleCard v-for="article in articles" :key="article.id" v-bind="article" />
       </div>
       <div v-else class="text-center py-20">
-        <h3 class="text-2xl font-bold text-gray-400 dark:text-gray-500 mb-10">目前還沒有文章...</h3>
+        <h3 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">
+          目前還沒有文章...
+        </h3>
         <RouterLink
           to="/"
           class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"

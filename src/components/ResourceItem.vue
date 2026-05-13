@@ -1,5 +1,5 @@
 <template>
-  <div class="text-gray-600 dark:text-gray-300 flex flex-row items-start gap-2">
+  <div class="text-neutral-600 dark:text-neutral-300 flex flex-row items-start gap-2">
     <font-awesome-icon v-if="iconType === 'fa'" :icon="icon" class="w-4 h-4 my-1 shrink-0" />
     <img
       v-else

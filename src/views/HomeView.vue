@@ -17,7 +17,7 @@
             我目前正在尋找
             <br />
             <span class="text-sky-600 md:text-nowrap font-bold">
-              前端工程師<span class="text-gray-400 dark:text-gray-500 text-2xl"> 或 </span>
+              前端工程師<span class="text-neutral-400 dark:text-neutral-500 text-2xl"> 或 </span>
               UI/UX設計師
             </span>
             <br />
@@ -56,7 +56,7 @@
         data-aos-duration="800"
       >
         <h2
-          class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-gray-400 dark:border-gray-600 mb-10"
+          class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600 mb-10"
         >
           技能
         </h2>
@@ -68,10 +68,12 @@
         data-aos-duration="800"
       >
         <div class="text-2xl text-sky-600 flex flex-row justify-between">
-          <h2 class="w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600">作品</h2>
+          <h2 class="w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
+            作品
+          </h2>
           <RouterLink
             to="/portfolio"
-            class="w-11 h-11 flex justify-center items-center rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 inset-shadow-white inset-shadow-sm/20 hover:bg-gray-200 dark:hover:bg-white/15 transition-all duration-200"
+            class="w-11 h-11 flex justify-center items-center rounded-full bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 inset-shadow-white inset-shadow-sm/20 hover:bg-neutral-200 dark:hover:bg-white/15 transition-all duration-200"
             >→</RouterLink
           >
         </div>
@@ -98,12 +100,12 @@
         </div>
         <RouterLink
           to="/portfolio"
-          class="md:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-gray-600 dark:text-gray-300"
+          class="md:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-neutral-600 dark:text-neutral-300"
         >
           查看更多作品 →
         </RouterLink>
         <p
-          class="hidden md:block w-full text-gray-200 dark:text-gray-800 text-[180px] text-center font-black absolute bottom-20"
+          class="hidden md:block w-full text-neutral-200 dark:text-neutral-800 text-[180px] text-center font-black absolute bottom-20"
         >
           PORTFOLIO
         </p>
@@ -117,7 +119,7 @@
         <div class="flex flex-col gap-20 mb-20">
           <div class="flex flex-col gap-4">
             <h2
-              class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-gray-400 dark:border-gray-600"
+              class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600"
             >
               關於我
             </h2>
@@ -131,13 +133,13 @@
               />
             </div>
 
-            <p v-if="about?.location" class="text-gray-600 dark:text-gray-300 font-mono">
+            <p v-if="about?.location" class="text-neutral-600 dark:text-neutral-300 font-mono">
               <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px" />
               {{ about.location }}
             </p>
             <div
               v-if="about?.contacts?.length"
-              class="text-gray-600 dark:text-gray-300 font-mono flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
+              class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
               data-aos-duration="800"
               data-aos-delay="100"
             >
@@ -170,7 +172,7 @@
           <div v-if="about" class="flex flex-col gap-20 text-base">
             <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
               <h3
-                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+                class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
               >
                 經歷
               </h3>
@@ -184,7 +186,7 @@
                   {{ exp.date }}
                   <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
                 </h4>
-                <p class="text-gray-600 dark:text-gray-300">
+                <p class="text-neutral-600 dark:text-neutral-300">
                   {{ exp.description_before }}
                   <a
                     v-if="exp.link"
@@ -221,7 +223,7 @@
               data-aos-delay="300"
             >
               <h3
-                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+                class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
               >
                 學歷
               </h3>
@@ -232,14 +234,14 @@
                 :class="{ 'mt-6': i > 0 }"
               >
                 <p class="text-black dark:text-white font-semibold">{{ edu.year }}</p>
-                <p class="text-gray-600 dark:text-gray-300 text-nowrap font-normal">
+                <p class="text-neutral-600 dark:text-neutral-300 text-nowrap font-normal">
                   {{ edu.description }}
                 </p>
               </div>
             </div> -->
             <!-- <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
               <h3
-                class="w-50 text-gray-800 dark:text-gray-200 pb-2 mb-8 border-b border-gray-400 dark:border-gray-600"
+                class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
               >
                 技能
               </h3>
@@ -259,7 +261,7 @@
                 <span
                   v-for="skilltext in about.skill_texts"
                   :key="skilltext"
-                  class="text-gray-600 dark:text-gray-300 text-sm text-nowrap px-3 py-1.5 bg-gray-50 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full"
+                  class="text-neutral-600 dark:text-neutral-300 text-sm text-nowrap px-3 py-1.5 bg-neutral-50 dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-full"
                 >
                   {{ skilltext }}
                 </span>
