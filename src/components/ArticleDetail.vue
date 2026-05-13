@@ -1,5 +1,13 @@
 <template>
-  <div class="flex flex-col gap-5 mb-10">
+  <div class="relative flex flex-col gap-5 mb-10">
+    <div
+      @click="$router.back()"
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-gray-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
+    >
+      <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
+      上一頁
+    </div>
+
     <div
       v-if="article.cover_image"
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
@@ -11,7 +19,6 @@
         class="w-full h-full object-cover"
       />
     </div>
-
     <article
       class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10"
     >
@@ -191,10 +198,11 @@ html.dark .article-content a:hover {
 }
 html.dark .article-content code {
   background-color: rgb(255 255 255 / 0.1);
+  color: rgb(255 255 255);
 }
 .article-content pre {
-  background-color: rgb(243 244 246); /* gray-100 */
-  color: rgb(17 24 39); /* gray-900 */
+  background-color: rgb(255 255 255 / 0.1);
+  color: rgb(0 0 0 / 0.6);
   border: 1px solid rgb(0 0 0 / 0.08);
   padding: 1rem 1.25rem;
   border-radius: 0.75rem;
@@ -204,8 +212,8 @@ html.dark .article-content code {
   line-height: 1.7;
 }
 html.dark .article-content pre {
-  background-color: rgb(17 24 39); /* gray-900 */
-  color: rgb(229 231 235); /* gray-200 */
+  background-color: rgb(255 255 255 / 0.1);
+  color: rgb(0 0 0 / 0.6);
   border-color: rgb(255 255 255 / 0.08);
 }
 .article-content pre code {
@@ -230,6 +238,26 @@ html.dark .article-content blockquote {
   height: auto;
   border-radius: 0.75rem;
   margin: 1.5rem 0;
+  border: 1px solid rgb(0 0 0 / 0.08);
+}
+.article-content figure {
+  margin: 1.5rem 0;
+}
+html.dark .article-content img {
+  border: none;
+}
+.article-content figure img {
+  margin: 0;
+}
+.article-content figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(107 114 128); /* gray-500 */
+  line-height: 1.5;
+}
+html.dark .article-content figcaption {
+  color: rgb(156 163 175); /* gray-400 */
 }
 .article-content hr {
   border: 0;
@@ -241,11 +269,11 @@ html.dark .article-content hr {
 }
 .article-content table {
   width: 100%;
-  border-collapse: separate; /* collapse 會讓 border-radius 失效 */
+  border-collapse: separate;
   border-spacing: 0;
   border: 1px solid rgb(0 0 0 / 0.1);
-  border-radius: 0.75rem; /* 12px */
-  overflow: hidden;
+  border-radius: 0.75rem;
+  overflow-x: scroll;
   margin: 20px 0;
   font-size: 0.9375rem;
 }
@@ -264,7 +292,6 @@ html.dark .article-content td {
   border-right-color: rgb(255 255 255 / 0.1);
   border-bottom-color: rgb(255 255 255 / 0.1);
 }
-/* 最後一欄不畫右邊框、最後一列不畫下邊框，避免跟外框重疊 */
 .article-content th:last-child,
 .article-content td:last-child {
   border-right: none;

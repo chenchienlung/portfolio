@@ -1,5 +1,12 @@
 <template>
-  <main class="flex flex-col gap-5 mb-4">
+  <main class="relative flex flex-col gap-5 mb-4">
+    <div
+      @click="$router.back()"
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-gray-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
+    >
+      <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
+      上一頁
+    </div>
     <div
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
     >
