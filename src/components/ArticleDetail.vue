@@ -111,7 +111,11 @@ const props = defineProps<{
 
 const renderedContent = computed(() => {
   if (!props.article.content) return ''
-  return marked.parse(props.article.content, { breaks: true, async: false }) as string
+  const html = marked.parse(props.article.content, { breaks: true, async: false }) as string
+  // 把 <table> 包一層 wrapper，讓手機版可以橫向捲動
+  return html
+    .replace(/<table>/g, '<div class="article-table-wrap"><table>')
+    .replace(/<\/table>/g, '</table></div>')
 })
 
 const formatDate = (iso: string) => {
@@ -275,14 +279,20 @@ html.dark .article-content figcaption {
 html.dark .article-content hr {
   border-top-color: rgb(255 255 255 / 0.1);
 }
+
+.article-content .article-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
 .article-content table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid rgb(0 0 0 / 0.1);
   border-radius: 0.75rem;
-  overflow-x: scroll;
-  margin: 20px 0;
+  margin: 0;
   font-size: 0.9375rem;
 }
 html.dark .article-content table {
@@ -294,6 +304,7 @@ html.dark .article-content table {
   border-right: 1px solid rgb(0 0 0 / 0.1);
   border-bottom: 1px solid rgb(0 0 0 / 0.1);
   text-align: left;
+  text-wrap: nowrap;
 }
 html.dark .article-content th,
 html.dark .article-content td {
