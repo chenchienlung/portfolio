@@ -83,6 +83,15 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+a,
+button,
+input,
+select,
+option {
+  cursor: pointer;
 }
 
 html {

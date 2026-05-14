@@ -3,7 +3,7 @@
     <div class="mx-5 mt-12 md:mt-24">
       <div v-if="loading" class="animate-pulse space-y-6 mb-10">
         <div
-          class="aspect-video rounded-4xl bg-black/15 dark:bg-white/15 border border-black/10 dark:border-white/10"
+          class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-black/15 dark:bg-white/15 border border-black/10 dark:border-white/10"
         />
         <div
           class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 space-y-6"

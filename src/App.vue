@@ -3,6 +3,7 @@ import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
+import CursorGlow from './components/CursorGlow.vue'
 import { initDarkMode } from './composables/useDarkMode'
 
 const route = useRoute()
@@ -56,6 +57,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <CursorGlow />
   <header>
     <AppNavbar />
   </header>

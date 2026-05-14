@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     :to="link || '#'"
-    class="block group cursor-pointer w-full h-full md:p-5 rounded-3xl dark:border-white/15 md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 md:hover:shadow-lg/12"
+    class="block group w-full h-full md:p-5 rounded-3xl dark:border-white/15 md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 md:hover:shadow-lg/12"
   >
     <div class="w-full flex flex-row gap-4 md:justify-between items-stretch">
       <div class="flex flex-col justify-between gap-2.5">

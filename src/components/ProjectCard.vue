@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     :to="link || '#'"
-    class="block group cursor-pointer w-full h-full rounded-3xl overflow-hidden border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-300 shadow-xs/12 hover:shadow-lg/12 hover:-translate-y-1"
+    class="block group w-full h-full rounded-3xl overflow-hidden border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-300 shadow-xs/12 hover:shadow-lg/12 hover:-translate-y-1"
   >
     <div class="aspect-3/2 overflow-hidden">
       <img
