@@ -62,12 +62,27 @@ const handleMouseMove = (e: MouseEvent) => {
   startLoop()
 }
 
+// 一旦偵測到 touch 就永久停用，避免混合裝置上被觸控誤觸發
+const handleTouchStart = () => {
+  active.value = false
+  running = false
+  cancelAnimationFrame(rafId)
+  window.removeEventListener('mousemove', handleMouseMove)
+  window.removeEventListener('touchstart', handleTouchStart)
+}
+
 onMounted(() => {
+  // 觸控裝置（手機 / 平板）不掛 listener，避免 iOS 的「幽靈 mousemove」讓光暈卡住
+  const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  if (!hasFinePointer) return
+
   window.addEventListener('mousemove', handleMouseMove, { passive: true })
+  window.addEventListener('touchstart', handleTouchStart, { passive: true })
 })
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', handleMouseMove)
+  window.removeEventListener('touchstart', handleTouchStart)
   cancelAnimationFrame(rafId)
 })
 </script>
