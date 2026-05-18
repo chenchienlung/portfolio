@@ -261,7 +261,7 @@
           :is="prev ? RouterLink : 'div'"
           :to="prev ? `/portfolio/${prev.slug}` : undefined"
           :class="[
-            'flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
             prev
               ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
               : 'opacity-40 cursor-not-allowed',
@@ -272,7 +272,6 @@
             class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
           />
           <div class="flex flex-col min-w-0">
-            <span class="text-xs text-neutral-500 dark:text-neutral-400">上一個作品</span>
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
             >
@@ -285,14 +284,13 @@
           :is="next ? RouterLink : 'div'"
           :to="next ? `/portfolio/${next.slug}` : undefined"
           :class="[
-            'flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
             next
               ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
               : 'opacity-40 cursor-not-allowed',
           ]"
         >
           <div class="flex flex-col min-w-0">
-            <span class="text-xs text-neutral-500 dark:text-neutral-400">下一個作品</span>
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
             >

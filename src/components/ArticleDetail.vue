@@ -93,7 +93,7 @@
           :is="prev ? RouterLink : 'div'"
           :to="prev ? `/article/${prev.slug}` : undefined"
           :class="[
-            'flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
             prev ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
           ]"
         >
@@ -115,7 +115,7 @@
           :is="next ? RouterLink : 'div'"
           :to="next ? `/article/${next.slug}` : undefined"
           :class="[
-            'flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
             next ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
           ]"
         >
