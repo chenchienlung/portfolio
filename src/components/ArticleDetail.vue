@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-col gap-5 mb-10">
+  <main class="relative flex flex-col gap-5 mb-10">
     <div
       @click="$router.back()"
       class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
@@ -86,27 +86,67 @@
         class="article-content text-neutral-800 dark:text-neutral-200"
         v-html="renderedContent"
       ></div>
-
-      <div class="border-t border-black/10 dark:border-white/10 pt-8">
-        <RouterLink
-          to="/article"
-          class="inline-flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-        >
-          ← 回到文章列表
-        </RouterLink>
-      </div>
     </article>
-  </div>
+    <section class="flex flex-col gap-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <component
+          :is="prev ? RouterLink : 'div'"
+          :to="prev ? `/article/${prev.slug}` : undefined"
+          :class="[
+            'flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            prev ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-left"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
+          <div class="flex flex-col min-w-0">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">上一篇</span>
+            <span
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
+              {{ prev?.title || '' }}
+            </span>
+          </div>
+        </component>
+
+        <component
+          :is="next ? RouterLink : 'div'"
+          :to="next ? `/article/${next.slug}` : undefined"
+          :class="[
+            'flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            next ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
+          <div class="flex flex-col min-w-0">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">下一篇</span>
+            <span
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
+              {{ next?.title || '' }}
+            </span>
+          </div>
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-right"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
+        </component>
+      </div>
+    </section>
+  </main>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { marked } from 'marked'
-import type { Article } from '../data/articles'
+import type { Article, ArticleListItem } from '../data/articles'
 
 const props = defineProps<{
   article: Article
+  prev?: ArticleListItem | null
+  next?: ArticleListItem | null
 }>()
 
 const renderedContent = computed(() => {

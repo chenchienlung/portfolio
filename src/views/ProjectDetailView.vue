@@ -45,7 +45,12 @@
           </div>
         </div>
       </div>
-      <ProjectDetail v-else-if="project" :project="project" />
+      <ProjectDetail
+        v-else-if="project"
+        :project="project"
+        :prev="prevProject"
+        :next="nextProject"
+      />
       <div v-else class="text-center py-20">
         <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">
           找不到該作品
@@ -62,22 +67,49 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { fetchProjectBySlug, type Project } from '../data/projects'
+import { fetchProjectBySlug, fetchProjects, type Project } from '../data/projects'
 import ProjectDetail from '../components/ProjectDetail.vue'
 import { setPageTitle } from '../utils/pageTitle'
 
 const route = useRoute()
 const project = ref<Project | null>(null)
+const projectList = ref<Project[]>([])
 const loading = ref(true)
+
+const currentIndex = computed(() => {
+  if (!project.value) return -1
+  return projectList.value.findIndex((p) => p.slug === project.value!.slug)
+})
+
+// projectList 已用 id desc 排序，所以 index 越大 = 越早的作品
+// 上一個 = 更早 = currentIndex + 1
+// 下一個 = 更新 = currentIndex - 1
+const prevProject = computed((): Project | null => {
+  const i = currentIndex.value
+  if (i < 0 || i + 1 >= projectList.value.length) return null
+  return projectList.value[i + 1] ?? null
+})
+
+const nextProject = computed((): Project | null => {
+  const i = currentIndex.value
+  if (i <= 0) return null
+  return projectList.value[i - 1] ?? null
+})
 
 const loadProject = async () => {
   const slug = route.params.slug as string
   if (!slug) return
   loading.value = true
   try {
-    project.value = await fetchProjectBySlug(slug)
+    const [projectData, listData] = await Promise.all([
+      fetchProjectBySlug(slug),
+      // 已載入過列表就不重抓
+      projectList.value.length ? Promise.resolve(projectList.value) : fetchProjects(),
+    ])
+    project.value = projectData
+    projectList.value = listData
     setPageTitle(project.value?.title)
   } catch (err) {
     project.value = null

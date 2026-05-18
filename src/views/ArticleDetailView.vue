@@ -34,7 +34,12 @@
         </div>
       </div>
 
-      <ArticleDetail v-else-if="article" :article="article" />
+      <ArticleDetail
+        v-else-if="article"
+        :article="article"
+        :prev="prevArticle"
+        :next="nextArticle"
+      />
 
       <div v-else class="text-center py-20">
         <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">
@@ -52,22 +57,50 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { fetchArticleBySlug, type Article } from '../data/articles'
+import {
+  fetchArticleBySlug,
+  fetchArticles,
+  type Article,
+  type ArticleListItem,
+} from '../data/articles'
 import ArticleDetail from '../components/ArticleDetail.vue'
 import { setPageTitle } from '../utils/pageTitle'
 
 const route = useRoute()
 const article = ref<Article | null>(null)
+const articleList = ref<ArticleListItem[]>([])
 const loading = ref(true)
+
+const currentIndex = computed(() => {
+  if (!article.value) return -1
+  return articleList.value.findIndex((a) => a.slug === article.value!.slug)
+})
+
+const prevArticle = computed((): ArticleListItem | null => {
+  const i = currentIndex.value
+  if (i < 0 || i + 1 >= articleList.value.length) return null
+  return articleList.value[i + 1] ?? null
+})
+
+const nextArticle = computed((): ArticleListItem | null => {
+  const i = currentIndex.value
+  if (i <= 0) return null
+  return articleList.value[i - 1] ?? null
+})
 
 const loadArticle = async () => {
   const slug = route.params.slug as string
   if (!slug) return
   loading.value = true
   try {
-    article.value = await fetchArticleBySlug(slug)
+    const [articleData, listData] = await Promise.all([
+      fetchArticleBySlug(slug),
+      articleList.value.length ? Promise.resolve(articleList.value) : fetchArticles(),
+    ])
+    article.value = articleData
+    articleList.value = listData
     setPageTitle(article.value?.title)
   } catch (err) {
     article.value = null

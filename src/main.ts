@@ -23,6 +23,7 @@ import {
   faScrewdriverWrench,
   faPen,
   faArrowLeft,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
@@ -46,6 +47,7 @@ library.add(
   faScrewdriverWrench,
   faPen,
   faArrowLeft,
+  faArrowRight,
   faSunRegular,
   faMoonRegular,
 )

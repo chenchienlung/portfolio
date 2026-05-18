@@ -254,16 +254,71 @@
         </div>
       </div>
     </div>
+
+    <section class="flex flex-col gap-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <component
+          :is="prev ? RouterLink : 'div'"
+          :to="prev ? `/portfolio/${prev.slug}` : undefined"
+          :class="[
+            'flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            prev
+              ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+              : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-left"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
+          <div class="flex flex-col min-w-0">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">上一個作品</span>
+            <span
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
+              {{ prev?.title || '' }}
+            </span>
+          </div>
+        </component>
+
+        <component
+          :is="next ? RouterLink : 'div'"
+          :to="next ? `/portfolio/${next.slug}` : undefined"
+          :class="[
+            'flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            next
+              ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+              : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
+          <div class="flex flex-col min-w-0">
+            <span class="text-xs text-neutral-500 dark:text-neutral-400">下一個作品</span>
+            <span
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
+              {{ next?.title || '' }}
+            </span>
+          </div>
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-right"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
+        </component>
+      </div>
+    </section>
   </main>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import type { Project } from '../data/projects'
 import ProjectLinks from './ProjectLinks.vue'
 import { useDarkMode } from '../composables/useDarkMode'
 
 defineProps<{
   project: Project
+  prev?: Project | null
+  next?: Project | null
 }>()
 
 const { isDark } = useDarkMode()
