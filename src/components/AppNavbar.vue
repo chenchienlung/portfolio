@@ -4,10 +4,10 @@
     :class="isIOSSafari ? 'bottom-[4px]' : 'bottom-5'"
   >
     <div
-      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
     >
       <ul
-        class="w-fit flex flex-row justify-center p-0.5 bg-neutral-200/20 dark:bg-black/20 backdrop-blur-sm inset-shadow-sm rounded-full border border-black/5 dark:border-white/10"
+        class="w-fit flex flex-row justify-center p-0.5 bg-neutral-200/20 dark:bg-black/20 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
       >
         <li v-for="item in navItems" :key="item.to">
           <RouterLink
