@@ -50,8 +50,8 @@
 
 #### light
 
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776576428/mobile_Portfolio_light_ntzuh0.png" style="width: 240px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776576424/mobile_Detail_light_ajxihe.png" style="width: 240px; height: auto;">
+<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1779089621/mobile_Portfolio_light_ntzuh0.png" style="width: 240px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1779089641/mobile_Detail_light_ajxihe.png" style="width: 240px; height: auto;">
 
 #### dark
 
-<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776576426/mobile_Portfolio_dark_hql9i3.png" style="width: 240px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776576602/mobile_Detail_dark_k3bk4t.png" style="width: 240px; height: auto;">
+<img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1779089630/mobile_Portfolio_dark_hql9i3.png" style="width: 240px; height: auto;"><img src="https://res.cloudinary.com/dtzgfwzwf/image/upload/v1779089649/mobile_Detail_dark_k3bk4t.png" style="width: 240px; height: auto;">
