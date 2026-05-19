@@ -90,6 +90,7 @@
               <img
                 :src="block.image"
                 :alt="block.title || project.title"
+                loading="lazy"
                 class="w-full rounded-2xl object-cover"
               />
             </div>
@@ -141,6 +142,7 @@
               <img
                 :src="block.image"
                 :alt="block.title || project.title"
+                loading="lazy"
                 class="w-full rounded-2xl object-cover"
               />
             </div>
@@ -178,7 +180,7 @@
             :key="img"
             :src="img"
             :alt="project.title"
-            fetchpriority="high"
+            loading="lazy"
             class="w-full h-full object-cover rounded-2xl"
           />
         </div>
@@ -203,7 +205,7 @@
             :key="skill"
             :src="resolveIcon(skill)"
             :alt="skill"
-            fetchpriority="high"
+            loading="lazy"
             class="w-8 h-8 object-fill"
           />
         </div>
@@ -221,7 +223,7 @@
             :key="ai"
             :src="resolveIcon(ai)"
             :alt="ai"
-            fetchpriority="high"
+            loading="lazy"
             class="w-8 h-8 object-fill"
           />
         </div>
@@ -245,7 +247,7 @@
                 :key="deploy.image"
                 :src="resolveIcon(deploy.image)"
                 :alt="deploy.name"
-                fetchpriority="high"
+                loading="lazy"
                 class="h-6 object-contain"
               />
               <p class="text-sm font-bold">{{ deploy.name }}</p>
@@ -328,7 +330,7 @@ const darkIconMap: Record<string, string> = {
   'https://thesvg.org/icons/expressdotjs/light.svg':
     'https://thesvg.org/icons/expressdotjs/default.svg',
   'https://thesvg.org/icons/render/default.svg':
-    'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776570186/render_1_xw5dex.svg',
+    'https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1776570186/render_1_xw5dex.svg',
   'https://thesvg.org/icons/godaddy/light.svg': 'https://thesvg.org/icons/godaddy/default.svg',
 }
 

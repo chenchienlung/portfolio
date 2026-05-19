@@ -162,6 +162,7 @@
                   :alt="contact.label"
                   width="16"
                   height="16"
+                  loading="lazy"
                   class="shrink-0"
                 />
                 {{ contact.label }}
@@ -251,6 +252,7 @@
                   :key="skillicon.src"
                   :src="isDark && skillicon.dark ? skillicon.dark : skillicon.src"
                   alt="skillicon"
+                  loading="lazy"
                   class="w-8 h-8"
                   data-aos="fade-up"
                   data-aos-duration="800"

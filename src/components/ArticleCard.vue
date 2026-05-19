@@ -27,7 +27,7 @@
       </div>
 
       <div
-        class="shrink-0 w-32 md:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40"
+        class="h-fit my-auto shrink-0 w-32 md:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40"
       >
         <img
           v-if="image"

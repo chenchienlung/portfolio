@@ -9,6 +9,7 @@ export interface Article {
   subtitle?: string
   excerpt?: string
   cover_image?: string
+  cover_image_wide?: string
   category?: ArticleCategory[]
   tags: string[]
   content?: string

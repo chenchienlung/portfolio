@@ -21,9 +21,9 @@
 import { RouterLink } from 'vue-router'
 
 const images = [
-  'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776337741/404-3_p75xgt.jpg',
-  'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776337750/404-2_v5o2zs.jpg',
-  'https://res.cloudinary.com/dtzgfwzwf/image/upload/v1776337757/404-1_pea3pg.jpg',
+  'https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1776337741/404-3_p75xgt.jpg',
+  'https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1776337750/404-2_v5o2zs.jpg',
+  'https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1776337757/404-1_pea3pg.jpg',
 ]
 
 const src = images[Math.floor(Math.random() * images.length)]

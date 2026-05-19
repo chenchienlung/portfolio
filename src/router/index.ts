@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// 首頁 eager import(LCP 路由,訪客最常進來的入口)
 import HomeView from '../views/HomeView.vue'
-import ProjectView from '../views/ProjectView.vue'
-import ProjectDetailView from '@/views/ProjectDetailView.vue'
-import ArticleView from '@/views/ArticleView.vue'
-import ArticleDetailView from '@/views/ArticleDetailView.vue'
+// 其他 view 用 lazy load,訪問該路由才下載對應 JS chunk
 import { setPageTitle } from '@/utils/pageTitle'
 
 declare module 'vue-router' {
@@ -27,24 +25,24 @@ const router = createRouter({
     {
       path: '/portfolio',
       name: 'portfolio',
-      component: ProjectView,
+      component: () => import('@/views/ProjectView.vue'),
       meta: { title: '作品' },
     },
     {
       path: '/portfolio/:slug',
       name: 'project-detail',
-      component: ProjectDetailView,
+      component: () => import('@/views/ProjectDetailView.vue'),
     },
     {
       path: '/article',
       name: 'article',
-      component: ArticleView,
+      component: () => import('@/views/ArticleView.vue'),
       meta: { title: '文章' },
     },
     {
       path: '/article/:slug',
       name: 'article-detail',
-      component: ArticleDetailView,
+      component: () => import('@/views/ArticleDetailView.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

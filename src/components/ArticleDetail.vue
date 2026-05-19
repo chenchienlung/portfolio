@@ -12,12 +12,19 @@
       v-if="article.cover_image"
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
     >
-      <img
-        :src="article.cover_image"
-        :alt="article.title"
-        fetchpriority="high"
-        class="w-full h-full object-cover"
-      />
+      <picture>
+        <source
+          v-if="article.cover_image_wide"
+          media="(min-width: 768px)"
+          :srcset="article.cover_image_wide"
+        />
+        <img
+          :src="article.cover_image"
+          :alt="article.title"
+          fetchpriority="high"
+          class="w-full h-full object-cover"
+        />
+      </picture>
     </div>
     <article
       class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10"
@@ -53,11 +60,11 @@
 
         <div class="flex flex-wrap gap-4 text-sm text-neutral-500 dark:text-neutral-400 font-mono">
           <span v-if="article.published_at">
-            <font-awesome-icon icon="fa-regular fa-calendar" class="mr-1" />
+            <!-- <font-awesome-icon icon="fa-regular fa-calendar" class="mr-1" /> -->
             {{ formatDate(article.published_at) }}
           </span>
           <span v-if="article.read_time">
-            <font-awesome-icon icon="fa-regular fa-clock" class="mr-1" />
+            <!-- <font-awesome-icon icon="fa-regular fa-clock" class="mr-1" /> -->
             約 {{ article.read_time }} 分鐘
           </span>
         </div>

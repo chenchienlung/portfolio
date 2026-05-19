@@ -36,7 +36,7 @@ watch(
 
     setTimeout(() => {
       AOS.refresh()
-    }, 600)
+    })
   },
 )
 
@@ -45,14 +45,11 @@ import 'aos/dist/aos.css'
 
 onMounted(() => {
   initDarkMode()
-  setTimeout(() => {
-    AOS.init({
-      anchorPlacement: 'top',
-      once: true,
-      disable: 'mobile',
-    })
-    AOS.refresh()
-  }, 600)
+  AOS.init({
+    anchorPlacement: 'top',
+    once: true,
+    disable: 'mobile',
+  })
 })
 </script>
 

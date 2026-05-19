@@ -7,8 +7,8 @@
       :alt="text"
       width="16"
       height="16"
+      loading="lazy"
       class="shrink-0 my-1 mr-1"
-      fetchpriority="high"
     />
     <a
       v-if="url"
