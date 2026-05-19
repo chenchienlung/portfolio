@@ -8,7 +8,7 @@
         class="w-full h-full object-cover bg-black/5 dark:bg-black/40"
         :src="image"
         :alt="title"
-        loading="lazy"
+        fetchpriority="high"
       />
     </div>
     <div class="p-4">

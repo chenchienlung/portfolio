@@ -34,7 +34,7 @@
           :src="image"
           :alt="title"
           class="w-full h-full object-cover"
-          loading="lazy"
+          fetchpriority="high"
         />
       </div>
     </div>
