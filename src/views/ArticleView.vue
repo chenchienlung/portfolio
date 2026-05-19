@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-[calc(100dvh-168px)] max-w-6xl mx-auto mb-4">
+  <section class="min-h-[calc(100dvh-204px)] md:min-h-[calc(100dvh-184px)] max-w-6xl mx-auto mb-4">
     <div class="mx-5 mt-12 md:mt-28">
       <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white mb-10">
         我的文章

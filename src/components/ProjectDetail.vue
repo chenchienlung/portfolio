@@ -277,7 +277,7 @@
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
             >
-              {{ prev?.title || '' }}
+              {{ prev?.title || '上一個作品' }}
             </span>
           </div>
         </component>
@@ -296,7 +296,7 @@
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
             >
-              {{ next?.title || '' }}
+              {{ next?.title || '下一個作品' }}
             </span>
           </div>
           <font-awesome-icon
