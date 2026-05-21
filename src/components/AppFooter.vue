@@ -1,6 +1,6 @@
 <template>
   <footer class="w-full h-fit text-black/80 dark:text-white/80">
-    <div class="mx-auto flex flex-row justify-center items-center gap-2 pb-20 sm:pb-4">
+    <div class="mx-auto flex flex-row justify-center items-center gap-2 pb-20 md:pb-4">
       <p>Portfolio by Chris Chen © 2026</p>
       <a
         href="https://github.com/chenchienlung"

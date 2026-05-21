@@ -20,7 +20,7 @@
           :key="skill"
           class="h-fit text-xs text-neutral-600 dark:text-neutral-300 text-nowrap px-3 py-1.5 bg-neutral-50 dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-full"
         >
-          # {{ skill }}
+          {{ skill }}
         </li>
       </ul>
       <ul
