@@ -6,24 +6,26 @@
       </h2>
       <div v-if="loading" class="flex flex-col">
         <template v-for="n in 6" :key="n">
-          <div class="animate-pulse p-5 rounded-3xl">
-            <div class="flex flex-row gap-4 md:gap-6 items-start">
-              <div class="flex-1 min-w-0 flex flex-col gap-2">
-                <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-4/5" />
-                <div class="flex gap-1">
-                  <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-                  <span class="h-5 w-12 bg-black/15 dark:bg-white/15 rounded-full" />
+          <div class="animate-pulse w-full md:p-5 rounded-3xl">
+            <div
+              class="w-full flex flex-col-reverse sm:flex-row gap-4 sm:justify-between items-stretch"
+            >
+              <div class="flex-1 min-w-0 flex flex-col justify-between gap-2.5">
+                <div class="flex flex-col gap-2">
+                  <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+                  <div class="flex flex-row gap-1">
+                    <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+                    <span class="h-6 w-12 bg-black/15 dark:bg-white/15 rounded-full" />
+                  </div>
                 </div>
-                <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
-                <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-3/5" />
-                <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-20 mt-auto" />
+                <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-24" />
               </div>
               <div
-                class="shrink-0 w-32 md:w-48 aspect-video rounded-xl bg-black/15 dark:bg-white/15"
+                class="h-fit shrink-0 w-full sm:w-48 aspect-video rounded-xl bg-black/15 dark:bg-white/15"
               />
             </div>
           </div>
-          <hr class="w-[96%] mx-auto my-2.5 dark:border-white/15 border-black/15" />
+          <hr class="w-full md:w-[96%] mx-auto my-8 md:my-2.5 dark:border-white/15 border-black/15" />
         </template>
       </div>
       <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>

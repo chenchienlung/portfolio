@@ -4,7 +4,14 @@
   >
     <p class="text-8xl font-bold text-neutral-600 dark:text-neutral-300">＊ 404 Not Found ＊</p>
     <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">＊ 哇！找不到這個頁面！ ＊</h1>
-    <img :src="src" alt="404" class="w-50 h-50 rounded-xl" fetchpriority="high" />
+    <img
+      :src="src"
+      alt="404"
+      width="200"
+      height="200"
+      class="w-50 h-50 rounded-xl"
+      fetchpriority="high"
+    />
     <p class="text-lg text-neutral-600 dark:text-neutral-300">
       您輸入的網址不存在，或是已經被移除了。
     </p>

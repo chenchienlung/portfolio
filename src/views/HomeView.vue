@@ -49,6 +49,10 @@
           :color="about.job_status_color"
           size="md"
         />
+        <div
+          v-else-if="loading"
+          class="absolute top-10 md:top-50 right-0 animate-pulse h-8 w-32 rounded-full bg-black/10 dark:bg-white/10 ring-1 ring-black/10 dark:ring-white/10"
+        />
       </section>
       <section
         class="relative min-h-[calc(100vh-168px)]"
@@ -61,6 +65,32 @@
           技能
         </h2>
         <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
+        <div
+          v-else-if="loading"
+          class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5"
+        >
+          <div
+            v-for="n in 4"
+            :key="n"
+            class="animate-pulse flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
+          >
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+              <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded" />
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="m in 6"
+                :key="m"
+                class="h-7 w-14 bg-black/15 dark:bg-white/15 rounded-full"
+              />
+            </div>
+            <div class="pt-4 border-t border-neutral-200 dark:border-white/10 space-y-2">
+              <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+              <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-3/5" />
+            </div>
+          </div>
+        </div>
       </section>
       <section
         class="relative min-h-[calc(100vh-168px)]"
@@ -79,19 +109,24 @@
         </div>
         <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <div
-            v-for="n in 4"
+            v-for="n in 3"
             :key="n"
-            class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden"
+            class="animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden shadow-xs/12"
           >
             <div class="aspect-3/2 bg-black/15 dark:bg-white/15" />
-            <div class="p-4 space-y-3">
-              <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-3/5" />
-              <div class="flex gap-2">
-                <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-                <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+            <div class="p-4">
+              <div class="h-fit md:h-14 flex items-start">
+                <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-3/5" />
               </div>
-              <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-full" />
-              <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+              <div class="flex flex-row flex-wrap gap-1 my-2">
+                <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+                <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+                <span class="h-6 w-16 bg-black/15 dark:bg-white/15 rounded-full" />
+              </div>
+              <div class="space-y-2">
+                <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
+                <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+              </div>
             </div>
           </div>
         </div>
@@ -131,12 +166,20 @@
                 :color="about.job_status_color"
                 size="sm"
               />
+              <div
+                v-else-if="loading"
+                class="animate-pulse h-7 w-28 rounded-full bg-black/10 dark:bg-white/10 ring-1 ring-black/10 dark:ring-white/10"
+              />
             </div>
 
             <p v-if="about?.location" class="text-neutral-600 dark:text-neutral-300 font-mono">
               <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px" />
               {{ about.location }}
             </p>
+            <div
+              v-else-if="loading"
+              class="animate-pulse h-5 w-40 rounded bg-black/10 dark:bg-white/10"
+            />
             <div
               v-if="about?.contacts?.length"
               class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
@@ -167,6 +210,59 @@
                 />
                 {{ contact.label }}
               </a>
+            </div>
+            <div
+              v-else-if="loading"
+              class="animate-pulse flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
+            >
+              <div
+                v-for="n in 3"
+                :key="n"
+                class="flex items-center gap-1.5"
+              >
+                <div class="w-4 h-4 bg-black/10 dark:bg-white/10 rounded" />
+                <div class="h-5 w-32 bg-black/10 dark:bg-white/10 rounded" />
+              </div>
+            </div>
+          </div>
+
+          <div
+            v-if="!about && loading"
+            class="animate-pulse flex flex-col gap-20 text-base"
+          >
+            <div>
+              <div
+                class="h-6 w-50 bg-black/10 dark:bg-white/10 rounded pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
+              />
+              <div
+                v-for="n in 3"
+                :key="n"
+                class="flex flex-col gap-4"
+                :class="{ 'mt-10': n > 1 }"
+              >
+                <div class="flex gap-6">
+                  <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
+                  <div class="h-5 w-40 bg-black/15 dark:bg-white/15 rounded" />
+                </div>
+                <div class="space-y-2">
+                  <div class="h-4 w-full bg-black/10 dark:bg-white/10 rounded" />
+                  <div class="h-4 w-5/6 bg-black/10 dark:bg-white/10 rounded" />
+                  <div class="h-4 w-3/5 bg-black/10 dark:bg-white/10 rounded" />
+                </div>
+              </div>
+              <div class="flex flex-col mt-10 gap-4">
+                <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
+                <div class="flex flex-col gap-2">
+                  <div
+                    v-for="n in 3"
+                    :key="n"
+                    class="flex items-start gap-2"
+                  >
+                    <div class="w-4 h-4 my-1 bg-black/10 dark:bg-white/10 rounded shrink-0" />
+                    <div class="h-5 w-48 bg-black/10 dark:bg-white/10 rounded" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
