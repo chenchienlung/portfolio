@@ -1,9 +1,9 @@
 <template>
-  <main v-if="groups?.length" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+  <main v-if="groups?.length" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
     <div
       v-for="(group, i) in groups"
       :key="group.title"
-      class="h-fit md:h-[460px] flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
+      class="flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
       data-aos="fade-up"
       data-aos-duration="800"
       :data-aos-delay="(i + 1) * delayBase"
@@ -14,7 +14,7 @@
           {{ group.title }}
         </h3>
       </div>
-      <ul class="w-fit md:h-27 flex flex-wrap content-start gap-2">
+      <ul class="w-fit flex flex-wrap content-start gap-2">
         <li
           v-for="skill in group.items"
           :key="skill"

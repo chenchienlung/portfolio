@@ -77,9 +77,9 @@
             >→</RouterLink
           >
         </div>
-        <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <div
-            v-for="n in 3"
+            v-for="n in 4"
             :key="n"
             class="animate-pulse rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden"
           >
@@ -95,17 +95,17 @@
             </div>
           </div>
         </div>
-        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
           <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
         </div>
         <RouterLink
           to="/portfolio"
-          class="md:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-neutral-600 dark:text-neutral-300"
+          class="lg:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-neutral-600 dark:text-neutral-300"
         >
           查看更多作品 →
         </RouterLink>
         <p
-          class="hidden md:block w-full text-neutral-200 dark:text-neutral-800 text-[180px] text-center font-black absolute bottom-20"
+          class="hidden lg:block w-full text-neutral-200 dark:text-neutral-800 text-[180px] text-center font-black absolute bottom-20"
         >
           PORTFOLIO
         </p>

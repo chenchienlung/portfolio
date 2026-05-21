@@ -1,9 +1,9 @@
 <template>
   <RouterLink
     :to="link || '#'"
-    class="block group w-full h-full md:p-5 rounded-3xl dark:border-white/15 md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 md:hover:shadow-lg/12"
+    class="block group w-full h-full md:p-5 rounded-3xl md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 hover:ring-black/15 dark:hover:ring-white/10 md:hover:bg-white dark:md:hover:bg-white/5 transition-all duration-300 md:hover:shadow-lg/12"
   >
-    <div class="w-full flex flex-row gap-4 md:justify-between items-stretch">
+    <div class="w-full flex flex-col-reverse sm:flex-row gap-4 sm:justify-between items-stretch">
       <div class="flex flex-col justify-between gap-2.5">
         <div class="flex flex-col gap-2">
           <h3
@@ -27,7 +27,7 @@
       </div>
 
       <div
-        class="h-fit my-auto shrink-0 w-32 md:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40"
+        class="h-fit shrink-0 w-full sm:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40"
       >
         <img
           v-if="image"
@@ -39,7 +39,7 @@
       </div>
     </div>
   </RouterLink>
-  <hr class="w-full md:w-[96%] mx-auto my-2.5 dark:border-white/15 border-black/15" />
+  <hr class="w-full md:w-[96%] mx-auto my-8 md:my-2.5 dark:border-white/15 border-black/15" />
 </template>
 
 <script setup lang="ts">
