@@ -65,10 +65,7 @@
           技能
         </h2>
         <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
-        <div
-          v-else-if="loading"
-          class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5"
-        >
+        <div v-else-if="loading" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
           <div
             v-for="n in 4"
             :key="n"
@@ -92,11 +89,7 @@
           </div>
         </div>
       </section>
-      <section
-        class="relative min-h-[calc(100vh-168px)]"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
+      <section class="min-h-[calc(100vh-168px)]" data-aos="fade-up" data-aos-duration="800">
         <div class="text-2xl text-sky-600 flex flex-row justify-between">
           <h2 class="w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
             作品
@@ -140,7 +133,7 @@
           查看更多作品 →
         </RouterLink>
         <p
-          class="hidden lg:block w-full text-neutral-200 dark:text-neutral-800 text-[180px] text-center font-black absolute bottom-20"
+          class="hidden lg:block w-full text-neutral-200 dark:text-neutral-800 text-[180px] text-center font-black mt-20"
         >
           PORTFOLIO
         </p>
@@ -215,31 +208,19 @@
               v-else-if="loading"
               class="animate-pulse flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
             >
-              <div
-                v-for="n in 3"
-                :key="n"
-                class="flex items-center gap-1.5"
-              >
+              <div v-for="n in 3" :key="n" class="flex items-center gap-1.5">
                 <div class="w-4 h-4 bg-black/10 dark:bg-white/10 rounded" />
                 <div class="h-5 w-32 bg-black/10 dark:bg-white/10 rounded" />
               </div>
             </div>
           </div>
 
-          <div
-            v-if="!about && loading"
-            class="animate-pulse flex flex-col gap-20 text-base"
-          >
+          <div v-if="!about && loading" class="animate-pulse flex flex-col gap-20 text-base">
             <div>
               <div
                 class="h-6 w-50 bg-black/10 dark:bg-white/10 rounded pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
               />
-              <div
-                v-for="n in 3"
-                :key="n"
-                class="flex flex-col gap-4"
-                :class="{ 'mt-10': n > 1 }"
-              >
+              <div v-for="n in 3" :key="n" class="flex flex-col gap-4" :class="{ 'mt-10': n > 1 }">
                 <div class="flex gap-6">
                   <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
                   <div class="h-5 w-40 bg-black/15 dark:bg-white/15 rounded" />
@@ -253,11 +234,7 @@
               <div class="flex flex-col mt-10 gap-4">
                 <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
                 <div class="flex flex-col gap-2">
-                  <div
-                    v-for="n in 3"
-                    :key="n"
-                    class="flex items-start gap-2"
-                  >
+                  <div v-for="n in 3" :key="n" class="flex items-start gap-2">
                     <div class="w-4 h-4 my-1 bg-black/10 dark:bg-white/10 rounded shrink-0" />
                     <div class="h-5 w-48 bg-black/10 dark:bg-white/10 rounded" />
                   </div>
