@@ -14,8 +14,9 @@ export interface Deploy {
 }
 
 export interface Project {
-  id: string
+  id: number
   slug: string
+  public: boolean
   title: string
   points: string[]
   skills?: string[]
@@ -40,6 +41,7 @@ export const fetchProjects = async (): Promise<Project[]> => {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
+    .eq('public', true)
     .order('id', { ascending: false })
 
   if (error) throw error
@@ -47,14 +49,24 @@ export const fetchProjects = async (): Promise<Project[]> => {
 }
 
 export const fetchProjectBySlug = async (slug: string): Promise<Project> => {
-  const { data, error } = await supabase.from('projects').select('*').eq('slug', slug).single()
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .eq('slug', slug)
+    .eq('public', true)
+    .single()
 
   if (error) throw error
   return data as Project
 }
 
-export const fetchProjectById = async (id: string): Promise<Project | null> => {
-  const { data, error } = await supabase.from('projects').select('*').eq('id', id).single()
+export const fetchProjectById = async (id: number): Promise<Project | null> => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('*')
+    .eq('id', id)
+    .eq('public', true)
+    .single()
 
   if (error) throw error
   return data as Project | null

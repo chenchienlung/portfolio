@@ -24,6 +24,8 @@ import {
   faPen,
   faArrowLeft,
   faArrowRight,
+  faCalendar,
+  faClock,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
@@ -50,6 +52,8 @@ library.add(
   faArrowRight,
   faSunRegular,
   faMoonRegular,
+  faCalendar,
+  faClock,
 )
 
 const app = createApp(App)
