@@ -58,12 +58,6 @@
   font-weight: normal;
 } */
 
-html,
-body,
-#app {
-  min-height: 100dvh;
-}
-
 body {
   color: var(--color-text);
   background: #f8f8f8;

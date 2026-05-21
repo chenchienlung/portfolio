@@ -1,28 +1,47 @@
 <template>
   <main class="relative flex flex-col gap-5 mb-10">
-    <div @click="$router.back()"
-      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10">
+    <div
+      @click="$router.back()"
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10"
+    >
       <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
       上一頁
     </div>
 
-    <div v-if="article.cover_image"
-      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
+    <section
+      v-if="article.cover_image"
+      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12"
+    >
       <picture>
-        <source v-if="article.cover_image_wide" media="(min-width: 768px)" :srcset="article.cover_image_wide" />
-        <img :src="article.cover_image" :alt="article.title" fetchpriority="high" class="w-full h-full object-cover" />
+        <source
+          v-if="article.cover_image_wide"
+          media="(min-width: 768px)"
+          :srcset="article.cover_image_wide"
+        />
+        <img
+          :src="article.cover_image"
+          :alt="article.title"
+          fetchpriority="high"
+          class="w-full h-full object-cover"
+        />
       </picture>
-    </div>
+    </section>
     <article
-      class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10">
+      class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10"
+    >
       <header class="flex flex-col gap-4">
         <div v-if="article.category?.length || article.series" class="flex flex-wrap gap-2">
-          <span v-for="c in article.category" :key="c"
-            class="w-fit px-2 py-0.5 text-xs font-normal bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 rounded-full">
+          <span
+            v-for="c in article.category"
+            :key="c"
+            class="w-fit px-2 py-0.5 text-xs font-normal bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 rounded-full"
+          >
             {{ c }}
           </span>
-          <span v-if="article.series"
-            class="w-fit px-2 py-0.5 text-xs font-normal bg-neutral-100 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 rounded-full">
+          <span
+            v-if="article.series"
+            class="w-fit px-2 py-0.5 text-xs font-normal bg-neutral-100 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 rounded-full"
+          >
             {{ article.series }}
             <template v-if="article.series_order"> #{{ article.series_order }}</template>
           </span>
@@ -32,7 +51,10 @@
           {{ article.title }}
         </h1>
 
-        <p v-if="article.subtitle" class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+        <p
+          v-if="article.subtitle"
+          class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+        >
           {{ article.subtitle }}
         </p>
 
@@ -48,52 +70,74 @@
         </div>
 
         <div v-if="article.tags?.length" class="flex flex-wrap gap-2">
-          <span v-for="tag in article.tags" :key="tag"
-            class="px-3 py-1 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300">
+          <span
+            v-for="tag in article.tags"
+            :key="tag"
+            class="px-3 py-1 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300"
+          >
             #{{ tag }}
           </span>
         </div>
       </header>
 
-      <p v-if="article.excerpt"
-        class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed border-l-4 border-sky-500 dark:border-sky-400 pl-5">
+      <p
+        v-if="article.excerpt"
+        class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed border-l-4 border-sky-500 dark:border-sky-400 pl-5"
+      >
         {{ article.excerpt }}
       </p>
 
       <div class="border-b border-black/10 dark:border-white/10"></div>
 
-      <div class="article-content text-neutral-800 dark:text-neutral-200" v-html="renderedContent"></div>
+      <div
+        class="article-content text-neutral-800 dark:text-neutral-200"
+        v-html="renderedContent"
+      ></div>
     </article>
     <section class="flex flex-col gap-3">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <component :is="prev ? RouterLink : 'div'" :to="prev ? `/article/${prev.slug}` : undefined" :class="[
-          'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
-          prev ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
-        ]">
-          <font-awesome-icon icon="fa-solid fa-arrow-left"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+        <component
+          :is="prev ? RouterLink : 'div'"
+          :to="prev ? `/article/${prev.slug}` : undefined"
+          :class="[
+            'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            prev ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-left"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
           <div class="flex flex-col min-w-0">
             <span class="text-xs text-neutral-500 dark:text-neutral-400">上一篇</span>
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
               {{ prev?.title || '' }}
             </span>
           </div>
         </component>
 
-        <component :is="next ? RouterLink : 'div'" :to="next ? `/article/${next.slug}` : undefined" :class="[
-          'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
-          next ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
-        ]">
+        <component
+          :is="next ? RouterLink : 'div'"
+          :to="next ? `/article/${next.slug}` : undefined"
+          :class="[
+            'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+            next ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+          ]"
+        >
           <div class="flex flex-col min-w-0">
             <span class="text-xs text-neutral-500 dark:text-neutral-400">下一篇</span>
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors"
+            >
               {{ next?.title || '' }}
             </span>
           </div>
-          <font-awesome-icon icon="fa-solid fa-arrow-right"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+          <font-awesome-icon
+            icon="fa-solid fa-arrow-right"
+            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors"
+          />
         </component>
       </div>
     </section>
@@ -216,7 +260,7 @@ html.dark .article-content a:hover {
   margin-bottom: 0.5rem;
 }
 
-.article-content li>p {
+.article-content li > p {
   margin-bottom: 0.25rem;
 }
 

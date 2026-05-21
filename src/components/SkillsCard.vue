@@ -1,5 +1,5 @@
 <template>
-  <main v-if="groups?.length" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
+  <div v-if="groups?.length" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
     <div
       v-for="(group, i) in groups"
       :key="group.title"
@@ -37,7 +37,7 @@
         </li>
       </ul>
     </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,5 @@
 <template>
-  <main
-    class="min-h-[calc(100dvh-204px)] md:min-h-[calc(100dvh-184px)] flex flex-col items-center justify-center gap-6 text-center"
-  >
+  <main class="flex flex-col items-center justify-center gap-6 text-center">
     <p class="text-8xl font-bold text-neutral-600 dark:text-neutral-300">＊ 404 Not Found ＊</p>
     <h1 class="text-2xl text-neutral-800 dark:text-neutral-200">＊ 哇！找不到這個頁面！ ＊</h1>
     <img
