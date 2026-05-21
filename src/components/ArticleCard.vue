@@ -21,7 +21,7 @@
             </span>
           </div>
         </div>
-        <p v-if="date" class="text-sm text-neutral-400 dark:text-neutral-500">
+        <p v-if="date" class="text-sm text-neutral-600 dark:text-neutral-400">
           {{ date }}
         </p>
       </div>
