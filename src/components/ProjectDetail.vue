@@ -336,14 +336,13 @@ defineProps<{
 const { isDark } = useDarkMode()
 
 const darkIconMap: Record<string, string> = {
-  'https://thesvg.org/icons/github/mono.svg': 'https://thesvg.org/icons/github/default.svg',
-  'https://thesvg.org/icons/openai-chatgpt/default.svg':
-    'https://thesvg.org/icons/openai/default.svg',
+  'https://thesvg.org/icons/github/mono.svg': 'https://thesvg.org/icons/github/dark.svg',
+  'https://thesvg.org/icons/openai/light.svg': 'https://thesvg.org/icons/openai/dark.svg',
   'https://thesvg.org/icons/expressdotjs/light.svg':
-    'https://thesvg.org/icons/expressdotjs/default.svg',
+    'https://thesvg.org/icons/expressdotjs/dark.svg',
   'https://thesvg.org/icons/render/default.svg':
     'https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1776570186/render_1_xw5dex.svg',
-  'https://thesvg.org/icons/godaddy/light.svg': 'https://thesvg.org/icons/godaddy/default.svg',
+  'https://thesvg.org/icons/godaddy/light.svg': 'https://thesvg.org/icons/godaddy/dark.svg',
 }
 
 const resolveIcon = (src: string) => (isDark.value && darkIconMap[src] ? darkIconMap[src] : src)
