@@ -28,8 +28,6 @@ import {
   faClock,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { faSun as faSunRegular, faMoon as faMoonRegular } from '@fortawesome/free-regular-svg-icons'
-
 library.add(
   faGithub,
   faEnvelope,
@@ -50,8 +48,6 @@ library.add(
   faPen,
   faArrowLeft,
   faArrowRight,
-  faSunRegular,
-  faMoonRegular,
   faCalendar,
   faClock,
 )
