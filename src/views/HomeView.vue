@@ -298,10 +298,10 @@
             />
             <div class="flex flex-col gap-6">
               <div v-for="(exp, i) in about.experiences" :key="i" class="flex flex-col gap-2">
-                <h4 class="text-black dark:text-white font-semibold">
+                <p class="text-black dark:text-white font-semibold">
                   {{ exp.date }}
                   <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
-                </h4>
+                </p>
                 <p class="text-neutral-600 dark:text-neutral-300">
                   {{ exp.description_before }}
                   <a
