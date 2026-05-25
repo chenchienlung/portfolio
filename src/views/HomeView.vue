@@ -13,7 +13,7 @@
           <h2 class="text-5xl md:text-6xl font-mono mb-5">Hello! I'm Chris.</h2>
         </div>
         <p class="text-3xl md:text-4xl leading-[1.2em]">
-          我目前正在尋找
+          目前正在尋找
           <br />
           <span class="text-sky-600 md:text-nowrap font-bold">
             前端工程師<span class="text-neutral-400 dark:text-neutral-500 text-2xl"> 或 </span>
@@ -60,6 +60,15 @@
         技能
       </h2>
       <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
+      <SkillMarquee
+        v-if="about?.skill_icons?.length"
+        :icons="about.skill_icons"
+        :is-dark="isDark"
+        class="mt-10"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      />
       <div v-else-if="loading" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
         <div
           v-for="n in 4"
@@ -139,204 +148,226 @@
       data-aos="fade-up"
       data-aos-duration="800"
     >
-      <div class="flex flex-col gap-20 mb-20">
-        <div class="flex flex-col gap-4">
-          <h2
-            class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600"
-          >
-            關於我
-          </h2>
-          <div class="flex flex-row items-center gap-5 mt-6">
-            <p class="text-black dark:text-white text-lg font-semibold font-mono">陳仟龍 Chris</p>
-            <StatusBadge
-              v-if="about?.job_status"
-              :label="about.job_status"
-              :color="about.job_status_color"
-              size="sm"
-            />
-            <div
-              v-else-if="loading"
-              class="animate-pulse h-7 w-28 rounded-full bg-black/10 dark:bg-white/10 ring-1 ring-black/10 dark:ring-white/10"
-            />
-          </div>
+      <div class="flex flex-col gap-10 mb-20">
+        <h2
+          class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600"
+        >
+          關於我
+        </h2>
 
-          <p v-if="about?.location" class="text-neutral-600 dark:text-neutral-300 font-mono">
-            <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px" />
-            {{ about.location }}
-          </p>
+        <!-- Loading skeleton -->
+        <div v-if="!about && loading" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <div
-            v-else-if="loading"
-            class="animate-pulse h-5 w-40 rounded bg-black/10 dark:bg-white/10"
-          />
-          <div
-            v-if="about?.contacts?.length"
-            class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
-            data-aos-duration="800"
-            data-aos-delay="100"
+            class="md:col-span-3 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44"
           >
-            <a
-              v-for="(contact, i) in about.contacts"
-              :key="i"
-              :href="contact.url"
-              :target="isExternalUrl(contact.url) ? '_blank' : undefined"
-              :rel="isExternalUrl(contact.url) ? 'noopener noreferrer' : undefined"
-              class="flex items-center gap-1.5 hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
-            >
-              <font-awesome-icon
-                v-if="contact.iconType === 'fa'"
-                :icon="contact.icon"
-                class="mb-px"
-              />
-              <img
-                v-else
-                :src="isDark && contact.iconDark ? contact.iconDark : contact.icon"
-                :alt="contact.label"
-                width="16"
-                height="16"
-                loading="lazy"
-                class="shrink-0"
-              />
-              {{ contact.label }}
-            </a>
-          </div>
-          <div
-            v-else-if="loading"
-            class="animate-pulse flex flex-col md:flex-row flex-wrap items-start gap-1 md:gap-6"
-          >
-            <div v-for="n in 3" :key="n" class="flex items-center gap-1.5">
-              <div class="w-4 h-4 bg-black/10 dark:bg-white/10 rounded" />
-              <div class="h-5 w-32 bg-black/10 dark:bg-white/10 rounded" />
+            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
+            <div class="space-y-2">
+              <div class="h-5 w-48 bg-black/15 dark:bg-white/15 rounded" />
+              <div class="h-4 w-40 bg-black/15 dark:bg-white/15 rounded" />
+              <div class="h-4 w-32 bg-black/15 dark:bg-white/15 rounded" />
             </div>
           </div>
-        </div>
-
-        <div v-if="!about && loading" class="animate-pulse flex flex-col gap-20 text-base">
-          <div>
-            <div
-              class="h-6 w-50 bg-black/10 dark:bg-white/10 rounded pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
-            />
-            <div v-for="n in 3" :key="n" class="flex flex-col gap-4" :class="{ 'mt-10': n > 1 }">
+          <div
+            class="md:col-span-3 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44"
+          >
+            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
+            <div class="space-y-2">
+              <div v-for="n in 3" :key="n" class="h-5 w-2/3 bg-black/15 dark:bg-white/15 rounded" />
+            </div>
+          </div>
+          <div
+            class="md:col-span-6 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-72"
+          >
+            <div class="h-6 w-24 bg-black/15 dark:bg-white/15 rounded mb-6" />
+            <div v-for="n in 2" :key="n" class="space-y-3" :class="{ 'mt-6': n > 1 }">
               <div class="flex gap-6">
                 <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
                 <div class="h-5 w-40 bg-black/15 dark:bg-white/15 rounded" />
               </div>
               <div class="space-y-2">
-                <div class="h-4 w-full bg-black/10 dark:bg-white/10 rounded" />
-                <div class="h-4 w-5/6 bg-black/10 dark:bg-white/10 rounded" />
-                <div class="h-4 w-3/5 bg-black/10 dark:bg-white/10 rounded" />
+                <div class="h-4 w-full bg-black/15 dark:bg-white/15 rounded" />
+                <div class="h-4 w-4/5 bg-black/15 dark:bg-white/15 rounded" />
               </div>
             </div>
-            <div class="flex flex-col mt-10 gap-4">
-              <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
-              <div class="flex flex-col gap-2">
-                <div v-for="n in 3" :key="n" class="flex items-start gap-2">
-                  <div class="w-4 h-4 my-1 bg-black/10 dark:bg-white/10 rounded shrink-0" />
-                  <div class="h-5 w-48 bg-black/10 dark:bg-white/10 rounded" />
-                </div>
+          </div>
+          <div
+            class="md:col-span-6 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-40"
+          >
+            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
+            <div class="space-y-2">
+              <div v-for="n in 3" :key="n" class="flex items-start gap-2">
+                <div class="w-4 h-4 my-1 bg-black/15 dark:bg-white/15 rounded shrink-0" />
+                <div class="h-5 w-1/2 bg-black/15 dark:bg-white/15 rounded" />
               </div>
             </div>
           </div>
         </div>
 
-        <div v-if="about" class="flex flex-col gap-20 text-base">
-          <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-            <h3
-              class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
-            >
-              經歷
-            </h3>
-            <div
-              v-for="(exp, i) in about.experiences"
-              :key="i"
-              class="flex flex-col gap-4"
-              :class="{ 'mt-10': i > 0 }"
-            >
-              <h4 class="text-black dark:text-white font-semibold">
-                {{ exp.date }}
-                <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
-              </h4>
-              <p class="text-neutral-600 dark:text-neutral-300">
-                {{ exp.description_before }}
-                <a
-                  v-if="exp.link"
-                  :href="exp.link.url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
-                  :alt="exp.link.alt"
-                >
-                  {{ exp.link.text }} ↗
-                </a>
-                {{ exp.description_after }}
-              </p>
-            </div>
-            <div v-if="about.resources.length" class="flex flex-col mt-10 gap-4">
-              <h4 class="text-black dark:text-white text-nowrap font-semibold">其他資源</h4>
-              <div class="flex flex-col gap-2">
-                <ResourceItem
-                  v-for="(item, i) in about.resources"
-                  :key="i"
-                  v-bind="item"
-                  :is-dark="isDark"
-                  data-aos="fade-right"
-                  data-aos-duration="800"
-                  :data-aos-delay="(i + 1) * 50"
+        <!-- about me 卡片 -->
+        <div v-else-if="about" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
+          <!-- 個人簡介 -->
+          <article
+            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="50"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-user"
+              class="text-sky-600 dark:text-sky-400"
+              size="lg"
+            />
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-wrap items-center gap-3">
+                <p class="text-black dark:text-white text-xl font-semibold font-mono">
+                  陳仟龍 Chris
+                </p>
+                <StatusBadge
+                  v-if="about.job_status"
+                  :label="about.job_status"
+                  :color="about.job_status_color"
+                  size="sm"
                 />
               </div>
+              <p class="text-sky-700 dark:text-sky-400 text-sm font-mono">
+                Frontend Engineer | UI/UX Designer
+              </p>
+              <p
+                v-if="about.location"
+                class="text-neutral-600 dark:text-neutral-300 font-mono text-sm"
+              >
+                <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px mr-1" />
+                {{ about.location }}
+              </p>
             </div>
-          </div>
-          <!-- <div
-              v-if="about.educations.length"
-              data-aos="fade-up"
-              data-aos-duration="800"
-              data-aos-delay="300"
-            >
-              <h3
-                class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
-              >
-                學歷
-              </h3>
-              <div
-                v-for="(edu, i) in about.educations"
+          </article>
+
+          <!-- Links -->
+          <article
+            v-if="about.contacts?.length"
+            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="100"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-link"
+              class="text-sky-600 dark:text-sky-400"
+              size="lg"
+            />
+            <div class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col gap-2">
+              <a
+                v-for="(contact, i) in about.contacts"
                 :key="i"
-                class="flex flex-col gap-4"
-                :class="{ 'mt-6': i > 0 }"
+                :href="contact.url"
+                :target="isExternalUrl(contact.url) ? '_blank' : undefined"
+                :rel="isExternalUrl(contact.url) ? 'noopener noreferrer' : undefined"
+                class="flex items-center gap-2 w-fit hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200"
               >
+                <font-awesome-icon
+                  v-if="contact.iconType === 'fa'"
+                  :icon="contact.icon"
+                  class="mb-px"
+                />
+                <img
+                  v-else
+                  :src="isDark && contact.iconDark ? contact.iconDark : contact.icon"
+                  :alt="contact.label"
+                  width="16"
+                  height="16"
+                  loading="lazy"
+                  class="shrink-0"
+                />
+                {{ contact.label }}
+              </a>
+            </div>
+          </article>
+
+          <!-- 經歷 -->
+          <article
+            v-if="about.experiences?.length"
+            class="md:col-span-6 flex flex-col gap-6 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="150"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-briefcase"
+              class="text-sky-600 dark:text-sky-400"
+              size="lg"
+            />
+            <div class="flex flex-col gap-6">
+              <div v-for="(exp, i) in about.experiences" :key="i" class="flex flex-col gap-2">
+                <h4 class="text-black dark:text-white font-semibold">
+                  {{ exp.date }}
+                  <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
+                </h4>
+                <p class="text-neutral-600 dark:text-neutral-300">
+                  {{ exp.description_before }}
+                  <a
+                    v-if="exp.link"
+                    :href="exp.link.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-sky-600 dark:hover:text-sky-400 text-nowrap underline transition-all duration-200"
+                    :alt="exp.link.alt"
+                  >
+                    {{ exp.link.text }} ↗
+                  </a>
+                  {{ exp.description_after }}
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- 其他資源 -->
+          <article
+            v-if="about.resources?.length"
+            :class="[
+              'flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6',
+              about.educations?.length ? 'md:col-span-4' : 'md:col-span-6',
+            ]"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="200"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-book"
+              class="text-sky-600 dark:text-sky-400"
+              size="lg"
+            />
+            <div class="flex flex-col gap-2">
+              <ResourceItem
+                v-for="(item, i) in about.resources"
+                :key="i"
+                v-bind="item"
+                :is-dark="isDark"
+              />
+            </div>
+          </article>
+
+          <!-- 學歷 -->
+          <article
+            v-if="about.educations?.length"
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="250"
+          >
+            <font-awesome-icon
+              icon="fa-solid fa-graduation-cap"
+              class="text-sky-600 dark:text-sky-400"
+              size="lg"
+            />
+            <div class="flex flex-col gap-3">
+              <div v-for="(edu, i) in about.educations" :key="i" class="flex flex-col gap-1">
                 <p class="text-black dark:text-white font-semibold">{{ edu.year }}</p>
-                <p class="text-neutral-600 dark:text-neutral-300 text-nowrap font-normal">
+                <p class="text-neutral-600 dark:text-neutral-300 text-sm">
                   {{ edu.description }}
                 </p>
               </div>
-            </div> -->
-          <!-- <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-              <h3
-                class="w-50 text-neutral-800 dark:text-neutral-200 pb-2 mb-8 border-b border-neutral-400 dark:border-neutral-600"
-              >
-                技能
-              </h3>
-              <div class="flex flex-row flex-wrap gap-5">
-                <img
-                  v-for="(skillicon, i) in about.skill_icons"
-                  :key="skillicon.src"
-                  :src="isDark && skillicon.dark ? skillicon.dark : skillicon.src"
-                  alt="skillicon"
-                  loading="lazy"
-                  class="w-8 h-8"
-                  data-aos="fade-up"
-                  data-aos-duration="800"
-                  :data-aos-delay="(i + 1) * 50"
-                />
-              </div>
-              <div class="flex flex-wrap gap-2 mt-8">
-                <span
-                  v-for="skilltext in about.skill_texts"
-                  :key="skilltext"
-                  class="text-neutral-600 dark:text-neutral-300 text-sm text-nowrap px-3 py-1.5 bg-neutral-50 dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-full"
-                >
-                  {{ skilltext }}
-                </span>
-              </div>
-            </div> -->
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -348,6 +379,7 @@ import { computed, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import ResourceItem from '../components/ResourceItem.vue'
+import SkillMarquee from '../components/SkillMarquee.vue'
 import SkillsCard from '../components/SkillsCard.vue'
 import StatusBadge from '../components/StatusBadge.vue'
 import { fetchProjects, type Project } from '../data/projects'

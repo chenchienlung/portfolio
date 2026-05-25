@@ -26,6 +26,9 @@ import {
   faArrowRight,
   faCalendar,
   faClock,
+  faBriefcase,
+  faGraduationCap,
+  faLink,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -50,6 +53,9 @@ library.add(
   faArrowRight,
   faCalendar,
   faClock,
+  faBriefcase,
+  faGraduationCap,
+  faLink,
 )
 
 const app = createApp(App)
