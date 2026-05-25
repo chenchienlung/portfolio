@@ -8,6 +8,8 @@
         class="w-full h-full object-cover bg-black/5 dark:bg-black/40"
         :src="image"
         :alt="title"
+        width="480"
+        height="360"
         fetchpriority="high"
       />
     </div>

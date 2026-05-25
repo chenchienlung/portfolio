@@ -1,14 +1,14 @@
 <template>
   <div v-if="icons?.length" class="skill-marquee overflow-hidden py-4">
-    <ul class="flex w-max items-center gap-12 animate-marquee">
+    <ul class="flex w-max items-center gap-10 animate-marquee">
       <li v-for="(icon, i) in duplicatedIcons" :key="i" class="shrink-0">
         <img
           :src="isDark && icon.dark ? icon.dark : icon.src"
           alt=""
-          width="48"
-          height="48"
-          loading="lazy"
-          class="w-12 h-12 object-contain"
+          width="40"
+          height="40"
+          fetchpriority="high"
+          class="w-10 h-10 object-contain"
           aria-hidden="true"
         />
       </li>
