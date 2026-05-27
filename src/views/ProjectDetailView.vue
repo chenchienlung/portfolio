@@ -48,7 +48,7 @@
             <div
               v-for="n in 3"
               :key="n"
-              class="aspect-3/2 bg-black/15 dark:bg-white/15 rounded-2xl"
+              class="aspect-3/2 bg-black/15 dark:bg-white/15 rounded-xl"
             />
           </div>
         </div>

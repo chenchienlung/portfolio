@@ -101,7 +101,9 @@
           :to="prev ? `/article/${prev.slug}` : undefined"
           :class="[
             'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
-            prev ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+            prev
+              ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+              : 'opacity-40 cursor-not-allowed',
           ]"
         >
           <font-awesome-icon
@@ -123,7 +125,9 @@
           :to="next ? `/article/${next.slug}` : undefined"
           :class="[
             'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
-            next ? 'group md:hover:shadow-lg/12' : 'opacity-40 cursor-not-allowed',
+            next
+              ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+              : 'opacity-40 cursor-not-allowed',
           ]"
         >
           <div class="flex flex-col min-w-0">

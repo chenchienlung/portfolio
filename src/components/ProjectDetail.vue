@@ -154,7 +154,7 @@
               class="w-full shrink-0"
               :class="block.title || block.description ? 'md:w-1/2' : ''"
             >
-              <div class="aspect-3/2 w-full overflow-hidden rounded-2xl">
+              <div class="aspect-3/2 w-full overflow-hidden rounded-xl">
                 <img
                   :src="block.image"
                   :alt="block.title || project.title"
@@ -208,7 +208,7 @@
               class="w-full shrink-0"
               :class="block.title || block.description ? 'md:w-1/2' : ''"
             >
-              <div class="aspect-3/2 w-full overflow-hidden rounded-2xl">
+              <div class="aspect-3/2 w-full overflow-hidden rounded-xl">
                 <img
                   :src="block.image"
                   :alt="block.title || project.title"
@@ -249,7 +249,7 @@
           <div
             v-for="img in project.detail_img"
             :key="img"
-            class="aspect-3/2 overflow-hidden rounded-2xl"
+            class="aspect-3/2 overflow-hidden rounded-xl"
           >
             <img
               :src="img"

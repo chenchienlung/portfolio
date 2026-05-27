@@ -1,11 +1,11 @@
 <template>
-  <main class="mx-5 mb-4 flex flex-col gap-32">
+  <main class="mx-5 mb-10 flex flex-col gap-32">
     <section
       class="relative h-[calc(100vh-80px)] flex flex-col justify-center"
       data-aos="fade-up"
       data-aos-duration="800"
     >
-      <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white pb-20 md:pb-0">
+      <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white">
         <div class="flex flex-col gap-2 font-mono">
           <span class="text-sky-700 dark:text-sky-400 text-sm md:text-xl">
             Frontend Engineer | UI/UX Designer
@@ -206,18 +206,13 @@
         <!-- about me 卡片 -->
         <div v-else-if="about" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <!-- 個人簡介 -->
-          <article
+          <div
             class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="50"
           >
-            <font-awesome-icon
-              icon="fa-solid fa-user"
-              class="text-sky-600 dark:text-sky-400"
-              size="lg"
-            />
-            <div class="flex flex-col gap-3">
+            <div class="flex-1 flex flex-col justify-center gap-3">
               <div class="flex flex-wrap items-center gap-3">
                 <p class="text-black dark:text-white text-xl font-semibold font-mono">
                   陳仟龍 Chris
@@ -240,10 +235,10 @@
                 {{ about.location }}
               </p>
             </div>
-          </article>
+          </div>
 
           <!-- Links -->
-          <article
+          <div
             v-if="about.contacts?.length"
             class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
             data-aos="fade-up"
@@ -281,10 +276,10 @@
                 {{ contact.label }}
               </a>
             </div>
-          </article>
+          </div>
 
           <!-- 經歷 -->
-          <article
+          <div
             v-if="about.experiences?.length"
             class="md:col-span-6 flex flex-col gap-6 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
             data-aos="fade-up"
@@ -318,10 +313,10 @@
                 </p>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- 其他資源 -->
-          <article
+          <div
             v-if="about.resources?.length"
             :class="[
               'flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6',
@@ -344,10 +339,10 @@
                 :is-dark="isDark"
               />
             </div>
-          </article>
+          </div>
 
           <!-- 學歷 -->
-          <article
+          <div
             v-if="about.educations?.length"
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
             data-aos="fade-up"
@@ -367,7 +362,7 @@
                 </p>
               </div>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>

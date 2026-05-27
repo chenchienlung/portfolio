@@ -1,6 +1,6 @@
 <template>
   <div v-if="icons?.length" class="skill-marquee overflow-hidden py-4">
-    <ul class="flex w-max items-center gap-10 animate-marquee">
+    <ul class="flex w-max items-center gap-6 md:gap-8 animate-marquee">
       <li v-for="(icon, i) in duplicatedIcons" :key="i" class="shrink-0">
         <img
           :src="isDark && icon.dark ? icon.dark : icon.src"
