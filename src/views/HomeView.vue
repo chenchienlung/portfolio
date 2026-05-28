@@ -390,16 +390,25 @@ const error = ref('')
 const about = ref<About | null>(null)
 
 onMounted(async () => {
-  try {
-    loading.value = true
-    const [projectData, aboutData] = await Promise.all([fetchProjects(), fetchAbout()])
+  loading.value = true
 
-    projects.value = projectData.map((project) => ({
+  // 分開 fetch，避免因 project fetch 較慢（資料較多），導致位於 about 中的 StatusBadge 延遲，進而影響 LCP
+  const aboutPromise = fetchAbout()
+  const projectsPromise = fetchProjects()
+
+  aboutPromise.then((data) => {
+    about.value = data
+  })
+
+  projectsPromise.then((data) => {
+    projects.value = data.map((project) => ({
       ...project,
       link: `/portfolio/${project.slug}`,
     }))
+  })
 
-    about.value = aboutData
+  try {
+    await Promise.all([aboutPromise, projectsPromise])
   } catch (err) {
     console.error('Fetch error:', err)
     error.value = err instanceof Error ? err.message : '載入失敗'
