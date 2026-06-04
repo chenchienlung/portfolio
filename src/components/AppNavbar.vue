@@ -1,5 +1,9 @@
 <template>
-  <nav class="w-full h-fit fixed md:top-5 z-50" :class="isIOSSafari ? 'bottom-0' : 'bottom-5'">
+  <nav
+    class="w-full h-fit fixed md:top-5 z-50 will-change-transform"
+    style="transform: translateZ(0)"
+    :class="isIOSSafari ? 'bottom-0' : 'bottom-5'"
+  >
     <div
       class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
     >
