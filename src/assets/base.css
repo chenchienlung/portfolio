@@ -98,10 +98,6 @@ html {
   scrollbar-gutter: stable;
 }
 
-main {
-  overflow-x: clip;
-}
-
 html.dark body {
   background: #181818;
 }
