@@ -5,21 +5,21 @@
       <div
         v-for="n in 6"
         :key="n"
-        class="animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden shadow-xs/12"
+        class="animate-pulse w-full h-full rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden shadow-xs/12"
       >
         <div class="aspect-3/2 bg-black/15 dark:bg-white/15" />
         <div class="p-4">
-          <div class="h-fit md:h-14 flex items-start">
-            <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-3/5" />
+          <div class="h-auto md:h-14 flex items-start">
+            <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-4/5 sm:w-3/4 lg:w-3/5" />
           </div>
           <div class="flex flex-row flex-wrap gap-1 my-2">
-            <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-6 w-16 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-6 w-16 sm:w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-6 w-14 sm:w-12 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-6 w-20 sm:w-16 bg-black/15 dark:bg-white/15 rounded-full" />
           </div>
           <div class="space-y-2">
             <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-11/12 sm:w-4/5" />
           </div>
         </div>
       </div>

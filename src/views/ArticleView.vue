@@ -7,12 +7,13 @@
           <div
             class="w-full flex flex-col-reverse sm:flex-row gap-4 sm:justify-between items-stretch"
           >
-            <div class="flex-1 min-w-0 flex flex-col justify-between gap-2.5">
+            <div class="flex flex-col justify-between gap-2.5">
               <div class="flex flex-col gap-2">
-                <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-4/5" />
-                <div class="flex flex-row gap-1">
-                  <span class="h-6 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-                  <span class="h-6 w-12 bg-black/15 dark:bg-white/15 rounded-full" />
+                <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-full sm:w-80 md:w-96 max-w-full" />
+                <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-3/5 sm:hidden" />
+                <div class="flex flex-row flex-wrap gap-1">
+                  <span class="h-6 w-16 sm:w-14 bg-black/15 dark:bg-white/15 rounded-full" />
+                  <span class="h-6 w-14 sm:w-12 bg-black/15 dark:bg-white/15 rounded-full" />
                 </div>
               </div>
               <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-24" />
