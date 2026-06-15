@@ -48,6 +48,22 @@ export interface SkillGroup {
   checklist?: string[]
 }
 
+export interface WorkPreference {
+  label: string
+  value: string
+}
+
+export interface DailyTool {
+  name: string
+  icon: string
+  iconDark?: string
+}
+
+export interface Stat {
+  label: string
+  value: string
+}
+
 export type JobStatusColor = 'green' | 'blue' | 'rose' | 'neutral'
 
 export interface About {
@@ -62,6 +78,9 @@ export interface About {
   skill_icons: SkillIcon[]
   skill_texts: string[]
   skill_groups: SkillGroup[]
+  work_preferences?: WorkPreference[]
+  daily_tools?: DailyTool[]
+  stats?: Stat[]
 }
 
 export const fetchAbout = async (): Promise<About> => {

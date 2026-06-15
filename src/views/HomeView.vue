@@ -110,41 +110,81 @@
 
         <!-- Loading skeleton -->
         <div v-if="!about && loading" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
+          <!-- 個人簡介 -->
           <div
-            class="md:col-span-3 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
-            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
-            <div class="space-y-2">
-              <div class="h-5 w-48 bg-black/15 dark:bg-white/15 rounded" />
-              <div class="h-4 w-40 bg-black/15 dark:bg-white/15 rounded" />
+            class="md:col-span-3 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex-1 flex flex-col justify-center gap-3">
+              <div class="h-6 w-40 bg-black/15 dark:bg-white/15 rounded" />
+              <div class="h-4 w-56 bg-black/15 dark:bg-white/15 rounded" />
               <div class="h-4 w-32 bg-black/15 dark:bg-white/15 rounded" />
             </div>
           </div>
+
+          <!-- 各種連結 -->
           <div
-            class="md:col-span-3 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
-            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
-            <div class="space-y-2">
-              <div v-for="n in 3" :key="n" class="h-5 w-2/3 bg-black/15 dark:bg-white/15 rounded" />
+            class="md:col-span-3 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex flex-col gap-2">
+              <div v-for="n in 3" :key="`link-${n}`" class="h-5 w-2/3 bg-black/15 dark:bg-white/15 rounded" />
             </div>
           </div>
+
+          <!-- 偏好工作型態 -->
           <div
-            class="md:col-span-6 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-72">
-            <div class="h-6 w-24 bg-black/15 dark:bg-white/15 rounded mb-6" />
-            <div v-for="n in 2" :key="n" class="space-y-3" :class="{ 'mt-6': n > 1 }">
+            class="md:col-span-2 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex-1 flex flex-col justify-center gap-3">
+              <div v-for="n in 2" :key="`work-${n}`" class="flex flex-col gap-1">
+                <div class="h-3 w-12 bg-black/15 dark:bg-white/15 rounded" />
+                <div class="h-4 w-24 bg-black/15 dark:bg-white/15 rounded" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 目前主力工具 -->
+          <div
+            class="md:col-span-2 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
+              <div v-for="n in 5" :key="`tool-${n}`" class="w-8 h-8 bg-black/15 dark:bg-white/15 rounded" />
+            </div>
+          </div>
+
+          <!-- 統計 -->
+          <div
+            class="md:col-span-2 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-44">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex-1 grid grid-cols-3 gap-2">
+              <div v-for="n in 3" :key="`stat-${n}`" class="flex flex-col items-center justify-center gap-1.5">
+                <div class="h-7 w-10 bg-black/15 dark:bg-white/15 rounded" />
+                <div class="h-3 w-12 bg-black/15 dark:bg-white/15 rounded" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 經歷 -->
+          <div
+            class="md:col-span-6 animate-pulse flex flex-col gap-6 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-72">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div v-for="n in 2" :key="`exp-${n}`" class="flex flex-col gap-3">
               <div class="flex gap-6">
                 <div class="h-5 w-24 bg-black/15 dark:bg-white/15 rounded" />
                 <div class="h-5 w-40 bg-black/15 dark:bg-white/15 rounded" />
               </div>
-              <div class="space-y-2">
+              <div class="flex flex-col gap-2">
                 <div class="h-4 w-full bg-black/15 dark:bg-white/15 rounded" />
                 <div class="h-4 w-4/5 bg-black/15 dark:bg-white/15 rounded" />
               </div>
             </div>
           </div>
+
+          <!-- 其他學習資源 -->
           <div
-            class="md:col-span-6 animate-pulse rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-40">
-            <div class="h-6 w-32 bg-black/15 dark:bg-white/15 rounded mb-4" />
-            <div class="space-y-2">
-              <div v-for="n in 3" :key="n" class="flex items-start gap-2">
+            class="md:col-span-6 animate-pulse flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6 h-40">
+            <div class="w-6 h-6 bg-black/15 dark:bg-white/15 rounded" />
+            <div class="flex flex-col gap-2">
+              <div v-for="n in 3" :key="`res-${n}`" class="flex items-start gap-2">
                 <div class="w-4 h-4 my-1 bg-black/15 dark:bg-white/15 rounded shrink-0" />
                 <div class="h-5 w-1/2 bg-black/15 dark:bg-white/15 rounded" />
               </div>
@@ -152,7 +192,7 @@
           </div>
         </div>
 
-        <!-- about me 卡片 -->
+        <!-- about me 卡片區 -->
         <div v-else-if="about" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <!-- 個人簡介 -->
           <div
@@ -169,14 +209,14 @@
               <p class="text-sky-700 dark:text-sky-400 text-sm font-mono">
                 Frontend Engineer | UI/UX Designer
               </p>
-              <p v-if="about.location" class="text-neutral-600 dark:text-neutral-300 font-mono text-sm">
+              <p v-if="about.location" class="text-neutral-600 dark:text-neutral-300 text-sm">
                 <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px mr-1" />
                 {{ about.location }}
               </p>
             </div>
           </div>
 
-          <!-- Links -->
+          <!-- 各種連結 -->
           <div v-if="about.contacts?.length"
             class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
             data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
@@ -194,12 +234,56 @@
             </div>
           </div>
 
+          <!-- 偏好工作型態 -->
+          <div v-if="about.work_preferences?.length"
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up" data-aos-duration="800" data-aos-delay="125">
+            <font-awesome-icon icon="fa-solid fa-suitcase" class="text-sky-600 dark:text-sky-400" size="lg" />
+            <ul class="flex-1 flex flex-col justify-center gap-3">
+              <li v-for="(item, i) in about.work_preferences" :key="i" class="flex flex-col gap-0.5">
+                <span class="text-xs text-sky-700 dark:text-sky-400 font-mono">{{ item.label }}</span>
+                <span class="text-sm text-black dark:text-white">{{ item.value }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 目前主力工具 -->
+          <div v-if="about.daily_tools?.length"
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+            <font-awesome-icon icon="fa-solid fa-laptop-code" class="text-sky-600 dark:text-sky-400" size="lg" />
+            <ul class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
+              <li v-for="(tool, i) in about.daily_tools" :key="i" class="shrink-0" :title="tool.name">
+                <img :src="isDark && tool.iconDark ? tool.iconDark : tool.icon" :alt="tool.name" width="32" height="32"
+                  loading="lazy" class="w-8 h-8 object-contain" />
+              </li>
+            </ul>
+          </div>
+
+          <!-- 統計 -->
+          <div v-if="about.stats?.length"
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up" data-aos-duration="800" data-aos-delay="175">
+            <font-awesome-icon icon="fa-solid fa-chart-simple" class="text-sky-600 dark:text-sky-400" size="lg" />
+            <div class="flex-1 grid grid-cols-3 gap-2">
+              <div v-for="(stat, i) in about.stats" :key="i"
+                class="flex flex-col items-center justify-center text-center">
+                <span class="text-2xl font-bold text-black dark:text-white font-mono leading-none">
+                  {{ stat.value }}
+                </span>
+                <span class="mt-1.5 text-xs text-neutral-600 dark:text-neutral-300">
+                  {{ stat.label }}
+                </span>
+              </div>
+            </div>
+          </div>
+
           <!-- 經歷 -->
           <div v-if="about.experiences?.length"
-            class="md:col-span-6 flex flex-col gap-6 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+            class="md:col-span-6 flex flex-col gap-8 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
+            data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <font-awesome-icon icon="fa-solid fa-briefcase" class="text-sky-600 dark:text-sky-400" size="lg" />
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-4">
               <div v-for="(exp, i) in about.experiences" :key="i" class="flex flex-col gap-2">
                 <p class="text-black dark:text-white font-semibold">
                   {{ exp.date }}
@@ -218,11 +302,11 @@
             </div>
           </div>
 
-          <!-- 其他資源 -->
+          <!-- 其他學習資源 -->
           <div v-if="about.resources?.length" :class="[
             'flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6',
             about.educations?.length ? 'md:col-span-4' : 'md:col-span-6',
-          ]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          ]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
             <font-awesome-icon icon="fa-solid fa-book" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex flex-col gap-2">
               <ResourceItem v-for="(item, i) in about.resources" :key="i" v-bind="item" :is-dark="isDark" />
@@ -232,9 +316,9 @@
           <!-- 學歷 -->
           <div v-if="about.educations?.length"
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+            data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
             <font-awesome-icon icon="fa-solid fa-graduation-cap" class="text-sky-600 dark:text-sky-400" size="lg" />
-            <div class="flex flex-col gap-3">
+            <div class="flex-1 flex flex-col justify-center gap-3">
               <div v-for="(edu, i) in about.educations" :key="i" class="flex flex-col gap-1">
                 <p class="text-black dark:text-white font-semibold">{{ edu.year }}</p>
                 <p class="text-neutral-600 dark:text-neutral-300 text-sm">

@@ -29,6 +29,9 @@ import {
   faBriefcase,
   faGraduationCap,
   faLink,
+  faSuitcase,
+  faLaptopCode,
+  faChartSimple,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -56,6 +59,9 @@ library.add(
   faBriefcase,
   faGraduationCap,
   faLink,
+  faSuitcase,
+  faLaptopCode,
+  faChartSimple,
 )
 
 const app = createApp(App)
