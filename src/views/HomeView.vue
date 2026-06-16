@@ -3,11 +3,11 @@
     <section class="relative h-[calc(100dvh-80px)] flex flex-col justify-center" data-aos="fade-up"
       data-aos-duration="800">
       <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white">
-        <div class="flex flex-col gap-2 font-mono">
+        <div class="flex flex-col gap-2 font-display">
           <span class="text-sky-700 dark:text-sky-400 text-sm md:text-xl">
             Frontend Engineer | UI/UX Designer
           </span>
-          <h2 class="text-5xl md:text-6xl font-mono mb-5">Hello! I'm Chris.</h2>
+          <h2 class="text-5xl md:text-6xl mb-5">Hello! I'm Chris.</h2>
         </div>
         <p class="text-3xl md:text-4xl leading-[1.2em]">
           目前正在尋找
