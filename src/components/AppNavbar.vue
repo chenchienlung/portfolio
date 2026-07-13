@@ -1,8 +1,10 @@
 <template>
   <nav
-    class="w-full h-fit fixed md:top-5 z-50 will-change-transform"
-    style="transform: translateZ(0)"
-    :class="isIOSSafari ? 'bottom-0' : 'bottom-5'"
+    class="w-full h-fit fixed md:top-5 z-50 will-change-transform transition-transform duration-300 ease-in-out"
+    :class="[
+      isIOSSafari ? 'bottom-0' : 'bottom-5',
+      isHidden ? 'translate-y-[150%] md:translate-y-0' : 'translate-y-0',
+    ]"
   >
     <div
       class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
@@ -55,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useDarkMode } from '../composables/useDarkMode'
 import IconSun from './icons/IconSun.vue'
@@ -88,4 +91,25 @@ const isIOSSafari =
   /iP(hone|ad)/.test(navigator.userAgent) &&
   /Safari/.test(navigator.userAgent) &&
   !/CriOS|FxiOS|OPiOS|GSA|Mobile/.test(navigator.userAgent)
+
+// ── 滾動隱藏 / 顯示邏輯 ──────────────────────────────────────────────────────
+const isHidden = ref(false)
+let lastScrollY = window.scrollY
+const THRESHOLD = 8 // 超過幾像素才判定方向，避免微小抖動
+
+function onScroll() {
+  const currentY = window.scrollY
+  const delta = currentY - lastScrollY
+
+  if (Math.abs(delta) < THRESHOLD) return
+
+  isHidden.value = delta > 0 // 往下滾 → 隱藏；往上滾 → 顯示
+  lastScrollY = currentY
+}
+
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
+
+// 桌面（top）: 隱藏時 Tailwind md:-translate-y-[150%] 往上滑出
+// 行動（bottom）: 隱藏時 Tailwind translate-y-[150%] 往下滑出
 </script>

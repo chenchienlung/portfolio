@@ -36,7 +36,7 @@
 
       <div>
         <p v-for="(para, i) in project.detail_description" :key="i"
-          class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+          class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line"
           :class="i < project.detail_description.length - 1 ? 'mb-4' : 'mb-8'">
           {{ para }}
         </p>
