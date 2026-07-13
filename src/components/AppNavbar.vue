@@ -1,53 +1,36 @@
 <template>
   <nav
-    class="w-full h-fit fixed md:top-5 z-50 will-change-transform transition-transform duration-300 ease-in-out"
+    class="w-fit fixed left-1/2 -translate-x-1/2 md:top-5 z-50 will-change-transform transition-transform duration-300 ease-in-out"
     :class="[
-      isIOSSafari ? 'bottom-0' : 'bottom-5',
+      isIOSSafari ? 'bottom-[env(safe-area-inset-bottom)]' : 'bottom-5',
       isHidden ? 'translate-y-[150%] md:translate-y-0' : 'translate-y-0',
-    ]"
-  >
+    ]">
     <div
-      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
-    >
+      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10">
       <ul
-        class="w-fit flex flex-row justify-center p-0.5 bg-neutral-200/20 dark:bg-black/20 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10"
-      >
+        class="w-fit flex flex-row justify-center p-0.5 bg-neutral-200/20 dark:bg-black/20 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10">
         <li v-for="item in navItems" :key="item.to">
-          <RouterLink
-            :to="item.to"
-            :class="[
-              'h-10 flex flex-row items-center justify-center rounded-full transition-all duration-300 ease-out text-black/60 dark:text-neutral-300 hover:text-black/85 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10',
-              item.match(route.path) ? 'w-22' : 'w-10',
-            ]"
-            active-class="!bg-neutral-100 dark:!bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white/60 inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-black/85 dark:!text-white"
-          >
+          <RouterLink :to="item.to" :class="[
+            'h-10 flex flex-row items-center justify-center rounded-full transition-all duration-300 ease-out text-black/60 dark:text-neutral-300 hover:text-black/85 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10',
+            item.match(route.path) ? 'w-22' : 'w-10',
+          ]"
+            active-class="!bg-neutral-100 dark:!bg-white/10 shadow-sm inset-shadow-black/10 dark:inset-shadow-white/60 inset-shadow-sm/50 dark:inset-shadow-sm/20 !text-black/85 dark:!text-white">
             <font-awesome-icon :icon="item.icon" class="w-10 h-10 mb-px shrink-0" />
-            <span
-              class="overflow-hidden whitespace-nowrap transition-all duration-300 ease-out"
-              :class="
-                item.match(route.path) ? 'max-w-22 ml-1.5 opacity-100' : 'max-w-0 ml-0 opacity-0'
-              "
-            >
+            <span class="overflow-hidden whitespace-nowrap transition-all duration-300 ease-out" :class="item.match(route.path) ? 'max-w-22 ml-1.5 opacity-100' : 'max-w-0 ml-0 opacity-0'
+              ">
               {{ item.label }}
             </span>
           </RouterLink>
         </li>
       </ul>
       <div class="flex flex-row">
-        <a
-          class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-2xl text-black/60 dark:text-neutral-300 hover:text-black/85 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
-          href="https://github.com/chenchienlung"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="我的GitHub"
-        >
+        <a class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-2xl text-black/60 dark:text-neutral-300 hover:text-black/85 dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+          href="https://github.com/chenchienlung" target="_blank" rel="noopener noreferrer" title="我的GitHub">
           <font-awesome-icon icon="fa-brands fa-github" />
         </a>
-        <button
-          @click="toggle"
+        <button @click="toggle"
           class="w-11.5 h-11.5 rounded-full flex items-center justify-center text-xl text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200"
-          :title="isDark ? '切換亮色模式' : '切換深色模式'"
-        >
+          :title="isDark ? '切換亮色模式' : '切換深色模式'">
           <IconMoon v-if="isDark" />
           <IconSun v-else />
         </button>
