@@ -12,9 +12,9 @@ const transitionName = ref('slide-up')
 const getDepth = (name: any) => {
   if (name === 'home') return 0
   if (name === 'portfolio') return 1
-  if (name === 'article') return 2
+  if (name === 'blog') return 2
   if (name === 'project-detail') return 3
-  if (name === 'article-detail') return 3
+  if (name === 'article') return 3
   return 0
 }
 
@@ -23,8 +23,8 @@ watch(
   (toName, fromName) => {
     const isDetailToPortfolio = fromName === 'project-detail' && toName === 'portfolio'
     const isPortfolioToDetail = fromName === 'portfolio' && toName === 'project-detail'
-    const isDetailToArticle = fromName === 'article-detail' && toName === 'article'
-    const isArticleToDetail = fromName === 'article' && toName === 'article-detail'
+    const isDetailToArticle = fromName === 'article' && toName === 'blog'
+    const isArticleToDetail = fromName === 'blog' && toName === 'article'
 
     if (isPortfolioToDetail || isArticleToDetail) {
       transitionName.value = 'slide-up'
@@ -81,6 +81,7 @@ onMounted(() => {
   opacity: 100;
   transform: translateX(200%);
 }
+
 .slide-left-leave-to {
   opacity: 100;
   transform: translateX(-200%);
@@ -90,6 +91,7 @@ onMounted(() => {
   opacity: 100;
   transform: translateX(-200%);
 }
+
 .slide-right-leave-to {
   opacity: 100;
   transform: translateX(200%);
@@ -107,6 +109,7 @@ onMounted(() => {
   opacity: 100;
   transform: translateY(100%);
 }
+
 .slide-up-leave-to {
   opacity: 100;
   transform: translateY(-100%);
@@ -116,6 +119,7 @@ onMounted(() => {
   opacity: 100;
   transform: translateY(-100%);
 }
+
 .slide-down-leave-to {
   opacity: 100;
   transform: translateY(100%);

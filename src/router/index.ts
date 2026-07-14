@@ -34,14 +34,14 @@ const router = createRouter({
       component: () => import('@/views/ProjectDetailView.vue'),
     },
     {
-      path: '/article',
-      name: 'article',
+      path: '/blog',
+      name: 'blog',
       component: () => import('@/views/ArticleView.vue'),
       meta: { title: '文章' },
     },
     {
-      path: '/article/:slug',
-      name: 'article-detail',
+      path: '/blog/:slug',
+      name: 'article',
       component: () => import('@/views/ArticleDetailView.vue'),
     },
     {
@@ -55,7 +55,7 @@ const router = createRouter({
 
 router.afterEach((to) => {
   // 詳情頁等資料載入後再由 view 設定 title
-  if (to.name === 'project-detail' || to.name === 'article-detail') return
+  if (to.name === 'project-detail' || to.name === 'article') return
   setPageTitle(to.meta.title)
 })
 

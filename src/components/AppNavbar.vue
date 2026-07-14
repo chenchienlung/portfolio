@@ -63,10 +63,10 @@ const navItems = [
     match: (path: string) => path.startsWith('/portfolio'),
   },
   {
-    to: '/article',
+    to: '/blog',
     icon: 'fa-solid fa-pen',
     label: '文章',
-    match: (path: string) => path.startsWith('/article'),
+    match: (path: string) => path.startsWith('/blog'),
   },
 ]
 
