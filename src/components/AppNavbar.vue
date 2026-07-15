@@ -1,12 +1,12 @@
 <template>
   <nav
-    class="w-fit fixed left-1/2 -translate-x-1/2 md:top-5 z-50 will-change-transform transition-transform duration-300 ease-in-out"
+    class="pointer-events-none h-fit w-fit fixed left-1/2 -translate-x-1/2 md:top-5 z-50 will-change-transform transition-transform duration-300 ease-in-out"
     :class="[
       isIOSSafari ? 'bottom-[env(safe-area-inset-bottom)]' : 'bottom-5',
       isHidden ? 'translate-y-[150%] md:translate-y-0' : 'translate-y-0',
     ]">
     <div
-      class="w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10">
+      class="pointer-events-auto w-fit mx-auto flex flex-row justify-center items-center gap-2 p-1 bg-neutral-100/40 dark:bg-black/40 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10">
       <ul
         class="w-fit flex flex-row justify-center p-0.5 bg-neutral-200/20 dark:bg-black/20 backdrop-blur-sm rounded-full border border-black/5 dark:border-white/10">
         <li v-for="item in navItems" :key="item.to">
