@@ -13,6 +13,7 @@
         width="1200"
         height="600"
         fetchpriority="high"
+        decoding="async"
         class="w-full h-full object-cover"
       />
     </section>
@@ -63,6 +64,7 @@
             width="32"
             height="32"
             loading="lazy"
+            decoding="async"
             class="w-8 h-8 object-fill"
           />
         </div>
@@ -82,6 +84,7 @@
             width="32"
             height="32"
             loading="lazy"
+            decoding="async"
             class="w-8 h-8 object-fill"
           />
         </div>
@@ -96,8 +99,8 @@
           <div v-for="(deploy, i) in project.deploys" :key="i" class="flex flex-row items-center gap-3">
             <h4 class="w-1/4 md:w-fit text-nowrap font-bold">{{ deploy.title }}</h4>
             <div class="flex flex-row gap-2 items-center">
-              <img :key="deploy.image" :src="resolveIcon(deploy.image)" :alt="deploy.name" loading="lazy" width="80"
-                height="24" class="h-6 w-auto max-w-20 object-contain" />
+              <img :key="deploy.image" :src="resolveIcon(deploy.image)" :alt="deploy.name" loading="lazy"
+                decoding="async" width="80" height="24" class="h-6 w-auto max-w-20 object-contain" />
               <p class="text-sm font-bold">{{ deploy.name }}</p>
             </div>
           </div>
@@ -125,6 +128,7 @@
                   width="1200"
                   height="800"
                   loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-cover"
                 />
               </div>
@@ -164,6 +168,7 @@
                   width="1200"
                   height="800"
                   loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-cover"
                 />
               </div>
@@ -195,6 +200,7 @@
               width="1200"
               height="800"
               loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover"
             />
           </div>

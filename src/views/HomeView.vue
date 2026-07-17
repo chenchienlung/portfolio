@@ -224,7 +224,7 @@
                 class="flex items-center gap-2 w-fit hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200">
                 <font-awesome-icon v-if="contact.iconType === 'fa'" :icon="contact.icon" class="mb-px" />
                 <img v-else :src="isDark && contact.iconDark ? contact.iconDark : contact.icon" :alt="contact.label"
-                  width="16" height="16" loading="lazy" class="shrink-0" />
+                  width="16" height="16" loading="lazy" decoding="async" class="shrink-0" />
                 {{ contact.label }}
               </a>
             </div>
@@ -249,7 +249,7 @@
             <ul class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
               <li v-for="(tool, i) in about.daily_tools" :key="i" class="shrink-0" :title="tool.name">
                 <img :src="isDark && tool.iconDark ? tool.iconDark : tool.icon" :alt="tool.name" width="32" height="32"
-                  loading="lazy" class="w-8 h-8 object-contain" />
+                  loading="lazy" decoding="async" class="w-8 h-8 object-contain" />
               </li>
             </ul>
           </div>

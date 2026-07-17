@@ -24,7 +24,12 @@
     </div>
     <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
     <div v-else-if="articles.length" class="flex flex-col">
-      <ArticleCard v-for="article in articles" :key="article.id" v-bind="article" />
+      <ArticleCard
+        v-for="(article, index) in articles"
+        :key="article.id"
+        v-bind="article"
+        :priority="index === 0"
+      />
     </div>
     <div v-else class="text-center py-20">
       <h3 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">

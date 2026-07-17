@@ -8,6 +8,7 @@
       width="16"
       height="16"
       loading="lazy"
+      decoding="async"
       class="shrink-0 my-1 mr-1"
     />
     <a

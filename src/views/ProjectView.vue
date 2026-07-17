@@ -26,7 +26,12 @@
     </div>
     <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <ProjectCard v-for="project in projects" :key="project.title" v-bind="project" />
+      <ProjectCard
+        v-for="(project, index) in projects"
+        :key="project.title"
+        v-bind="project"
+        :priority="index === 0"
+      />
     </div>
   </main>
 </template>

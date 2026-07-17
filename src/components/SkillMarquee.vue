@@ -3,7 +3,7 @@
     <ul class="flex w-max items-center gap-6 md:gap-8 animate-marquee">
       <li v-for="(icon, i) in duplicatedIcons" :key="i" class="shrink-0">
         <img :src="isDark && icon.dark ? icon.dark : icon.src" alt="" width="40" height="40" loading="lazy"
-          class="w-10 h-10 object-contain" aria-hidden="true" />
+          decoding="async" class="w-10 h-10 object-contain" aria-hidden="true" />
       </li>
     </ul>
   </div>

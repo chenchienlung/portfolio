@@ -16,6 +16,7 @@
           width="1200"
           height="600"
           fetchpriority="high"
+          decoding="async"
           class="w-full h-full object-cover"
         />
       </picture>
