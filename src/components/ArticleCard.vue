@@ -21,7 +21,8 @@
       </div>
 
       <div class="h-fit shrink-0 w-full sm:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40">
-        <img v-if="image" :src="image" :alt="title" class="w-full h-full object-cover" fetchpriority="high" />
+        <img v-if="image" :src="image" :alt="title" class="w-full h-full object-cover" fetchpriority="high" width="192"
+          height="108" />
       </div>
     </div>
   </RouterLink>
