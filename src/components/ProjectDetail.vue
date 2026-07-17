@@ -7,7 +7,14 @@
     </div>
     <section
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
-      <img :src="project.banner" :alt="project.title" fetchpriority="high" class="w-full h-full object-cover" />
+      <img
+        :src="project.banner"
+        :alt="project.title"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        class="w-full h-full object-cover"
+      />
     </section>
     <section
       class="px-5 py-8 md:px-8 md:py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20">
@@ -48,8 +55,16 @@
           技能 / 工具
         </h3>
         <div class="flex flex-row flex-wrap gap-5">
-          <img v-for="skill in project.skills" :key="skill" :src="resolveIcon(skill)" :alt="skill" loading="lazy"
-            class="w-8 h-8 object-fill" />
+          <img
+            v-for="skill in project.skills"
+            :key="skill"
+            :src="resolveIcon(skill)"
+            :alt="skill"
+            width="32"
+            height="32"
+            loading="lazy"
+            class="w-8 h-8 object-fill"
+          />
         </div>
       </div>
 
@@ -59,8 +74,16 @@
           AI 工具
         </h3>
         <div class="flex flex-row flex-wrap gap-5">
-          <img v-for="ai in project.AI" :key="ai" :src="resolveIcon(ai)" :alt="ai" loading="lazy"
-            class="w-8 h-8 object-fill" />
+          <img
+            v-for="ai in project.AI"
+            :key="ai"
+            :src="resolveIcon(ai)"
+            :alt="ai"
+            width="32"
+            height="32"
+            loading="lazy"
+            class="w-8 h-8 object-fill"
+          />
         </div>
       </div>
 
@@ -96,8 +119,14 @@
             ]">
             <div v-if="block.image" class="w-full shrink-0" :class="block.title || block.description ? 'md:w-1/2' : ''">
               <div class="aspect-3/2 w-full overflow-hidden rounded-xl">
-                <img :src="block.image" :alt="block.title || project.title" loading="lazy"
-                  class="w-full h-full object-cover" />
+                <img
+                  :src="block.image"
+                  :alt="block.title || project.title"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
@@ -129,8 +158,14 @@
             ]">
             <div v-if="block.image" class="w-full shrink-0" :class="block.title || block.description ? 'md:w-1/2' : ''">
               <div class="aspect-3/2 w-full overflow-hidden rounded-xl">
-                <img :src="block.image" :alt="block.title || project.title" loading="lazy"
-                  class="w-full h-full object-cover" />
+                <img
+                  :src="block.image"
+                  :alt="block.title || project.title"
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  class="w-full h-full object-cover"
+                />
               </div>
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
@@ -154,7 +189,14 @@
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
           <div v-for="img in project.detail_img" :key="img" class="aspect-3/2 overflow-hidden rounded-xl">
-            <img :src="img" :alt="project.title" loading="lazy" class="w-full h-full object-cover" />
+            <img
+              :src="img"
+              :alt="project.title"
+              width="1200"
+              height="800"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 <template>
   <div v-if="groups?.length" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
-    <div v-for="(group, i) in groups" :key="group.title"
-      class="flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5"
-      data-aos="fade-up" data-aos-duration="800" :data-aos-delay="(i + 1) * delayBase">
+    <div
+      v-for="group in groups"
+      :key="group.title"
+      class="flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5">
       <div class="flex items-center gap-2 text-black dark:text-white">
         <font-awesome-icon :icon="group.icon" class="mb-px" size="lg" />
         <h3 class="text-xl font-semibold font-mono text-black dark:text-white">
@@ -30,13 +31,7 @@
 <script setup lang="ts">
 import type { SkillGroup } from '../data/about'
 
-withDefaults(
-  defineProps<{
-    groups: SkillGroup[]
-    delayBase?: number
-  }>(),
-  {
-    delayBase: 50,
-  },
-)
+defineProps<{
+  groups: SkillGroup[]
+}>()
 </script>

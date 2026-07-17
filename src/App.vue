@@ -34,22 +34,11 @@ watch(
       transitionName.value = getDepth(toName) > getDepth(fromName) ? 'slide-left' : 'slide-right'
     }
 
-    setTimeout(() => {
-      AOS.refresh()
-    })
   },
 )
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-
 onMounted(() => {
   initDarkMode()
-  AOS.init({
-    anchorPlacement: 'top',
-    once: true,
-    disable: 'mobile',
-  })
 })
 </script>
 

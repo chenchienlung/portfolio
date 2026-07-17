@@ -10,7 +10,14 @@
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
       <picture>
         <source v-if="article.cover_image_wide" media="(min-width: 768px)" :srcset="article.cover_image_wide" />
-        <img :src="article.cover_image" :alt="article.title" fetchpriority="high" class="w-full h-full object-cover" />
+        <img
+          :src="article.cover_image"
+          :alt="article.title"
+          width="1200"
+          height="600"
+          fetchpriority="high"
+          class="w-full h-full object-cover"
+        />
       </picture>
     </section>
     <article

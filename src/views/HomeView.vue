@@ -1,7 +1,6 @@
 <template>
   <main class="mx-5 mb-10 flex flex-col gap-32">
-    <section class="relative h-[calc(100dvh-80px)] flex flex-col justify-center" data-aos="fade-up"
-      data-aos-duration="800">
+    <section class="relative h-[calc(100dvh-80px)] flex flex-col justify-center">
       <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white">
         <div class="flex flex-col gap-2 font-display">
           <span class="text-sky-700 dark:text-sky-400 text-sm md:text-xl">
@@ -37,13 +36,12 @@
       <div v-else-if="loading"
         class="absolute top-10 md:top-50 right-0 animate-pulse h-8 w-32 rounded-full bg-black/10 dark:bg-white/10 ring-1 ring-black/10 dark:ring-white/10" />
     </section>
-    <section class="relative min-h-[calc(100vh-80px)]" data-aos="fade-up" data-aos-duration="800">
+    <section class="relative min-h-[calc(100vh-80px)]">
       <h2 class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600 mb-10">
         技能
       </h2>
       <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
-      <SkillMarquee v-if="about?.skill_icons?.length" :icons="about.skill_icons" :is-dark="isDark" class="mt-10"
-        data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" />
+      <SkillMarquee v-if="about?.skill_icons?.length" :icons="about.skill_icons" :is-dark="isDark" class="mt-10" />
       <div v-else-if="loading" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
         <div v-for="n in 4" :key="n"
           class="animate-pulse flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5">
@@ -61,7 +59,7 @@
         </div>
       </div>
     </section>
-    <section class="min-h-[calc(100vh-80px)]" data-aos="fade-up" data-aos-duration="800">
+    <section class="min-h-[calc(100vh-80px)]">
       <div class="text-2xl text-sky-600 flex flex-row justify-between">
         <h2 class="w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
           作品
@@ -102,7 +100,7 @@
         PORTFOLIO
       </p>
     </section>
-    <section id="about" class="min-h-[calc(100vh-80px)] pt-10 md:pt-0" data-aos="fade-up" data-aos-duration="800">
+    <section id="about" class="min-h-[calc(100vh-80px)] pt-10 md:pt-0">
       <div class="flex flex-col gap-10 mb-20">
         <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
           關於我
@@ -196,8 +194,7 @@
         <div v-else-if="about" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <!-- 個人簡介 -->
           <div
-            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="50">
+            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <div class="flex-1 flex flex-col justify-center gap-3">
               <div class="flex flex-wrap items-center gap-3">
                 <p class="text-black dark:text-white text-xl font-semibold font-mono">
@@ -218,8 +215,7 @@
 
           <!-- 各種連結 -->
           <div v-if="about.contacts?.length"
-            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-link" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col gap-2">
               <a v-for="(contact, i) in about.contacts" :key="i" :href="contact.url"
@@ -236,8 +232,7 @@
 
           <!-- 偏好工作型態 -->
           <div v-if="about.work_preferences?.length"
-            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="125">
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-suitcase" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-col justify-center gap-3">
               <li v-for="(item, i) in about.work_preferences" :key="i" class="flex flex-col gap-0.5">
@@ -249,8 +244,7 @@
 
           <!-- 目前主力工具 -->
           <div v-if="about.daily_tools?.length"
-            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-laptop-code" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
               <li v-for="(tool, i) in about.daily_tools" :key="i" class="shrink-0" :title="tool.name">
@@ -262,8 +256,7 @@
 
           <!-- 統計 -->
           <div v-if="about.stats?.length"
-            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="175">
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-chart-simple" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex-1 grid grid-cols-3 gap-2">
               <div v-for="(stat, i) in about.stats" :key="i"
@@ -280,8 +273,7 @@
 
           <!-- 經歷 -->
           <div v-if="about.experiences?.length"
-            class="md:col-span-6 flex flex-col gap-8 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            class="md:col-span-6 flex flex-col gap-8 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-briefcase" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex flex-col gap-4">
               <div v-for="(exp, i) in about.experiences" :key="i" class="flex flex-col gap-2">
@@ -306,7 +298,7 @@
           <div v-if="about.resources?.length" :class="[
             'flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6',
             about.educations?.length ? 'md:col-span-4' : 'md:col-span-6',
-          ]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250">
+          ]">
             <font-awesome-icon icon="fa-solid fa-book" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex flex-col gap-2">
               <ResourceItem v-for="(item, i) in about.resources" :key="i" v-bind="item" :is-dark="isDark" />
@@ -315,8 +307,7 @@
 
           <!-- 學歷 -->
           <div v-if="about.educations?.length"
-            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6"
-            data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-graduation-cap" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex-1 flex flex-col justify-center gap-3">
               <div v-for="(edu, i) in about.educations" :key="i" class="flex flex-col gap-1">

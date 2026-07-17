@@ -20,7 +20,6 @@
 - **路由管理**: [Vue Router](https://router.vuejs.org/)
 - **型別定義**: [TypeScript](https://www.typescriptlang.org/)
 - **圖示庫**: [FontAwesome](https://fontawesome.com/) | [theSVG](https://www.thesvg.org/)
-- **動態效果**: AOS - Animate On Scroll Library
 
 ## 部署
 
