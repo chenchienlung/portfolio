@@ -23,6 +23,9 @@ const duplicatedIcons = computed(() => [...props.icons, ...props.icons])
 
 <style scoped>
 .skill-marquee {
+  contain: paint;
+  overflow: clip;
+  position: relative;
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }

@@ -1,47 +1,68 @@
 <template>
   <main class="mx-5 mb-10 flex flex-col gap-32">
-    <section class="relative h-[calc(100dvh-80px)] flex flex-col justify-center">
-      <div class="flex flex-col gap-6 md:gap-10 text-black dark:text-white">
-        <div class="flex flex-col gap-2 font-display">
-          <span class="text-sky-700 dark:text-sky-400 text-sm md:text-xl">
-            Frontend Engineer | UI/UX Designer
-          </span>
-          <h2 class="text-5xl md:text-6xl mb-5">Hello! I'm Chris.</h2>
-        </div>
-        <p class="text-3xl md:text-4xl leading-[1.2em]">
-          目前正在尋找
-          <br />
-          <span class="text-sky-600 md:text-nowrap font-bold">
-            前端工程師<span class="text-neutral-400 dark:text-neutral-500 text-2xl"> 或 </span>
-            UI/UX設計師
-          </span>
-          <br />
-          相關職缺
+    <section v-fade-up class="relative w-full min-h-[calc(100dvh-80px)] flex items-center py-14 md:py-20">
+      <div aria-hidden="true"
+        class="pointer-events-none absolute inset-y-0 right-0 hidden select-none items-center justify-end overflow-hidden lg:flex">
+        <p
+          class="text-right text-[9rem] font-black leading-[0.78] tracking-[-0.08em] text-neutral-200/70 dark:text-neutral-800/70">
+          <span class="block">DESIGN</span>
+          <span class="block">→ CODE</span>
         </p>
-        <div class="mt-6 md:mt-12 flex flex-row flex-wrap gap-2">
-          <a href="https://github.com/chenchienlung" target="_blank" rel="noopener noreferrer"
-            class="px-4 h-11 flex items-center justify-center text-center text-nowrap text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
-            <font-awesome-icon icon="fa-brands fa-github" />
-            <span class="ml-1.5 text-sm">GitHub ↗</span>
-          </a>
-          <a href="#about"
-            class="px-4 h-11 flex items-center justify-center text-center text-nowrap text-sky-800 dark:text-sky-400 border border-sky-700 dark:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-300 hover:border-sky-700 rounded-full transition-all duration-200">
-            <font-awesome-icon icon="fa-solid fa-user" />
-            <span class="ml-1.5 text-sm">關於我 ↓</span>
-          </a>
+      </div>
+
+      <div class="relative z-10 w-full max-w-3xl">
+        <div class="flex flex-col text-left text-black dark:text-white">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="font-mono text-sm text-sky-700 dark:text-sky-400 md:text-base">
+              Junior Frontend Developer × UI/UX Designer
+            </span>
+          </div>
+
+          <h1 class="mt-6 text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+            從設計到開發，
+            <br />
+            <span class="text-sky-600 dark:text-sky-400">一手打造完整體驗。</span>
+          </h1>
+
+          <p class="mt-6 max-w-xl text-base leading-7 text-neutral-600 dark:text-neutral-300 md:text-lg md:leading-8">
+            專注 Vue 3、Tailwind CSS 與 UI/UX 設計，具備從需求整理、介面設計到前端實作的完整專題經驗。
+          </p>
+
+          <ul class="mt-6 flex flex-wrap gap-2 text-xs font-mono text-neutral-600 dark:text-neutral-300">
+            <li v-for="skill in ['UI Design', 'Vue 3', 'Tailwind CSS', 'RWD 響應式設計/開發']" :key="skill"
+              class="rounded-full border border-black/10 bg-white/60 px-3 py-1.5 dark:border-white/10 dark:bg-white/5">
+              {{ skill }}
+            </li>
+          </ul>
+
+          <div class="mt-8 flex flex-row flex-wrap items-center gap-2 md:mt-10">
+            <RouterLink to="/portfolio"
+              class="flex h-11 items-center justify-center rounded-full bg-sky-800 px-5 text-center text-sm text-white transition-colors duration-200 hover:bg-sky-700">
+              查看作品
+              <span class="ml-1.5">→</span>
+            </RouterLink>
+            <a href="#about"
+              class="flex h-11 items-center justify-center rounded-full border border-sky-700 px-5 text-center text-sm text-sky-800 transition-colors duration-200 hover:border-sky-700 hover:bg-sky-50 hover:text-sky-700 dark:border-sky-500 dark:text-sky-400 dark:hover:bg-sky-900/30 dark:hover:text-sky-300">
+              關於我
+              <span class="ml-1.5">↓</span>
+            </a>
+            <a href="https://github.com/chenchienlung" target="_blank" rel="noopener noreferrer"
+              class="flex h-11 items-center justify-center rounded-full border border-sky-700 px-5 text-center text-sm text-sky-800 transition-colors duration-200 hover:border-sky-700 hover:bg-sky-50 hover:text-sky-700 dark:border-sky-500 dark:text-sky-400 dark:hover:bg-sky-900/30 dark:hover:text-sky-300">
+              <font-awesome-icon icon="fa-brands fa-github" />
+              <span class="ml-1.5">GitHub ↗</span>
+            </a>
+          </div>
         </div>
       </div>
-      <StatusBadge v-if="about?.job_status" class="absolute top-10 md:top-50 right-0" :label="about.job_status"
-        :color="about.job_status_color" size="md" />
-      <div v-else-if="loading"
-        class="absolute top-10 md:top-50 right-0 animate-pulse h-8 w-32 rounded-full bg-black/10 dark:bg-white/10 ring-1 ring-black/10 dark:ring-white/10" />
     </section>
     <section class="relative min-h-[calc(100vh-80px)]">
-      <h2 class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600 mb-10">
+      <h2 v-fade-up
+        class="w-20 text-2xl text-sky-600 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600 mb-10">
         技能
       </h2>
-      <SkillsCard v-if="about?.skill_groups?.length" :groups="about.skill_groups" />
-      <SkillMarquee v-if="about?.skill_icons?.length" :icons="about.skill_icons" :is-dark="isDark" class="mt-10" />
+      <SkillsCard v-if="about?.skill_groups?.length" v-fade-up-group :groups="about.skill_groups" />
+      <SkillMarquee v-if="about?.skill_icons?.length" v-fade-up :icons="about.skill_icons" :is-dark="isDark"
+        class="mt-10" />
       <div v-else-if="loading" class="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-5">
         <div v-for="n in 4" :key="n"
           class="animate-pulse flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-5">
@@ -60,7 +81,7 @@
       </div>
     </section>
     <section class="min-h-[calc(100vh-80px)]">
-      <div class="text-2xl text-sky-600 flex flex-row justify-between">
+      <div v-fade-up class="text-2xl text-sky-600 flex flex-row justify-between">
         <h2 class="w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
           作品
         </h2>
@@ -88,8 +109,10 @@
           </div>
         </div>
       </div>
-      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
-        <ProjectCard v-for="project in displayedProjects" :key="project.title" v-bind="project" />
+      <div v-else v-fade-up-group class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+        <div v-for="project in displayedProjects" :key="project.title" class="h-full">
+          <ProjectCard v-bind="project" />
+        </div>
       </div>
       <RouterLink to="/portfolio"
         class="lg:hidden w-full h-10 flex justify-center items-right mt-10 text-lg text-neutral-600 dark:text-neutral-300">
@@ -102,7 +125,8 @@
     </section>
     <section id="about" class="min-h-[calc(100vh-80px)] pt-10 md:pt-0">
       <div class="flex flex-col gap-10 mb-20">
-        <h2 class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
+        <h2 v-fade-up
+          class="text-sky-600 text-2xl w-20 font-bold pb-2 border-b border-neutral-400 dark:border-neutral-600">
           關於我
         </h2>
 
@@ -191,7 +215,7 @@
         </div>
 
         <!-- about me 卡片區 -->
-        <div v-else-if="about" class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
+        <div v-else-if="about" v-fade-up-group class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <!-- 個人簡介 -->
           <div
             class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
@@ -318,6 +342,50 @@
               </div>
             </div>
           </div>
+
+          <div class="md:col-span-6 grid grid-cols-1 gap-5 md:grid-cols-12">
+            <!-- 目前學習中 -->
+            <div
+              class="md:col-span-5 flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <font-awesome-icon icon="fa-solid fa-lightbulb" class="text-sky-600 dark:text-sky-400" size="lg" />
+                </div>
+                <span
+                  class="rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 text-xs font-mono text-amber-700 dark:text-amber-300">
+                  Learning...
+                </span>
+              </div>
+              <p class="text-sm leading-6 text-neutral-600 dark:text-neutral-300">
+                在 Vue 3 的實作基礎上延伸學習 React 生態，熟悉不同框架的元件設計與狀態管理思維。
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li v-for="topic in learningTopics" :key="topic"
+                  class="rounded-full border border-black/10 bg-neutral-50 px-3 py-1.5 text-xs font-mono text-neutral-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300">
+                  {{ topic }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- 我能做什麼 -->
+            <div
+              class="md:col-span-7 flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
+              <div class="flex items-center gap-3">
+                <font-awesome-icon icon="fa-solid fa-code" class="text-sky-600 dark:text-sky-400" size="lg" />
+              </div>
+              <ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+                <li v-for="capability in capabilities" :key="capability.title" class="flex items-start gap-3">
+                  <font-awesome-icon icon="fa-solid fa-check" class="mt-1 shrink-0 text-sky-600 dark:text-sky-400" />
+                  <div>
+                    <p class="font-medium text-black dark:text-white">{{ capability.title }}</p>
+                    <p class="mt-1 text-sm leading-6 text-neutral-600 dark:text-neutral-300">
+                      {{ capability.description }}
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -325,7 +393,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, type ObjectDirective } from 'vue'
 import { RouterLink } from 'vue-router'
 import ProjectCard from '../components/ProjectCard.vue'
 import ResourceItem from '../components/ResourceItem.vue'
@@ -343,6 +411,75 @@ const loading = ref(true)
 const error = ref('')
 
 const about = ref<About | null>(null)
+
+const learningTopics = ['React', 'JSX', 'Props / State', 'Hooks', 'React Router', 'React × TypeScript']
+
+const capabilities = [
+  {
+    title: '前端開發',
+    description: '使用 Vue 3、TypeScript 與 Vue Router 建立元件化 SPA。',
+  },
+  {
+    title: '設計稿切版',
+    description: '將 Figma 設計稿轉成重視細節與一致性的網頁介面。',
+  },
+  {
+    title: '響應式網頁',
+    description: '規劃桌機、平板與手機版面，確保不同裝置的使用體驗。',
+  },
+  {
+    title: 'UI/UX 設計',
+    description: '製作 Wireframe、Prototype、User Flow 與基礎 Design System。',
+  },
+]
+
+let fadeUpObserver: IntersectionObserver | null = null
+
+const getFadeUpObserver = () => {
+  fadeUpObserver ??= new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+
+        entry.target.classList.add('is-visible')
+        fadeUpObserver?.unobserve(entry.target)
+      })
+    },
+    {
+      threshold: 0.01,
+      rootMargin: '0px 0px -10% 0px',
+    },
+  )
+
+  return fadeUpObserver
+}
+
+const vFadeUp: ObjectDirective<HTMLElement> = {
+  mounted(element) {
+    element.classList.add('fade-up')
+    getFadeUpObserver().observe(element)
+  },
+  unmounted(element) {
+    fadeUpObserver?.unobserve(element)
+  },
+}
+
+const vFadeUpGroup: ObjectDirective<HTMLElement> = {
+  mounted(element) {
+    Array.from(element.children).forEach((child, index) => {
+      if (!(child instanceof HTMLElement)) return
+
+      child.classList.add('fade-up-card')
+      child.style.setProperty('--fade-up-delay', `${Math.min(index, 5) * 90}ms`)
+      getFadeUpObserver().observe(child)
+    })
+  },
+  unmounted(element) {
+    Array.from(element.children).forEach((child) => {
+      fadeUpObserver?.unobserve(child)
+    })
+  },
+}
 
 onMounted(async () => {
   loading.value = true
@@ -377,4 +514,48 @@ const displayedProjects = computed(() => projects.value.slice(0, 3))
 // 只有 http/https 開頭的連結才需要 target="_blank"
 // mailto:、tel: 等 scheme 應該在原分頁開啟
 const isExternalUrl = (url: string) => /^https?:\/\//i.test(url)
+
+onUnmounted(() => {
+  fadeUpObserver?.disconnect()
+  fadeUpObserver = null
+})
 </script>
+
+<style scoped>
+.fade-up,
+:deep(.fade-up-card) {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+}
+
+:deep(.fade-up-card) {
+  transition-delay: var(--fade-up-delay, 0ms);
+}
+
+@media (min-width: 768px) {
+
+  .fade-up,
+  :deep(.fade-up-card) {
+    transform: translateY(24px);
+  }
+}
+
+.fade-up.is-visible,
+:deep(.fade-up-card.is-visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fade-up,
+  :deep(.fade-up-card) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+</style>

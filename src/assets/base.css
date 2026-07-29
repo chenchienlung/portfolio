@@ -86,6 +86,7 @@ option {
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  overflow-x: clip;
 }
 
 html.dark body {

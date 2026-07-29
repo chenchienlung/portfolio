@@ -1,5 +1,6 @@
 .env
-.env.local
+.env.*
+!.env.example
 
 # Logs
 logs
@@ -44,6 +45,7 @@ __screenshots__/
 
 # ai
 .claude
+.codex
 
 # other
 supabase
