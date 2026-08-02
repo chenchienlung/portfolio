@@ -2,8 +2,7 @@
   <div v-if="icons?.length" class="skill-marquee overflow-hidden py-4">
     <ul class="flex w-max items-center gap-6 md:gap-8 animate-marquee">
       <li v-for="(icon, i) in duplicatedIcons" :key="i" class="shrink-0">
-        <img :src="isDark && icon.dark ? icon.dark : icon.src" alt="" width="40" height="40" loading="lazy"
-          decoding="async" class="w-10 h-10 object-contain" aria-hidden="true" />
+        <ThemeIcon :icon="icon" :is-dark="isDark" class-name="w-10 h-10 object-contain" />
       </li>
     </ul>
   </div>
@@ -12,6 +11,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { SkillIcon } from '../data/about'
+import ThemeIcon from './ThemeIcon.vue'
 
 const props = defineProps<{
   icons: SkillIcon[]

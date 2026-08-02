@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabaseClient'
+import type { ThemeIcon } from '../types/icon'
 
 export interface ExperienceLink {
   url: string
@@ -15,18 +16,14 @@ export interface Experience {
 }
 
 export interface Resource {
-  iconType: 'fa' | 'img'
-  icon: string
-  iconDark?: string
+  icon: ThemeIcon
   prefix?: string
   text: string
   url?: string
 }
 
 export interface Contact {
-  iconType: 'fa' | 'img'
-  icon: string
-  iconDark?: string
+  icon: ThemeIcon
   label: string
   url: string
 }
@@ -37,7 +34,8 @@ export interface Education {
 }
 
 export interface SkillIcon {
-  src: string
+  type: 'fa' | 'img'
+  light: string
   dark?: string
 }
 
@@ -55,8 +53,7 @@ export interface WorkPreference {
 
 export interface DailyTool {
   name: string
-  icon: string
-  iconDark?: string
+  icon: ThemeIcon
 }
 
 export interface Stat {

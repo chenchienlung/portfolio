@@ -1,16 +1,6 @@
 <template>
   <div class="text-neutral-600 dark:text-neutral-300 flex flex-row items-start gap-2">
-    <font-awesome-icon v-if="iconType === 'fa'" :icon="icon" class="w-4 h-4 my-1 shrink-0" />
-    <img
-      v-else
-      :src="isDark && iconDark ? iconDark : icon"
-      :alt="text"
-      width="16"
-      height="16"
-      loading="lazy"
-      decoding="async"
-      class="shrink-0 my-1 mr-1"
-    />
+    <ThemeIcon :icon="icon" :is-dark="isDark" :alt="text" class-name="w-4 h-4 my-1 shrink-0 mr-1" />
     <a
       v-if="url"
       :href="url"
@@ -25,10 +15,11 @@
 </template>
 
 <script setup lang="ts">
+import ThemeIcon from './ThemeIcon.vue'
+import type { ThemeIcon as ThemeIconData } from '../types/icon'
+
 interface Props {
-  iconType?: 'fa' | 'img'
-  icon: string
-  iconDark?: string // 圖片 icon 的深色模式版本
+  icon: ThemeIconData
   prefix?: string
   text: string
   url?: string
@@ -36,7 +27,6 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  iconType: 'fa',
   isDark: false,
 })
 </script>

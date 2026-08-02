@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabaseClient'
+import type { ThemeIcon } from '../types/icon'
 
 export interface ImageTextBlock {
   image: string
@@ -10,7 +11,12 @@ export interface ImageTextBlock {
 export interface Deploy {
   title: string
   name: string
-  image: string
+  icon: ThemeIcon
+}
+
+export interface ProjectTool {
+  name?: string
+  icon: ThemeIcon
 }
 
 export interface Project {
@@ -19,8 +25,8 @@ export interface Project {
   public: boolean
   title: string
   points: string[]
-  skills?: string[]
-  AI?: string[]
+  skills?: ProjectTool[]
+  AI?: ProjectTool[]
   description: string
   detail_description: string[]
   image: string

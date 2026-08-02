@@ -25,7 +25,8 @@
           </h1>
 
           <p class="mt-6 max-w-xl text-base leading-7 text-neutral-600 dark:text-neutral-300 md:text-lg md:leading-8">
-            專注 Vue 3、Tailwind CSS 與 UI/UX 設計，具備從需求整理、介面設計到前端實作的完整專題經驗。
+            專注 Vue 3、Tailwind CSS 與 UI/UX
+            設計，具備從需求整理、介面設計到前端實作的完整專題經驗。
           </p>
 
           <ul class="mt-6 flex flex-wrap gap-2 text-xs font-mono text-neutral-600 dark:text-neutral-300">
@@ -246,9 +247,7 @@
                 :target="isExternalUrl(contact.url) ? '_blank' : undefined"
                 :rel="isExternalUrl(contact.url) ? 'noopener noreferrer' : undefined"
                 class="flex items-center gap-2 w-fit hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200">
-                <font-awesome-icon v-if="contact.iconType === 'fa'" :icon="contact.icon" class="mb-px" />
-                <img v-else :src="isDark && contact.iconDark ? contact.iconDark : contact.icon" :alt="contact.label"
-                  width="16" height="16" loading="lazy" decoding="async" class="shrink-0" />
+                <ThemeIcon :icon="contact.icon" :is-dark="isDark" :alt="contact.label" class-name="w-4 h-4" />
                 {{ contact.label }}
               </a>
             </div>
@@ -260,7 +259,9 @@
             <font-awesome-icon icon="fa-solid fa-suitcase" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-col justify-center gap-3">
               <li v-for="(item, i) in about.work_preferences" :key="i" class="flex flex-col gap-0.5">
-                <span class="text-xs text-sky-700 dark:text-sky-400 font-mono">{{ item.label }}</span>
+                <span class="text-xs text-sky-700 dark:text-sky-400 font-mono">{{
+                  item.label
+                  }}</span>
                 <span class="text-sm text-black dark:text-white">{{ item.value }}</span>
               </li>
             </ul>
@@ -272,8 +273,7 @@
             <font-awesome-icon icon="fa-solid fa-laptop-code" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
               <li v-for="(tool, i) in about.daily_tools" :key="i" class="shrink-0" :title="tool.name">
-                <img :src="isDark && tool.iconDark ? tool.iconDark : tool.icon" :alt="tool.name" width="32" height="32"
-                  loading="lazy" decoding="async" class="w-8 h-8 object-contain" />
+                <ThemeIcon :icon="tool.icon" :is-dark="isDark" :alt="tool.name" class-name="w-8 h-8 object-contain" />
               </li>
             </ul>
           </div>
@@ -400,6 +400,7 @@ import ResourceItem from '../components/ResourceItem.vue'
 import SkillMarquee from '../components/SkillMarquee.vue'
 import SkillsCard from '../components/SkillsCard.vue'
 import StatusBadge from '../components/StatusBadge.vue'
+import ThemeIcon from '../components/ThemeIcon.vue'
 import { fetchProjects, type Project } from '../data/projects'
 import { fetchAbout, type About } from '../data/about'
 import { useDarkMode } from '../composables/useDarkMode'
@@ -412,7 +413,14 @@ const error = ref('')
 
 const about = ref<About | null>(null)
 
-const learningTopics = ['React', 'JSX', 'Props / State', 'Hooks', 'React Router', 'React × TypeScript']
+const learningTopics = [
+  'React',
+  'JSX',
+  'Props / State',
+  'Hooks',
+  'React Router',
+  'React × TypeScript',
+]
 
 const capabilities = [
   {
