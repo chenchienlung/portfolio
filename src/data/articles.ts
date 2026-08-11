@@ -39,6 +39,12 @@ export interface ArticleListItem {
   date?: string
 }
 
+export interface ArticleNavigationItem {
+  id: number
+  slug: string
+  title: string
+}
+
 export const fetchArticles = async (): Promise<ArticleListItem[]> => {
   const { data, error } = await supabase
     .from('articles')
@@ -76,6 +82,17 @@ export const fetchArticleBySlug = async (slug: string): Promise<Article> => {
 
   if (error) throw error
   return data as Article
+}
+
+export const fetchArticleNavigation = async (): Promise<ArticleNavigationItem[]> => {
+  const { data, error } = await supabase
+    .from('articles')
+    .select('id, slug, title')
+    .eq('published', true)
+    .order('published_at', { ascending: false })
+
+  if (error) throw error
+  return (data ?? []) as ArticleNavigationItem[]
 }
 
 export const fetchArticlesByCategory = async (

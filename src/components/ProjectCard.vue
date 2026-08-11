@@ -4,8 +4,9 @@
     <div class="aspect-3/2 overflow-hidden">
       <img
         class="w-full h-full object-cover bg-black/5 dark:bg-black/40"
-        :src="image"
+        :src="image || siteSettings.default_image"
         :alt="title"
+        @error="handleImageError($event, DEFAULT_IMAGE)"
         width="480"
         height="360"
         :loading="priority ? 'eager' : 'lazy'"
@@ -31,6 +32,8 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { DEFAULT_IMAGE, handleImageError } from '../utils/imageFallback'
+import { siteSettings } from '../data/siteSettings'
 
 interface Props {
   title: string

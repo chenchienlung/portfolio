@@ -21,17 +21,9 @@
       </div>
 
       <div class="h-fit shrink-0 w-full sm:w-48 aspect-video rounded-xl overflow-hidden bg-black/5 dark:bg-black/40">
-        <img
-          v-if="image"
-          :src="image"
-          :alt="title"
-          class="w-full h-full object-cover"
-          width="192"
-          height="108"
-          :loading="priority ? 'eager' : 'lazy'"
-          :fetchpriority="priority ? 'high' : 'auto'"
-          decoding="async"
-        />
+        <img :src="image || siteSettings.default_image" :alt="title"
+          @error="handleImageError($event, DEFAULT_IMAGE)" class="w-full h-full object-cover" width="192" height="108"
+          :loading="priority ? 'eager' : 'lazy'" :fetchpriority="priority ? 'high' : 'auto'" decoding="async" />
       </div>
     </div>
   </RouterLink>
@@ -40,6 +32,8 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { DEFAULT_IMAGE, handleImageError } from '../utils/imageFallback'
+import { siteSettings } from '../data/siteSettings'
 
 interface Props {
   title: string

@@ -1,6 +1,6 @@
 <template>
   <main class="mx-5 mb-4">
-    <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的文章</h2>
+    <h1 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的文章</h1>
     <div v-if="loading" class="flex flex-col">
       <template v-for="n in 6" :key="n">
         <div class="animate-pulse w-full md:p-5 rounded-3xl">

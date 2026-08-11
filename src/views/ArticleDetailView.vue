@@ -54,6 +54,13 @@
       </section>
     </div>
 
+    <div v-else-if="error" class="text-center py-20">
+      <h2 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h2>
+      <RouterLink to="/blog"
+        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        回到文章列表
+      </RouterLink>
+    </div>
     <ArticleDetail v-else-if="article" :article="article" :prev="prevArticle" :next="nextArticle" />
 
     <div v-else class="text-center py-20">
@@ -71,30 +78,33 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import {
   fetchArticleBySlug,
-  fetchArticles,
+  fetchArticleNavigation,
   type Article,
-  type ArticleListItem,
+  type ArticleNavigationItem,
 } from '../data/articles'
 import ArticleDetail from '../components/ArticleDetail.vue'
 import { setPageTitle } from '../utils/pageTitle'
+import { isNotFoundError } from '../utils/supabase'
 
 const route = useRoute()
 const article = ref<Article | null>(null)
-const articleList = ref<ArticleListItem[]>([])
+const articleList = ref<ArticleNavigationItem[]>([])
 const loading = ref(true)
+const error = ref('')
+let requestId = 0
 
 const currentIndex = computed(() => {
   if (!article.value) return -1
   return articleList.value.findIndex((a) => a.slug === article.value!.slug)
 })
 
-const prevArticle = computed((): ArticleListItem | null => {
+const prevArticle = computed((): ArticleNavigationItem | null => {
   const i = currentIndex.value
   if (i < 0 || i + 1 >= articleList.value.length) return null
   return articleList.value[i + 1] ?? null
 })
 
-const nextArticle = computed((): ArticleListItem | null => {
+const nextArticle = computed((): ArticleNavigationItem | null => {
   const i = currentIndex.value
   if (i <= 0) return null
   return articleList.value[i - 1] ?? null
@@ -103,21 +113,30 @@ const nextArticle = computed((): ArticleListItem | null => {
 const loadArticle = async () => {
   const slug = route.params.slug as string
   if (!slug) return
+  const currentRequestId = ++requestId
   loading.value = true
+  error.value = ''
+  article.value = null
   try {
     const [articleData, listData] = await Promise.all([
       fetchArticleBySlug(slug),
-      articleList.value.length ? Promise.resolve(articleList.value) : fetchArticles(),
+      fetchArticleNavigation(),
     ])
+    if (currentRequestId !== requestId) return
     article.value = articleData
     articleList.value = listData
     setPageTitle(article.value?.title)
   } catch (err) {
-    article.value = null
+    if (currentRequestId !== requestId) return
+    if (isNotFoundError(err)) {
+      setPageTitle('找不到該文章')
+      return
+    }
+    error.value = '文章載入失敗，請稍後再試。'
     setPageTitle('找不到該文章')
     console.error(err)
   } finally {
-    loading.value = false
+    if (currentRequestId === requestId) loading.value = false
   }
 }
 

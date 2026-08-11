@@ -114,7 +114,7 @@
         作品載入失敗，請稍後再試。
       </p>
       <div v-else v-fade-up-group class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
-        <div v-for="project in displayedProjects" :key="project.title" class="h-full">
+        <div v-for="project in displayedProjects" :key="project.id" class="h-full">
           <ProjectCard v-bind="project" />
         </div>
       </div>
@@ -250,7 +250,7 @@
             class="md:col-span-3 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-link" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="text-neutral-600 dark:text-neutral-300 font-mono flex flex-col gap-2">
-              <a v-for="(contact, i) in about.contacts" :key="i" :href="contact.url"
+              <a v-for="contact in about.contacts" :key="contact.url" :href="contact.url"
                 :target="isExternalUrl(contact.url) ? '_blank' : undefined"
                 :rel="isExternalUrl(contact.url) ? 'noopener noreferrer' : undefined"
                 class="flex items-center gap-2 w-fit hover:text-sky-600 dark:hover:text-sky-400 hover:underline transition-all duration-200">
@@ -265,7 +265,7 @@
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-suitcase" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-col justify-center gap-3">
-              <li v-for="(item, i) in about.work_preferences" :key="i" class="flex flex-col gap-0.5">
+              <li v-for="item in about.work_preferences" :key="item.label" class="flex flex-col gap-0.5">
                 <span class="text-xs text-sky-700 dark:text-sky-400 font-mono">{{
                   item.label
                   }}</span>
@@ -279,7 +279,7 @@
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-laptop-code" class="text-sky-600 dark:text-sky-400" size="lg" />
             <ul class="flex-1 flex flex-wrap items-center justify-center content-center gap-4">
-              <li v-for="(tool, i) in about.daily_tools" :key="i" class="shrink-0" :title="tool.name">
+              <li v-for="tool in about.daily_tools" :key="tool.name" class="shrink-0" :title="tool.name">
                 <ThemeIcon :icon="tool.icon" :is-dark="isDark" :alt="tool.name" class-name="w-8 h-8 object-contain" />
               </li>
             </ul>
@@ -290,7 +290,7 @@
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-chart-simple" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex-1 grid grid-cols-3 gap-2">
-              <div v-for="(stat, i) in about.stats" :key="i"
+              <div v-for="stat in about.stats" :key="stat.label"
                 class="flex flex-col items-center justify-center text-center">
                 <span class="text-2xl font-bold text-black dark:text-white font-mono leading-none">
                   {{ stat.value }}
@@ -307,7 +307,7 @@
             class="md:col-span-6 flex flex-col gap-8 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-briefcase" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex flex-col gap-4">
-              <div v-for="(exp, i) in about.experiences" :key="i" class="flex flex-col gap-2">
+              <div v-for="exp in about.experiences" :key="`${exp.date}-${exp.title}`" class="flex flex-col gap-2">
                 <p class="text-black dark:text-white font-semibold">
                   {{ exp.date }}
                   <span class="text-nowrap md:ml-6">{{ exp.title }}</span>
@@ -332,7 +332,7 @@
           ]">
             <font-awesome-icon icon="fa-solid fa-book" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex flex-col gap-2">
-              <ResourceItem v-for="(item, i) in about.resources" :key="i" v-bind="item" :is-dark="isDark" />
+              <ResourceItem v-for="item in about.resources" :key="item.text" v-bind="item" :is-dark="isDark" />
             </div>
           </div>
 
@@ -341,7 +341,7 @@
             class="md:col-span-2 flex flex-col gap-4 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
             <font-awesome-icon icon="fa-solid fa-graduation-cap" class="text-sky-600 dark:text-sky-400" size="lg" />
             <div class="flex-1 flex flex-col justify-center gap-3">
-              <div v-for="(edu, i) in about.educations" :key="i" class="flex flex-col gap-1">
+              <div v-for="edu in about.educations" :key="`${edu.year}-${edu.description}`" class="flex flex-col gap-1">
                 <p class="text-black dark:text-white font-semibold">{{ edu.year }}</p>
                 <p class="text-neutral-600 dark:text-neutral-300 text-sm">
                   {{ edu.description }}

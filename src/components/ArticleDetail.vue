@@ -1,24 +1,18 @@
 <template>
   <main class="relative flex flex-col gap-5">
-    <div @click="$router.back()"
+    <button type="button" @click="$router.back()"
       class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10">
       <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
       上一頁
-    </div>
+    </button>
 
-    <section v-if="article.cover_image"
+    <section
       class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
       <picture>
         <source v-if="article.cover_image_wide" media="(min-width: 768px)" :srcset="article.cover_image_wide" />
-        <img
-          :src="article.cover_image"
-          :alt="article.title"
-          width="1200"
-          height="600"
-          fetchpriority="high"
-          decoding="async"
-          class="w-full h-full object-cover"
-        />
+        <img :src="article.cover_image || siteSettings.default_banner" :alt="article.title"
+          @error="handleImageError($event, DEFAULT_BANNER)" width="1200" height="600" fetchpriority="high"
+          decoding="async" class="w-full h-full object-cover" />
       </picture>
     </section>
     <article
@@ -116,22 +110,27 @@
 import '../lib/fontawesomeDetail'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import DOMPurify from 'dompurify'
 import { marked } from 'marked'
-import type { Article, ArticleListItem } from '../data/articles'
+import type { Article, ArticleNavigationItem } from '../data/articles'
+import { DEFAULT_BANNER, handleImageError } from '../utils/imageFallback'
+import { siteSettings } from '../data/siteSettings'
 
 const props = defineProps<{
   article: Article
-  prev?: ArticleListItem | null
-  next?: ArticleListItem | null
+  prev?: ArticleNavigationItem | null
+  next?: ArticleNavigationItem | null
 }>()
 
 const renderedContent = computed(() => {
   if (!props.article.content) return ''
   const html = marked.parse(props.article.content, { breaks: true, async: false }) as string
   // 把 <table> 包一層 wrapper，讓手機版可以橫向捲動
-  return html
-    .replace(/<table>/g, '<div class="article-table-wrap"><table>')
-    .replace(/<\/table>/g, '</table></div>')
+  return DOMPurify.sanitize(
+    html
+      .replace(/<table>/g, '<div class="article-table-wrap"><table>')
+      .replace(/<\/table>/g, '</table></div>'),
+  )
 })
 
 const formatDate = (iso: string) => {

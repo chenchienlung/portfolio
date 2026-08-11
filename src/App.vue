@@ -5,6 +5,7 @@ import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
 import CursorGlow from './components/CursorGlow.vue'
 import { initDarkMode } from './composables/useDarkMode'
+import { loadSiteSettings } from './data/siteSettings'
 
 const route = useRoute()
 const transitionName = ref('slide-up')
@@ -39,6 +40,7 @@ watch(
 
 onMounted(() => {
   initDarkMode()
+  void loadSiteSettings()
 })
 </script>
 

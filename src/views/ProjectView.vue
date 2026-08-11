@@ -1,6 +1,6 @@
 <template>
   <main class="mx-5 mb-4">
-    <h2 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的作品</h2>
+    <h1 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的作品</h1>
     <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div
         v-for="n in 6"
@@ -28,7 +28,7 @@
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <ProjectCard
         v-for="(project, index) in projects"
-        :key="project.title"
+        :key="project.id"
         v-bind="project"
         :priority="index === 0"
       />

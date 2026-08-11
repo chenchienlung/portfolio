@@ -58,6 +58,13 @@
         </div>
       </section>
     </div>
+    <div v-else-if="error" class="text-center py-20">
+      <h2 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h2>
+      <RouterLink to="/portfolio"
+        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        回到作品列表
+      </RouterLink>
+    </div>
     <ProjectDetail v-else-if="project" :project="project" :prev="prevProject" :next="nextProject" />
     <div v-else class="text-center py-20">
       <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該作品</h2>
@@ -72,14 +79,22 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { fetchProjectBySlug, fetchProjects, type Project } from '../data/projects'
+import {
+  fetchProjectBySlug,
+  fetchProjectNavigation,
+  type Project,
+  type ProjectNavigationItem,
+} from '../data/projects'
 import ProjectDetail from '../components/ProjectDetail.vue'
 import { setPageTitle } from '../utils/pageTitle'
+import { isNotFoundError } from '../utils/supabase'
 
 const route = useRoute()
 const project = ref<Project | null>(null)
-const projectList = ref<Project[]>([])
+const projectList = ref<ProjectNavigationItem[]>([])
 const loading = ref(true)
+const error = ref('')
+let requestId = 0
 
 const currentIndex = computed(() => {
   if (!project.value) return -1
@@ -89,13 +104,13 @@ const currentIndex = computed(() => {
 // projectList 已用 id desc 排序，所以 index 越大 = 越早的作品
 // 上一個 = 更早 = currentIndex + 1
 // 下一個 = 更新 = currentIndex - 1
-const prevProject = computed((): Project | null => {
+const prevProject = computed((): ProjectNavigationItem | null => {
   const i = currentIndex.value
   if (i < 0 || i + 1 >= projectList.value.length) return null
   return projectList.value[i + 1] ?? null
 })
 
-const nextProject = computed((): Project | null => {
+const nextProject = computed((): ProjectNavigationItem | null => {
   const i = currentIndex.value
   if (i <= 0) return null
   return projectList.value[i - 1] ?? null
@@ -104,22 +119,30 @@ const nextProject = computed((): Project | null => {
 const loadProject = async () => {
   const slug = route.params.slug as string
   if (!slug) return
+  const currentRequestId = ++requestId
   loading.value = true
+  error.value = ''
+  project.value = null
   try {
     const [projectData, listData] = await Promise.all([
       fetchProjectBySlug(slug),
-      // 已載入過列表就不重抓
-      projectList.value.length ? Promise.resolve(projectList.value) : fetchProjects(),
+      fetchProjectNavigation(),
     ])
+    if (currentRequestId !== requestId) return
     project.value = projectData
     projectList.value = listData
     setPageTitle(project.value?.title)
   } catch (err) {
-    project.value = null
+    if (currentRequestId !== requestId) return
+    if (isNotFoundError(err)) {
+      setPageTitle('找不到該作品')
+      return
+    }
+    error.value = '作品載入失敗，請稍後再試。'
     setPageTitle('找不到該作品')
     console.error(err)
   } finally {
-    loading.value = false
+    if (currentRequestId === requestId) loading.value = false
   }
 }
 

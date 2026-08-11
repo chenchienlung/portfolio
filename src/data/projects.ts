@@ -43,6 +43,12 @@ export interface Project {
   deploys?: Deploy[]
 }
 
+export interface ProjectNavigationItem {
+  id: number
+  slug: string
+  title: string
+}
+
 export const fetchProjects = async (): Promise<Project[]> => {
   const { data, error } = await supabase
     .from('projects')
@@ -64,6 +70,17 @@ export const fetchProjectBySlug = async (slug: string): Promise<Project> => {
 
   if (error) throw error
   return data as Project
+}
+
+export const fetchProjectNavigation = async (): Promise<ProjectNavigationItem[]> => {
+  const { data, error } = await supabase
+    .from('projects')
+    .select('id, slug, title')
+    .eq('public', true)
+    .order('id', { ascending: false })
+
+  if (error) throw error
+  return (data ?? []) as ProjectNavigationItem[]
 }
 
 export const fetchProjectById = async (id: number): Promise<Project | null> => {
