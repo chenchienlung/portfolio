@@ -20,6 +20,9 @@
 
 ## 詳細 Markdown 資源
 
+- [首頁 Markdown](https://chenchienlung.com/markdown/home.md)
+- [作品集索引 Markdown](https://chenchienlung.com/markdown/portfolio.md)
+- [文章索引 Markdown](https://chenchienlung.com/markdown/blog.md)
 - [個人作品集網站｜從規劃、設計到開發 Markdown](https://chenchienlung.com/markdown/portfolio/portfolio-website-design-to-develop.md)
 - [[產業新尖兵專題] WanTrip｜國內旅遊訂房網站 Markdown](https://chenchienlung.com/markdown/portfolio/wantrip.md)
 - [[App Redesign] 壽司郎App介面設計 Markdown](https://chenchienlung.com/markdown/portfolio/sushiro-taiwan-app-redesign.md)

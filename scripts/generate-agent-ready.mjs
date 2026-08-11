@@ -41,6 +41,9 @@ const projectUrl = (slug) => `${siteUrl}/portfolio/${slug}`
 const articleUrl = (slug) => `${siteUrl}/blog/${slug}`
 const projectMarkdownPath = (slug) => `/markdown/portfolio/${slug}.md`
 const articleMarkdownPath = (slug) => `/markdown/blog/${slug}.md`
+const homeMarkdownPath = '/markdown/home.md'
+const portfolioMarkdownPath = '/markdown/portfolio.md'
+const blogMarkdownPath = '/markdown/blog.md'
 const escapeXml = (value) =>
   String(value ?? '').replace(
     /[<>&'\"]/g,
@@ -115,7 +118,42 @@ ${article.content || ''}
 - 閱讀時間：約 ${article.read_time || '未提供'} 分鐘
 `
 
+const homeMarkdown = `# 陳仟龍 Chris Chen｜作品集與文章
+
+陳仟龍是 Junior Frontend Developer / UI/UX Designer，主要使用 Vue 3、TypeScript、Tailwind CSS、Supabase 與 Figma。
+
+## 作品集
+
+${publicProjects.map((project) => `- [${project.title}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
+
+## 文章
+
+${publicArticles.map((article) => `- [${article.title}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
+
+## 其他資源
+
+- [作品集索引](${siteUrl}${portfolioMarkdownPath})
+- [文章索引](${siteUrl}${blogMarkdownPath})
+- [完整 Agent Ready 索引](${siteUrl}/llms-full.txt)
+- [機器可讀資料](${siteUrl}/portfolio.json)
+- [GitHub](https://github.com/chenchienlung)
+- 聯絡信箱：chris@chenchienlung.com
+`
+
+const portfolioMarkdown = `# 作品集｜陳仟龍 Chris Chen
+
+${publicProjects.map((project) => `- [${project.title}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
+`
+
+const blogMarkdown = `# 文章｜陳仟龍 Chris Chen
+
+${publicArticles.map((article) => `- [${article.title}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
+`
+
 await Promise.all([
+  writeFile(resolve(outputDir, homeMarkdownPath.slice(1)), homeMarkdown, 'utf8'),
+  writeFile(resolve(outputDir, portfolioMarkdownPath.slice(1)), portfolioMarkdown, 'utf8'),
+  writeFile(resolve(outputDir, blogMarkdownPath.slice(1)), blogMarkdown, 'utf8'),
   ...publicProjects.map((project) =>
     writeFile(resolve(outputDir, projectMarkdownPath(project.slug).slice(1)), projectMarkdown(project), 'utf8'),
   ),
@@ -156,6 +194,9 @@ ${articleLines || '- 目前沒有已發布文章。'}
 ## 詳細 Markdown 資源
 
 ${[
+  `- [首頁 Markdown](${siteUrl}${homeMarkdownPath})`,
+  `- [作品集索引 Markdown](${siteUrl}${portfolioMarkdownPath})`,
+  `- [文章索引 Markdown](${siteUrl}${blogMarkdownPath})`,
   ...publicProjects.map((project) => `- [${project.title} Markdown](${siteUrl}${projectMarkdownPath(project.slug)})`),
   ...publicArticles.map((article) => `- [${article.title} Markdown](${siteUrl}${articleMarkdownPath(article.slug)})`),
 ].join('\n')}
