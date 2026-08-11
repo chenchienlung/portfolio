@@ -29,9 +29,174 @@
         "RWD",
         "Figma"
       ],
+      "points": [
+        "為求職情境設計，讓面試方快速理解我的定位、技能與專案經驗。",
+        "作品與文章採用不同內容模型，兼顧資料一致性與排版彈性。",
+        "從 Figma 規劃、Vue 3 開發、Supabase 資料管理到 Cloudflare Pages 部署皆獨立完成。"
+      ],
+      "skills": [
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/figma/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "dark": "https://thesvg.org/icons/github/dark.svg",
+            "type": "img",
+            "light": "https://thesvg.org/icons/github/mono.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/git/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/html5/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/css/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/typescript/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/tailwind-css/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/vue/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/vite/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/supabase/default.svg"
+          }
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/cloudinary/default.svg"
+          }
+        }
+      ],
+      "detail_description": [
+        "本專案以求職瀏覽情境為核心，目標是讓面試方能快速理解我的前端能力、UI/UX 經驗與專案角色。從資訊架構、Figma 設計、Vue 3 開發到部署皆獨立完成。",
+        "作品與文章資料由 Supabase 管理，圖片儲存在 Cloudinary ，CDN抓取圖片提升網站效能。作品使用固定 Schema 呈現專案背景、技術與開發過程；文章則使用 Markdown 保留不同主題需要的排版彈性。",
+        "開發過程特別處理響應式布局、深色模式、動態路由、頁面標題與內容維護性，並將前台網站與內容管理 Dashboard 分離。"
+      ],
+      "content": [
+        "從資訊架構、UI 設計到 Vue 3 開發獨立完成",
+        "使用 TypeScript 與元件化架構管理作品、文章及共用介面",
+        "以 Supabase 管理作品與文章資料，Cloudinary 管理媒體資源",
+        "針對作品與文章設計 Schema / Markdown 兩種內容呈現方式",
+        "支援響應式布局、深色模式、動態路由與 SEO",
+        "部署至 Cloudflare Pages，並以自訂網域公開作品"
+      ],
+      "detail_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480674/5_detail_img_01_jarbcx.webp",
+          "title": "網站架構",
+          "description": "網站以求職瀏覽情境為核心，主要分為首頁、作品列表、作品詳情、文章列表與文章詳情。首頁負責快速建立個人定位並引導至精選作品；列表頁提供分類瀏覽；詳情頁則呈現完整的設計與開發過程。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480676/5_detail_img_02_mjiejm.webp",
+          "title": "首頁",
+          "description": "首頁依序安排 Hero、精選作品、專業技能與關於我。先用 Hero 說明求職定位，再讓面試方直接看到作品證據，接著補充技能與個人背景，降低理解成本。\n- Hero：說明目前的狀態、描述我能做到什麼、主力技術、主力工具。\n- 最新作品區塊：展示三個最新的作品。\n- 專業技能：前端、UI/UX、開發工具、AI工具使用情況等，共4張卡片詳細介紹專業技能、專案經驗。\n- 關於我：包含求職狀態、經驗、技能與聯絡方式等不同資訊，因此採用 Bento Grid，利用不同卡片尺寸建立資訊層級。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480679/5_detail_img_03_trkknt.webp",
+          "title": "作品列表、內容",
+          "description": "作品詳情使用固定 Schema，統一管理專案背景、使用技術、開發流程、成果、連結與反思。固定結構方便面試方比較不同作品，也能避免每個案例的資訊完整度差異過大。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480683/5_detail_img_04_ubs0zb.webp",
+          "title": "文章列表、內容",
+          "description": "技術文章的段落、程式碼、圖片與引用結構會依主題改變，因此使用 Markdown 儲存內容，兼顧排版彈性與後續維護。文章的標題、摘要、分類、標籤與發布狀態則保留為結構化欄位。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785516294/5_detail_img_05_spcga2.webp",
+          "title": "未來規劃",
+          "description": "- 增加作品與文章搜尋、篩選功能。\n- 持續整理開發過程與技術文章。",
+          "imagePosition": null
+        }
+      ],
+      "development_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480686/5_detail_img_06_tf5ach.webp",
+          "title": "AI 輔助我哪些任務？",
+          "description": "AI 用於協助檢查元件一致性、分析錯誤訊息、產生重複性程式碼初稿與提供重構方向。網站架構、程式碼驗收與最終修改由我負責。所有 AI 產出都會經過理解、測試與調整後才納入專案。\n- 檢查重複程式碼、不必要的邏輯與可重構區塊。\n- 更快速解決bug、遇到的各種問題。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785480689/5_detail_img_07_e9kzly.webp",
+          "title": "部署工具選擇",
+          "description": "前端部署於 Cloudflare Pages，利用 Cloudflare 內建自動部署與全球 CDN；Supabase 負責結構化內容資料；Cloudinary 負責圖片資源與轉換。將前端、資料與媒體服務分離，方便獨立維護與擴充。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785733153/5_detail_img_08_y0r3rf.webp",
+          "title": "動態內容與資料",
+          "description": "作品內容具有固定的專案背景、技術、圖片與開發流程，因此使用結構化欄位儲存；文章段落與程式碼排版差異較大，則使用 Markdown。兩種資料模型分開設計，避免為了共用欄位而犧牲內容彈性。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785733154/5_detail_img_09_nndrh7.webp",
+          "title": "元件化與響應式設計",
+          "description": "將作品卡片、作品詳情、文章內容、導航與共用按鈕拆成獨立元件，降低頁面重複程式碼。響應式設計以桌面與行動裝置的閱讀順序為基礎，不只縮小尺寸，也調整導航、卡片欄數與圖文排列方式。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785733156/5_detail_img_10_kzzkrz.webp",
+          "title": "路由與動態頁面標題",
+          "description": "作品與文章使用 slug 建立動態路由，詳細頁面載入資料後再更新瀏覽器標題。其他固定頁面則由路由 metadata 管理名稱，使頁面標題能依目前內容調整。",
+          "imagePosition": "left"
+        }
+      ],
+      "detail_img": [
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488689/5_01_uzpm8a.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488692/5_02_broscf.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488696/5_03_ho2uip.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488701/5_04_zkpksm.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488705/5_05_oht4jk.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488709/5_06_ydza9x.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488713/5_07_hjfzpf.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488717/5_08_emvuzr.webp",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785488721/5_09_fh7mzx.webp"
+      ],
       "website": "https://chenchienlung.com/",
       "github": "https://github.com/chenchienlung/portfolio.git",
-      "url": "https://chenchienlung.com/portfolio/portfolio-website-design-to-develop"
+      "figma": "https://www.figma.com/design/xExe7iH3l3iTA1VFC8Z4ib/%E4%BD%9C%E5%93%81%E9%9B%86%E7%B6%B2%E7%AB%99%E8%A6%8F%E5%8A%83?node-id=119-621&t=1kz5yjXaGEpGeDlo-1",
+      "figma_prototype": "",
+      "url": "https://chenchienlung.com/portfolio/portfolio-website-design-to-develop",
+      "markdown_url": "https://chenchienlung.com/markdown/portfolio/portfolio-website-design-to-develop.md"
     },
     {
       "id": 4,
@@ -46,9 +211,231 @@
         "RWD",
         "團隊專案"
       ],
+      "points": [
+        "4 人團隊在 2 個月內完成具備訂房、住宿比較、會員與付款流程的旅遊平台",
+        "個人主導 UI/UX 設計與全站 RWD 切版，建立團隊共用的介面風格",
+        "專案使用 Supabase 串接會員、收藏與訂單資料，完成前端資料存取",
+        "共串接綠界與 LINE Pay Sandbox，模擬從預訂到付款結果的完整流程"
+      ],
+      "skills": [
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/figma/default.svg"
+          },
+          "name": "Figma"
+        },
+        {
+          "icon": {
+            "dark": "https://thesvg.org/icons/github/dark.svg",
+            "type": "img",
+            "light": "https://thesvg.org/icons/github/mono.svg"
+          },
+          "name": "GitHub"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/git/default.svg"
+          },
+          "name": "Git"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/html5/default.svg"
+          },
+          "name": "HTML"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/css/default.svg"
+          },
+          "name": "CSS"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/typescript/default.svg"
+          },
+          "name": "TypeScript"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/tailwind-css/default.svg"
+          },
+          "name": "Tailwind"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/vue/default.svg"
+          },
+          "name": "Vue"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/vite/default.svg"
+          },
+          "name": "Vite"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/supabase/default.svg"
+          },
+          "name": "Supabase"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/pinia/default.svg"
+          },
+          "name": "Pinia"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/nodedotjs/default.svg"
+          },
+          "name": "Node.js"
+        },
+        {
+          "icon": {
+            "dark": "https://thesvg.org/icons/expressdotjs/dark.svg",
+            "type": "img",
+            "light": "https://thesvg.org/icons/expressdotjs/light.svg"
+          },
+          "name": "Express.js"
+        },
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/cloudinary/default.svg"
+          },
+          "name": "Cloudinary"
+        }
+      ],
+      "detail_description": [
+        "產業新尖兵專題",
+        "4 人團隊、開發期程 2 個月，打造具備完整前後端架構之旅遊訂房訂票網站。",
+        "個人負責項目：",
+        "- 使用 Supabase 建立票券資料庫。",
+        "- 主導網站 UI/UX 設計，制定介面風格、色彩設定，並完成全站 RWD 前端切版。",
+        "- 整合 LINE Pay 與綠界金流 (皆為 Sandbox 環境)，開發訂單付款流程，並串聯 Supabase 儲存歷史訂單資料。",
+        "- 專案部署在 AWS EC2，並設定 Nginx 反向代理，完成上線測試。(因免費方案到期，目前部署在 Vercel)",
+        "- 註冊網域並設定 DNS。",
+        "我們建構了一個國內各大景點及飯店的資料庫，可以模擬預訂、結帳、會員收藏。也另外設計了幾個亮點功能：住宿比較、旅遊趣味測驗以及AI問答機器人等。完成串接綠界金流和LINE Pay Sandbox來模擬結帳流程，並連結會員系統儲存歷史訂單資料。另外，我們也在 GitHub 流程中導入 Gemini 進行 AI Code Review，加速 PR 審查、提高開發效率。此團隊專案也讓我累積從 UI 設計、前端開發、資料庫到部署的完整協作經驗。"
+      ],
+      "content": [
+        "完成住宿瀏覽、比較、收藏、預訂、付款與歷史訂單等核心流程",
+        "透過 Figma、Notion、GitHub Issue 與 Pull Request 建立團隊協作流程",
+        "實際處理第三方金流回傳、訂單狀態與會員資料串接",
+        "前後端分離部署，並設定 Nginx",
+        "AI 輔助開發"
+      ],
+      "detail_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777438764/4_detail_img_style_mcy0lp.jpg",
+          "title": "設計風格",
+          "description": "主視覺採用藍色系，藍色聯想到天空與海洋，傳達「開闊、放鬆、自由」，呼應旅遊網站的核心。\n大量使用圓角設計則激發親和感，更貼合旅遊產品「放鬆、休閒」的情緒，也強化了「卡片」元件的隱喻，每張「卡片」都是可拿起挑選、比較的。並與現代手機螢幕的圓角邊框呼應，在 RWD 場景下視覺更和諧。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774850334/4_detail_img_01_hgw3da.png",
+          "title": "半透明的Navbar",
+          "description": "半透明的Navbar設計能讓使用者更聚焦在網站內容，視覺焦點不會被深色的Navbar搶走，同時也不會影響 Navbar 上內容的可讀性\n手機版導航列仿照App置底，讓使用者輕鬆單手操作。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774850336/4_detail_img_02_gzaxn7.png",
+          "title": "卡片",
+          "description": "只顯示重點資訊：名稱、價格，hover展開後才顯示按鈕、詳細資訊，這樣能讓卡片簡潔不凌亂。\n也與shadow搭配，讓卡片有拿起來並展開的感覺。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785675866/4_detail_img_favorite_n5jypd.webp",
+          "title": "住宿比較",
+          "description": "住宿比較功能需要同時保存多筆住宿資料，並限制最多三筆。前端需要處理加入、移除、重複選取與不同頁面間的比較狀態，最後將設施、服務與價格整理成相同欄位，方便使用者並排比較。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785675866/4_detail_img_profile_zwfbkc.webp",
+          "title": "會員與訂單資料",
+          "description": "使用 Supabase 管理會員、收藏與歷史訂單資料。前端依登入狀態載入使用者資料，並在付款流程完成後更新訂單狀態，讓會員可以在個人頁面查看過去的預訂紀錄。",
+          "imagePosition": "right"
+        }
+      ],
+      "development_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777435578/4_detail_img_function_map_ovqmwq.jpg",
+          "title": "Function Map",
+          "description": "開發前期我們先在Miro上發想網站功能，再依時間限制及我們能力範圍來刪減，規劃整個專案大約流程及功能架構。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777435578/4_detail_img_flow_chart_prgdnc.jpg",
+          "title": "Flow Chart",
+          "description": "規劃每一個功能大概的流程，可以讓我們了解這個功能可能需要跳轉幾個頁面，並在Figma上設計此功能的每一個介面。也參考一些旅遊網站的設計及配色。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777435577/4_detail_img_figma_hrtvfc.jpg",
+          "title": "Figma",
+          "description": "為了避免在切版時每一頁風格不一致，我們先在 Figma 中完成每個頁面的設計稿，作為團隊溝通與切版的參考來源，減少團隊各個成員對 UI 的認知落差。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777478811/4_detail_img_communicate_wznef3.jpg",
+          "title": "團隊溝通",
+          "description": "使用 Notion 規劃開發時程、儲存會議記錄與決策；透過 Discord Webhook 與 GitHub 串接，專案每次Commit、PR 開啟或合併都會自動推播到 Discord 頻道，讓團隊即時掌握進度；GitHub 則是專案協作核心，以 PR 進行 code review、Issue 追蹤待辦事項等。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777478812/4_detail_img_frontend_skills_pytz64.jpg",
+          "title": "前端開發",
+          "description": "使用 Vue 將 UI 拆成可重複使用的元件；搭配 Vue 官方推薦的 Pinia 進行狀態管理；以 TypeScript 固定型別、減少錯誤；透過 Tailwind CSS 維持樣式一致性、降低 CSS 命名負擔；採用 Vite 作為開發工具；並以 Git 進行版控。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777533283/4_detail_img_backend_gpr7em.jpg",
+          "title": "後端",
+          "description": "Node.js + Express 處理 API 邏輯，Supabase 一站搞定資料庫與身份驗證(網站會員與會員收藏)，圖片資源則交給 Cloudinary 託管並做壓縮優化，讓網站不會因為圖片而臃腫。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777821359/4_detail_img_online_pay_sandbox_simicz.png",
+          "title": "金流串接",
+          "description": "本專案共完成串接綠界、LINE Pay兩款線上支付系統(皆是sandbox環境)，可以模擬專案最核心的結帳流程。綠界涵蓋信用卡、ATM、Apple Pay、超商代碼等選項；LINE Pay 則是因為它是國內最熱門的行動支付，讓使用者能在熟悉的 App 內快速付款。\n實作上完成了從「立即預定」按鈕到付款頁的串接、付款結果頁的導向，以及訂單狀態的同步顯示。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785677107/4_detail_img_deploy_foibkp.webp",
+          "title": "部署",
+          "description": "前端部署在 AWS EC2，免費方案到期後(2026/07)改部署至 Vercel ；後端部署於 Render；在 GoDaddy 註冊網域。",
+          "imagePosition": "right"
+        }
+      ],
+      "detail_img": [
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1777981120/4_01_sh5wrm.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773647058/4_02_ipdzgs.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773647057/4_03_exozyb.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773647058/4_08_aji9zz.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773647059/4_10_uncidg.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773647059/4_11_drecpu.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774079873/4_mobile_01_tbgvpq.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774079895/4_mobile_03_q4asel.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774079916/4_mobile_05_u8l3at.png"
+      ],
       "website": "https://wantrip.store/",
       "github": "https://github.com/WanTrip-2026/WanTrip.git",
-      "url": "https://chenchienlung.com/portfolio/wantrip"
+      "figma": "https://www.figma.com/site/cA7AIpY9wgtoErK0k7YwxC/%E5%B0%88%E9%A1%8C-WanTrip?node-id=0-1&t=YuZRf8Fg4QNDpDK7-1",
+      "figma_prototype": "",
+      "url": "https://chenchienlung.com/portfolio/wantrip",
+      "markdown_url": "https://chenchienlung.com/markdown/portfolio/wantrip.md"
     },
     {
       "id": 3,
@@ -62,9 +449,77 @@
         "Figma",
         "Redesign"
       ],
+      "points": [
+        "重新規劃五項主要導航，讓取號、集點與優惠功能可以直接抵達",
+        "簡化取號流程，減少使用者在首頁與多層選單之間切換",
+        "建立一致的線性圖示、間距與元件樣式，改善原版介面視覺不一致",
+        "使用 Prototype 串接主要流程，檢查導航與操作回饋是否清楚"
+      ],
+      "skills": [
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/figma/default.svg"
+          }
+        }
+      ],
+      "detail_description": [
+        "本專案從實際操作壽司郎 App 出發，整理取號、集點、優惠與功能選單的操作路徑。原版介面存在主要功能入口較深、圖示風格不一致，以及資訊對齊與留白不足等問題。",
+        "重新設計以「快速找到到店前後常用功能」為目標，將取號、集點與優惠放入底部導航，減少使用者在首頁與功能選單之間切換。",
+        "＃本專案為個人 Figma 練習作品，非官方專案。"
+      ],
+      "content": [
+        "完成取號、集點與優惠等核心功能的導航重整",
+        "建立符合原有品牌色的元件與圖示系統",
+        "透過 Prototype 檢查取號與主要頁面切換流程"
+      ],
+      "detail_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774848610/3_detail_img_01_ermtfv.png",
+          "title": "重新設計的底部導航列",
+          "description": "規劃 5 個分頁架構，讓取號、集點、優惠一步到位。不需要一直切換選單列尋找功能，新設計的導航列能更直覺地找到App的主要功能。",
+          "imagePosition": "left"
+        },
+        {
+          "image": null,
+          "title": "以取號為例",
+          "description": "目前版本：\n首頁 → 選單 → 找到取號 → 填資料 → 完成（4步）\n重設計後：\n首頁 → 取號（底部導航直達）→ 填資料 → 完成（3步）",
+          "imagePosition": null
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774848612/3_detail_img_02_yku9dd.png",
+          "title": "介面重新設計",
+          "description": "以壽司郎既有紅白品牌色為基礎，重新整理字級、留白、按鈕與線性圖示。透過一致的圖示尺寸與線條粗細，改善原版介面中圖示風格與視覺重量不一致的問題。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774848615/3_detail_img_03_quza1y.png",
+          "title": "取號介面",
+          "description": "重新排版對齊與留白，讓關鍵資訊更容易閱讀。",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774849659/3_detail_img_04_axj4vd.png",
+          "title": "統一風格的icon",
+          "description": "以線條重新設計各個功能的icon，解決目前版本icon風格、尺寸凌亂的問題。",
+          "imagePosition": "right"
+        }
+      ],
+      "development_blocks": [],
+      "detail_img": [
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645872/3_01_kibcgl.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645875/3_02_z6jtys.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645881/3_04_azpfsm.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645884/3_05_gy8txm.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645887/3_06_hvd0br.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645889/3_07_lu8rtn.png"
+      ],
       "website": "",
       "github": "",
-      "url": "https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign"
+      "figma": "https://www.figma.com/design/mUsC1REpcfLAdgEy7rui65/Redesign---Sushiro-Taiwan-App?node-id=99-2282&t=vMtzUeNrkm5hmy5f-1",
+      "figma_prototype": "https://www.figma.com/proto/mUsC1REpcfLAdgEy7rui65/Redesign---Sushiro-Taiwan-App?node-id=0-1&t=vMtzUeNrkm5hmy5f-1",
+      "url": "https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign",
+      "markdown_url": "https://chenchienlung.com/markdown/portfolio/sushiro-taiwan-app-redesign.md"
     },
     {
       "id": 2,
@@ -78,9 +533,68 @@
         "Figma",
         "Redesign"
       ],
+      "points": [
+        "重新設計底部導航列架構，減少首頁、發票存摺與功能選單之間的反覆切換",
+        "重新整理發票明細的資訊層級，使用「卡片」區分不同類型的交易資料",
+        "重新設計各功能icon，提升辨識度與一致性",
+        "使用 Prototype 走查主要任務流程，確認導航與頁面切換邏輯"
+      ],
+      "skills": [
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/figma/default.svg"
+          },
+          "name": "Figma"
+        }
+      ],
+      "detail_description": [
+        "本專案從實際操作財政部統一發票兌獎 App 出發，原版 App 因缺少底部導航列，常用功能入口較深、首頁與功能選單需要反覆切換，以及發票明細資訊較為分散等問題。",
+        "重新設計的目標是讓發票存摺、對獎與常用功能更容易抵達，同時重新整理發票明細的資訊層級，使不同年齡層的使用者都能更快速找到交易資訊。",
+        "＃本專案為個人 Figma 練習作品，非官方專案。"
+      ],
+      "content": [
+        "完成原版 App 的操作流程盤點與主要痛點整理",
+        "重新規劃底部導航，降低常用功能的尋找成本",
+        "重新設計發票明細的資訊層級與元件結構",
+        "重新設計功能圖示",
+        "使用 Prototype 模擬主要任務流程，確認導航與頁面切換邏輯"
+      ],
+      "detail_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774847641/2_detail_img_01_umg9h7.png",
+          "title": "新增底部導航欄",
+          "description": "將App中最常用的3個功能，以及首頁和功能表共 5 個按鈕加入導航列中，降低跨層選單切換。重新規劃後，使用者可以從目前頁面直接切換主要功能，不必每次返回首頁重新尋找入口。",
+          "imagePosition": "left"
+        },
+        {
+          "image": null,
+          "title": "例如：首頁 → 發票存摺 → 對獎，然後再返回首頁",
+          "description": "原版路徑：\n首頁 → 發票存摺 → 選單 → 對獎 → 選單→ 首頁\nRedesign：\n首頁 → 發票存摺 → 對獎 → 首頁",
+          "imagePosition": null
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1775802727/2_detail_img_02_qac60a.png",
+          "title": "發票明細資訊分層",
+          "description": "原版發票明細中的資訊較為分散，因此將相關資料重新分組並使用卡片呈現。透過標題、留白與字級差異建立閱讀順序，讓使用者更容易找到並輕鬆讀取該筆交易資訊。",
+          "imagePosition": "right"
+        }
+      ],
+      "development_blocks": [],
+      "detail_img": [
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645852/2_01_wvwior.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645854/2_02_qisnuq.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645857/2_03_uzakqd.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645863/2_05_dlteyn.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645866/2_06_ynfodk.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645868/2_07_gq8lpc.png"
+      ],
       "website": "",
       "github": "",
-      "url": "https://chenchienlung.com/portfolio/mof-einvoice-app-redesign"
+      "figma": "https://www.figma.com/design/VE9WDBfWeYBbR1667UwesZ/Redesign---%E8%B2%A1%E6%94%BF%E9%83%A8%E7%B5%B1%E4%B8%80%E7%99%BC%E7%A5%A8%E5%85%8C%E7%8D%8EApp?node-id=1-2&t=OMcazGikvgnE8o9U-1",
+      "figma_prototype": "https://www.figma.com/proto/VE9WDBfWeYBbR1667UwesZ/Redesign---%E8%B2%A1%E6%94%BF%E9%83%A8%E7%B5%B1%E4%B8%80%E7%99%BC%E7%A5%A8%E5%85%8C%E7%8D%8EApp?node-id=1-2&t=OMcazGikvgnE8o9U-1",
+      "url": "https://chenchienlung.com/portfolio/mof-einvoice-app-redesign",
+      "markdown_url": "https://chenchienlung.com/markdown/portfolio/mof-einvoice-app-redesign.md"
     },
     {
       "id": 1,
@@ -94,9 +608,79 @@
         "Figma",
         "App Design"
       ],
+      "points": [
+        "整合賽程、即時比分、新聞與球員數據，建立完整的賽事資訊架構",
+        "參考國際賽事平台重新規劃功能優先順序，使核心資訊更容易查找",
+        "針對球員數據設計高資訊密度介面，兼顧閱讀順序與數據比較",
+        "使用 Figma Prototype 串接主要操作流程，模擬實際 App 使用情境"
+      ],
+      "skills": [
+        {
+          "icon": {
+            "type": "img",
+            "light": "https://thesvg.org/icons/figma/default.svg"
+          },
+          "name": "Figma"
+        }
+      ],
+      "detail_description": [
+        "本專案以台灣職業籃球球迷為主要使用者，目標是整合賽程、即時比分、新聞與球員數據，降低球迷在不同網站與社群平台間切換查找資訊的成本。",
+        "設計過程參考 NBA App、CBS Sports 與 FIBA 等賽事平台，整理常見的資訊架構與操作模式，再依台灣聯賽的使用情境調整功能優先順序。本專案則以 P.LEAGUE+ 聯賽做為設計範例，視覺採用 P.LEAGUE+ 品牌色與深色介面，並透過字級與間距，讓比賽資訊、球隊識別與數據內容維持清楚層級，降低閱讀負擔。",
+        "使用 Figma Prototype 串接首頁、賽事資訊與球員數據等主要流程，檢查導航位置、頁面切換與返回路徑是否一致。後續若進行正式開發，仍需要透過真實球迷測試資訊排序是否符合需求。",
+        "＃本專案為個人 Figma 練習作品，非官方專案。"
+      ],
+      "content": [
+        "從零建立完整 App 的資訊架構與導航設計",
+        "學習深色主題的色彩層次與對比度控制",
+        "設計複雜數據（球員數據表）的資訊視覺化排版",
+        "參考國外相關 App 並分析，設計出適合本土聯賽的功能優先順序",
+        "設計功能圖示",
+        "Prototype 模擬操作流程"
+      ],
+      "detail_blocks": [
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774846260/1_detail_img_04_jnp9rg.png",
+          "title": "導航列",
+          "description": "將首頁、賽程、新聞與球員資訊設為主要功能，其餘較低頻率內容收納至「更多」。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774846255/1_detail_img_01_hpg6gh.png",
+          "title": "首頁",
+          "description": "首頁優先呈現即時賽況與近期賽程。於頂部以輪播Banner呈現即時賽況，下方分區展示近期賽程與新聞，讓球迷開啟 App 後可以快速掌握當日重要資訊",
+          "imagePosition": "left"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774846257/1_detail_img_02_ozz2gt.png",
+          "title": "賽事資訊",
+          "description": "顯示各種賽前數據比較，以及比賽地點、場館等資訊。",
+          "imagePosition": "right"
+        },
+        {
+          "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1774846257/1_detail_img_03_vmgxwe.png",
+          "title": "球員數據",
+          "description": "球員資料包含得分、籃板、助攻、命中率與防守數據等各項比賽數據，資訊量較大，因此依照球迷熟悉的順序顯示：得分->籃板->助攻->投籃命中率->抄截->阻攻->失誤->犯規⋯。",
+          "imagePosition": "left"
+        }
+      ],
+      "development_blocks": [],
+      "detail_img": [
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645777/1_01_r9obom.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645778/1_02_isvlvm.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645779/1_03_wpefnp.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645781/1_04_qnyvgd.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645785/1_05_rnncgw.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645787/1_06_p7opa1.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645789/1_07_mo94hp.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645791/1_08_pyeqx3.png",
+        "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773645794/1_10_oyhcec.png"
+      ],
       "website": "",
       "github": "",
-      "url": "https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design"
+      "figma": "https://www.figma.com/design/nkNNgBLaTXLASpb6w3R6a6/%E5%8F%B0%E7%81%A3%E7%B1%83%E7%90%83%E8%81%AF%E8%B3%BD-app%E8%A8%AD%E8%A8%88?node-id=0-1&t=GUn6wf5Pgiy50Qff-1",
+      "figma_prototype": "https://www.figma.com/proto/nkNNgBLaTXLASpb6w3R6a6/%E5%8F%B0%E7%81%A3%E7%B1%83%E7%90%83%E8%81%AF%E8%B3%BD-app%E8%A8%AD%E8%A8%88?page-id=1%3A2&node-id=6-1398&p=f&viewport=1989%2C1348%2C0.35&t=KjjaE7RcUeosP3no-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=113%3A16901",
+      "url": "https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design",
+      "markdown_url": "https://chenchienlung.com/markdown/portfolio/taiwan-sports-app-uiux-design.md"
     }
   ],
   "articles": [
@@ -106,6 +690,7 @@
       "title": "前後端分離部署:EC2 + Nginx + Render",
       "subtitle": "用反向代理讓前後端共用同一個網域",
       "excerpt": "這是在商研院前端班團隊專題 WanTrip 前端部署經驗（我們前端放 AWS EC2、後端放 Render）這篇紀錄 EC2 端的 Nginx 設定 + 反向代理串接後端的完整流程。",
+      "content": "\n這篇紀錄在商研院前端班團隊專題 **WanTrip** 採用的部署架構：前端 Vue 放在 **AWS EC2**，後端放在 **Render** ，再用 **Nginx** 反向代理讓兩邊共用同一個網域。\n\n## 整體架構\n\n```\n使用者 ──HTTPS──> 你的網域(wantrip.store) ──> EC2 (Nginx)\n                                ├─ /         → /var/www/dist (Vue 靜態檔)\n                                └─ /api/*    → 後端URL/*\n```\n\n\n## 需要的東西\n\n- AWS 帳號（新帳號通常會有一筆免費額度，額度依當時方案而定）\n- 已註冊的網域（本篇 DNS 設定以 GoDaddy 為例）\n- 後端服務已部署完成，有後端的 URL（本篇以 Render 為例）\n- 前端 Vue 專案的 GitHub repo\n\n## Step 1：開一台 EC2 執行個體 (Instance)\n\nEC2 是 AWS 提供的雲端主機 — 你可以選在哪裡開機(選地區)、作業系統、硬體規格，AWS 開好之後給你一個 IP，用 SSH + 金鑰對登入就能開始安裝軟體。\n\n1. 右上角切換**區域**。預設是美國維吉尼亞州北部 (`us-east-1`)，建議切到**東京** (`ap-northeast-1`) 或**台北** (`ap-east-2`)。\n\n   ![Select Region](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689662/region_1_a0tts0.png)\n\n2. AWS Console → EC2 → **啟動執行個體**\n\n   ![Launch Instance](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689664/step1_1_w2rmrh.png)\n\n3. 「快速入門」選擇作業系統 **Ubuntu**\n\n   ![Server](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689665/step2_1_twbppy.png)\n\n   > **為什麼選 Ubuntu**：教學資源最多、踩雷時 Google 最快找到答案，而且 22.04 LTS 支援到 2027 年，長期不用煩惱換系統。Amazon Linux 也是常見選項，跟 AWS 整合更深但社群小、套件偏舊。\n\n4. 「執行個體類型」選 **t3.micro**（屬於免費方案範圍）\n\n5. 設定「金鑰對」：**新建一組**，輸入金鑰名稱，下載 `.pem` 檔（這是之後 SSH 連線用的鑰匙，放在不容易誤刪的位置）\n\n   ![Key](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689667/step3_1_xbmkac.png)\n\n6. 「安全群組」設定：\n   - SSH (22) — 你的 IP\n   - HTTP (80) — `0.0.0.0/0`\n   - HTTPS (443) — `0.0.0.0/0`\n\n   ![Security Group](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689670/step4_1_bscc7b.png)\n\n7. 點擊 **啟動執行個體**，等狀態變綠燈。\n\n## Step 2：申請彈性 IP (Elastic IP)\n\nEC2 預設用動態 IP，**重啟後 IP 會改變**，DNS 就會失聯。申請一個彈性 IP 綁定就解決。\n\n1. 左側列表找到 **彈性 IP（Elastic IPs）**\n2. **配置彈性 IP 位址**\n\n   ![Elastic IPs](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689672/step5_1_ufomyv.png)\n\n3. 點選剛配置好的彈性 IP → **動作** → **與彈性 IP 位址建立關聯** → 選剛開好的執行個體\n\n   ![Elastic IP Link](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778689675/step6_1_hkd477.png)\n\n完成後，你的 EC2 就有一個固定不變的 public IP。\n\n## Step 3：使用 SSH 連線到雲端主機\n\n在電腦打開**終端機(Terminal)**，並輸入：\n```bash\n# 改 pem 權限為 600，否則 ssh 會拒絕讀\nchmod 600 ~/downloads/[your-key.pem]\n\n# 連線（IP 用 Step 2 綁好的彈性 IP）\nssh -i ~/downloads/[your-key.pem] ubuntu@[綁定好的彈性IP]\n```\n\n首次連線會問 `Are you sure you want to continue connecting? (yes/no)`，輸入 `yes`。\n\n連進去後先更新系統：\n\n```bash\nsudo apt update && sudo apt upgrade -y\n```\n\n## Step 4：安裝 Nginx + Git\n\n```bash\nsudo apt install -y nginx git\nsudo systemctl start nginx\nsudo systemctl enable nginx\n```\n\n打開瀏覽器輸入 EC2 的彈性 IP，應該看到 Nginx 預設歡迎頁。\n\n> 💡 這裡 **不裝 Node**：t3.micro 只有 1GB RAM，跑 `npm install + build` 容易記憶體不足(這會導致 build 這一步要等很久)。改成 **在本機 build 完之後上傳 `dist/`**，EC2 只負責 serve。\n\n## Step 5：在本機 build 並上傳到 EC2\n\n### 5-1. 設定環境變數\n\n`.env.production` 加一行：\n\n```env\nVITE_API_BASE=/api\n```\n\n注意 **不是寫死後端網址**。前端只要打 `/api/...`，等下 Nginx 會幫你轉到 Render。程式碼裡這樣呼叫：\n\n```js\n// 例如：\nfetch(`${import.meta.env.VITE_API_BASE}/hotels`)\n// 實際請求路徑：/api/hotels\n```\n\n> ⚠️ Vite 環境變數是 **build-time 注入**，每次改 `.env.production` 都要重新 build，不能改完直接 push。\n\n### 5-2. 本機 build\n\n```bash\nnpm run build\n```\n\n這會在專案根目錄產生 `dist/`，就是要上傳的靜態檔案。\n\n### 5-3. 用 scp 上傳到 EC2\n\n先在 EC2 上建好目標資料夾：\n\n```bash\n# 在 EC2 上執行\nmkdir -p /home/ubuntu/xxx-frontend\n```\n\n回到本機 Terminal：\n\n```bash\n# 在本機執行\nscp -i ~/Downloads/your-key.pem -r ./dist ubuntu@彈性IP:/home/ubuntu/xxx-frontend/\n```\n\n上傳完，EC2 上 `/home/ubuntu/xxx-frontend/dist/` 就是 Nginx 等下要 serve 的目錄。\n\n## Step 6：Nginx 反向代理設定\n\n這是這篇的重點。目標：\n\n- `https://yourdomain.com/` → Nginx serve `dist/`\n- `https://yourdomain.com/api/*` → 轉發到 Render\n\n在 EC2 上建立 Nginx 設定檔：\n\n```bash\nsudo nano /etc/nginx/sites-available/xxx-frontend\n```\n\n整個檔案內容換成：\n\n```nginx\nserver {\n  listen 80;\n  server_name yourdomain.com www.yourdomain.com;\n\n  root /home/ubuntu/xxx-frontend/dist;\n  index index.html;\n\n  # SPA fallback：所有路徑都讓 index.html 接，由 Vue Router 處理\n  location / {\n    try_files $uri $uri/ /index.html;\n  }\n\n  # API 反向代理：/api/* → Render 上的後端\n  location /api/ {\n    proxy_pass https://xxx.onrender.com/;\n    proxy_http_version 1.1;\n    proxy_ssl_server_name on;\n    proxy_set_header Host xxx.onrender.com;\n    proxy_set_header X-Real-IP $remote_addr;\n    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n    proxy_set_header X-Forwarded-Proto $scheme;\n  }\n}\n```\n\n### 幾個關鍵點\n\n**1. `proxy_pass` 結尾斜線決定路徑改寫**\n\n| 寫法 | 前端打 `/api/hotels` 會打到 |\n|------|---------------------------|\n| `proxy_pass https://xxx.onrender.com/;` ✅ | `https://xxx.onrender.com/hotels` |\n| `proxy_pass https://xxx.onrender.com;` ❌ | `https://xxx.onrender.com/api/hotels` |\n\n要看後端的路由設計來選。我們的後端路由是 `/hotels`（沒有 `/api` 前綴），所以用第一種，把 `/api` 前綴吃掉。\n\n**2. `proxy_ssl_server_name on` 必加**\n\n連 HTTPS 後端時，Nginx 要送 SNI 給對方，告訴對方「我要連的是 `xxx.onrender.com`」。Render 是 multi-tenant，沒送 SNI 它不知道要回哪個服務的憑證，就會 502。\n\n**3. `proxy_set_header Host` 要設成後端的 host**\n\n如果不設，Nginx 預設會帶你網域的 Host header 給 Render，Render 看不懂會 404。\n\n## Step 7：啟用 Nginx 設定\n\n```bash\n# sites-available 是「可用」，sites-enabled 是「啟用中」\n# 用 symlink 把設定啟用\nsudo ln -s /etc/nginx/sites-available/xxx-frontend /etc/nginx/sites-enabled/\n\n# 移除預設歡迎頁面，避免衝突\nsudo rm /etc/nginx/sites-enabled/default\n\n# 測試語法\nsudo nginx -t\n\n# Reload 讓設定生效（reload 不會中斷現有連線）\nsudo systemctl reload nginx\n```\n\n打開瀏覽器 `http://你的彈性IP/` 應該看到前端；打 `/api/...` 應該看到後端回的資料。\n\n## Step 8：DNS + HTTPS\n\n### DNS 設定（以 GoDaddy 為例）\n\n到 GoDaddy → 網域 → DNS 紀錄 → 新增紀錄，加入：\n\n| 類型 | 名稱 | 值 |\n|------|------|----|\n| A | `@` | 你的彈性 IP |\n| CNAME | `www` | `yourdomain.com` |\n\n![GoDaddy Domain DNS](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727192/domain_jyiyqi.png)\n\n等 5–30 分鐘 DNS Propagation，可以用 `dig yourdomain.com` 確認。\n\n### 申請 SSL（Certbot + Let's Encrypt）\n\n```bash\nsudo apt install -y certbot python3-certbot-nginx\n\nsudo certbot --nginx -d yourdomain.com -d www.yourdomain.com\n```\n\nCertbot 會自動：\n\n- 申請 Let's Encrypt 憑證\n- 在 Nginx config 加 `listen 443 ssl;` 區塊\n- 設定 HTTP → HTTPS 自動跳轉\n- 註冊 cron 自動續憑證（90 天到期前自動更新）\n\n裝完 `https://yourdomain.com` 綠色鎖頭就會出現。\n\n## Step 9：用 GitHub Actions 自動部署\n\n每次更新都要 scp 一次太麻煩。設定 GitHub Actions，**push 到 main 就自動 build + 上傳**。\n\n### 9-1. 在 GitHub repo 加 Secrets\n\nGitHub → Settings → Secrets and variables → Actions → **Repository secrets**，新增：\n\n| Secret 名稱 | 內容 |\n|-------------|------|\n| `EC2_HOST` | 你的彈性 IP |\n| `EC2_USERNAME` | `ubuntu` |\n| `EC2_SSH_KEY` | 你的 `.pem` **全部內容**（下方說明） |\n| `VITE_ENV` | 專案環境變數（依需求） |\n| `VITE_ENV_KEY` | 同上 |\n\n#### 怎麼拿到 `EC2_SSH_KEY`\n\n在**本機終端機 (Terminal)**（不是 EC2，`.pem` 鑰匙在本機）：\n\n```bash\ncat ~/Downloads/your-key.pem\n```\n\n複製**全部**內容，包含 header / footer：\n\n```\n-----BEGIN RSA PRIVATE KEY-----\n...  ...\n-----END RSA PRIVATE KEY-----\n```\n\n整段貼進 `EC2_SSH_KEY` 的值。\n\n### 9-2. 新增 workflow 檔案\n\n在專案根目錄建立 `.github/workflows/deploy.yml`：\n\n```yaml\nname: Deploy Frontend to AWS EC2\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  build-and-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout Code\n        uses: actions/checkout@v3\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: '20' # 專案node版本\n          cache: 'npm'\n\n      - name: Install Dependencies\n        run: npm install\n\n      - name: Create .env.production\n        run: |\n          echo \"VITE_API_BASE=/api\" > .env.production\n          echo \"VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}\" >> .env.production\n          echo \"VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}\" >> .env.production\n\n      - name: Build Project\n        run: npm run build\n\n      - name: Deploy to EC2 via SCP\n        uses: appleboy/scp-action@master\n        with:\n          host: ${{ secrets.EC2_HOST }}\n          username: ${{ secrets.EC2_USERNAME }}\n          key: ${{ secrets.EC2_SSH_KEY }}\n          source: 'dist/*'\n          target: '/home/ubuntu/wantrip-frontend/dist'\n          strip_components: 1\n          overwrite: true\n```\n\npush 到 main 之後，GitHub Actions 會自動 build + scp 上 EC2，30 秒內網站更新完成。\n\n3. 完成!......",
       "cover_image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1779165091/article_3_cover_bbx1ra.jpg",
       "category": [
         "frontend",
@@ -120,9 +705,11 @@
         "部署",
         "反向代理"
       ],
+      "read_time": null,
       "published_at": "2026-05-12",
       "updated_at": "2026-05-19T05:10:48.416302+00:00",
-      "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy"
+      "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy",
+      "markdown_url": "https://chenchienlung.com/markdown/blog/aws-ec2-vue-deployment-with-nginx-proxy.md"
     },
     {
       "id": 3,
@@ -130,6 +717,7 @@
       "title": "用 Cloudflare 一站搞定網域與部署",
       "subtitle": "",
       "excerpt": "",
+      "content": "\n在網路上比較了一下各種部署工具，最後決定將作品集網站部署在 Cloudflare ： **網域、DNS、CDN、部署** 全部在同一個 dashboard。這篇就記錄從註冊到部署的流程。\n\n## 為什麼選 Cloudflare ?\n\n我的個人網站規模很小，只有前端， Cloudflare 是一個可以一站完成網域註冊 + 部署的平台，小專案也只需負擔網域註冊的費用，也省略了 GitHub Actions 自動部署的設定和第三方 DNS 設定，又有完整的繁體中文化介面，非常容易完成。\n\n| 項目 | Cloudflare | 一般組合 |\n|------|------------|---------|\n| 網域註冊 | 接近成本價，**無加價** | 通常加價 30~50% |\n| SSL | 自動、免費、永久 | 多數免費 |\n| CDN | 內建全球節點 | 需另外接 |\n| 部署平台 | Cloudflare Pages | Vercel / Netlify / 自架 |\n| 整合 | 全部在同一個 dashboard | 跨 3~4 個服務 |\n\nCloudflare 最大優勢是 **一站式** ，在一個 dashboard 完成所有設定。不用網域在 A 廠商、DNS 在 B 廠商、部署在 C 廠商，每換一個地方就要重新設定 CNAME、等 DNS Propagation (需要數分鐘到48小時的等待時間)。繁體中文化介面也降低操作門檻。\n\n## Step 1：在 Cloudflare 註冊網域\n如果還沒有 Cloudflare 帳號，先到 [cloudflare.com](https://cloudflare.com) 註冊一個（免費）。\n\n1. 登入 Cloudflare Dashboard → 左側列表點擊 **網域**\n![Cloudflare Dashboard Domain](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727483/article_2_01_qbbr2z.png)\n2. 搜尋想要的網域（如果還沒有想法，就先註冊自己的名字吧）\n3. 結帳\n\n> 💡 Cloudflare Registrar 註冊 `.com` 網域大約在10~11USD / 年，會開台灣的統一發票。\n\n註冊完成後，DNS zone 會 **自動建立**，nameserver 也自動指向 Cloudflare 自家的（`xxx.ns.cloudflare.com`），不用手動改。\n\n## Step 2：準備將專案部署到 Cloudflare\n\nCloudflare Pages 是從 GitHub repo 拉程式碼來 build，所以需要準備的是：\n\n- 專案已經是一個 GitHub repo\n- 主分支（`main` / `master`）可以正常跑 `npm run build`\n- 該有的 build 設定（`vite.config.ts` 等）都已經 commit\n\n> ⚠️ **SPA fallback 必加 `_redirects`**\n>\n> Vue Router 用 `history` mode 時，重新整理任何子路徑（例如直接打 `/portfolio/wantrip`）會 **404**，因為 Cloudflare 找不到實體檔案。\n>\n> 在 `public/_redirects` 加一行：\n>\n> ```\n> /* /index.html 200\n> ```\n>\n> Cloudflare Pages 看到這個檔案會自動處理 SPA fallback，所有不存在的路徑都導到 `index.html`，由 Vue Router 接手。\n\n## Step 3：建立 Cloudflare Pages 專案\n\n1. Dashboard → `Workers & Pages` \n![Workers and Pages](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727771/article_2_02_iqch5w.png)\n\n2. 右上角 **建立應用程式** \n3. 點擊底下小字「想要部署 Pages?」旁的 `開始使用`\n![Click Pages](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727820/article_2_03_dlmkxm.png)\n\n4. 選擇 **匯入現有 GitHub 存放庫** \n![Contiune with GutHub](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727829/article_2_04_nzghiu.png)\n5. 首次連線要授權 Cloudflare GitHub App，選好要部署的 repo\n![repo](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727841/article_2_05_cozbnp.png)\n6. 填 build 設定(包括環境變數)，例如：\n![Build Setting](https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1778727851/article_2_06_fb6ym2.png)\n\n5. 點 **儲存並部署** ，第一次 build 大約 1~3 分鐘。\n\nbuild 完 Cloudflare 會給一個 `your-project.pages.dev` 暫時網址，可以先打開確認網站沒問題。\n\n## Step 4：綁定自己的網域\n\n回到 Pages 專案 → **自訂網域** → **設定自訂網域** → 輸入剛才註冊的網域。\n\n因為網域已經在 Cloudflare 名下，DNS 設定 **會自動完成**，不用手動加 CNAME 也不用等 DNS Propagation(如果是在第三方網域商設定 DNS 可能要等數分鐘到48小時)。1 分鐘內就能將自訂網域連到網站。\n\n想要 `www.yourdomain.com` 也能連，在 **Custom Domains** 再新增一個即可。\n\n## Step 5：強制 HTTPS\n\n- Dashboard → 左側列表 **SSL/TLS** → **Overview** 設為 **Full** 或 **Full (strict)** （預設應該已經是 Full）\n- **Edge Certificates (邊緣憑證)** → 打開 **Always Use HTTPS**\n\n這樣使用者連 `http://` 會自動跳轉 `https://`。\n\n\n### 總結\n\n完成以上步驟後續每次 `git push` 到 main 分支，Cloudflare 會自動 build + deploy。整套設定也省去 GitHub Actions 自動部署與 DNS 設定，個人專案只需負擔網域註冊費用，可以說是非常簡單上手。\n依照我註冊網域和部署經驗， Cloudflare 不會像某些網域商一直推銷或寄 email 廣告。\n\nCloudflare Pages 免費方案包括：\n\n- 每月無限次部署\n- 自動 SSL\n- 全球 CDN\n- 無頻寬限制（個人專案）\n",
       "cover_image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1779165090/article_2_cover_i91gqb.jpg",
       "category": [
         "frontend",
@@ -141,9 +729,11 @@
         "Cloudflare Pages",
         "部署"
       ],
+      "read_time": null,
       "published_at": "2026-04-20",
       "updated_at": "2026-05-19T05:10:48.416302+00:00",
-      "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment"
+      "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment",
+      "markdown_url": "https://chenchienlung.com/markdown/blog/cloudflare-registrar-and-pages-deployment.md"
     }
   ]
 }

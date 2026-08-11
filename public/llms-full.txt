@@ -18,6 +18,16 @@
 - [前後端分離部署:EC2 + Nginx + Render](https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy)：這是在商研院前端班團隊專題 WanTrip 前端部署經驗（我們前端放 AWS EC2、後端放 Render）這篇紀錄 EC2 端的 Nginx 設定 + 反向代理串接後端的完整流程。
 - [用 Cloudflare 一站搞定網域與部署](https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment)
 
+## 詳細 Markdown 資源
+
+- [個人作品集網站｜從規劃、設計到開發 Markdown](https://chenchienlung.com/markdown/portfolio/portfolio-website-design-to-develop.md)
+- [[產業新尖兵專題] WanTrip｜國內旅遊訂房網站 Markdown](https://chenchienlung.com/markdown/portfolio/wantrip.md)
+- [[App Redesign] 壽司郎App介面設計 Markdown](https://chenchienlung.com/markdown/portfolio/sushiro-taiwan-app-redesign.md)
+- [[App Redesign] 財政部統一發票兌獎App介面設計 Markdown](https://chenchienlung.com/markdown/portfolio/mof-einvoice-app-redesign.md)
+- [[App UI/UX Design] 台灣職籃賽事App介面設計 Markdown](https://chenchienlung.com/markdown/portfolio/taiwan-sports-app-uiux-design.md)
+- [前後端分離部署:EC2 + Nginx + Render Markdown](https://chenchienlung.com/markdown/blog/aws-ec2-vue-deployment-with-nginx-proxy.md)
+- [用 Cloudflare 一站搞定網域與部署 Markdown](https://chenchienlung.com/markdown/blog/cloudflare-registrar-and-pages-deployment.md)
+
 ## 其他連結
 
 - [首頁](https://chenchienlung.com/)
