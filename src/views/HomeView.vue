@@ -110,6 +110,9 @@
           </div>
         </div>
       </div>
+      <p v-else-if="error" class="mt-6 text-center text-red-500">
+        作品載入失敗，請稍後再試。
+      </p>
       <div v-else v-fade-up-group class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
         <div v-for="project in displayedProjects" :key="project.title" class="h-full">
           <ProjectCard v-bind="project" />
@@ -216,6 +219,10 @@
         </div>
 
         <!-- about me 卡片區 -->
+        <p v-else-if="aboutError" class="text-center text-red-500">
+          {{ aboutError }}
+        </p>
+
         <div v-else-if="about" v-fade-up-group class="grid grid-cols-1 md:grid-cols-6 gap-5 grid-flow-dense">
           <!-- 個人簡介 -->
           <div
@@ -223,13 +230,13 @@
             <div class="flex-1 flex flex-col justify-center gap-3">
               <div class="flex flex-wrap items-center gap-3">
                 <p class="text-black dark:text-white text-xl font-semibold font-mono">
-                  陳仟龍 Chris
+                  {{ about.profile_name }}
                 </p>
                 <StatusBadge v-if="about.job_status" :label="about.job_status" :color="about.job_status_color"
                   size="sm" />
               </div>
               <p class="text-sky-700 dark:text-sky-400 text-sm font-mono">
-                Frontend Engineer | UI/UX Designer
+                {{ about.profile_title }}
               </p>
               <p v-if="about.location" class="text-neutral-600 dark:text-neutral-300 text-sm">
                 <font-awesome-icon icon="fa-solid fa-location-dot" class="mb-px mr-1" />
@@ -353,14 +360,14 @@
                 </div>
                 <span
                   class="rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-1 text-xs font-mono text-amber-700 dark:text-amber-300">
-                  Learning...
+                  {{ about.learning.status }}
                 </span>
               </div>
               <p class="text-sm leading-6 text-neutral-600 dark:text-neutral-300">
-                在 Vue 3 的實作基礎上延伸學習 React 生態，熟悉不同框架的元件設計與狀態管理思維。
+                {{ about.learning.description }}
               </p>
               <ul class="flex flex-wrap gap-2">
-                <li v-for="topic in learningTopics" :key="topic"
+                <li v-for="topic in about.learning.topics" :key="topic"
                   class="rounded-full border border-black/10 bg-neutral-50 px-3 py-1.5 text-xs font-mono text-neutral-600 dark:border-white/10 dark:bg-white/5 dark:text-neutral-300">
                   {{ topic }}
                 </li>
@@ -374,7 +381,7 @@
                 <font-awesome-icon icon="fa-solid fa-code" class="text-sky-600 dark:text-sky-400" size="lg" />
               </div>
               <ul class="grid gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-                <li v-for="capability in capabilities" :key="capability.title" class="flex items-start gap-3">
+                <li v-for="capability in about.capabilities" :key="capability.title" class="flex items-start gap-3">
                   <font-awesome-icon icon="fa-solid fa-check" class="mt-1 shrink-0 text-sky-600 dark:text-sky-400" />
                   <div>
                     <p class="font-medium text-black dark:text-white">{{ capability.title }}</p>
@@ -412,34 +419,7 @@ const loading = ref(true)
 const error = ref('')
 
 const about = ref<About | null>(null)
-
-const learningTopics = [
-  'React',
-  'JSX',
-  'Props / State',
-  'Hooks',
-  'React Router',
-  'React × TypeScript',
-]
-
-const capabilities = [
-  {
-    title: '前端開發',
-    description: '使用 Vue 3、TypeScript 與 Vue Router 建立元件化 SPA。',
-  },
-  {
-    title: '設計稿切版',
-    description: '將 Figma 設計稿轉成重視細節與一致性的網頁介面。',
-  },
-  {
-    title: '響應式網頁',
-    description: '規劃桌機、平板與手機版面，確保不同裝置的使用體驗。',
-  },
-  {
-    title: 'UI/UX 設計',
-    description: '製作 Wireframe、Prototype、User Flow 與基礎 Design System。',
-  },
-]
+const aboutError = ref('')
 
 let fadeUpObserver: IntersectionObserver | null = null
 
@@ -496,9 +476,14 @@ onMounted(async () => {
   const aboutPromise = fetchAbout()
   const projectsPromise = fetchProjects()
 
-  aboutPromise.then((data) => {
-    about.value = data
-  })
+  aboutPromise
+    .then((data) => {
+      about.value = data
+    })
+    .catch((err) => {
+      console.error('About fetch error:', err)
+      aboutError.value = '關於我內容載入失敗，請稍後再試。'
+    })
 
   projectsPromise.then((data) => {
     projects.value = data.map((project) => ({
@@ -507,14 +492,13 @@ onMounted(async () => {
     }))
   })
 
-  try {
-    await Promise.all([aboutPromise, projectsPromise])
-  } catch (err) {
-    console.error('Fetch error:', err)
-    error.value = err instanceof Error ? err.message : '載入失敗'
-  } finally {
-    loading.value = false
-  }
+  projectsPromise.catch((err) => {
+    console.error('Projects fetch error:', err)
+    error.value = err instanceof Error ? err.message : '作品載入失敗'
+  })
+
+  await Promise.allSettled([aboutPromise, projectsPromise])
+  loading.value = false
 })
 
 const displayedProjects = computed(() => projects.value.slice(0, 3))

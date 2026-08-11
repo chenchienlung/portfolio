@@ -61,10 +61,23 @@ export interface Stat {
   value: string
 }
 
+export interface Learning {
+  status: string
+  description: string
+  topics: string[]
+}
+
+export interface Capability {
+  title: string
+  description: string
+}
+
 export type JobStatusColor = 'green' | 'blue' | 'rose' | 'neutral'
 
 export interface About {
   id: number
+  profile_name: string
+  profile_title: string
   location?: string
   job_status?: string
   job_status_color?: JobStatusColor
@@ -78,6 +91,8 @@ export interface About {
   work_preferences?: WorkPreference[]
   daily_tools?: DailyTool[]
   stats?: Stat[]
+  learning: Learning
+  capabilities: Capability[]
 }
 
 export const fetchAbout = async (): Promise<About> => {
