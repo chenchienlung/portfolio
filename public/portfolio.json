@@ -1,0 +1,27 @@
+{
+  "name": "Chris Chen Portfolio",
+  "author": {
+    "name": "陳仟龍 Chris Chen",
+    "role": "Junior Frontend Developer / UI/UX Designer",
+    "url": "https://chenchienlung.com/",
+    "github": "https://github.com/chenchienlung",
+    "email": "mailto:chris@chenchienlung.com"
+  },
+  "skills": ["Vue 3", "TypeScript", "Tailwind CSS", "Supabase", "Figma"],
+  "pages": {
+    "home": "https://chenchienlung.com/",
+    "projects": "https://chenchienlung.com/portfolio",
+    "articles": "https://chenchienlung.com/blog"
+  },
+  "projects": [
+    { "title": "個人作品集網站｜從規劃、設計到開發", "url": "https://chenchienlung.com/portfolio/portfolio-website-design-to-develop" },
+    { "title": "WanTrip｜國內旅遊訂房網站", "url": "https://chenchienlung.com/portfolio/wantrip" },
+    { "title": "壽司郎 App 介面設計", "url": "https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign" },
+    { "title": "財政部統一發票兌獎 App 介面設計", "url": "https://chenchienlung.com/portfolio/mof-einvoice-app-redesign" },
+    { "title": "台灣職籃賽事 App 介面設計", "url": "https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design" }
+  ],
+  "articles": [
+    { "title": "前後端分離部署：EC2 + Nginx + Render", "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy" },
+    { "title": "用 Cloudflare 一站搞定網域與部署", "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment" }
+  ]
+}

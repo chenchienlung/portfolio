@@ -1,0 +1,23 @@
+# Chris Chen Portfolio - Content Index
+
+## 個人簡介
+
+陳仟龍 Chris Chen 是一名 Junior Frontend Developer / UI/UX Designer，主要使用 Vue 3、TypeScript、Tailwind CSS、Supabase 與 Figma，具備從需求整理、UI/UX 設計到前端實作與部署的專題經驗。
+
+## 公開作品
+
+- [個人作品集網站｜從規劃、設計到開發](https://chenchienlung.com/portfolio/portfolio-website-design-to-develop)
+- [WanTrip｜國內旅遊訂房網站](https://chenchienlung.com/portfolio/wantrip)
+- [壽司郎 App 介面設計](https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign)
+- [財政部統一發票兌獎 App 介面設計](https://chenchienlung.com/portfolio/mof-einvoice-app-redesign)
+- [台灣職籃賽事 App 介面設計](https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design)
+
+## 公開文章
+
+- [前後端分離部署：EC2 + Nginx + Render](https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy)
+- [用 Cloudflare 一站搞定網域與部署](https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment)
+
+## 聯絡方式
+
+- GitHub：https://github.com/chenchienlung
+- Email：mailto:chris@chenchienlung.com
