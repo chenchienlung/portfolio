@@ -101,19 +101,16 @@ const currentIndex = computed(() => {
   return projectList.value.findIndex((p) => p.slug === project.value!.slug)
 })
 
-// projectList 已用 id desc 排序，所以 index 越大 = 越早的作品
-// 上一個 = 更早 = currentIndex + 1
-// 下一個 = 更新 = currentIndex - 1
 const prevProject = computed((): ProjectNavigationItem | null => {
   const i = currentIndex.value
-  if (i < 0 || i + 1 >= projectList.value.length) return null
-  return projectList.value[i + 1] ?? null
+  if (i <= 0) return null
+  return projectList.value[i - 1] ?? null
 })
 
 const nextProject = computed((): ProjectNavigationItem | null => {
   const i = currentIndex.value
-  if (i <= 0) return null
-  return projectList.value[i - 1] ?? null
+  if (i < 0 || i + 1 >= projectList.value.length) return null
+  return projectList.value[i + 1] ?? null
 })
 
 const loadProject = async () => {

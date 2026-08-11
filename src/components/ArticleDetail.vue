@@ -68,7 +68,7 @@
     </article>
     <section class="flex flex-col gap-3">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <component :is="prev ? RouterLink : 'div'" :to="prev ? `/article/${prev.slug}` : undefined" :class="[
+        <component :is="prev ? RouterLink : 'div'" :to="prev ? `/blog/${prev.slug}` : undefined" :class="[
           'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
           prev
             ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
@@ -80,12 +80,12 @@
             <span class="text-xs text-neutral-500 dark:text-neutral-400">上一篇</span>
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
-              {{ prev?.title || '' }}
+              {{ prev?.title || '已是最新文章' }}
             </span>
           </div>
         </component>
 
-        <component :is="next ? RouterLink : 'div'" :to="next ? `/article/${next.slug}` : undefined" :class="[
+        <component :is="next ? RouterLink : 'div'" :to="next ? `/blog/${next.slug}` : undefined" :class="[
           'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
           next
             ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
@@ -95,7 +95,7 @@
             <span class="text-xs text-neutral-500 dark:text-neutral-400">下一篇</span>
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
-              {{ next?.title || '' }}
+              {{ next?.title || '已是最早文章' }}
             </span>
           </div>
           <font-awesome-icon icon="fa-solid fa-arrow-right"

@@ -184,7 +184,7 @@
           <div class="flex flex-col min-w-0">
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
-              {{ prev?.title || '上一個作品' }}
+              {{ prev?.title || '已是最新作品' }}
             </span>
           </div>
         </component>
@@ -198,7 +198,7 @@
           <div class="flex flex-col min-w-0">
             <span
               class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
-              {{ next?.title || '下一個作品' }}
+              {{ next?.title || '已是最早作品' }}
             </span>
           </div>
           <font-awesome-icon icon="fa-solid fa-arrow-right"

@@ -100,14 +100,14 @@ const currentIndex = computed(() => {
 
 const prevArticle = computed((): ArticleNavigationItem | null => {
   const i = currentIndex.value
-  if (i < 0 || i + 1 >= articleList.value.length) return null
-  return articleList.value[i + 1] ?? null
+  if (i <= 0) return null
+  return articleList.value[i - 1] ?? null
 })
 
 const nextArticle = computed((): ArticleNavigationItem | null => {
   const i = currentIndex.value
-  if (i <= 0) return null
-  return articleList.value[i - 1] ?? null
+  if (i < 0 || i + 1 >= articleList.value.length) return null
+  return articleList.value[i + 1] ?? null
 })
 
 const loadArticle = async () => {
