@@ -83,7 +83,7 @@ import {
   type ArticleNavigationItem,
 } from '../data/articles'
 import ArticleDetail from '../components/ArticleDetail.vue'
-import { setPageTitle } from '../utils/pageTitle'
+import { setSeoMetadata, SITE_URL } from '../utils/seo'
 import { isNotFoundError } from '../utils/supabase'
 
 const route = useRoute()
@@ -125,15 +125,36 @@ const loadArticle = async () => {
     if (currentRequestId !== requestId) return
     article.value = articleData
     articleList.value = listData
-    setPageTitle(article.value?.title)
+    setSeoMetadata({
+      title: article.value.title,
+      description: article.value.excerpt || article.value.subtitle,
+      image: article.value.cover_image_wide || article.value.cover_image,
+      url: `${SITE_URL}/blog/${article.value.slug}`,
+      type: 'article',
+      publishedTime: article.value.published_at,
+      modifiedTime: article.value.updated_at,
+      keywords: article.value.tags,
+      structuredData: {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: article.value.title,
+        description: article.value.excerpt || article.value.subtitle,
+        url: `${SITE_URL}/blog/${article.value.slug}`,
+        image: article.value.cover_image_wide || article.value.cover_image,
+        datePublished: article.value.published_at,
+        dateModified: article.value.updated_at,
+        author: { '@type': 'Person', name: '陳仟龍 Chris Chen', url: SITE_URL },
+        keywords: article.value.tags?.join(', '),
+      },
+    })
   } catch (err) {
     if (currentRequestId !== requestId) return
     if (isNotFoundError(err)) {
-      setPageTitle('找不到該文章')
+      setSeoMetadata({ title: '找不到該文章', url: '/blog' })
       return
     }
     error.value = '文章載入失敗，請稍後再試。'
-    setPageTitle('找不到該文章')
+    setSeoMetadata({ title: '找不到該文章', url: '/blog' })
     console.error(err)
   } finally {
     if (currentRequestId === requestId) loading.value = false

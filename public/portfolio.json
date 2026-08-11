@@ -1,27 +1,149 @@
 {
-  "name": "Chris Chen Portfolio",
-  "author": {
-    "name": "陳仟龍 Chris Chen",
-    "role": "Junior Frontend Developer / UI/UX Designer",
-    "url": "https://chenchienlung.com/",
-    "github": "https://github.com/chenchienlung",
-    "email": "mailto:chris@chenchienlung.com"
-  },
-  "skills": ["Vue 3", "TypeScript", "Tailwind CSS", "Supabase", "Figma"],
+  "name": "陳仟龍 Chris Chen",
+  "role": "Junior Frontend Developer / UI/UX Designer",
+  "url": "https://chenchienlung.com",
+  "github": "https://github.com/chenchienlung",
+  "email": "chris@chenchienlung.com",
+  "skills": [
+    "Vue 3",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+    "Figma"
+  ],
   "pages": {
-    "home": "https://chenchienlung.com/",
-    "projects": "https://chenchienlung.com/portfolio",
-    "articles": "https://chenchienlung.com/blog"
+    "home": "https://chenchienlung.com",
+    "portfolio": "https://chenchienlung.com/portfolio",
+    "blog": "https://chenchienlung.com/blog"
   },
   "projects": [
-    { "title": "個人作品集網站｜從規劃、設計到開發", "url": "https://chenchienlung.com/portfolio/portfolio-website-design-to-develop" },
-    { "title": "WanTrip｜國內旅遊訂房網站", "url": "https://chenchienlung.com/portfolio/wantrip" },
-    { "title": "壽司郎 App 介面設計", "url": "https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign" },
-    { "title": "財政部統一發票兌獎 App 介面設計", "url": "https://chenchienlung.com/portfolio/mof-einvoice-app-redesign" },
-    { "title": "台灣職籃賽事 App 介面設計", "url": "https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design" }
+    {
+      "id": 5,
+      "slug": "portfolio-website-design-to-develop",
+      "title": "個人作品集網站｜從規劃、設計到開發",
+      "description": "從資訊架構、UI 設計到 Vue 前端實作獨立完成的個人作品集網站，整合 Supabase 動態內容與 Cloudinary 圖片管理，用於呈現前端開發、UI/UX 設計作品及技術文章。",
+      "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785741524/5_cover_jjrbyh.webp",
+      "banner": "https://res.cloudinary.com/dtzgfwzwf/image/upload/v1785743540/5_banner_vkcx6h.png",
+      "tags": [
+        "網站開發",
+        "RWD",
+        "Figma"
+      ],
+      "website": "https://chenchienlung.com/",
+      "github": "https://github.com/chenchienlung/portfolio.git",
+      "url": "https://chenchienlung.com/portfolio/portfolio-website-design-to-develop"
+    },
+    {
+      "id": 4,
+      "slug": "wantrip",
+      "title": "[產業新尖兵專題] WanTrip｜國內旅遊訂房網站",
+      "description": "產業新尖兵專題。4人團隊在2個月內完成具備訂房、比較飯店、AI問答功能的旅遊平台。個人在本專案負責網站介面設計、切版、金流、資料庫串接與前端部署。",
+      "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_480/v1777980552/project_4_cover_cbmezd.png",
+      "banner": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773649811/4_banner_n4uz0w.png",
+      "tags": [
+        "網站開發",
+        "UI/UX",
+        "RWD",
+        "團隊專案"
+      ],
+      "website": "https://wantrip.store/",
+      "github": "https://github.com/WanTrip-2026/WanTrip.git",
+      "url": "https://chenchienlung.com/portfolio/wantrip"
+    },
+    {
+      "id": 3,
+      "slug": "sushiro-taiwan-app-redesign",
+      "title": "[App Redesign] 壽司郎App介面設計",
+      "description": "針對壽司郎 App 導航層級較深、圖示風格不一致與核心功能不易尋找等問題，重新規劃底部導航、取號流程\n與介面元件，讓取號、集點與優惠功能更容易抵達。",
+      "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_480/v1777980534/project_3_cover_afrjjq.png",
+      "banner": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773649809/3_banner_aa1hvc.png",
+      "tags": [
+        "UI/UX",
+        "Figma",
+        "Redesign"
+      ],
+      "website": "",
+      "github": "",
+      "url": "https://chenchienlung.com/portfolio/sushiro-taiwan-app-redesign"
+    },
+    {
+      "id": 2,
+      "slug": "mof-einvoice-app-redesign",
+      "title": "[App Redesign] 財政部統一發票兌獎App介面設計",
+      "description": "針對財政部統一發票兌獎App介面缺點與使用上的痛點，修改成更現代化的介面排版，提升使用者體驗，減少操作步驟。",
+      "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_480/v1777980543/project_2_cover_lzufp4.png",
+      "banner": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773649808/2_banner_soznu7.png",
+      "tags": [
+        "UI/UX",
+        "Figma",
+        "Redesign"
+      ],
+      "website": "",
+      "github": "",
+      "url": "https://chenchienlung.com/portfolio/mof-einvoice-app-redesign"
+    },
+    {
+      "id": 1,
+      "slug": "taiwan-sports-app-uiux-design",
+      "title": "[App UI/UX Design] 台灣職籃賽事App介面設計",
+      "description": "以球迷視角出發，整合賽程、球員數據、即時比分與新聞四大核心功能。參考NBA App、CBS Sports App、FIBA等成熟賽事平台的資訊架構，以P.LEAGUE+ 品牌色系，設計一套從首頁到球員數據頁的完整 UI 流程。",
+      "image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_480/v1777980523/project_1_cover_zd02wm.png",
+      "banner": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto,w_1200/v1773649807/1_banner_b5sfim.png",
+      "tags": [
+        "UI/UX",
+        "Figma",
+        "App Design"
+      ],
+      "website": "",
+      "github": "",
+      "url": "https://chenchienlung.com/portfolio/taiwan-sports-app-uiux-design"
+    }
   ],
   "articles": [
-    { "title": "前後端分離部署：EC2 + Nginx + Render", "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy" },
-    { "title": "用 Cloudflare 一站搞定網域與部署", "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment" }
+    {
+      "id": 6,
+      "slug": "aws-ec2-vue-deployment-with-nginx-proxy",
+      "title": "前後端分離部署:EC2 + Nginx + Render",
+      "subtitle": "用反向代理讓前後端共用同一個網域",
+      "excerpt": "這是在商研院前端班團隊專題 WanTrip 前端部署經驗（我們前端放 AWS EC2、後端放 Render）這篇紀錄 EC2 端的 Nginx 設定 + 反向代理串接後端的完整流程。",
+      "cover_image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1779165091/article_3_cover_bbx1ra.jpg",
+      "category": [
+        "frontend",
+        "deploy"
+      ],
+      "tags": [
+        "AWS",
+        "EC2",
+        "Ubuntu",
+        "Nginx",
+        "Render",
+        "部署",
+        "反向代理"
+      ],
+      "published_at": "2026-05-12",
+      "updated_at": "2026-05-19T05:10:48.416302+00:00",
+      "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy"
+    },
+    {
+      "id": 3,
+      "slug": "cloudflare-registrar-and-pages-deployment",
+      "title": "用 Cloudflare 一站搞定網域與部署",
+      "subtitle": "",
+      "excerpt": "",
+      "cover_image": "https://res.cloudinary.com/dtzgfwzwf/image/upload/f_auto,q_auto/v1779165090/article_2_cover_i91gqb.jpg",
+      "category": [
+        "frontend",
+        "deploy"
+      ],
+      "tags": [
+        "Cloudflare",
+        "Cloudflare Registrar",
+        "Cloudflare Pages",
+        "部署"
+      ],
+      "published_at": "2026-04-20",
+      "updated_at": "2026-05-19T05:10:48.416302+00:00",
+      "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment"
+    }
   ]
 }

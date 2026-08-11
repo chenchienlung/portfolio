@@ -86,7 +86,7 @@ import {
   type ProjectNavigationItem,
 } from '../data/projects'
 import ProjectDetail from '../components/ProjectDetail.vue'
-import { setPageTitle } from '../utils/pageTitle'
+import { setSeoMetadata, SITE_URL } from '../utils/seo'
 import { isNotFoundError } from '../utils/supabase'
 
 const route = useRoute()
@@ -128,15 +128,31 @@ const loadProject = async () => {
     if (currentRequestId !== requestId) return
     project.value = projectData
     projectList.value = listData
-    setPageTitle(project.value?.title)
+    setSeoMetadata({
+      title: project.value.title,
+      description: project.value.description,
+      image: project.value.banner || project.value.image,
+      url: `${SITE_URL}/portfolio/${project.value.slug}`,
+      keywords: project.value.tags,
+      structuredData: {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: project.value.title,
+        description: project.value.description,
+        url: `${SITE_URL}/portfolio/${project.value.slug}`,
+        image: project.value.banner || project.value.image,
+        author: { '@type': 'Person', name: '陳仟龍 Chris Chen', url: SITE_URL },
+        keywords: project.value.tags?.join(', '),
+      },
+    })
   } catch (err) {
     if (currentRequestId !== requestId) return
     if (isNotFoundError(err)) {
-      setPageTitle('找不到該作品')
+      setSeoMetadata({ title: '找不到該作品', url: '/portfolio' })
       return
     }
     error.value = '作品載入失敗，請稍後再試。'
-    setPageTitle('找不到該作品')
+    setSeoMetadata({ title: '找不到該作品', url: '/portfolio' })
     console.error(err)
   } finally {
     if (currentRequestId === requestId) loading.value = false

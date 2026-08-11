@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // 首頁 eager import(LCP 路由,訪客最常進來的入口)
 import HomeView from '../views/HomeView.vue'
 // 其他 view 用 lazy load,訪問該路由才下載對應 JS chunk
-import { setPageTitle } from '@/utils/pageTitle'
+import { DEFAULT_DESCRIPTION, DEFAULT_SOCIAL_IMAGE, setSeoMetadata } from '@/utils/seo'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -56,7 +56,12 @@ const router = createRouter({
 router.afterEach((to) => {
   // 詳情頁等資料載入後再由 view 設定 title
   if (to.name === 'project-detail' || to.name === 'article') return
-  setPageTitle(to.meta.title)
+  setSeoMetadata({
+    title: to.meta.title,
+    description: DEFAULT_DESCRIPTION,
+    image: DEFAULT_SOCIAL_IMAGE,
+    url: to.fullPath,
+  })
 })
 
 export default router

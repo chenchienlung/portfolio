@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build",
+    "build-only": "npm run generate-agent-ready && vite build",
+    "generate-agent-ready": "node scripts/generate-agent-ready.mjs",
     "type-check": "vue-tsc --build",
     "format": "prettier --write --experimental-cli src/"
   },
