@@ -8,7 +8,7 @@
 [![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Supabase](https://img.shields.io/badge/Supabase-2.99-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-Deployed-F38020?logo=cloudflarepages&logoColor=white)](https://pages.cloudflare.com/)
-[![AI Agent Ready](https://img.shields.io/badge/AI%20Agent%20Ready-Implemented-0ea5e9?logo=robot&logoColor=white)](https://isitagentready.com/chenchienlung.com)
+[![AI Agent Ready](https://img.shields.io/badge/AI%20Agent%20Ready-Implemented-0ea5e9?logo=robot&logoColor=white)](https://isitagentready.com/chenchienlung.com?profile=content)
 
 **網站:** https://chenchienlung.com/
 
