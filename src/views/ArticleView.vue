@@ -24,20 +24,15 @@
     </div>
     <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
     <div v-else-if="articles.length" class="flex flex-col">
-      <ArticleCard
-        v-for="(article, index) in articles"
-        :key="article.id"
-        v-bind="article"
-        :priority="index === 0"
-      />
+      <ArticleCard v-for="(article, index) in articles" :key="article.id" v-bind="article" :priority="index === 0" />
     </div>
     <div v-else class="text-center py-20">
       <h3 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">
         目前還沒有文章...
       </h3>
-      <RouterLink to="/"
+      <RouterLink to="/blog"
         class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
-        回到首頁
+        回到文章列表
       </RouterLink>
     </div>
   </main>

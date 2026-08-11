@@ -2,11 +2,9 @@
   <main class="mx-5 mt-12 md:mt-24">
     <div v-if="loading" class="animate-pulse flex flex-col gap-5 mb-10">
       <div
-        class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-black/15 dark:bg-white/15 border border-black/15 dark:border-white/10 shadow-xs/12"
-      />
+        class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-black/15 dark:bg-white/15 border border-black/15 dark:border-white/10 shadow-xs/12" />
       <div
-        class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10"
-      >
+        class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10">
         <div class="flex flex-col gap-4">
           <div class="flex flex-wrap gap-2">
             <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
@@ -44,11 +42,8 @@
 
       <section class="flex flex-col gap-3">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div
-            v-for="n in 2"
-            :key="n"
-            class="h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12"
-          >
+          <div v-for="n in 2" :key="n"
+            class="h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12">
             <div class="w-4 h-4 bg-black/15 dark:bg-white/15 rounded shrink-0" />
             <div class="flex flex-col gap-1.5 flex-1 min-w-0">
               <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-16" />
@@ -63,10 +58,8 @@
 
     <div v-else class="text-center py-20">
       <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該文章</h2>
-      <RouterLink
-        to="/article"
-        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200"
-      >
+      <RouterLink to="/blog"
+        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
         回到文章列表
       </RouterLink>
     </div>
