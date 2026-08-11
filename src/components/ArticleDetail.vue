@@ -113,6 +113,7 @@
 </template>
 
 <script setup lang="ts">
+import '../lib/fontawesomeDetail'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { marked } from 'marked'

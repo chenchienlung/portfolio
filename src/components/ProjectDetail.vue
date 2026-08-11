@@ -332,6 +332,7 @@
 </template>
 
 <script setup lang="ts">
+import '../lib/fontawesomeDetail'
 import { RouterLink } from 'vue-router'
 import type { Project } from '../data/projects'
 import ProjectLinks from './ProjectLinks.vue'

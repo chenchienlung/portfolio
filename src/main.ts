@@ -1,68 +1,17 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faGithub, faFigma, faSquareFigma } from '@fortawesome/free-brands-svg-icons'
-import {
-  faEnvelope,
-  faCheck,
-  faGlobe,
-  faUser,
-  faHouse,
-  faFile,
-  faLightbulb,
-  faLocationDot,
-  faBook,
-  faHeadphones,
-  faCode,
-  faWandMagicSparkles,
-  faScrewdriverWrench,
-  faPen,
-  faArrowLeft,
-  faArrowRight,
-  faCalendar,
-  faClock,
-  faBriefcase,
-  faGraduationCap,
-  faLink,
-  faSuitcase,
-  faLaptopCode,
-  faChartSimple,
-} from '@fortawesome/free-solid-svg-icons'
+const FontAwesomeIcon = defineAsyncComponent(async () => {
+  const [{ FontAwesomeIcon }] = await Promise.all([
+    import('@fortawesome/vue-fontawesome'),
+    import('./lib/fontawesomeCommon'),
+  ])
 
-library.add(
-  faGithub,
-  faEnvelope,
-  faCheck,
-  faGlobe,
-  faFigma,
-  faSquareFigma,
-  faUser,
-  faHouse,
-  faFile,
-  faLightbulb,
-  faLocationDot,
-  faBook,
-  faHeadphones,
-  faCode,
-  faWandMagicSparkles,
-  faScrewdriverWrench,
-  faPen,
-  faArrowLeft,
-  faArrowRight,
-  faCalendar,
-  faClock,
-  faBriefcase,
-  faGraduationCap,
-  faLink,
-  faSuitcase,
-  faLaptopCode,
-  faChartSimple,
-)
+  return FontAwesomeIcon
+})
 
 const app = createApp(App)
 
