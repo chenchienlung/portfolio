@@ -14,29 +14,42 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey)
-const [{ data: projects, error: projectsError }, { data: articles, error: articlesError }] =
-  await Promise.all([
-    supabase
-      .from('projects')
-      .select(
-        'id, slug, title, description, image, banner, tags, points, skills, detail_description, content, detail_blocks, development_blocks, detail_img, website, github, figma, figma_prototype',
-      )
-      .eq('public', true)
-      .order('id', { ascending: false }),
-    supabase
-      .from('articles')
-      .select(
-        'id, slug, title, subtitle, excerpt, content, cover_image, category, tags, read_time, published_at, updated_at',
-      )
-      .eq('published', true)
-      .order('published_at', { ascending: false }),
-  ])
+const [
+  { data: projects, error: projectsError },
+  { data: articles, error: articlesError },
+  { data: about, error: aboutError },
+] = await Promise.all([
+  supabase
+    .from('projects')
+    .select(
+      'id, slug, title, description, image, banner, tags, points, skills, detail_description, content, detail_blocks, development_blocks, detail_img, website, github, figma, figma_prototype',
+    )
+    .eq('public', true)
+    .order('id', { ascending: false }),
+  supabase
+    .from('articles')
+    .select(
+      'id, slug, title, subtitle, excerpt, content, cover_image, category, tags, read_time, published_at, updated_at',
+    )
+    .eq('published', true)
+    .order('published_at', { ascending: false }),
+  supabase
+    .from('about')
+    .select(
+      'profile_name, profile_title, location, job_status, contacts, experiences, resources, educations, skill_texts, skill_groups, work_preferences, daily_tools, stats, learning, capabilities',
+    )
+    .order('id', { ascending: true })
+    .limit(1)
+    .maybeSingle(),
+])
 
 if (projectsError) throw projectsError
 if (articlesError) throw articlesError
+if (aboutError) throw aboutError
 
 const publicProjects = projects ?? []
 const publicArticles = articles ?? []
+const profile = about ?? {}
 const projectUrl = (slug) => `${siteUrl}/portfolio/${slug}`
 const articleUrl = (slug) => `${siteUrl}/blog/${slug}`
 const projectMarkdownPath = (slug) => `/markdown/portfolio/${slug}.md`
@@ -71,19 +84,31 @@ const listSection = (title, values) => {
 const blockSection = (title, blocks) => {
   if (!Array.isArray(blocks) || blocks.length === 0) return ''
   const content = blocks
-    .map((block) => [block.title && `### ${block.title}`, block.description, block.image && `![${block.title || '作品圖片'}](${block.image})`].filter(Boolean).join('\n\n'))
+    .map((block) =>
+      [
+        block.title && `### ${block.title}`,
+        block.description,
+        block.image && `![${block.title || '作品圖片'}](${block.image})`,
+      ]
+        .filter(Boolean)
+        .join('\n\n'),
+    )
     .filter(Boolean)
     .join('\n\n')
   return content ? `\n## ${title}\n\n${content}\n` : ''
 }
 
-const projectMarkdown = (project) => `# ${project.title}
+const projectMarkdown = (
+  project,
+) => `# ${project.title}｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 ${project.description || ''}
 
 ${listSection('重點', project.points)}${listSection('標籤', project.tags)}${listSection(
   '技能與工具',
-  Array.isArray(project.skills) ? project.skills.map((skill) => skill.name || skill.icon?.light).filter(Boolean) : [],
+  Array.isArray(project.skills)
+    ? project.skills.map((skill) => skill.name || skill.icon?.light).filter(Boolean)
+    : [],
 )}${listSection('詳細說明', project.detail_description)}${listSection('成果', project.content)}${blockSection(
   '開發過程',
   project.development_blocks,
@@ -101,7 +126,9 @@ ${[
   .join('\n')}
 `
 
-const articleMarkdown = (article) => `# ${article.title}
+const articleMarkdown = (
+  article,
+) => `# ${article.title} | Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 ${article.subtitle ? `> ${article.subtitle}\n` : ''}
 
@@ -118,17 +145,103 @@ ${article.content || ''}
 - 閱讀時間：約 ${article.read_time || '未提供'} 分鐘
 `
 
-const homeMarkdown = `# 陳仟龍 Chris Chen｜作品集與文章
+const markdownLinkLabel = (value) =>
+  String(value ?? '')
+    .replaceAll('[', '\\[')
+    .replaceAll(']', '\\]')
 
-陳仟龍是 Junior Frontend Developer / UI/UX Designer，主要使用 Vue 3、TypeScript、Tailwind CSS、Supabase 與 Figma。
+const markdownList = (values) =>
+  Array.isArray(values) && values.length > 0
+    ? values.map((value) => `- ${value}`).join('\n')
+    : '- 未提供'
+
+const profileSkills = Array.isArray(profile.skill_groups)
+  ? profile.skill_groups
+      .map((group) => {
+        const items = Array.isArray(group.items) ? group.items.join('、') : ''
+        return items ? `- **${group.title}**：${items}` : ''
+      })
+      .filter(Boolean)
+      .join('\n')
+  : ''
+
+const profileCapabilities = Array.isArray(profile.capabilities)
+  ? profile.capabilities.map((item) => `- **${item.title}**：${item.description}`).join('\n')
+  : ''
+
+const profileExperiences = Array.isArray(profile.experiences)
+  ? profile.experiences
+      .map(
+        (item) =>
+          `- **${item.date}｜${item.title}**：${item.description_before || ''}${item.link ? `[${item.link.text}](${item.link.url})` : ''}${item.description_after || ''}`,
+      )
+      .join('\n')
+  : ''
+
+const profileEducation = Array.isArray(profile.educations)
+  ? profile.educations.map((item) => `- **${item.year}**：${item.description}`).join('\n')
+  : ''
+
+const profileLearning = profile.learning
+  ? `${profile.learning.description || ''}\n\n學習主題：${Array.isArray(profile.learning.topics) ? profile.learning.topics.join('、') : '未提供'}`
+  : ''
+
+const profileContacts = Array.isArray(profile.contacts)
+  ? profile.contacts.map((item) => `- [${item.label}](${item.url})`).join('\n')
+  : ''
+
+const profileDailyTools = Array.isArray(profile.daily_tools)
+  ? profile.daily_tools
+      .map((item) => item.name)
+      .filter(Boolean)
+      .join('、')
+  : ''
+
+const homeMarkdown = `# Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
+
+## 個人簡介
+
+${profile.profile_name || '陳仟龍 Chris'} 是 ${profile.profile_title || 'Frontend Engineer | UI/UX Designer'}。${profile.location ? `目前位於${profile.location}。` : ''}${profile.job_status ? `目前狀態：${profile.job_status}` : ''}
+
+## 技能與工具
+
+${profileSkills || '- Vue 3、TypeScript、Tailwind CSS、Supabase、Figma'}
+
+## 能力摘要
+
+${profileCapabilities || '- 前端開發、UI/UX 設計、響應式網頁與設計稿切版'}
+
+## 技能重點
+
+${markdownList(profile.skill_texts)}
+
+## 工作偏好
+
+${Array.isArray(profile.work_preferences) && profile.work_preferences.length > 0 ? profile.work_preferences.map((item) => `- **${item.label}**：${item.value}`).join('\n') : '- 未提供'}
+
+## 經歷
+
+${profileExperiences || '- 未提供'}
+
+## 學歷
+
+${profileEducation || '- 未提供'}
+
+## 持續學習
+
+${profileLearning || '- 未提供'}
+
+## 常用工具
+
+${profileDailyTools || 'VSCode、Figma、Vue、Vite、Claude、Codex'}
 
 ## 作品集
 
-${publicProjects.map((project) => `- [${project.title}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
+${publicProjects.map((project) => `- [${markdownLinkLabel(project.title)}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
 
 ## 文章
 
-${publicArticles.map((article) => `- [${article.title}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
+${publicArticles.map((article) => `- [${markdownLinkLabel(article.title)}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
 
 ## 其他資源
 
@@ -138,16 +251,20 @@ ${publicArticles.map((article) => `- [${article.title}](${siteUrl}${articleMarkd
 - [機器可讀資料](${siteUrl}/portfolio.json)
 - [GitHub](https://github.com/chenchienlung)
 - 聯絡信箱：chris@chenchienlung.com
+
+## 聯絡方式
+
+${profileContacts || '- Email：mailto:chris@chenchienlung.com'}
 `
 
-const portfolioMarkdown = `# 作品集｜陳仟龍 Chris Chen
+const portfolioMarkdown = `# 作品集｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
-${publicProjects.map((project) => `- [${project.title}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
+${publicProjects.map((project) => `- [${markdownLinkLabel(project.title)}](${siteUrl}${projectMarkdownPath(project.slug)})${project.description ? `：${project.description}` : ''}`).join('\n') || '- 目前沒有公開作品。'}
 `
 
-const blogMarkdown = `# 文章｜陳仟龍 Chris Chen
+const blogMarkdown = `# 文章｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
-${publicArticles.map((article) => `- [${article.title}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
+${publicArticles.map((article) => `- [${markdownLinkLabel(article.title)}](${siteUrl}${articleMarkdownPath(article.slug)})${article.excerpt ? `：${article.excerpt}` : ''}`).join('\n') || '- 目前沒有已發布文章。'}
 `
 
 await Promise.all([
@@ -155,10 +272,18 @@ await Promise.all([
   writeFile(resolve(outputDir, portfolioMarkdownPath.slice(1)), portfolioMarkdown, 'utf8'),
   writeFile(resolve(outputDir, blogMarkdownPath.slice(1)), blogMarkdown, 'utf8'),
   ...publicProjects.map((project) =>
-    writeFile(resolve(outputDir, projectMarkdownPath(project.slug).slice(1)), projectMarkdown(project), 'utf8'),
+    writeFile(
+      resolve(outputDir, projectMarkdownPath(project.slug).slice(1)),
+      projectMarkdown(project),
+      'utf8',
+    ),
   ),
   ...publicArticles.map((article) =>
-    writeFile(resolve(outputDir, articleMarkdownPath(article.slug).slice(1)), articleMarkdown(article), 'utf8'),
+    writeFile(
+      resolve(outputDir, articleMarkdownPath(article.slug).slice(1)),
+      articleMarkdown(article),
+      'utf8',
+    ),
   ),
 ])
 
@@ -177,7 +302,7 @@ const articleLines = publicArticles
 
 await writeFile(
   resolve(outputDir, 'llms-full.txt'),
-  `# 陳仟龍 Chris Chen｜作品集與文章
+  `# Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 ## 個人簡介
 
@@ -197,8 +322,12 @@ ${[
   `- [首頁 Markdown](${siteUrl}${homeMarkdownPath})`,
   `- [作品集索引 Markdown](${siteUrl}${portfolioMarkdownPath})`,
   `- [文章索引 Markdown](${siteUrl}${blogMarkdownPath})`,
-  ...publicProjects.map((project) => `- [${project.title} Markdown](${siteUrl}${projectMarkdownPath(project.slug)})`),
-  ...publicArticles.map((article) => `- [${article.title} Markdown](${siteUrl}${articleMarkdownPath(article.slug)})`),
+  ...publicProjects.map(
+    (project) => `- [${project.title} Markdown](${siteUrl}${projectMarkdownPath(project.slug)})`,
+  ),
+  ...publicArticles.map(
+    (article) => `- [${article.title} Markdown](${siteUrl}${articleMarkdownPath(article.slug)})`,
+  ),
 ].join('\n')}
 
 ## 其他連結

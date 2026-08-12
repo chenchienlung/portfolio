@@ -1,4 +1,4 @@
-# 個人作品集網站｜從規劃、設計到開發
+# 個人作品集網站｜從規劃、設計到開發｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 從資訊架構、UI 設計到 Vue 前端實作獨立完成的個人作品集網站，整合 Supabase 動態內容與 Cloudinary 圖片管理，用於呈現前端開發、UI/UX 設計作品及技術文章。
 

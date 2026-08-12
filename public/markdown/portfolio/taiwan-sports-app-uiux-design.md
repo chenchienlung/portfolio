@@ -1,4 +1,4 @@
-# [App UI/UX Design] 台灣職籃賽事App介面設計
+# [App UI/UX Design] 台灣職籃賽事App介面設計｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 以球迷視角出發，整合賽程、球員數據、即時比分與新聞四大核心功能。參考NBA App、CBS Sports App、FIBA等成熟賽事平台的資訊架構，以P.LEAGUE+ 品牌色系，設計一套從首頁到球員數據頁的完整 UI 流程。
 

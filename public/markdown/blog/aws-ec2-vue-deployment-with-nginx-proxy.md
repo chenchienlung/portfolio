@@ -1,4 +1,4 @@
-# 前後端分離部署:EC2 + Nginx + Render
+# 前後端分離部署:EC2 + Nginx + Render | Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 > 用反向代理讓前後端共用同一個網域
 

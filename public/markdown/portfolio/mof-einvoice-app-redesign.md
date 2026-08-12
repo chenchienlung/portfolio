@@ -1,4 +1,4 @@
-# [App Redesign] 財政部統一發票兌獎App介面設計
+# [App Redesign] 財政部統一發票兌獎App介面設計｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 針對財政部統一發票兌獎App介面缺點與使用上的痛點，修改成更現代化的介面排版，提升使用者體驗，減少操作步驟。
 

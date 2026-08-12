@@ -1,15 +1,63 @@
-# 陳仟龍 Chris Chen｜作品集與文章
+# Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
-陳仟龍是 Junior Frontend Developer / UI/UX Designer，主要使用 Vue 3、TypeScript、Tailwind CSS、Supabase 與 Figma。
+## 個人簡介
+
+陳仟龍 Chris 是 Frontend Engineer | UI/UX Designer。目前狀態：求職中...
+
+## 技能與工具
+
+- **前端**：HTML、CSS、JavaScript、TypeScript、Vue、Vue Router、Tailwind CSS、Bootstrap
+- **UI/UX**：Figma、Auto Layout、Prototype、Design System、User Flow、Wireframe
+- **開發工具**：Git、GitHub、Vite、VSCode、Chrome DevTools、npm、Supabase、Cloudinary、AWS EC2、Nginx、Vercel、Cloudflare Pages、GitHub Pages
+- **AI工具**：Claude、ChatGPT、Gemini、Cursor、Google Antigravity、Claude Code、Codex、Gemini Code Assist
+
+## 能力摘要
+
+- **前端開發**：使用 Vue 3、TypeScript 與 Vue Router 建立元件化 SPA。
+- **設計稿切版**：將 Figma 設計稿轉成重視細節與一致性的網頁介面。
+- **響應式網頁**：規劃桌機、平板與手機版面，確保不同裝置的使用體驗。
+- **UI/UX 設計**：製作 Wireframe、Prototype、User Flow 與基礎 Design System。
+
+## 技能重點
+
+- Design → Code 一手包辦
+- Git 團隊協作
+- Git 版本控制
+- AI 輔助開發
+- RWD 響應式設計
+- API串接
+
+## 工作偏好
+
+- **求職型態**：全職
+- **工作方式**：實體辦公 / 不排斥遠端
+
+## 經歷
+
+- **2025.10.01~2026.01.29｜商研院｜前端應用開發工程師實戰養成班**：4個月，510小時密集訓練，涵蓋 Vue.js、Node.js、Express.js、Git 團隊協作與 API 串接。並在最後 2個月內與3位成員共同完成 [WanTrip : 國內旅遊訂房網站](https://wantrip.store)， 本人負責 UI 設計、切版、金流串接、票券資料庫串接與前端部署。
+
+## 學歷
+
+- **2022**：大同大學媒體設計學系數位遊戲設計組 畢業
+
+## 持續學習
+
+在 Vue 3 的實作基礎上延伸學習 React 生態，熟悉不同框架的元件設計與狀態管理思維。
+
+學習主題：React、JSX、Props / State、Hooks、React Router、React × TypeScript
+
+## 常用工具
+
+VSCode、Figma、Vue、Vite、Claude、Codex
 
 ## 作品集
 
 - [個人作品集網站｜從規劃、設計到開發](https://chenchienlung.com/markdown/portfolio/portfolio-website-design-to-develop.md)：從資訊架構、UI 設計到 Vue 前端實作獨立完成的個人作品集網站，整合 Supabase 動態內容與 Cloudinary 圖片管理，用於呈現前端開發、UI/UX 設計作品及技術文章。
-- [[產業新尖兵專題] WanTrip｜國內旅遊訂房網站](https://chenchienlung.com/markdown/portfolio/wantrip.md)：產業新尖兵專題。4人團隊在2個月內完成具備訂房、比較飯店、AI問答功能的旅遊平台。個人在本專案負責網站介面設計、切版、金流、資料庫串接與前端部署。
-- [[App Redesign] 壽司郎App介面設計](https://chenchienlung.com/markdown/portfolio/sushiro-taiwan-app-redesign.md)：針對壽司郎 App 導航層級較深、圖示風格不一致與核心功能不易尋找等問題，重新規劃底部導航、取號流程
+- [\[產業新尖兵專題\] WanTrip｜國內旅遊訂房網站](https://chenchienlung.com/markdown/portfolio/wantrip.md)：產業新尖兵專題。4人團隊在2個月內完成具備訂房、比較飯店、AI問答功能的旅遊平台。個人在本專案負責網站介面設計、切版、金流、資料庫串接與前端部署。
+- [\[App Redesign\] 壽司郎App介面設計](https://chenchienlung.com/markdown/portfolio/sushiro-taiwan-app-redesign.md)：針對壽司郎 App 導航層級較深、圖示風格不一致與核心功能不易尋找等問題，重新規劃底部導航、取號流程
 與介面元件，讓取號、集點與優惠功能更容易抵達。
-- [[App Redesign] 財政部統一發票兌獎App介面設計](https://chenchienlung.com/markdown/portfolio/mof-einvoice-app-redesign.md)：針對財政部統一發票兌獎App介面缺點與使用上的痛點，修改成更現代化的介面排版，提升使用者體驗，減少操作步驟。
-- [[App UI/UX Design] 台灣職籃賽事App介面設計](https://chenchienlung.com/markdown/portfolio/taiwan-sports-app-uiux-design.md)：以球迷視角出發，整合賽程、球員數據、即時比分與新聞四大核心功能。參考NBA App、CBS Sports App、FIBA等成熟賽事平台的資訊架構，以P.LEAGUE+ 品牌色系，設計一套從首頁到球員數據頁的完整 UI 流程。
+- [\[App Redesign\] 財政部統一發票兌獎App介面設計](https://chenchienlung.com/markdown/portfolio/mof-einvoice-app-redesign.md)：針對財政部統一發票兌獎App介面缺點與使用上的痛點，修改成更現代化的介面排版，提升使用者體驗，減少操作步驟。
+- [\[App UI/UX Design\] 台灣職籃賽事App介面設計](https://chenchienlung.com/markdown/portfolio/taiwan-sports-app-uiux-design.md)：以球迷視角出發，整合賽程、球員數據、即時比分與新聞四大核心功能。參考NBA App、CBS Sports App、FIBA等成熟賽事平台的資訊架構，以P.LEAGUE+ 品牌色系，設計一套從首頁到球員數據頁的完整 UI 流程。
 
 ## 文章
 
@@ -24,3 +72,8 @@
 - [機器可讀資料](https://chenchienlung.com/portfolio.json)
 - [GitHub](https://github.com/chenchienlung)
 - 聯絡信箱：chris@chenchienlung.com
+
+## 聯絡方式
+
+- [chris@chenchienlung.com](mailto:chris@chenchienlung.com)
+- [chenchienlung](https://github.com/chenchienlung)

@@ -1,4 +1,4 @@
-# [App Redesign] 壽司郎App介面設計
+# [App Redesign] 壽司郎App介面設計｜Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
 
 針對壽司郎 App 導航層級較深、圖示風格不一致與核心功能不易尋找等問題，重新規劃底部導航、取號流程
 與介面元件，讓取號、集點與優惠功能更容易抵達。
