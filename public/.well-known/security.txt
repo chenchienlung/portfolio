@@ -1,0 +1,4 @@
+Contact: mailto:chenchienlung20@gmail.com
+Expires: 2027-08-12T00:00:00Z
+Preferred-Languages: zh-TW, en
+Canonical: https://chenchienlung.com/.well-known/security.txt
