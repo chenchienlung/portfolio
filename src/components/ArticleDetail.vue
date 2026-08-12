@@ -65,6 +65,25 @@
       <div class="border-b border-black/10 dark:border-white/10"></div>
 
       <div class="article-content text-neutral-800 dark:text-neutral-200" v-html="renderedContent"></div>
+
+      <section v-if="article.sources?.length" class="flex flex-col gap-4">
+        <h2 class="text-xl md:text-2xl font-bold text-black dark:text-white">資料來源</h2>
+        <div class="flex flex-col gap-3">
+          <div v-for="source in article.sources" :key="source.url"
+            class="group flex items-center gap-4 p-3 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-white/5 transition hover:ring-2 hover:ring-sky-500/40">
+            <img v-if="source.image" :src="source.image" :alt="source.title" loading="lazy" decoding="async"
+              class="w-24 h-16 sm:w-32 sm:h-20 shrink-0 rounded-xl object-cover" />
+            <div class="flex min-w-0 flex-col gap-1">
+              <span class="font-medium text-neutral-800 dark:text-neutral-200">{{ source.title }}</span>
+              <a :href="source.url" target="_blank" rel="noopener noreferrer"
+                class="inline-flex min-w-0 items-center gap-2 text-sm text-sky-700 dark:text-sky-300 hover:underline">
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="shrink-0 text-xs" />
+                <span class="truncate" :title="source.url">{{ source.url }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </article>
     <section class="flex flex-col gap-3">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">

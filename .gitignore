@@ -48,5 +48,4 @@ __screenshots__/
 .codex
 
 # other
-supabase
-*.sql
+supabase/

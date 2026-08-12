@@ -706,6 +706,7 @@
         "反向代理"
       ],
       "read_time": null,
+      "sources": [],
       "published_at": "2026-05-12",
       "updated_at": "2026-05-19T05:10:48.416302+00:00",
       "url": "https://chenchienlung.com/blog/aws-ec2-vue-deployment-with-nginx-proxy",
@@ -730,6 +731,7 @@
         "部署"
       ],
       "read_time": null,
+      "sources": [],
       "published_at": "2026-04-20",
       "updated_at": "2026-05-19T05:10:48.416302+00:00",
       "url": "https://chenchienlung.com/blog/cloudflare-registrar-and-pages-deployment",

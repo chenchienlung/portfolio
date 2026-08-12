@@ -29,7 +29,7 @@ const [
   supabase
     .from('articles')
     .select(
-      'id, slug, title, subtitle, excerpt, content, cover_image, category, tags, read_time, published_at, updated_at',
+        'id, slug, title, subtitle, excerpt, content, cover_image, category, tags, read_time, sources, published_at, updated_at',
     )
     .eq('published', true)
     .order('published_at', { ascending: false }),
@@ -134,7 +134,7 @@ ${article.subtitle ? `> ${article.subtitle}\n` : ''}
 
 ${article.excerpt || ''}
 
-${article.content || ''}
+${article.content?.trimEnd() || ''}
 
 ---
 
@@ -143,7 +143,14 @@ ${article.content || ''}
 - 標籤：${article.tags?.join(', ') || '無'}
 - 發布時間：${article.published_at || '未提供'}
 - 閱讀時間：約 ${article.read_time || '未提供'} 分鐘
-`
+${Array.isArray(article.sources) && article.sources.length > 0 ? `
+## 資料來源
+
+${article.sources
+  .map((source) => `${source.image ? `![${source.title}](${source.image})\n` : ''}### ${source.title}\n\n[${source.url}](${source.url})`)
+  .join('\n')}
+` : ''}
+`.trimEnd() + '\n'
 
 const markdownLinkLabel = (value) =>
   String(value ?? '')

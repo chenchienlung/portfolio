@@ -2,6 +2,12 @@ import { supabase } from '../lib/supabaseClient'
 
 export type ArticleCategory = 'frontend' | 'ui-ux' | 'tools' | 'other'
 
+export interface ArticleSource {
+  title: string
+  url: string
+  image?: string
+}
+
 export interface Article {
   id: number
   slug: string
@@ -13,6 +19,7 @@ export interface Article {
   category?: ArticleCategory[]
   tags: string[]
   content?: string
+  sources?: ArticleSource[]
   read_time?: number
   series?: string
   series_order?: number
