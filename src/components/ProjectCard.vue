@@ -2,17 +2,9 @@
   <RouterLink :to="link || '#'"
     class="block group w-full h-full rounded-3xl overflow-hidden border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 transition-all duration-300 shadow-xs/12 hover:shadow-lg/12 hover:-translate-y-1">
     <div class="aspect-3/2 overflow-hidden">
-      <img
-        class="w-full h-full object-cover bg-black/5 dark:bg-black/40"
-        :src="image || siteSettings.default_image"
-        :alt="title"
-        @error="handleImageError($event, DEFAULT_IMAGE)"
-        width="480"
-        height="360"
-        :loading="priority ? 'eager' : 'lazy'"
-        :fetchpriority="priority ? 'high' : 'auto'"
-        decoding="async"
-      />
+      <img class="w-full h-full object-cover bg-black/5 dark:bg-black/40" :src="image || siteSettings.default_image"
+        :alt="title" @error="handleImageError($event, DEFAULT_IMAGE)" width="480" height="360"
+        :loading="priority ? 'eager' : 'lazy'" :fetchpriority="priority ? 'high' : 'auto'" decoding="async" />
     </div>
     <div class="p-4">
       <h3

@@ -16,7 +16,7 @@
       <div class="flex flex-col gap-5">
         <div
           class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-neutral-600 dark:text-neutral-300 mb-4">
-          <h2 class="text-2xl font-bold text-black dark:text-white">{{ project.title }}</h2>
+          <h1 class="text-2xl font-bold text-black dark:text-white">{{ project.title }}</h1>
           <ProjectLinks :website="project.website" :github="project.github" :figma="project.figma"
             :figma_prototype="project.figma_prototype" />
         </div>

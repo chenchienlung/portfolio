@@ -1,6 +1,7 @@
 <template>
   <main class="mx-5 mb-4">
     <h1 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的作品</h1>
+    <h2 class="sr-only">作品列表</h2>
     <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div
         v-for="n in 6"

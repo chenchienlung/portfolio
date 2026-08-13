@@ -59,7 +59,7 @@
       </section>
     </div>
     <div v-else-if="error" class="text-center py-20">
-      <h2 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h2>
+      <h1 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h1>
       <RouterLink to="/portfolio"
         class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
         回到作品列表
@@ -67,7 +67,7 @@
     </div>
     <ProjectDetail v-else-if="project" :project="project" :prev="prevProject" :next="nextProject" />
     <div v-else class="text-center py-20">
-      <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該作品</h2>
+      <h1 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該作品</h1>
       <RouterLink to="/portfolio"
         class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
         回到作品列表

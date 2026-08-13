@@ -55,7 +55,7 @@
     </div>
 
     <div v-else-if="error" class="text-center py-20">
-      <h2 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h2>
+      <h1 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h1>
       <RouterLink to="/blog"
         class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
         回到文章列表
@@ -64,7 +64,7 @@
     <ArticleDetail v-else-if="article" :article="article" :prev="prevArticle" :next="nextArticle" />
 
     <div v-else class="text-center py-20">
-      <h2 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該文章</h2>
+      <h1 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該文章</h1>
       <RouterLink to="/blog"
         class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
         回到文章列表
