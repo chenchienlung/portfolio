@@ -307,6 +307,35 @@ const articleLines = publicArticles
   )
   .join('\n')
 
+const llmsTxt = `# Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
+
+這是陳仟龍 Chris Chen 的個人作品集網站。
+
+## 作者
+
+- 姓名：陳仟龍 Chris Chen
+- 定位：Junior Frontend Developer / UI/UX Designer
+- 技術：Vue 3、TypeScript、Tailwind CSS、Supabase、Figma
+- [GitHub](https://github.com/chenchienlung)
+- [Email](mailto:chris@chenchienlung.com)
+
+## 主要頁面
+
+- [首頁](${siteUrl}/)
+- [作品集](${siteUrl}/portfolio)
+- [文章](${siteUrl}/blog)
+
+## 內容
+
+網站包含前端開發作品、UI/UX 設計作品、設計流程、部署經驗與前端學習文章。公開內容由 Supabase 管理。
+
+## 機器可讀資源
+
+- [完整網站索引](${siteUrl}/llms-full.txt)
+- [Sitemap](${siteUrl}/sitemap.xml)
+- [作品集 JSON](${siteUrl}/portfolio.json)
+`
+
 await writeFile(
   resolve(outputDir, 'llms-full.txt'),
   `# Chris's Frontend & UI/UX Portfolio | 陳仟龍的作品集網站
@@ -347,6 +376,7 @@ ${[
 `,
   'utf8',
 )
+await writeFile(resolve(outputDir, 'llms.txt'), llmsTxt, 'utf8')
 
 const portfolio = {
   name: '陳仟龍 Chris Chen',
