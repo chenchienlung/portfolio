@@ -49,7 +49,7 @@ onMounted(() => {
   <header>
     <AppNavbar />
   </header>
-  <main class="min-h-screen max-w-6xl mx-auto mt-12 md:mt-24">
+  <main class="min-h-screen max-w-6xl mx-auto mt-6 md:mt-24">
     <router-view v-slot="{ Component }">
       <transition :name="transitionName" mode="out-in">
         <component :is="Component" />

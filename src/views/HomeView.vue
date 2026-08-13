@@ -1,10 +1,10 @@
 <template>
   <main class="mx-5 mb-10 flex flex-col gap-32">
-    <section v-fade-up class="relative w-full min-h-[calc(100dvh-80px)] flex items-center py-14 md:py-20">
+    <section v-fade-up class="relative w-full min-h-[calc(100dvh-80px)] flex items-center">
       <div aria-hidden="true"
         class="pointer-events-none absolute inset-y-0 right-0 hidden select-none items-center justify-end overflow-hidden lg:flex">
         <p
-          class="text-right text-[9rem] font-black leading-[0.78] tracking-[-0.08em] text-neutral-200/70 dark:text-neutral-800/70">
+          class="text-right text-[10rem] font-black leading-[0.78] tracking-[-0.06em] text-neutral-200/70 dark:text-neutral-800/70">
           <span class="block">DESIGN</span>
           <span class="block">→ CODE</span>
         </p>
@@ -350,7 +350,7 @@
             </div>
           </div>
 
-          <div class="md:col-span-6 grid grid-cols-1 gap-5 md:grid-cols-12">
+          <div data-fade-group class="md:col-span-6 grid grid-cols-1 gap-5 md:grid-cols-12">
             <!-- 目前學習中 -->
             <div
               class="md:col-span-5 flex flex-col gap-5 rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 shadow-xs/12 p-6">
@@ -454,20 +454,27 @@ const vFadeUp: ObjectDirective<HTMLElement> = {
 
 const vFadeUpGroup: ObjectDirective<HTMLElement> = {
   mounted(element) {
-    Array.from(element.children).forEach((child, index) => {
-      if (!(child instanceof HTMLElement)) return
+    const targets = getFadeTargets(element)
+    targets.forEach((child, index) => {
 
       child.classList.add('fade-up-card')
-      child.style.setProperty('--fade-up-delay', `${Math.min(index, 5) * 90}ms`)
+      // 依 DOM 順序逐張延遲，包含最下方容器內的兩張卡片。
+      child.style.setProperty('--fade-up-delay', `${index * 90}ms`)
       getFadeUpObserver().observe(child)
     })
   },
   unmounted(element) {
-    Array.from(element.children).forEach((child) => {
+    getFadeTargets(element).forEach((child) => {
       fadeUpObserver?.unobserve(child)
     })
   },
 }
+
+const getFadeTargets = (element: HTMLElement): HTMLElement[] =>
+  Array.from(element.children).flatMap((child) => {
+    if (!(child instanceof HTMLElement)) return []
+    return child.hasAttribute('data-fade-group') ? getFadeTargets(child) : [child]
+  })
 
 onMounted(async () => {
   loading.value = true
