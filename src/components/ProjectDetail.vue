@@ -45,10 +45,10 @@
       </div>
 
       <div>
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           技能 / 工具
-        </h3>
+        </h2>
         <div class="flex flex-row flex-wrap gap-5">
           <ThemeIcon v-for="(skill, i) in project.skills" :key="skill.name || skill.icon.light" :icon="skill.icon"
             :is-dark="isDark" :alt="skill.name" class-name="w-8 h-8 object-contain" />
@@ -56,10 +56,10 @@
       </div>
 
       <div v-if="project.AI?.length">
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           AI 工具
-        </h3>
+        </h2>
         <div class="flex flex-row flex-wrap gap-5">
           <ThemeIcon v-for="(ai, i) in project.AI" :key="ai.name || ai.icon.light" :icon="ai.icon" :is-dark="isDark"
             :alt="ai.name" class-name="w-8 h-8 object-contain" />
@@ -67,13 +67,13 @@
       </div>
 
       <div v-if="project.deploys?.length">
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           部署
-        </h3>
+        </h2>
         <div class="flex flex-col md:flex-row gap-5 md:gap-10 text-neutral-800 dark:text-neutral-200">
           <div v-for="deploy in project.deploys" :key="deploy.name" class="flex flex-row items-center gap-3">
-            <h4 class="w-1/4 md:w-fit text-nowrap font-bold">{{ deploy.title }}</h4>
+            <h3 class="w-1/4 md:w-fit text-nowrap font-bold">{{ deploy.title }}</h3>
             <div class="flex flex-row gap-2 items-center">
               <ThemeIcon :key="deploy.name" :icon="deploy.icon" :is-dark="isDark" :alt="deploy.name"
                 class-name="h-6 w-auto max-w-20 object-contain" />
@@ -84,10 +84,10 @@
       </div>
 
       <div v-if="project.development_blocks?.length">
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           開發過程
-        </h3>
+        </h2>
         <div class="flex flex-col gap-10">
           <div v-for="block in project.development_blocks" :key="`${block.image}-${block.title || block.description}`"
             class="flex flex-col md:flex-row gap-5 items-center" :class="[
@@ -105,9 +105,9 @@
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''">
-              <h4 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
+              <h3 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
                 {{ block.title }}
-              </h4>
+              </h3>
               <p v-if="block.description"
                 class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
                 {{ block.description }}
@@ -118,10 +118,10 @@
       </div>
 
       <div>
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           設計理念
-        </h3>
+        </h2>
         <div class="flex flex-col gap-10">
           <div v-for="block in project.detail_blocks" :key="`${block.image}-${block.title || block.description}`"
             class="flex flex-col md:flex-row gap-6 items-center" :class="[
@@ -138,9 +138,9 @@
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''">
-              <h4 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
+              <h3 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
                 {{ block.title }}
-              </h4>
+              </h3>
               <p v-if="block.description"
                 class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
                 {{ block.description }}
@@ -151,10 +151,10 @@
       </div>
 
       <div>
-        <h3
+        <h2
           class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
           作品圖片
-        </h3>
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
           <div v-for="img in project.detail_img" :key="img" class="aspect-3/2 overflow-hidden rounded-xl">
             <img :src="img" :alt="project.title" @error="handleImageError($event, DEFAULT_IMAGE)" width="1200"
