@@ -2,3 +2,19 @@
   Link: </llms.txt>; rel="describedby"; type="text/plain"
   Link: </portfolio.json>; rel="describedby"; type="application/json"
   Link: </sitemap.xml>; rel="alternate"; type="application/xml"
+  Cache-Control: no-cache, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, must-revalidate
+
+/portfolio
+  Cache-Control: no-cache, must-revalidate
+
+/portfolio/*
+  Cache-Control: no-cache, must-revalidate
+
+/blog
+  Cache-Control: no-cache, must-revalidate
+
+/blog/*
+  Cache-Control: no-cache, must-revalidate
