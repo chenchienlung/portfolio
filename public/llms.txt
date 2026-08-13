@@ -7,14 +7,14 @@
 - 姓名：陳仟龍 Chris Chen
 - 定位：Junior Frontend Developer / UI/UX Designer
 - 技術：Vue 3、TypeScript、Tailwind CSS、Supabase、Figma
-- GitHub：https://github.com/chenchienlung
-- Email：mailto:chris@chenchienlung.com
+- [GitHub](https://github.com/chenchienlung)
+- [Email](mailto:chris@chenchienlung.com)
 
 ## 主要頁面
 
-- 首頁：https://chenchienlung.com/
-- 作品集：https://chenchienlung.com/portfolio
-- 文章：https://chenchienlung.com/blog
+- [首頁](https://chenchienlung.com/)
+- [作品集](https://chenchienlung.com/portfolio)
+- [文章](https://chenchienlung.com/blog)
 
 ## 內容
 
@@ -23,6 +23,6 @@
 
 ## 機器可讀資源
 
-- 完整網站索引：https://chenchienlung.com/llms-full.txt
-- Sitemap：https://chenchienlung.com/sitemap.xml
-- 公開內容摘要：https://chenchienlung.com/portfolio.json
+- [完整網站索引](https://chenchienlung.com/llms-full.txt)
+- [Sitemap](https://chenchienlung.com/sitemap.xml)
+- [作品集 JSON](https://chenchienlung.com/portfolio.json)
