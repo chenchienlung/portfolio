@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 const isDark = ref(false)
 
 const THEME_COLOR_LIGHT = '#f8f8f8'
-const THEME_COLOR_DARK = '#181818'
+const THEME_COLOR_DARK = '#101010'
 
 const updateThemeColor = (dark: boolean) => {
   document.querySelectorAll('meta[name="theme-color"]').forEach((el) => el.remove())

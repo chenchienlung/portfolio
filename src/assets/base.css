@@ -1,74 +1,165 @@
-/* color palette from <https://github.com/vuejs/theme> */
-/* :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+/* semantic color tokens */
+:root {
+  --text-body: var(--text-base);
+  --text-ui: var(--text-sm);
+  --text-heading-sm: var(--text-lg);
+  --text-heading-md: var(--text-xl);
+  --text-heading-lg: var(--text-2xl);
+  --text-heading-xl: var(--text-3xl);
+  --text-heading-2xl: var(--text-4xl);
+  --text-table: 0.9375rem;
+  --leading-body: 1.6;
+  --leading-code: 1.7;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --spacing-article-block: calc(var(--spacing) * 4);
+  --spacing-article-list-pl: calc(var(--spacing) * 6);
+  --spacing-article-code-px: calc(var(--spacing) * 5);
+  --spacing-article-code-py: calc(var(--spacing) * 4);
+  --spacing-article-image-my: calc(var(--spacing) * 6);
+  --spacing-article-table-my: calc(var(--spacing) * 5);
 
-  --vt-c-indigo: #2c3e50;
+  --semantic-bg-page: #f8f8f8;
+  --semantic-bg-surface: var(--color-neutral-50);
+  --semantic-bg-surface-muted: var(--color-neutral-100);
+  --semantic-bg-detail-content: var(--color-neutral-50);
+  --semantic-bg-detail-muted: var(--color-neutral-300);
+  --semantic-bg-skeleton: var(--color-neutral-200);
+  --semantic-bg-image-placeholder: var(--color-neutral-100);
+  --semantic-bg-control-hover: color-mix(in srgb, var(--color-black) 10%, transparent);
+  --semantic-border-navbar: color-mix(in srgb, var(--color-black) 10%, transparent);
+  --semantic-border-detail-back: color-mix(in srgb, var(--color-black) 15%, transparent);
+  --semantic-shadow-card: 0 1px 2px color-mix(in srgb, var(--color-black) 12%, transparent);
+  --semantic-shadow-card-hover: 0 10px 15px -3px color-mix(in srgb, var(--color-black) 12%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--color-black) 12%, transparent);
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --semantic-text-primary: var(--color-neutral-900);
+  --semantic-text-secondary: var(--color-neutral-600);
+  --semantic-text-tertiary: var(--color-neutral-500);
+  --semantic-text-inverse: var(--color-white);
+  --semantic-status-green-bg: var(--color-green-50);
+  --semantic-status-green-text: var(--color-green-700);
+  --semantic-status-green-dot: var(--color-green-500);
+  --semantic-status-blue-bg: var(--color-blue-50);
+  --semantic-status-blue-text: var(--color-blue-700);
+  --semantic-status-blue-dot: var(--color-blue-500);
+  --semantic-status-rose-bg: var(--color-rose-50);
+  --semantic-status-rose-text: var(--color-rose-700);
+  --semantic-status-rose-dot: var(--color-rose-500);
+  --semantic-status-yellow-bg: var(--color-amber-50);
+  --semantic-status-yellow-text: var(--color-amber-700);
+  --semantic-status-yellow-dot: var(--color-amber-500);
+  --semantic-status-purple-bg: var(--color-purple-50);
+  --semantic-status-purple-text: var(--color-purple-700);
+  --semantic-status-purple-dot: var(--color-purple-500);
+  --semantic-status-neutral-bg: var(--color-neutral-100);
+  --semantic-status-neutral-text: var(--color-neutral-700);
+  --semantic-status-neutral-dot: var(--color-neutral-500);
+  --semantic-feedback-success-text: var(--color-green-700);
+  --semantic-feedback-error-text: var(--color-red-600);
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-} */
+  --semantic-border-surface: var(--color-neutral-300);
+  --semantic-border-subtle: var(--color-neutral-200);
+  --semantic-border-strong: var(--semantic-border-surface);
+  --semantic-focus-ring: color-mix(in srgb, var(--color-sky-500) 40%, transparent);
 
-/* semantic color variables for this project */
-/* :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --semantic-status-green-ring: var(--color-green-400);
+  --semantic-status-blue-ring: var(--color-blue-400);
+  --semantic-status-rose-ring: var(--color-rose-400);
+  --semantic-status-yellow-ring: var(--color-amber-400);
+  --semantic-status-yellow-shadow-color: color-mix(in srgb, var(--color-amber-400) 30%, transparent);
+  --semantic-status-purple-ring: var(--color-purple-400);
+  --semantic-status-purple-shadow-color: color-mix(in srgb, var(--color-purple-400) 30%, transparent);
+  --semantic-status-neutral-ring: var(--color-neutral-400);
+  --semantic-status-green-shadow-color: color-mix(in srgb, var(--color-green-400) 30%, transparent);
+  --semantic-status-blue-shadow-color: color-mix(in srgb, var(--color-blue-400) 30%, transparent);
+  --semantic-status-rose-shadow-color: color-mix(in srgb, var(--color-rose-400) 30%, transparent);
+  --semantic-status-neutral-shadow-color: color-mix(in srgb, var(--color-neutral-400) 30%, transparent);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --semantic-action-primary: var(--color-sky-600);
+  --semantic-action-primary-hover: var(--color-sky-700);
+  --semantic-action-primary-subtle: var(--color-sky-100);
+  --semantic-action-border: var(--color-sky-700);
+  --semantic-article-code-bg: var(--color-neutral-200);
+  --semantic-article-code-text: var(--color-neutral-900);
+  --semantic-article-table-header-bg: color-mix(in srgb, var(--color-black) 4%, transparent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+html.dark {
+  --semantic-bg-page: #101010;
+  --semantic-bg-surface: var(--color-neutral-900);
+  --semantic-bg-surface-muted: var(--color-neutral-800);
+  --semantic-bg-detail-content: var(--color-neutral-800);
+  --semantic-bg-detail-muted: var(--color-neutral-700);
+  --semantic-bg-skeleton: var(--color-neutral-800);
+  --semantic-bg-image-placeholder: var(--color-neutral-800);
+  --semantic-bg-control-hover: var(--color-neutral-700);
+  --semantic-border-navbar: color-mix(in srgb, var(--color-white) 15%, transparent);
+  --semantic-border-detail-back: color-mix(in srgb, var(--color-white) 15%, transparent);
+  --semantic-shadow-card: 0 1px 2px color-mix(in srgb, var(--color-black) 24%, transparent);
+  --semantic-shadow-card-hover: 0 10px 15px -3px color-mix(in srgb, var(--color-black) 24%, transparent), 0 4px 6px -4px color-mix(in srgb, var(--color-black) 24%, transparent);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+  --semantic-text-primary: var(--color-white);
+  --semantic-text-secondary: var(--color-neutral-300);
+  --semantic-text-tertiary: var(--color-neutral-400);
+  --semantic-text-inverse: var(--color-neutral-900);
+  --semantic-status-green-bg: color-mix(in srgb, var(--color-green-900) 50%, transparent);
+  --semantic-status-green-text: var(--color-green-400);
+  --semantic-status-green-dot: var(--color-green-400);
+  --semantic-status-blue-bg: color-mix(in srgb, var(--color-blue-900) 50%, transparent);
+  --semantic-status-blue-text: var(--color-blue-400);
+  --semantic-status-blue-dot: var(--color-blue-400);
+  --semantic-status-rose-bg: color-mix(in srgb, var(--color-rose-900) 50%, transparent);
+  --semantic-status-rose-text: var(--color-rose-400);
+  --semantic-status-rose-dot: var(--color-rose-400);
+  --semantic-status-yellow-bg: color-mix(in srgb, var(--color-amber-900) 40%, transparent);
+  --semantic-status-yellow-text: var(--color-amber-300);
+  --semantic-status-yellow-dot: var(--color-amber-400);
+  --semantic-status-purple-bg: color-mix(in srgb, var(--color-purple-900) 40%, transparent);
+  --semantic-status-purple-text: var(--color-purple-300);
+  --semantic-status-purple-dot: var(--color-purple-400);
+  --semantic-status-neutral-bg: color-mix(in srgb, var(--color-neutral-800) 60%, transparent);
+  --semantic-status-neutral-text: var(--color-neutral-300);
+  --semantic-status-neutral-dot: var(--color-neutral-400);
+  --semantic-feedback-success-text: var(--color-green-400);
+  --semantic-feedback-error-text: var(--color-red-400);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-} */
+  --semantic-border-surface: var(--color-neutral-700);
+  --semantic-border-subtle: var(--color-neutral-800);
+  --semantic-border-strong: var(--color-neutral-600);
+  --semantic-focus-ring: color-mix(in srgb, var(--color-sky-400) 40%, transparent);
 
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
-} */
+  --semantic-status-green-ring: color-mix(in srgb, var(--color-green-500) 60%, transparent);
+  --semantic-status-blue-ring: color-mix(in srgb, var(--color-blue-500) 60%, transparent);
+  --semantic-status-rose-ring: color-mix(in srgb, var(--color-rose-500) 60%, transparent);
+  --semantic-status-yellow-ring: color-mix(in srgb, var(--color-amber-400) 60%, transparent);
+  --semantic-status-yellow-shadow-color: color-mix(in srgb, var(--color-amber-400) 20%, transparent);
+  --semantic-status-purple-ring: color-mix(in srgb, var(--color-purple-400) 60%, transparent);
+  --semantic-status-purple-shadow-color: color-mix(in srgb, var(--color-purple-400) 20%, transparent);
+  --semantic-status-neutral-ring: color-mix(in srgb, var(--color-neutral-500) 60%, transparent);
+  --semantic-status-green-shadow-color: color-mix(in srgb, var(--color-green-400) 20%, transparent);
+  --semantic-status-blue-shadow-color: color-mix(in srgb, var(--color-blue-400) 20%, transparent);
+  --semantic-status-rose-shadow-color: color-mix(in srgb, var(--color-rose-400) 20%, transparent);
+  --semantic-status-neutral-shadow-color: color-mix(in srgb, var(--color-neutral-400) 20%, transparent);
+
+  --semantic-action-primary: var(--color-sky-400);
+  --semantic-action-primary-hover: var(--color-sky-300);
+  --semantic-action-primary-subtle: color-mix(in srgb, var(--color-sky-900) 40%, transparent);
+  --semantic-action-border: var(--color-sky-400);
+  --semantic-article-code-bg: var(--color-neutral-900);
+  --semantic-article-code-text: var(--color-neutral-200);
+  --semantic-article-table-header-bg: color-mix(in srgb, var(--color-white) 5%, transparent);
+}
 
 body {
-  color: var(--color-text);
-  background: #f8f8f8;
+  color: var(--semantic-text-primary);
+  background: var(--semantic-bg-page);
   transition:
     color 0.3s,
     background-color 0.3s;
-  line-height: 1.6;
+  line-height: var(--leading-body);
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica',
     sans-serif;
-  font-size: 15px;
+  font-size: var(--text-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,6 +174,11 @@ option {
   cursor: pointer;
 }
 
+:focus-visible {
+  outline: 2px solid var(--semantic-focus-ring);
+  outline-offset: 2px;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
@@ -90,5 +186,5 @@ html {
 }
 
 html.dark body {
-  background: #181818;
+  background: var(--semantic-bg-page);
 }

@@ -1,75 +1,116 @@
 <template>
   <main class="mx-5 mt-12 md:mt-24">
-    <div v-if="loading" class="animate-pulse flex flex-col gap-5 mb-4">
+    <div v-if="loading" class="animate-pulse flex flex-col gap-5">
       <div
-        class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-black/15 dark:bg-white/15 border border-black/15 dark:border-white/10 shadow-xs/12" />
+        class="detail-banner-skeleton bg-skeleton md:aspect-4/1" />
       <div
-        class="px-5 py-8 md:px-8 md:py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20">
+        class="detail-content card-skeleton flex flex-col gap-20">
         <div class="flex flex-col gap-5">
-          <div class="flex flex-col md:flex-row gap-2 md:items-center md:justify-between mb-4">
-            <div class="h-8 bg-black/15 dark:bg-white/15 rounded w-1/3" />
+          <div class="flex flex-col md:flex-row gap-2 md:items-center md:justify-between">
+            <div class="h-8 bg-skeleton rounded-sm w-1/3" />
             <div class="flex gap-3">
-              <span class="h-9 w-20 bg-black/15 dark:bg-white/15 rounded-xl" />
-              <span class="h-9 w-20 bg-black/15 dark:bg-white/15 rounded-xl" />
+              <span class="h-9 w-20 bg-skeleton rounded-xl" />
+              <span class="h-9 w-20 bg-skeleton rounded-xl" />
             </div>
           </div>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="h-7 w-16 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-7 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-7 w-20 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-7 w-12 bg-black/15 dark:bg-white/15 rounded-full" />
+        <div class="flex flex-wrap gap-2">
+            <span v-for="n in 3" :key="`tag-${n}`" class="h-7 w-16 bg-skeleton rounded-full" />
           </div>
         </div>
 
-        <div class="p-5 bg-neutral-100 dark:bg-neutral-700/60 rounded-xl flex flex-col gap-3">
-          <div class="h-6 w-6 bg-black/15 dark:bg-white/15 rounded mb-2" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-5/6" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-3/4" />
+        <div class="p-5 bg-surface-muted rounded-xl flex flex-col gap-2">
+          <div class="h-6 w-6 bg-skeleton rounded-sm mb-2" />
+          <div class="h-5 bg-skeleton rounded-sm w-5/6" />
+          <div class="h-5 bg-skeleton rounded-sm w-3/4" />
         </div>
 
-        <div class="space-y-3">
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-full" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-5/6" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+        <div class="flex flex-col gap-3">
+          <div class="h-5 bg-skeleton rounded-sm w-full" />
+          <div class="h-5 bg-skeleton rounded-sm w-5/6" />
+          <div class="h-5 bg-skeleton rounded-sm w-4/5" />
         </div>
 
-        <div class="space-y-3">
-          <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-28 mb-2" />
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
           <div class="flex flex-row flex-wrap gap-5">
-            <div v-for="n in 6" :key="n" class="w-8 h-8 bg-black/15 dark:bg-white/15 rounded" />
+            <div v-for="n in 6" :key="n" class="size-detail-icon bg-skeleton rounded-sm" />
           </div>
         </div>
 
-        <div class="space-y-3">
-          <div class="h-7 bg-black/15 dark:bg-white/15 rounded w-28 mb-2" />
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div v-for="n in 3" :key="n" class="aspect-3/2 bg-black/15 dark:bg-white/15 rounded-xl" />
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
+          <div class="flex flex-row flex-wrap gap-5">
+            <div v-for="n in 4" :key="`ai-${n}`" class="size-detail-icon bg-skeleton rounded-sm" />
           </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
+          <div class="flex flex-col md:flex-row gap-10">
+            <div v-for="n in 2" :key="`deploy-${n}`" class="flex items-center gap-3">
+              <div class="h-5 w-16 bg-skeleton rounded-sm" />
+              <div class="h-6 w-24 bg-skeleton rounded-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
+          <div v-for="n in 2" :key="`development-${n}`"
+            class="flex flex-col md:flex-row gap-5 items-center">
+            <div class="aspect-3/2 w-full md:w-1/2 bg-skeleton rounded-xl" />
+            <div class="w-full md:w-1/2 flex flex-col gap-2">
+              <div class="h-6 bg-skeleton rounded-sm w-3/5" />
+              <div class="h-5 bg-skeleton rounded-sm w-full" />
+              <div class="h-5 bg-skeleton rounded-sm w-4/5" />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
+          <div v-for="n in 2" :key="`detail-${n}`" class="flex flex-col gap-2">
+            <div class="h-6 bg-skeleton rounded-sm w-2/5" />
+            <div class="h-5 bg-skeleton rounded-sm w-full" />
+            <div class="h-5 bg-skeleton rounded-sm w-5/6" />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="h-7 bg-skeleton rounded-sm w-28 mb-2" />
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div v-for="n in 3" :key="n" class="aspect-3/2 bg-skeleton rounded-xl" />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <div v-for="n in 3" :key="`content-${n}`"
+            class="h-5 bg-skeleton rounded-sm w-4/5" />
         </div>
       </div>
 
       <section class="flex flex-col gap-3">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div v-for="n in 2" :key="n"
-            class="h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12">
-            <div class="w-4 h-4 bg-black/15 dark:bg-white/15 rounded shrink-0" />
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-2/3" />
+            class="flex items-center gap-3 detail-nav-skeleton">
+            <div class="w-4 h-4 bg-skeleton rounded-sm shrink-0" />
+            <div class="h-4 bg-skeleton rounded-sm w-2/3" />
           </div>
         </div>
       </section>
     </div>
-    <div v-else-if="error" class="text-center py-20">
-      <h1 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h1>
+    <div v-else-if="error" class="text-center py-empty-state">
+      <h1 class="text-state-title font-bold text-feedback-error mb-10">{{ error }}</h1>
       <RouterLink to="/portfolio"
-        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        class="button-primary rounded-full button-action hover:bg-action-primary-hover">
         回到作品列表
       </RouterLink>
     </div>
     <ProjectDetail v-else-if="project" :project="project" :prev="prevProject" :next="nextProject" />
-    <div v-else class="text-center py-20">
-      <h1 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該作品</h1>
+    <div v-else class="text-center py-empty-state">
+      <h1 class="text-state-title font-bold text-content-tertiary mb-10">找不到該作品</h1>
       <RouterLink to="/portfolio"
-        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        class="button-primary rounded-full button-action hover:bg-action-primary-hover">
         回到作品列表
       </RouterLink>
     </div>
@@ -158,6 +199,7 @@ const loadProject = async () => {
     if (currentRequestId === requestId) loading.value = false
   }
 }
+
 
 onMounted(loadProject)
 watch(() => route.params.slug, loadProject)

@@ -72,7 +72,7 @@ export interface Capability {
   description: string
 }
 
-export type JobStatusColor = 'green' | 'blue' | 'rose' | 'neutral'
+export type JobStatusColor = 'green' | 'blue' | 'rose' | 'yellow' | 'purple' | 'neutral'
 
 export interface About {
   id: number

@@ -1,77 +1,74 @@
 <template>
   <main class="relative flex flex-col gap-5">
     <button type="button" @click="$router.back()"
-      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10">
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 detail-back-button flex items-center justify-center text-sm text-content-primary bg-surface-muted/40 border border-detail-back backdrop-blur-md rounded-full z-10">
       <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
       上一頁
     </button>
-    <section
-      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
+    <section class="detail-banner md:aspect-4/1">
       <img :src="project.banner || siteSettings.default_banner" :alt="project.title"
         @error="handleImageError($event, DEFAULT_BANNER)" width="1200" height="600" fetchpriority="high"
         decoding="async" class="w-full h-full object-cover" />
     </section>
     <section
-      class="px-5 py-8 md:px-8 md:py-12 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-20">
+      class="detail-content card-surface bg-detail-content flex flex-col gap-20">
       <div class="flex flex-col gap-5">
-        <div
-          class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-neutral-600 dark:text-neutral-300 mb-4">
-          <h1 class="text-2xl font-bold text-black dark:text-white">{{ project.title }}</h1>
+        <div class="flex flex-col md:flex-row gap-2 justify-between md:items-center text-content-secondary">
+          <h1 class="text-detail-title font-bold text-content-primary">{{ project.title }}</h1>
           <ProjectLinks :website="project.website" :github="project.github" :figma="project.figma"
             :figma_prototype="project.figma_prototype" />
         </div>
-        <div class="flex flex-wrap gap-2 mb-4">
+        <div class="flex flex-wrap gap-2">
           <span v-for="tag in project.tags" :key="tag"
-            class="px-3 py-1 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300">
+            class="badge-lg text-sm bg-surface-muted border border-subtle text-content-secondary">
             {{ tag }}
           </span>
         </div>
       </div>
 
       <div v-if="project.points?.length"
-        class="p-5 text-neutral-800 dark:text-neutral-200 text-lg bg-neutral-100 dark:bg-neutral-700/60 rounded-xl flex flex-col gap-2">
+        class="p-5 text-content-primary text-lg bg-detail-muted rounded-xl flex flex-col gap-2">
         <font-awesome-icon icon="fa-solid fa-lightbulb" class="mb-2" />
-        <p v-for="point in project.points" :key="point" class="leading-relaxed">
+        <p v-for="point in project.points" :key="point">
           {{ point }}
         </p>
       </div>
 
       <div>
         <p v-for="(para, i) in project.detail_description" :key="para"
-          class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line"
-          :class="i < project.detail_description.length - 1 ? 'mb-4' : 'mb-8'">
+          class="text-lg text-content-secondary whitespace-pre-line mb-2">
           {{ para }}
         </p>
       </div>
 
       <div>
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           技能 / 工具
         </h2>
         <div class="flex flex-row flex-wrap gap-5">
           <ThemeIcon v-for="(skill, i) in project.skills" :key="skill.name || skill.icon.light" :icon="skill.icon"
-            :is-dark="isDark" :alt="skill.name" class-name="w-8 h-8 object-contain" />
+            :is-dark="isDark" :alt="skill.name" class-name="size-detail-icon object-contain" />
         </div>
       </div>
 
       <div v-if="project.AI?.length">
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           AI 工具
         </h2>
         <div class="flex flex-row flex-wrap gap-5">
           <ThemeIcon v-for="(ai, i) in project.AI" :key="ai.name || ai.icon.light" :icon="ai.icon" :is-dark="isDark"
-            :alt="ai.name" class-name="w-8 h-8 object-contain" />
+            :alt="ai.name" class-name="size-detail-icon object-contain" />
         </div>
       </div>
 
       <div v-if="project.deploys?.length">
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           部署
         </h2>
-        <div class="flex flex-col md:flex-row gap-5 md:gap-10 text-neutral-800 dark:text-neutral-200">
+        <div class="flex flex-col md:flex-row gap-5 md:gap-10 text-content-primary">
           <div v-for="deploy in project.deploys" :key="deploy.name" class="flex flex-row items-center gap-3">
             <h3 class="w-1/4 md:w-fit text-nowrap font-bold">{{ deploy.title }}</h3>
             <div class="flex flex-row gap-2 items-center">
@@ -85,7 +82,7 @@
 
       <div v-if="project.development_blocks?.length">
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           開發過程
         </h2>
         <div class="flex flex-col gap-10">
@@ -93,7 +90,7 @@
             class="flex flex-col md:flex-row gap-5 items-center" :class="[
               block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row',
               !block.image && (block.title || block.description)
-                ? 'bg-black/5 dark:bg-white/5 rounded-xl my-10 py-10 px-5'
+                ? 'detail-content-block'
                 : '',
             ]">
             <div v-if="block.image" class="w-full shrink-0" :class="block.title || block.description ? 'md:w-1/2' : ''">
@@ -105,11 +102,10 @@
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''">
-              <h3 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
+              <h3 v-if="block.title" class="text-section-title font-semibold text-content-primary whitespace-pre-line">
                 {{ block.title }}
               </h3>
-              <p v-if="block.description"
-                class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+              <p v-if="block.description" class="text-lg text-content-secondary whitespace-pre-line">
                 {{ block.description }}
               </p>
             </div>
@@ -119,7 +115,7 @@
 
       <div>
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           設計理念
         </h2>
         <div class="flex flex-col gap-10">
@@ -127,7 +123,7 @@
             class="flex flex-col md:flex-row gap-6 items-center" :class="[
               block.imagePosition === 'right' ? 'md:flex-row-reverse' : 'md:flex-row',
               !block.image && (block.title || block.description)
-                ? 'bg-black/5 dark:bg-white/5 rounded-xl my-10 py-10 px-5'
+                ? 'detail-content-block'
                 : '',
             ]">
             <div v-if="block.image" class="w-full shrink-0" :class="block.title || block.description ? 'md:w-1/2' : ''">
@@ -138,11 +134,10 @@
             </div>
             <div v-if="block.title || block.description" class="w-full flex flex-col gap-2 text-center"
               :class="block.image ? 'text-left md:w-1/2' : ''">
-              <h3 v-if="block.title" class="text-xl font-semibold text-black dark:text-white whitespace-pre-line">
+              <h3 v-if="block.title" class="text-section-title font-semibold text-content-primary whitespace-pre-line">
                 {{ block.title }}
               </h3>
-              <p v-if="block.description"
-                class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+              <p v-if="block.description" class="text-lg text-content-secondary whitespace-pre-line">
                 {{ block.description }}
               </p>
             </div>
@@ -152,7 +147,7 @@
 
       <div>
         <h2
-          class="mb-2 text-xl font-bold text-sky-600 before:content-[''] before:border-l-5 before:border-neutral-300 dark:before:border-neutral-500 before:rounded-full before:mr-1">
+          class="mb-2 text-section-title font-bold text-action-primary before:content-[''] before:border-detail-heading before:border-subtle before:rounded-full before:mr-1">
           作品圖片
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
@@ -163,46 +158,46 @@
         </div>
       </div>
 
-      <div class="text-neutral-600 dark:text-neutral-300 text-lg">
+      <div class="text-content-secondary text-lg">
         <p v-for="content in project.content" :key="content">
-          <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-green-600" />
+                  <font-awesome-icon icon="fa-solid fa-check" class="mr-1 text-feedback-success" />
           {{ content }}
         </p>
       </div>
     </section>
 
-    <section class="flex flex-col gap-3">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <section class="flex flex-col">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <component :is="prev ? RouterLink : 'div'" :to="prev ? `/portfolio/${prev.slug}` : undefined" :class="[
-          'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+          'detail-nav-link gap-4 detail-nav',
           prev
-            ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+            ? 'group md:hover:ring md:hover:ring-surface md:hover:shadow-card-hover'
             : 'opacity-40 cursor-not-allowed',
         ]">
           <font-awesome-icon icon="fa-solid fa-arrow-left"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+            class="shrink-0 text-content-tertiary group-hover:text-action-primary transition-colors" />
           <div class="flex flex-col min-w-0">
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-content-primary group-hover:text-action-primary truncate transition-colors">
               {{ prev?.title || '已是最新作品' }}
             </span>
           </div>
         </component>
 
         <component :is="next ? RouterLink : 'div'" :to="next ? `/portfolio/${next.slug}` : undefined" :class="[
-          'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+          'detail-nav-link justify-end text-right gap-3 detail-nav',
           next
-            ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+            ? 'group md:hover:ring md:hover:ring-surface md:hover:shadow-card-hover'
             : 'opacity-40 cursor-not-allowed',
         ]">
           <div class="flex flex-col min-w-0">
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-content-primary group-hover:text-action-primary truncate transition-colors">
               {{ next?.title || '已是最早作品' }}
             </span>
           </div>
           <font-awesome-icon icon="fa-solid fa-arrow-right"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+            class="shrink-0 text-content-tertiary group-hover:text-action-primary transition-colors" />
         </component>
       </div>
     </section>

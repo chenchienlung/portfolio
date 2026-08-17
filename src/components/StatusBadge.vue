@@ -1,7 +1,8 @@
 <template>
   <span
-    class="w-fit h-fit flex items-center gap-1.5 ring-1 rounded-full shadow-[0_0_12px]"
-    :class="[styles.container, styles.shadow, sizeClass]"
+    class="w-fit h-fit flex items-center gap-1.5 ring-1 rounded-full"
+    :class="[styles.container, 'shadow-status', sizeClass]"
+    :style="{ '--status-shadow-color': styles.shadowColor }"
   >
     <span class="w-2 h-2 rounded-full animate-pulse shrink-0" :class="styles.dot"></span>
     <slot>{{ label }}</slot>
@@ -23,36 +24,48 @@ const props = withDefaults(defineProps<Props>(), {
   size: 'md',
 })
 
-const COLOR_MAP: Record<JobStatusColor, { container: string; dot: string; shadow: string }> = {
+const COLOR_MAP: Record<JobStatusColor, { container: string; dot: string; shadowColor: string }> = {
   green: {
     container:
-      'bg-green-50 dark:bg-green-950/50 text-green-700 dark:text-green-400 ring-green-400 dark:ring-green-500/60',
-    dot: 'bg-green-500 dark:bg-green-400',
-    shadow: 'shadow-green-400/30 dark:shadow-green-400/20',
+      'bg-status-green text-status-green ring-status-green',
+    dot: 'bg-status-green-dot',
+    shadowColor: 'var(--semantic-status-green-shadow-color)',
   },
   blue: {
     container:
-      'bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-400 ring-blue-400 dark:ring-blue-500/60',
-    dot: 'bg-blue-500 dark:bg-blue-400',
-    shadow: 'shadow-blue-400/30 dark:shadow-blue-400/20',
+      'bg-status-blue text-status-blue ring-status-blue',
+    dot: 'bg-status-blue-dot',
+    shadowColor: 'var(--semantic-status-blue-shadow-color)',
   },
   rose: {
     container:
-      'bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-400 ring-rose-400 dark:ring-rose-500/60',
-    dot: 'bg-rose-500 dark:bg-rose-400',
-    shadow: 'shadow-rose-400/30 dark:shadow-rose-400/20',
+      'bg-status-rose text-status-rose ring-status-rose',
+    dot: 'bg-status-rose-dot',
+    shadowColor: 'var(--semantic-status-rose-shadow-color)',
+  },
+  yellow: {
+    container:
+      'bg-status-yellow text-status-yellow ring-status-yellow',
+    dot: 'bg-status-yellow-dot',
+    shadowColor: 'var(--semantic-status-yellow-shadow-color)',
+  },
+  purple: {
+    container:
+      'bg-status-purple text-status-purple ring-status-purple',
+    dot: 'bg-status-purple-dot',
+    shadowColor: 'var(--semantic-status-purple-shadow-color)',
   },
   neutral: {
     container:
-      'bg-neutral-100 dark:bg-neutral-800/60 text-neutral-700 dark:text-neutral-300 ring-neutral-400 dark:ring-neutral-500/60',
-    dot: 'bg-neutral-500 dark:bg-neutral-400',
-    shadow: 'shadow-neutral-400/30 dark:shadow-neutral-400/20',
+      'bg-status-neutral text-status-neutral ring-status-neutral',
+    dot: 'bg-status-neutral-dot',
+    shadowColor: 'var(--semantic-status-neutral-shadow-color)',
   },
 }
 
 const styles = computed(() => COLOR_MAP[props.color] ?? COLOR_MAP.green)
 
 const sizeClass = computed(() =>
-  props.size === 'sm' ? 'px-2 py-1 text-xs' : 'px-3 py-1.5 text-sm',
+  props.size === 'sm' ? 'badge-sm text-xs' : 'badge-lg text-sm',
 )
 </script>

@@ -1,13 +1,12 @@
 <template>
   <main class="relative flex flex-col gap-5">
     <button type="button" @click="$router.back()"
-      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 w-24 h-12 flex items-center justify-center text-sm text-black dark:text-white bg-neutral-100/40 dark:bg-black/15 border border-black/5 dark:border-white/10 backdrop-blur-md rounded-full z-10">
+      class="md:hidden sticky top-5 left-5 md:absolute md:top-15 md:left-8 detail-back-button flex items-center justify-center text-sm text-content-primary bg-surface-muted/40 border border-detail-back backdrop-blur-md rounded-full z-10">
       <font-awesome-icon icon="fa-solid fa-arrow-left" class="mr-1" />
       上一頁
     </button>
 
-    <section
-      class="aspect-2/1 md:aspect-4/1 overflow-hidden rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12">
+    <section class="detail-banner md:aspect-4/1">
       <picture>
         <source v-if="article.cover_image_wide" media="(min-width: 768px)" :srcset="article.cover_image_wide" />
         <img :src="article.cover_image || siteSettings.default_banner" :alt="article.title"
@@ -16,29 +15,29 @@
       </picture>
     </section>
     <article
-      class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10">
+      class="detail-content card-surface bg-detail-content flex flex-col gap-10">
       <header class="flex flex-col gap-4">
         <div v-if="article.category?.length || article.series" class="flex flex-wrap gap-2">
           <span v-for="c in article.category" :key="c"
-            class="w-fit px-2 py-0.5 text-xs font-normal bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 rounded-full">
+            class="w-fit badge-sm text-xs font-normal bg-action-subtle text-action-primary">
             {{ c }}
           </span>
           <span v-if="article.series"
-            class="w-fit px-2 py-0.5 text-xs font-normal bg-neutral-100 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 rounded-full">
+            class="w-fit badge-sm text-xs font-normal bg-surface-muted text-content-secondary">
             {{ article.series }}
             <template v-if="article.series_order"> #{{ article.series_order }}</template>
           </span>
         </div>
 
-        <h1 class="text-3xl md:text-4xl font-bold text-black dark:text-white leading-tight">
+        <h1 class="text-detail-title-lg md:text-detail-title-xl font-bold text-content-primary leading-tight">
           {{ article.title }}
         </h1>
 
-        <p v-if="article.subtitle" class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+        <p v-if="article.subtitle" class="text-lg text-content-secondary leading-relaxed">
           {{ article.subtitle }}
         </p>
 
-        <div class="flex flex-wrap gap-4 text-sm text-neutral-500 dark:text-neutral-400 font-mono">
+        <div class="flex flex-wrap gap-4 text-sm text-content-tertiary font-mono">
           <span v-if="article.published_at">
             <font-awesome-icon icon="fa-solid fa-calendar" />
             {{ formatDate(article.published_at) }}
@@ -51,32 +50,31 @@
 
         <div v-if="article.tags?.length" class="flex flex-wrap gap-2">
           <span v-for="tag in article.tags" :key="tag"
-            class="px-3 py-1 text-sm bg-neutral-100 dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-full text-neutral-600 dark:text-neutral-300">
+            class="badge-lg text-sm bg-surface-muted border border-strong text-content-secondary">
             #{{ tag }}
           </span>
         </div>
       </header>
 
-      <p v-if="article.excerpt"
-        class="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed border-l-4 border-sky-500 dark:border-sky-400 pl-5">
+      <p v-if="article.excerpt" class="text-lg text-content-secondary leading-article border-l-4 border-sky-700 dark:border-sky-400 pl-5">
         {{ article.excerpt }}
       </p>
 
-      <div class="border-b border-black/10 dark:border-white/10"></div>
+      <div class="border-b border-subtle"></div>
 
-      <div class="article-content text-neutral-800 dark:text-neutral-200" v-html="renderedContent"></div>
+      <div class="article-content text-content-primary" v-html="renderedContent"></div>
 
       <section v-if="article.sources?.length" class="flex flex-col gap-4">
-        <h2 class="text-xl md:text-2xl font-bold text-black dark:text-white">資料來源</h2>
+        <h2 class="text-section-title md:text-section-title-lg font-bold text-content-primary">資料來源</h2>
         <div class="flex flex-col gap-3">
           <div v-for="source in article.sources" :key="source.url"
-            class="group flex items-center gap-4 p-3 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-white/5 transition hover:ring-2 hover:ring-sky-500/40">
+            class="group flex items-center gap-4 p-5 rounded-xl border border-subtle bg-detail-muted transition hover:ring-2 hover:ring-sky-500/40 dark:hover:ring-sky-400/40">
             <img v-if="source.image" :src="source.image" :alt="source.title" loading="lazy" decoding="async"
               class="w-24 h-16 sm:w-32 sm:h-20 shrink-0 rounded-xl object-cover" />
             <div class="flex min-w-0 flex-col gap-1">
-              <span class="font-medium text-neutral-800 dark:text-neutral-200">{{ source.title }}</span>
+              <span class="font-medium text-content-primary">{{ source.title }}</span>
               <a :href="source.url" target="_blank" rel="noopener noreferrer"
-                class="inline-flex min-w-0 items-center gap-2 text-sm text-sky-700 dark:text-sky-300 hover:underline">
+                class="inline-flex min-w-0 items-center gap-2 text-sm text-action-primary hover:underline">
                 <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="shrink-0 text-xs" />
                 <span class="truncate" :title="source.url">{{ source.url }}</span>
               </a>
@@ -85,40 +83,40 @@
         </div>
       </section>
     </article>
-    <section class="flex flex-col gap-3">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <section class="flex flex-col">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <component :is="prev ? RouterLink : 'div'" :to="prev ? `/blog/${prev.slug}` : undefined" :class="[
-          'h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+          'detail-nav-link gap-4 detail-nav',
           prev
-            ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+            ? 'group md:hover:ring md:hover:ring-surface md:hover:shadow-card-hover'
             : 'opacity-40 cursor-not-allowed',
         ]">
           <font-awesome-icon icon="fa-solid fa-arrow-left"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+            class="shrink-0 text-content-tertiary group-hover:text-action-primary transition-colors" />
           <div class="flex flex-col min-w-0">
-            <span class="text-xs text-neutral-500 dark:text-neutral-400">上一篇</span>
+            <span class="text-xs text-content-tertiary">上一篇</span>
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-content-primary group-hover:text-action-primary truncate transition-colors">
               {{ prev?.title || '已是最新文章' }}
             </span>
           </div>
         </component>
 
         <component :is="next ? RouterLink : 'div'" :to="next ? `/blog/${next.slug}` : undefined" :class="[
-          'h-18 flex items-center justify-end text-right gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12 min-w-0 transition-all duration-300',
+          'detail-nav-link justify-end text-right gap-3 detail-nav',
           next
-            ? 'group md:hover:ring md:hover:ring-black/15 dark:md:hover:ring-white/10 md:hover:shadow-lg/12'
+            ? 'group md:hover:ring md:hover:ring-surface md:hover:shadow-card-hover'
             : 'opacity-40 cursor-not-allowed',
         ]">
           <div class="flex flex-col min-w-0">
-            <span class="text-xs text-neutral-500 dark:text-neutral-400">下一篇</span>
+            <span class="text-xs text-content-tertiary">下一篇</span>
             <span
-              class="text-sm font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-sky-600 dark:group-hover:text-sky-400 truncate transition-colors">
+              class="text-sm font-medium text-content-primary group-hover:text-action-primary truncate transition-colors">
               {{ next?.title || '已是最早文章' }}
             </span>
           </div>
           <font-awesome-icon icon="fa-solid fa-arrow-right"
-            class="shrink-0 text-neutral-500 dark:text-neutral-400 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" />
+            class="shrink-0 text-content-tertiary group-hover:text-action-primary transition-colors" />
         </component>
       </div>
     </section>
@@ -162,9 +160,11 @@ const formatDate = (iso: string) => {
 </script>
 
 <style>
+@reference '../assets/main.css';
+
 .article-content {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: var(--text-body);
+  line-height: var(--leading-article);
 }
 
 .article-content h1,
@@ -172,67 +172,59 @@ const formatDate = (iso: string) => {
 .article-content h3,
 .article-content h4 {
   font-weight: 700;
-  color: oklch(0.588 0.158 241.966);
-  line-height: 1.4;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  color: var(--semantic-action-primary);
+  line-height: var(--leading-body);
+  margin-top: calc(var(--spacing) * 20);
+  margin-bottom: var(--spacing-article-block);
 }
 
 html.dark .article-content h1,
 html.dark .article-content h2,
 html.dark .article-content h3,
 html.dark .article-content h4 {
-  color: oklch(0.588 0.158 241.966);
+  color: var(--semantic-action-primary);
 }
 
 .article-content h1 {
-  font-size: 1.875rem;
+  font-size: var(--text-heading-xl);
 }
 
 .article-content h2 {
-  font-size: 1.5rem;
+  font-size: var(--text-heading-lg);
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgb(0 0 0 / 0.1);
-}
-
-html.dark .article-content h2 {
-  border-bottom-color: rgb(255 255 255 / 0.1);
+  border-bottom: 1px solid var(--semantic-border-subtle);
 }
 
 .article-content h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-heading-md);
 }
 
 .article-content h4 {
-  font-size: 1.125rem;
+  font-size: var(--text-heading-sm);
 }
 
 .article-content p {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-article-block);
 }
 
 .article-content a {
-  color: rgb(2 132 199);
+  color: var(--semantic-action-primary);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .article-content a:hover {
-  color: rgb(3 105 161);
+  color: var(--semantic-action-primary-hover);
 }
 
 html.dark .article-content a {
-  color: rgb(56 189 248);
-}
-
-html.dark .article-content a:hover {
-  color: rgb(125 211 252);
+  color: var(--semantic-action-primary);
 }
 
 .article-content ul,
 .article-content ol {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
+  padding-left: var(--spacing-article-list-pl);
+  margin: var(--spacing-article-block) 0;
 }
 
 .article-content ul {
@@ -244,43 +236,35 @@ html.dark .article-content a:hover {
 }
 
 .article-content li {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-badge-default-py);
 }
 
 .article-content li>p {
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-badge-sm-py);
 }
 
 .article-content code {
+  @apply code-block;
   font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  background-color: #f5f5f5;
-  color: #171717;
-  padding: 0.125rem 0.375rem;
-  border-radius: 0.25rem;
+  padding: var(--spacing-badge-sm-py) var(--spacing-badge-sm-px);
+  border-radius: var(--radius-sm);
   font-size: 0.875em;
 }
 
-html.dark .article-content code {
-  background-color: #171717;
-  color: #e5e5e5;
-}
-
 .article-content pre {
-  background-color: #f5f5f5;
-  color: #171717;
-  border: 1px solid #e5e5e5;
-  padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
+  @apply code-block;
+  border: 1px solid var(--semantic-border-surface);
+  padding: var(--spacing-article-code-py) var(--spacing-article-code-px);
+  border-radius: var(--radius-xl);
   overflow-x: auto;
-  margin: 1.25rem 0;
-  font-size: 0.875rem;
-  line-height: 1.7;
+  margin: var(--spacing-article-table-my) 0;
+  font-size: var(--text-ui);
+  line-height: var(--leading-code);
 }
 
 html.dark .article-content pre {
-  background-color: #171717;
-  color: #e5e5e5;
-  border-color: #262626;
+  background-color: var(--semantic-article-code-bg);
+  color: var(--semantic-article-code-text);
 }
 
 .article-content pre code {
@@ -291,24 +275,19 @@ html.dark .article-content pre {
 }
 
 .article-content blockquote {
-  border-left: 4px solid rgb(209 213 219);
-  padding-left: 1rem;
-  color: rgb(75 85 99);
+  border-left: 4px solid var(--semantic-border-strong);
+  padding-left: var(--spacing-article-block);
+  color: var(--semantic-text-secondary);
   font-style: italic;
-  margin: 1rem 0;
-}
-
-html.dark .article-content blockquote {
-  border-left-color: rgb(75 85 99);
-  color: rgb(156 163 175);
+  margin: var(--spacing-article-block) 0;
 }
 
 .article-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 0.75rem;
-  margin: 1.5rem 0;
-  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-article-image-my) 0;
+  border: 1px solid var(--semantic-border-subtle);
 }
 
 .article-content img:not([width]):not([height]) {
@@ -318,11 +297,11 @@ html.dark .article-content blockquote {
 }
 
 .article-content figure {
-  margin: 1.5rem 0;
+  margin: var(--spacing-article-image-my) 0;
 }
 
 html.dark .article-content img {
-  border: none;
+  border-color: var(--semantic-border-subtle);
 }
 
 .article-content figure img {
@@ -330,30 +309,22 @@ html.dark .article-content img {
 }
 
 .article-content figcaption {
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-badge-default-py);
   text-align: center;
-  font-size: 0.875rem;
-  color: rgb(107 114 128);
-  line-height: 1.5;
-}
-
-html.dark .article-content figcaption {
-  color: rgb(156 163 175);
+  font-size: var(--text-ui);
+  color: var(--semantic-text-tertiary);
+  line-height: var(--leading-body);
 }
 
 .article-content hr {
   border: 0;
-  border-top: 1px solid rgb(0 0 0 / 0.1);
-  margin: 2rem 0;
-}
-
-html.dark .article-content hr {
-  border-top-color: rgb(255 255 255 / 0.1);
+  border-top: 1px solid var(--semantic-border-subtle);
+  margin: calc(var(--spacing) * 10) 0;
 }
 
 .article-content .article-table-wrap {
   overflow-x: auto;
-  margin: 20px 0;
+  margin: var(--spacing-article-table-my) 0;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -361,29 +332,19 @@ html.dark .article-content hr {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid rgb(0 0 0 / 0.1);
-  border-radius: 0.75rem;
+  border: 1px solid var(--semantic-border-subtle);
+  border-radius: var(--radius-xl);
   margin: 0;
-  font-size: 0.9375rem;
-}
-
-html.dark .article-content table {
-  border-color: rgb(255 255 255 / 0.1);
+  font-size: var(--text-table);
 }
 
 .article-content th,
 .article-content td {
-  padding: 0.5rem 0.75rem;
-  border-right: 1px solid rgb(0 0 0 / 0.1);
-  border-bottom: 1px solid rgb(0 0 0 / 0.1);
+  padding: var(--spacing-badge-default-py) var(--spacing-badge-lg-px);
+  border-right: 1px solid var(--semantic-border-subtle);
+  border-bottom: 1px solid var(--semantic-border-subtle);
   text-align: left;
   text-wrap: nowrap;
-}
-
-html.dark .article-content th,
-html.dark .article-content td {
-  border-right-color: rgb(255 255 255 / 0.1);
-  border-bottom-color: rgb(255 255 255 / 0.1);
 }
 
 .article-content th:last-child,
@@ -396,11 +357,7 @@ html.dark .article-content td {
 }
 
 .article-content th {
-  background-color: rgb(0 0 0 / 0.04);
+  background-color: var(--semantic-article-table-header-bg);
   font-weight: 600;
-}
-
-html.dark .article-content th {
-  background-color: rgb(255 255 255 / 0.05);
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="flex flex-row gap-2">
     <a
       v-if="website"
-      class="h-10 lg:px-3 flex items-center justify-center rounded-xl hover:text-sky-600 hover:bg-black/5 transition-all duration-200"
+      class="project-link hover:text-action-primary hover:bg-control-hover"
       :href="website"
       target="_blank"
       rel="noopener noreferrer"
@@ -13,7 +13,7 @@
     </a>
     <a
       v-if="github"
-      class="h-10 lg:px-3 flex items-center justify-center rounded-xl hover:text-sky-600 hover:bg-black/5 transition-all duration-200"
+      class="project-link hover:text-action-primary hover:bg-control-hover"
       :href="github"
       target="_blank"
       rel="noopener noreferrer"
@@ -24,7 +24,7 @@
     </a>
     <a
       v-if="figma"
-      class="h-10 lg:px-3 flex items-center justify-center rounded-xl hover:text-sky-600 hover:bg-black/5 transition-all duration-200"
+      class="project-link hover:text-action-primary hover:bg-control-hover"
       :href="figma"
       target="_blank"
       rel="noopener noreferrer"
@@ -35,7 +35,7 @@
     </a>
     <a
       v-if="figma_prototype"
-      class="h-10 lg:px-3 flex items-center justify-center rounded-xl hover:text-sky-600 hover:bg-black/5 transition-all duration-200"
+      class="project-link hover:text-action-primary hover:bg-control-hover"
       :href="figma_prototype"
       target="_blank"
       rel="noopener noreferrer"

@@ -1,31 +1,31 @@
 <template>
-  <main class="mx-5 mb-4">
-    <h1 class="text-3xl font-bold text-center text-neutral-900 dark:text-white py-10">我的作品</h1>
+    <main class="mx-5">
+    <h1 class="text-page-title font-bold text-center text-content-primary py-10">我的作品</h1>
     <h2 class="sr-only">作品列表</h2>
-    <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 card-grid">
       <div
         v-for="n in 6"
         :key="n"
-        class="animate-pulse w-full h-full rounded-3xl border border-black/15 dark:border-white/10 bg-white dark:bg-white/5 overflow-hidden shadow-xs/12"
+        class="card-skeleton w-full h-full overflow-hidden"
       >
-        <div class="aspect-3/2 bg-black/15 dark:bg-white/15" />
-        <div class="p-4">
+        <div class="aspect-3/2 bg-skeleton" />
+        <div class="flex flex-col gap-2 p-4">
           <div class="h-auto md:h-14 flex items-start">
-            <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-4/5 sm:w-3/4 lg:w-3/5" />
+            <div class="h-6 bg-skeleton rounded-sm w-4/5 sm:w-3/4 lg:w-3/5" />
           </div>
-          <div class="flex flex-row flex-wrap gap-1 my-2">
-            <span class="h-6 w-16 sm:w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-6 w-14 sm:w-12 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-6 w-20 sm:w-16 bg-black/15 dark:bg-white/15 rounded-full" />
+          <div class="flex flex-row flex-wrap gap-1">
+            <span class="h-6 w-16 sm:w-14 bg-skeleton rounded-full" />
+            <span class="h-6 w-14 sm:w-12 bg-skeleton rounded-full" />
+            <span class="h-6 w-20 sm:w-16 bg-skeleton rounded-full" />
           </div>
-          <div class="space-y-2">
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-full" />
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-11/12 sm:w-4/5" />
+          <div class="flex flex-col gap-2">
+            <div class="h-4 bg-skeleton rounded-sm w-full" />
+            <div class="h-4 bg-skeleton rounded-sm w-11/12 sm:w-4/5" />
           </div>
         </div>
       </div>
     </div>
-    <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
+    <div v-else-if="error" class="text-center text-feedback-error">{{ error }}</div>
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <ProjectCard
         v-for="(project, index) in projects"

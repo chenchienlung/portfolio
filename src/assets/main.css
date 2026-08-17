@@ -2,3 +2,362 @@
 @import './base.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@utility badge-sm {
+  padding-inline: var(--spacing-badge-sm-px);
+  padding-block: var(--spacing-badge-sm-py);
+  border-radius: 9999px;
+}
+
+@utility badge-default {
+  padding-inline: var(--spacing-badge-default-px);
+  padding-block: var(--spacing-badge-default-py);
+  border-radius: 9999px;
+}
+
+@utility badge-lg {
+  padding-inline: var(--spacing-badge-lg-px);
+  padding-block: var(--spacing-badge-lg-py);
+  border-radius: 9999px;
+}
+
+@utility bg-skeleton {
+  background-color: var(--semantic-bg-skeleton);
+}
+
+@utility bg-image-placeholder {
+  background-color: var(--semantic-bg-image-placeholder);
+}
+
+@utility bg-control-hover {
+  background-color: var(--semantic-bg-control-hover);
+}
+
+@utility code-block {
+  background-color: var(--semantic-article-code-bg);
+  color: var(--semantic-article-code-text);
+}
+
+@utility border-surface {
+  border-color: var(--semantic-border-surface) !important;
+}
+
+@utility border-subtle {
+  border-color: var(--semantic-border-subtle);
+}
+
+@utility border-strong {
+  border-color: var(--semantic-border-strong);
+}
+
+@utility ring-surface {
+  --tw-ring-color: var(--semantic-border-surface) !important;
+}
+
+@utility ring-status-green {
+  --tw-ring-color: var(--semantic-status-green-ring);
+}
+
+@utility ring-status-blue {
+  --tw-ring-color: var(--semantic-status-blue-ring);
+}
+
+@utility ring-status-rose {
+  --tw-ring-color: var(--semantic-status-rose-ring);
+}
+
+@utility ring-status-yellow {
+  --tw-ring-color: var(--semantic-status-yellow-ring);
+}
+
+@utility ring-status-purple {
+  --tw-ring-color: var(--semantic-status-purple-ring);
+}
+
+@utility ring-status-neutral {
+  --tw-ring-color: var(--semantic-status-neutral-ring);
+}
+
+@utility shadow-card-hover {
+  --tw-shadow: var(--semantic-shadow-card-hover);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+@utility shadow-status {
+  --tw-shadow: 0 0 calc(var(--spacing) * 3) var(--status-shadow-color);
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+    var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+@utility button-primary {
+  height: calc(var(--spacing) * 11);
+  padding-inline: calc(var(--spacing) * 5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: var(--semantic-action-primary);
+  color: var(--semantic-text-inverse);
+  transition: background-color 200ms;
+}
+
+@utility button-secondary {
+  height: calc(var(--spacing) * 11);
+  padding-inline: calc(var(--spacing) * 5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--semantic-action-border);
+  border-radius: 9999px;
+  color: var(--semantic-action-primary);
+  transition: background-color 200ms;
+}
+
+@utility card-compact {
+  padding: calc(var(--spacing) * 4);
+}
+
+@utility card-default {
+  padding: calc(var(--spacing) * 5);
+}
+
+@utility detail-content {
+  padding: calc(var(--spacing) * 6);
+}
+
+@utility detail-nav {
+  padding-block: calc(var(--spacing) * 6);
+  padding-inline: calc(var(--spacing) * 6);
+  background-color: var(--semantic-bg-surface);
+  border: 1px solid var(--semantic-border-surface);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility detail-nav-link {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  transition: all 300ms;
+}
+
+@utility detail-nav-skeleton {
+  padding-block: calc(var(--spacing) * 18);
+  padding-inline: calc(var(--spacing) * 6);
+  background-color: var(--semantic-bg-surface);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility card-grid {
+  gap: calc(var(--spacing) * 5);
+}
+
+@utility card-surface {
+  background-color: var(--semantic-bg-surface);
+  border: 1px solid var(--semantic-border-surface);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility bg-detail-content {
+  background-color: var(--semantic-bg-detail-content);
+}
+
+@utility bg-detail-muted {
+  background-color: var(--semantic-bg-detail-muted);
+}
+
+@utility card-skeleton {
+  animation: var(--animate-pulse);
+  border-radius: var(--radius-3xl);
+  background-color: var(--semantic-bg-surface);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility detail-banner {
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border: 1px solid var(--semantic-border-surface);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility detail-banner-skeleton {
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--semantic-shadow-card);
+}
+
+@utility button-action {
+  font-size: var(--text-ui);
+  transition: all 200ms;
+}
+
+@utility project-link {
+  height: calc(var(--spacing) * 10);
+  padding-inline: calc(var(--spacing) * 3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  font-size: var(--text-ui);
+  transition: all 200ms;
+}
+
+@utility section-title {
+  margin-bottom: calc(var(--spacing) * 10);
+  padding-bottom: calc(var(--spacing) * 2);
+}
+
+@utility detail-content-block {
+  margin-block: calc(var(--spacing) * 10);
+  padding: calc(var(--spacing) * 10) calc(var(--spacing) * 5);
+  border-radius: var(--radius-xl);
+  background-color: var(--semantic-bg-surface-muted);
+}
+
+@utility bg-status-green {
+  background-color: var(--semantic-status-green-bg);
+}
+
+@utility text-status-green {
+  color: var(--semantic-status-green-text);
+}
+
+@utility bg-status-blue {
+  background-color: var(--semantic-status-blue-bg);
+}
+
+@utility text-status-blue {
+  color: var(--semantic-status-blue-text);
+}
+
+@utility bg-status-rose {
+  background-color: var(--semantic-status-rose-bg);
+}
+
+@utility text-status-rose {
+  color: var(--semantic-status-rose-text);
+}
+
+@utility bg-status-yellow {
+  background-color: var(--semantic-status-yellow-bg);
+}
+
+@utility text-status-yellow {
+  color: var(--semantic-status-yellow-text);
+}
+
+@utility bg-status-purple {
+  background-color: var(--semantic-status-purple-bg);
+}
+
+@utility text-status-purple {
+  color: var(--semantic-status-purple-text);
+}
+
+@utility bg-status-neutral {
+  background-color: var(--semantic-status-neutral-bg);
+}
+
+@utility text-status-neutral {
+  color: var(--semantic-status-neutral-text);
+}
+
+@utility bg-status-green-dot {
+  background-color: var(--semantic-status-green-dot);
+}
+
+@utility bg-status-blue-dot {
+  background-color: var(--semantic-status-blue-dot);
+}
+
+@utility bg-status-rose-dot {
+  background-color: var(--semantic-status-rose-dot);
+}
+
+@utility bg-status-yellow-dot {
+  background-color: var(--semantic-status-yellow-dot);
+}
+
+@utility bg-status-purple-dot {
+  background-color: var(--semantic-status-purple-dot);
+}
+
+@utility bg-status-neutral-dot {
+  background-color: var(--semantic-status-neutral-dot);
+}
+
+@utility text-feedback-success {
+  color: var(--semantic-feedback-success-text);
+}
+
+@utility text-feedback-error {
+  color: var(--semantic-feedback-error-text);
+}
+
+@theme inline {
+  --spacing-badge-sm-px: calc(var(--spacing) * 2);
+  --spacing-badge-sm-py: calc(var(--spacing) * 0.5);
+  --spacing-badge-default-px: calc(var(--spacing) * 2.5);
+  --spacing-badge-default-py: var(--spacing);
+  --spacing-badge-lg-px: calc(var(--spacing) * 3);
+  --spacing-badge-lg-py: calc(var(--spacing) * 1.5);
+
+  --spacing-empty-state-py: calc(var(--spacing) * 20);
+
+  /* Detail component sizes */
+  --size-detail-icon: calc(var(--spacing) * 8);
+  --size-detail-back-button-width: calc(var(--spacing) * 24);
+  --size-detail-back-button-height: calc(var(--spacing) * 12);
+  --size-detail-heading-border: calc(var(--spacing) * 1.25);
+
+  /* typography tokens */
+  --text-page-title: var(--text-heading-xl);
+  --text-section-title: var(--text-heading-md);
+  --text-section-title-lg: var(--text-heading-lg);
+  --text-detail-title: var(--text-heading-lg);
+  --text-detail-title-lg: var(--text-heading-xl);
+  --text-detail-title-xl: var(--text-heading-2xl);
+  --text-card-title: var(--text-heading-sm);
+  --text-state-title: var(--text-heading-lg);
+  --leading-article: 1.8;
+
+  --color-surface: var(--semantic-bg-surface);
+  --color-surface-muted: var(--semantic-bg-surface-muted);
+  --color-content-primary: var(--semantic-text-primary);
+  --color-content-secondary: var(--semantic-text-secondary);
+  --color-content-tertiary: var(--semantic-text-tertiary);
+  --color-content-inverse: var(--semantic-text-inverse);
+
+  --color-action-primary: var(--semantic-action-primary);
+  --color-action-primary-hover: var(--semantic-action-primary-hover);
+  --color-action-subtle: var(--semantic-action-primary-subtle);
+}
+
+@utility border-navbar {
+  border-color: var(--semantic-border-navbar);
+}
+
+@utility border-detail-back {
+  border-color: var(--semantic-border-detail-back);
+}
+
+@utility size-detail-icon {
+  width: var(--size-detail-icon);
+  height: var(--size-detail-icon);
+}
+
+@utility detail-back-button {
+  width: var(--size-detail-back-button-width);
+  height: var(--size-detail-back-button-height);
+}
+
+@utility border-detail-heading {
+  border-left-width: var(--size-detail-heading-border);
+}

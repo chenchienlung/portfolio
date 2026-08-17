@@ -1,72 +1,71 @@
 <template>
   <main class="mx-5 mt-12 md:mt-24">
-    <div v-if="loading" class="animate-pulse flex flex-col gap-5 mb-10">
+    <div v-if="loading" class="animate-pulse flex flex-col gap-5">
       <div
-        class="aspect-2/1 md:aspect-4/1 rounded-4xl bg-black/15 dark:bg-white/15 border border-black/15 dark:border-white/10 shadow-xs/12" />
+        class="detail-banner-skeleton bg-skeleton md:aspect-4/1" />
       <div
-        class="px-5 py-8 md:px-12 md:py-16 bg-white dark:bg-white/5 rounded-4xl border border-black/15 dark:border-white/10 shadow-xs/12 flex flex-col gap-10">
+        class="detail-content card-skeleton flex flex-col gap-10">
         <div class="flex flex-col gap-4">
           <div class="flex flex-wrap gap-2">
-            <span class="h-5 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-5 w-20 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span class="h-5 w-14 bg-skeleton rounded-full" />
+            <span class="h-5 w-20 bg-skeleton rounded-full" />
           </div>
-          <div class="h-10 md:h-11 bg-black/15 dark:bg-white/15 rounded w-4/5" />
-          <div class="h-10 md:h-11 bg-black/15 dark:bg-white/15 rounded w-2/5" />
-          <div class="h-6 bg-black/15 dark:bg-white/15 rounded w-full" />
+          <div class="h-10 md:h-11 bg-skeleton rounded-sm w-4/5" />
+          <div class="h-10 md:h-11 bg-skeleton rounded-sm w-2/5" />
+          <div class="h-6 bg-skeleton rounded-sm w-3/5" />
+          <div class="h-6 bg-skeleton rounded-sm w-full" />
           <div class="flex flex-wrap gap-4">
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-24" />
-            <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-20" />
+            <div class="h-4 bg-skeleton rounded-sm w-24" />
+            <div class="h-4 bg-skeleton rounded-sm w-20" />
           </div>
           <div class="flex flex-wrap gap-2">
-            <span class="h-7 w-16 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-7 w-14 bg-black/15 dark:bg-white/15 rounded-full" />
-            <span class="h-7 w-20 bg-black/15 dark:bg-white/15 rounded-full" />
+            <span v-for="n in 3" :key="`tag-${n}`" class="h-7 w-16 bg-skeleton rounded-full" />
           </div>
         </div>
 
-        <div class="border-l-4 border-black/10 dark:border-white/10 pl-5 space-y-3">
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-full" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-4/5" />
+        <div class="border-l-4 border-subtle pl-5 flex flex-col gap-3">
+          <div class="h-5 bg-skeleton rounded-sm w-full" />
+          <div class="h-5 bg-skeleton rounded-sm w-4/5" />
         </div>
 
-        <div class="border-b border-black/10 dark:border-white/10"></div>
+        <div class="border-b border-subtle"></div>
 
-        <div class="space-y-3">
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-full" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-5/6" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-full" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-4/5" />
-          <div class="h-5 bg-black/15 dark:bg-white/15 rounded w-3/5" />
+        <div class="flex flex-col gap-3">
+          <div class="h-5 bg-skeleton rounded-sm w-full" />
+          <div class="h-5 bg-skeleton rounded-sm w-5/6" />
+          <div class="h-5 bg-skeleton rounded-sm w-full" />
+          <div class="h-5 bg-skeleton rounded-sm w-4/5" />
+          <div class="h-5 bg-skeleton rounded-sm w-3/5" />
         </div>
       </div>
 
       <section class="flex flex-col gap-3">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div v-for="n in 2" :key="n"
-            class="h-18 flex items-center gap-3 p-4 bg-white dark:bg-white/5 rounded-3xl border border-black/15 dark:border-white/10 shadow-xs/12">
-            <div class="w-4 h-4 bg-black/15 dark:bg-white/15 rounded shrink-0" />
+          <div v-for="n in 1" :key="n"
+        class="flex items-center gap-3 detail-nav-skeleton">
+            <div class="w-4 h-4 bg-skeleton rounded-sm shrink-0" />
             <div class="flex flex-col gap-1.5 flex-1 min-w-0">
-              <div class="h-3 bg-black/15 dark:bg-white/15 rounded w-16" />
-              <div class="h-4 bg-black/15 dark:bg-white/15 rounded w-3/4" />
+              <div class="h-3 bg-skeleton rounded-sm w-16" />
+              <div class="h-4 bg-skeleton rounded-sm w-3/4" />
             </div>
           </div>
         </div>
       </section>
     </div>
 
-    <div v-else-if="error" class="text-center py-20">
-      <h1 class="text-2xl font-bold text-red-500 mb-10">{{ error }}</h1>
+    <div v-else-if="error" class="text-center py-empty-state">
+      <h1 class="text-state-title font-bold text-feedback-error mb-10">{{ error }}</h1>
       <RouterLink to="/blog"
-        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        class="button-primary rounded-full button-action hover:bg-action-primary-hover">
         回到文章列表
       </RouterLink>
     </div>
     <ArticleDetail v-else-if="article" :article="article" :prev="prevArticle" :next="nextArticle" />
 
-    <div v-else class="text-center py-20">
-      <h1 class="text-2xl font-bold text-neutral-400 dark:text-neutral-500 mb-10">找不到該文章</h1>
+    <div v-else class="text-center py-empty-state">
+      <h1 class="text-state-title font-bold text-content-tertiary mb-10">找不到該文章</h1>
       <RouterLink to="/blog"
-        class="px-6 py-3.5 inline-flex items-center justify-center text-sm text-white bg-sky-800 hover:bg-sky-700 rounded-full transition-all duration-200">
+        class="button-primary rounded-full button-action hover:bg-action-primary-hover">
         回到文章列表
       </RouterLink>
     </div>
@@ -160,6 +159,7 @@ const loadArticle = async () => {
     if (currentRequestId === requestId) loading.value = false
   }
 }
+
 
 onMounted(loadArticle)
 watch(() => route.params.slug, loadArticle)
